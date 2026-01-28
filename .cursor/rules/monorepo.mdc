@@ -1,0 +1,11 @@
+---
+description: Standards for Turborepo monorepo management with pnpm
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# Monorepo Architecture Rules
+- **Structure:** apps/ contains deployable services; packages/ contains shared libraries. [3]
+- **Package Manager:** Always use pnpm. Never use npm or yarn. [4]
+- **Internal Dependencies:** Use the workspace:* protocol for all internal package references. [5]
+- **Task Execution:** Use pnpm --filter <package-name> <command> to leverage Turborepo's caching. [6, 7]
