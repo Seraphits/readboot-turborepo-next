@@ -1,0 +1,48 @@
+---
+description: ReadBoot "Futurist Carton" brand identity and SCSS styling standards
+globs: ["**/*.scss", "packages/ui/src/components/**/*.tsx", "apps/**/*.tsx"]
+alwaysApply: true
+---
+ReadBoot Branding Standards
+1. Visual Identity: "Futurist Carton"
+Aesthetic: High-contrast, editorial cartoon style with thick linework.
+
+Linework: Use consistent 4px solid charcoal borders ($ref-color-charcoal) for all primary containers and buttons.
+
+Corner Radius: Use 12px for a rounded, playful feel that mimics hand-drawn ink art.
+
+2. Design Tokens (Source of Truth)
+Always use tokens from @repo/ui/src/styles/variables/ instead of hardcoded values:
+
+Colors:
+
+Background: $sys-color-paper-bg (#FAF9F6)
+
+Ink/Text: $sys-color-ink-text (#36454F)
+
+Action: $sys-color-action-primary (#DC143C)
+
+Typography:
+
+Headlines: Baloo 2 (Font-weight: 700)
+
+Body: Inter (Academic/Clean)
+
+3. Naming Convention (BEM)
+Always use the Block-Element-Modifier syntax:
+
+Blocks: .button, .card, .masthead
+
+Modifiers: .button--action, .fx--glitch
+
+4. Interactive Effects
+The Glitch: Apply .fx--glitch to symbolize "critical system breaks." Use the keyframes defined in @_animations.scss.
+
+Hover States: Interactive elements must feel "bouncy." Use a 1.05 scale transform with a bouncy cubic-bezier easing.
+
+Grid Layout: For long-form text, implement newspaper-inspired column layouts using column-count.
+
+5. Technical Requirements
+Format: Use SCSS Modules only (.module.scss). No Styled-Components.
+
+Auto-Injection: Variables are injected globally via next.config.ts. Do NOT manually @import or @use variables inside component SCSS modules unless custom resolution fails.

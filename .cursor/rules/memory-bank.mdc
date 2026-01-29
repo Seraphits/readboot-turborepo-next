@@ -1,0 +1,15 @@
+---
+description: Protocol for maintaining project context and memory
+globs: ["**/*"]
+alwaysApply: true
+---
+Memory Bank Protocol
+- Start of Session: ALWAYS read .cursor/PRD.md and all files in .cursor/memory/ to orient yourself.
+
+- Workflow:
+
+  - PLAN: Propose changes and update the task list in progress.md.
+
+  - ACT: Execute the code changes after approval.
+
+- Persistence: After every significant change, update .cursor/memory/activeContext.md and .cursor/memory/progress.md.

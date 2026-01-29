@@ -6,3 +6,5 @@ Environment and Secrets
 
 System and Logs
 *.log .DS_Store .up/
+
+.turbo
