@@ -2,6 +2,12 @@
 $ref-font-fun: 'Baloo 2', display;
 $ref-font-clean: 'Inter', sans-serif;
 
+$ref-weight-black: 800;
+
 // ReadBoot Semantic Tokens (Sys)
 $sys-font-headline: $ref-font-fun;
 $sys-font-body: $ref-font-clean;
+
+
+$sys-font-glitch: $ref-font-fun;
+$sys-weight-glitch: $ref-weight-black;

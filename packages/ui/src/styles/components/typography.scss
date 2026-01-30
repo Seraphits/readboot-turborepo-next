@@ -1,0 +1,19 @@
+@use "../abstracts/variables/colors";
+@use "../abstracts/variables/fonts";
+@use "../abstracts/mixins/animations";
+
+.glitch-title {
+  font-family: fonts.$sys-font-glitch;
+  font-weight: fonts.$sys-weight-glitch;
+
+  // FIX: Add the "colors." prefix
+  color: colors.$sys-color-ink-text;
+
+  position: relative;
+  display: inline-block;
+
+  &:hover {
+    // FIX: Add the "animations." prefix
+    @include animations.glitch-disruption(0.25s);
+  }
+}

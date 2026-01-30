@@ -1,5 +1,5 @@
-@use "../../styles/variables/colors" as *;
-@use "../../styles/variables/typography" as *;
+@use "../../styles/abstracts/variables/colors" as *;
+@use "../../styles/abstracts/variables/fonts" as *;
 
 .buttonAction {
   background-color: $sys-color-action-primary;

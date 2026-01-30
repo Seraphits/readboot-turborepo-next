@@ -1,0 +1,11 @@
+
+@mixin set-color-scheme($scheme) {
+  $map: map-get($color-pairings, $scheme);
+
+  @if $map {
+    background-color: map-get($map, "bg");
+    color: map-get($map, "text");
+  } @else {
+    @error "Unknown color scheme: #{$scheme}. Please check _colors.scss.";
+  }
+}

@@ -1,5 +1,6 @@
-@use "./variables/colors" as *;
-@use "./variables/typography" as *;
+@use "../abstracts/variables/colors";
+@use "../abstracts/variables/fonts";
+@use "../abstracts/mixins/animations";
 
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Inter:wght@400;500;600&display=swap");
 

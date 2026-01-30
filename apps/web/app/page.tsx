@@ -1,10 +1,10 @@
 import { Button } from "@repo/ui";
-import styles from "@repo/ui/styles/page";
+
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <h1>Web Home</h1>
+    <div>
+      <h1 className="glitch-title" data-text="DISRUPTION">Web Home</h1>
       <Button>Button</Button>
     </div>
   );

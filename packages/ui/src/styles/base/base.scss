@@ -1,0 +1,27 @@
+@use "../abstracts/variables/colors";
+@use "../abstracts/variables/fonts";
+
+main {
+  // Styles previously in.page wrapper
+  background-color: colors.$sys-color-paper-bg;
+  color: colors.$sys-color-ink-text;
+  font-family: fonts.$sys-font-body;
+  min-height: 100vh;
+  padding: 2rem;
+
+  // Ensure it expands to fill space if using headers/footers
+  display: block;
+}
+
+header, footer {
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: colors.$sys-color-paper-bg; // Use your paper variable
+  border-bottom: 1px solid colors.$sys-color-ink-text;
+}
+
+footer {
+  border-bottom: none;
+  border-top: 1px solid colors.$sys-color-ink-text;
+  margin-top: auto; // Pushes footer to bottom if using flex layouts
+}

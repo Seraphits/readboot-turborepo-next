@@ -1,0 +1,41 @@
+// ReadBoot Primitive Tokens (Ref)
+$ref-color-offwhite: #FAF9F6;
+$ref-color-charcoal: #36454F;
+$ref-color-crimson: #DC143C;
+$ref-color-yellow:#FAD20A;
+$ref-color-teal: #29ECFF ;
+$ref-color-green:#56F000;
+$ref-color-purple:#905FEA;
+
+// ReadBoot Semantic Tokens (Sys)
+$sys-color-paper-bg: $ref-color-offwhite;
+$sys-color-ink-text: $ref-color-charcoal;
+$sys-color-action-primary: $ref-color-crimson;
+$sys-color-dark-paper-bg: $ref-color-charcoal;
+$sys-color-dark--ink-text: $ref-color-offwhite;
+$sys-color-status-success: $ref-color-green;
+$sys-color-status-warning: $ref-color-yellow;
+$sys-color-status-error: $ref-color-crimson;
+
+$color-pairings: (
+  "paper": (
+    "bg": $sys-color-paper-bg,
+    "text": $sys-color-ink-text
+  ),
+  "dark-paper": (
+    "bg": $sys-color-dark-paper-bg,
+    "text": $sys-color-dark--ink-text
+  ),
+  "action": (
+    "bg": $sys-color-action-primary,
+    "text": $ref-color-offwhite // High contrast for buttons
+  ),
+  "error": (
+    "bg": $sys-color-status-error,
+    "text": $ref-color-offwhite
+  ),
+  "success": (
+    "bg": $sys-color-status-success,
+    "text": $ref-color-charcoal
+  )
+);
