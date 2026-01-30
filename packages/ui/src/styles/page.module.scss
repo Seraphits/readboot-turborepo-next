@@ -1,0 +1,16 @@
+@use "./variables/colors" as *;
+@use "./variables/typography" as *;
+
+.page {
+  background-color: $sys-color-paper-bg;
+  color: $sys-color-ink-text;
+  font-family: $sys-font-body;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.page h1 {
+  font-family: $sys-font-headline;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
