@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import "@repo/ui/styles/globals";
 
 export const metadata: Metadata = {
   title: "ReadBoot",

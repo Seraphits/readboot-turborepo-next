@@ -6,7 +6,7 @@
   "types": "./src/index.tsx",
   "exports": {
     "./*": "./src/*.tsx",
-    "./styles/globals": "./src/styles/globals.module.scss",
+    "./styles/globals": "./src/styles/base/globals.scss",
     "./styles/page": "./src/styles/page.module.scss",
     "./styles/*": "./src/styles/*.scss",
     "./components/*": "./src/components/*"

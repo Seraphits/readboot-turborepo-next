@@ -2,17 +2,26 @@
 @use "../abstracts/variables/colors";
 @use "../abstracts/variables/fonts";
 
+// ReadBoot: Headlines use Baloo 2, font-weight 700
 h1, h2, h3, h4, h5, h6 {
-  font-family: fonts.$sys-font-glitch;
+  font-family: fonts.$sys-font-headline;
+  font-weight: 700;
   color: colors.$sys-color-ink-text;
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
 
-h1 { font-size: 3rem; font-weight: 800; }
-h2 { font-size: 2.5rem; font-weight: 700; }
+h1 { font-size: 3rem; }
+h2 { font-size: 2.5rem; }
 h3 { font-size: 2rem; }
 
+// ReadBoot: Header uses Baloo 2 (same as headlines)
+header {
+  font-family: fonts.$sys-font-headline;
+  font-weight: 700;
+}
+
+// ReadBoot: Body uses Inter
 p {
   font-family: fonts.$sys-font-body;
   color: colors.$sys-color-ink-text;

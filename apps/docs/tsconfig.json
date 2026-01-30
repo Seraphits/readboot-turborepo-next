@@ -19,7 +19,7 @@
     "next-env.d.ts",
     "next.config.ts",
     ".next/types/**/*.ts"
-  ],
+, "app/style-guide/default-styles"  ],
   "exclude": [
     "node_modules"
   ]
