@@ -8,6 +8,7 @@
     "./*": "./src/*.tsx",
     "./styles/globals": "./src/styles/base/globals.scss",
     "./styles/page": "./src/styles/page.module.scss",
+    "./styles/three-layer-button-box": "./src/styles/components/three-layer-button-box.module.scss",
     "./styles/*": "./src/styles/*.scss",
     "./components/*": "./src/components/*"
   },
@@ -28,5 +29,8 @@
   "dependencies": {
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
+  },
+  "peerDependencies": {
+    "next": ">=14.0.0"
   }
 }

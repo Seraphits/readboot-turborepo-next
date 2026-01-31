@@ -1,4 +1,5 @@
 export * from "./components/Button/button";
+export { ThreeLayerButton } from "./components/ThreeLayerButton/ThreeLayerButton";
 export {
   ColorScheme,
   COLOR_PAIRINGS,
