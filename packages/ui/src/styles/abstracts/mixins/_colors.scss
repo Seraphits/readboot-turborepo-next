@@ -1,6 +1,7 @@
+@use "../variables/colors" as vars;
 
 @mixin set-color-scheme($scheme) {
-  $map: map-get($color-pairings, $scheme);
+  $map: map-get(vars.$color-pairings, $scheme);
 
   @if $map {
     background-color: map-get($map, "bg");

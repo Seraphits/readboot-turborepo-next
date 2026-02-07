@@ -1,5 +1,5 @@
-@use "../../styles/abstracts/variables/colors" as *;
-@use "../../styles/abstracts/variables/fonts" as *;
+@use "abstracts/variables/colors" as *;
+@use "abstracts/variables/fonts" as *;
 
 @mixin flap-animation {
   position: absolute;

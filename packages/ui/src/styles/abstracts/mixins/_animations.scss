@@ -1,3 +1,5 @@
+ @use "../variables/colors" as colors;
+ @use "./colors" as color-mixins;
 
 @mixin glitch-disruption($duration: 0.3s) {
   position: relative;
@@ -16,13 +18,13 @@
 
   &::before {
     left: 2px;
-    text-shadow: -2px 0 $sys-color-action-primary; // Crimson shift
+    text-shadow: -2px 0 colors.$sys-color-action-primary; // Crimson shift
     animation: glitch-anim $duration infinite linear alternate-reverse;
   }
 
   &::after {
     left: -2px;
-    text-shadow: 2px 0 $ref-color-teal; // Teal shift
+    text-shadow: 2px 0 colors.$ref-color-teal; // Teal shift
     animation: glitch-anim $duration infinite linear;
   }
 

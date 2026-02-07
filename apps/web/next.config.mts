@@ -1,9 +1,18 @@
 import type { NextConfig } from "next";
+import path from "node:path"; // The 'node:' prefix is best practice for ESM
+import { fileURLToPath } from "node:url";
+
+// Polyfill __dirname for ESM context
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const nextConfig: NextConfig = {
   transpilePackages: ["@repo/ui"],
-  // Turbopack does not support sassOptions.includePaths / additionalData.
-  // SCSS files use explicit @use with relative paths to @repo/ui variables.
+  sassOptions: {
+    // Nested correctly; loadPaths is the modern standard for Dart Sass/Turbopack
+    includePaths: [path.join(__dirname, "../../packages/ui/src/styles")],
+    loadPaths: [path.join(__dirname, "../../packages/ui/src/styles")],
+  },
 };
 
 export default nextConfig;

@@ -1,0 +1,17 @@
+@use "abstracts/variables/fonts" as fonts;
+@use "abstracts/mixins/animations" as anim;
+
+.glitchHeadline {
+  font-family: fonts.$sys-font-headline; // Baloo 2 [Image 5]
+  font-size: clamp(3rem, 10vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  @include anim.glitch-disruption(0.4s); // Critical system break [Image 6]
+}
+
+.subheadline {
+  font-family: fonts.$sys-font-body; // Inter [Image 5]
+  font-size: 1.25rem;
+  margin-top: 1.5rem;
+  max-width: 60ch;
+}
