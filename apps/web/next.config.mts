@@ -13,6 +13,15 @@ const nextConfig: NextConfig = {
     includePaths: [path.join(__dirname, "../../packages/ui/src/styles")],
     loadPaths: [path.join(__dirname, "../../packages/ui/src/styles")],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'readboot.cloudaccess.host',
+        pathname: '/wp-content/uploads/**',
+      },
+    ],
+  },
 };
 
 export default nextConfig;

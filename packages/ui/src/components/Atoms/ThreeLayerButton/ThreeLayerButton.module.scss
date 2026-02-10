@@ -56,3 +56,15 @@
     &::before, &::after { transform: rotateX(0deg); } // Reveal flaps
   }
 }
+.threeLayerButtonBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  row-gap: 4rem; // Clearance for the vertical flip radius
+  margin: 4rem 2rem;
+  background-color: green;
+
+  // CRITICAL: THE "3D ROOM"
+  perspective: 1000px;
+}

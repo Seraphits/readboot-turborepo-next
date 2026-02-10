@@ -13,12 +13,21 @@ main {
   display: block;
 }
 
-header, footer {
+footer {
   width: 100%;
   padding: 1rem 2rem;
   background-color: colors.$sys-color-paper-bg; // Use your paper variable
   border-bottom: 1px solid colors.$sys-color-ink-text;
 }
+
+header {
+  background-color: colors.$sys-color-paper-bg;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+  padding: 1rem 3rem;
+}
+
 
 footer {
   border-bottom: none;
