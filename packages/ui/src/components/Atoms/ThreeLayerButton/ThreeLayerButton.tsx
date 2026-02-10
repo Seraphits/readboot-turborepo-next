@@ -1,3 +1,12 @@
+'use client';
+
+interface ComponentNameProps {}
+
+export default function ComponentName({}: ComponentNameProps) {
+  return (
+    <div></div>
+  );
+}
 // "use client";
 // import Link from "next/link";
 // import styles from "./ThreeLayerButton.module.scss";
