@@ -7,10 +7,8 @@
   "exports": {
     "./*": "./src/*.tsx",
     "./styles/globals": "./src/styles/base/globals.scss",
-    "./styles/page": "./src/styles/page.module.scss",
-    "./styles/three-layer-button-box": "./src/styles/components/three-layer-button-box.module.scss",
     "./styles/*": "./src/styles/*.scss",
-    "./components/*": "./src/components/*"
+    "./patterns/*": "./src/patterns/*"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

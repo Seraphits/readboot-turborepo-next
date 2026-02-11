@@ -20,7 +20,7 @@
     "next.config.ts",
     "next.config.mts",
     ".next/types/**/*.ts"
-, "app/style-guide/default-styles", "../../packages/ui/src/components/Organisms/NavBar/NavBar.tsx"  ],
+, "app/style-guide/default-styles", "../../packages/ui/src/patterns/Organisms/NavBar/NavBar.tsx"  ],
   "exclude": [
     "node_modules"
   ]
