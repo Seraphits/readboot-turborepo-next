@@ -1,0 +1,22 @@
+@use "abstracts/mixins/colors" as color-mixins;
+@use "abstracts/variables/colors" as colors;
+
+.paper { @include color-mixins.set-color-scheme('paper'); }
+.action { @include color-mixins.set-color-scheme('action'); }
+
+.bouncyCta {
+  margin-top: 2.5rem;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); // Bouncy physics [Image 1]
+
+  &:hover {
+    transform: scale(1.05); // 5% scale jump [4]
+  }
+}
+
+.mediaSlot {
+  width: 100%;
+  height: 400px;
+  background: colors.$sys-color-bg;
+  border: 4px solid colors.$sys-color-ink-text;
+  border-radius: 8px;
+}

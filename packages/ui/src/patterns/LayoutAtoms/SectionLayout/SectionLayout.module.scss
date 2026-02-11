@@ -1,0 +1,24 @@
+@use "abstracts/variables/colors" as colors;
+
+.container {
+  display: grid;
+  min-height: 80vh; // Full-height hero trend
+  margin: 2rem;
+  padding: 4rem 2rem;
+  border: 4px solid colors.$sys-color-ink-text; // Standard 4px border [Image 1]
+  border-radius: 12px;
+  gap: 2rem;
+  align-items: center;
+
+  // Variant Canvas Maps [2]
+  &.centered { grid-template-areas: "content"; justify-items: center; text-align: center; }
+  &.split { grid-template-areas: "content media"; grid-template-columns: 1fr 1fr; }
+  &.asymmetrical { grid-template-areas: "content media"; grid-template-columns: 3fr 2fr; }
+  &.preview { grid-template-areas: "content media"; grid-template-columns: 45% 55%; }
+
+  @media (max-width: 768px) {
+    grid-template-areas: "content" "media";
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}

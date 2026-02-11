@@ -1,9 +1,25 @@
-import type { NextConfig } from "next";
+import path from "path";
+import { fileURLToPath } from "url";
 
-const nextConfig: NextConfig = {
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const nextConfig = {
   transpilePackages: ["@repo/ui"],
-  // Turbopack does not support sassOptions.includePaths / additionalData.
-  // SCSS files use explicit @use with relative paths to @repo/ui variables.
+  sassOptions: {
+    // This tells Sass: "If you can't find a file relatively, look here too"
+    includePaths: [path.join(__dirname, "../../packages/ui/src/styles")],
+    // loadPaths is the modern standard for Dart Sass/Turbopack
+    loadPaths: [path.join(__dirname, "../../packages/ui/src/styles")],
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'readboot.cloudaccess.host',
+        pathname: '/wp-content/uploads/**',
+      },
+    ],
+  },
 };
 
 export default nextConfig;

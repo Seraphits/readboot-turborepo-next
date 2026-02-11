@@ -1,0 +1,15 @@
+@keyframes glitch-anim-1 {
+  0% { clip-path: polygon(0 2%, 100% 2%, 100% 5%, 0 5%); transform: translate(-5px); }
+  20% { clip-path: polygon(0 15%, 100% 15%, 100% 15%, 0 15%); transform: translate(5px); }
+  //... rapid coordinates changes
+}
+
+@keyframes glitch-anim {
+  0% { clip-path: inset(50% 0 30% 0); transform: translate(-5px, 0); }
+  20% { clip-path: inset(10% 0 85% 0); transform: translate(5px, 0); }
+  40% { clip-path: inset(80% 0 5% 0); transform: translate(-5px, 0); }
+  60% { clip-path: inset(30% 0 60% 0); transform: translate(5px, 0); }
+  80% { clip-path: inset(0% 0 0% 0); transform: translate(-2px, 0); }
+  100% { clip-path: inset(0% 0 0% 0); transform: translate(0); }
+}
+

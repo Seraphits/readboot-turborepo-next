@@ -18,8 +18,9 @@
     "**/*.d.ts",
     "next-env.d.ts",
     "next.config.ts",
+    "next.config.mts",
     ".next/types/**/*.ts"
-  ],
+, "app/style-guide/default-styles", "../../packages/ui/src/components/Organisms/NavBar/NavBar.tsx"  ],
   "exclude": [
     "node_modules"
   ]

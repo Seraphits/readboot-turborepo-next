@@ -1,0 +1,33 @@
+ @use "../variables/colors" as colors;
+ @use "./colors" as color-mixins;
+
+@mixin glitch-disruption($duration: 0.3s) {
+  position: relative;
+  display: inline-block;
+
+  &::before,
+  &::after {
+    content: attr(data-text); // Requires a data-text attribute on the HTML element
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+  }
+
+  &::before {
+    left: 2px;
+    text-shadow: -2px 0 colors.$sys-color-action-primary; // Crimson shift
+    animation: glitch-anim $duration infinite linear alternate-reverse;
+  }
+
+  &::after {
+    left: -2px;
+    text-shadow: 2px 0 colors.$ref-color-teal; // Teal shift
+    animation: glitch-anim $duration infinite linear;
+  }
+
+  // Ensure the base text remains legible underneath
+  z-index: 1;
+}
