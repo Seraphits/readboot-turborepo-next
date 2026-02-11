@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "@repo/ui/styles/globals";
-import NavBar from "@repo/ui/components/Organisms/NavBar/NavBar";
+import NavBar from "@repo/ui/patterns//Organisms/NavBar/NavBar";
 
 
 export const metadata: Metadata = {
