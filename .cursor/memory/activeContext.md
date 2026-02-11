@@ -2,6 +2,7 @@ Active Context: ReadBoot Shared UI
 - Current Objective: Building the shared "Futurist Carton" component library in packages/ui.
 - Active Task: Migrating basic components (Button, Card, Code) to use the new SCSS Module architecture.
 - Status: Button is complete. Card and Code are pending migration.
+- Recent: Nav-Menu branch merged into main (6168e26). Main now includes style guide, NavBar, Hero, Logo, pattern renames, and SCSS restructure.
 
 ReadBoot Progress
 - [x] Turborepo boilerplate initialized.
