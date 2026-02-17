@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './button'; // Co-located import
 
 const meta = {
-  title: 'Atoms/Button',
+  title: 'Patterns/Atoms/Button',
   component: Button,
 } satisfies Meta<typeof Button>;
 

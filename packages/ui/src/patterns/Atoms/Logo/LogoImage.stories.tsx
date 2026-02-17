@@ -59,7 +59,7 @@ function LogoImageStoryWrapper({
 }
 
 const meta = {
-  title: "Atoms/Logo",
+  title: "Patterns/Atoms/Logo",
   component: LogoImageStoryWrapper,
   parameters: { layout: "centered" },
   argTypes: {
