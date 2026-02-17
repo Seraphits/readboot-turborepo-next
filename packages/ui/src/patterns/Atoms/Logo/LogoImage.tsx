@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-// 1. Define the structure of your GraphQL response
 interface LogoResponse {
   siteSettings: {
     siteSettings: {
@@ -12,12 +11,17 @@ interface LogoResponse {
   };
 }
 
-// 2. Define the Next.js fetch options to avoid 'any'
 interface NextFetchOptions extends RequestInit {
-  next?: {
-    revalidate?: number | false;
-    tags?: string;
-  };
+  next?: { revalidate?: number | false; tags?: string };
+}
+
+interface LogoProps {
+  /** Optional override for width (e.g. '200px' or '100%') */
+  width?: string | number;
+  /** Optional override for height (e.g. '100px' or '100%') */
+  height?: string | number;
+  /** For passing Tailwind classes or custom SCSS from the Pattern Lab */
+  className?: string;
 }
 
 const LOGO_QUERY = `
@@ -33,31 +37,48 @@ const LOGO_QUERY = `
   }
 `;
 
-const LogoImage = async () => {
-  // Use the custom interface instead of 'any'
-  const response = await fetch('https://readboot.cloudaccess.host/graphql', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+const LOGO_ENDPOINT = "https://readboot.cloudaccess.host/graphql";
+
+/**
+ * ReadBoot Logo Atom
+ * Fetches the brandmark from Headless WordPress on the server.
+ * Designed to fill its parent container while maintaining aspect ratio.
+ */
+export default async function LogoImage({
+  width = "100%",
+  height = "100%",
+  className,
+}: LogoProps) {
+  const res = await fetch(LOGO_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ query: LOGO_QUERY }),
-    next: { revalidate: 60 }
+    next: { revalidate: 3600 },
   } as NextFetchOptions);
 
-  // Cast the response JSON to your interface
-  const { data } = (await response.json()) as { data: LogoResponse };
+  const { data } = (await res.json()) as { data: LogoResponse };
   const logo = data?.siteSettings?.siteSettings?.headerLogo;
 
   if (!logo?.sourceUrl) return null;
 
   return (
-    <>
+    <div
+      className={className}
+      style={{
+        position: "relative",
+        width,
+        height,
+        display: "block",
+      }}
+    >
       <Image
         src={logo.sourceUrl}
-        alt={logo.altText || "ReadBoot Logo"} // Fixed the pipe error
-        layout="fill"
+        alt={logo.altText || "ReadBoot Logo"}
+        fill
+        style={{ objectFit: "contain" }}
         priority
+        sizes="(max-width: 768px) 100vw, 50vw"
       />
-    </>
+    </div>
   );
-};
-
-export default LogoImage;
+}
