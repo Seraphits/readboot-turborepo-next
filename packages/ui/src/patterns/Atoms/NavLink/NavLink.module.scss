@@ -1,0 +1,22 @@
+@use "abstracts/variables/colors" as colors;
+@use "abstracts/variables/fonts" as fonts;
+
+.NavLink {
+  font-family: fonts.$sys-font-body;
+  color: colors.$sys-color-ink-text;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  display: inline-block;
+
+  &:hover, &:focus {
+    color: colors.$sys-color-action-primary; // Using your 'crimson' token for interaction
+    outline: none;
+  }
+
+  &--active {
+    color: colors.$sys-color-action-primary;
+    font-weight: 700; // Using weight from your typography scale
+    border-bottom: 2px solid colors.$sys-color-action-primary;
+  }
+}

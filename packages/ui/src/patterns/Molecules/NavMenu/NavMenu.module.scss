@@ -1,0 +1,23 @@
+@use "abstracts/variables/colors" as colors;
+
+.NavMenu {
+  height: 100%;
+
+  &__List {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  &__Item {
+    padding-left: 4rem; // Based on your original SCSS from Image 2
+
+    &:first-child {
+      padding-left: 0;
+    }
+  }
+}

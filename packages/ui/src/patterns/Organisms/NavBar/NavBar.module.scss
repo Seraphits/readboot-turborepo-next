@@ -1,40 +1,21 @@
 @use "abstracts/variables/colors" as colors;
-@use "abstracts/variables/fonts" as fonts;
-@use "abstracts/mixins/animations" as anim;
-@use "abstracts/mixins/colors" as color-mixins;
 
-.logo {
- height: 100%;
- width: 100px;
- position: relative;
-//  background-color: colors.$sys-color-status-warning;
-}
-
-.Nav__List{
+.NavBar {
   display: flex;
-  // justify-content: space-around;
-
+  justify-content: space-between;
   align-items: center;
-  height: 100%;
-}
-.Nav__Item{
-  list-style: none;
-  padding-left: 4rem;
-}
-.Nav__Link {
-  // color: color(primary);
-  // color: color(secondary);
-  text-decoration: none;
-  transition: all .3s;
-  // &:hover {
-  //   color: color(primary);
-  // }
-  // &:active {
-  //   color: color(primary);
-  // }
-}
-.Nav__End {
-  width: 100%;
-  height: 2.5px;
-  // background-color: lighten($color: $sys-color-action-primary, $amount: 30);
+  height: 80px; // Matches your base.scss header height
+  padding: 0 2rem;
+  background-color: colors.$sys-color-paper-bg;
+  border-bottom: 1px solid colors.$sys-color-ink-text;
+
+  &__Logo {
+    width: 100px;
+    height: 100%;
+    position: relative;
+  }
+
+  &__Menu {
+    height: 100%;
+  }
 }
