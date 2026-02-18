@@ -11,15 +11,13 @@ const meta = {
 } satisfies Meta<typeof NavMenu>;
 
 export default meta;
-
-type Story = StoryObj<typeof meta>; // Changed from StoryObj<typeof NavMenu> to StoryObj<typeof meta> for standard Storybook typing
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    // Corrected the array syntax here:
     links: [
       { label: 'Home', href: '/' },
-      { label: 'Page 1', href: '/page1' },
+      { label: 'Page 1', href: '/?path=/story/patterns-molecules-navmenu--default' },
     ],
   },
 };

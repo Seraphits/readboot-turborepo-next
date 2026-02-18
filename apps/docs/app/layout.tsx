@@ -1,37 +1,45 @@
 import type { Metadata } from "next";
 import "@repo/ui/styles/globals";
-import NavBar from "@repo/ui/patterns/Organisms/NavBar/NavBar";
+import  NavBar  from "@repo/ui/patterns/Organisms/NavBar/NavBar";
 
+async function getMenuData() {
+  const res = await fetch('https://readboot.cloudaccess.host/graphql', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      query: `
+        query GetPrimaryMenu {
+          menuItems(where: { location: DOCS_TOPNAV }) {
+            nodes {
+              id
+              label
+              url
+              parentId
+            }
+          }
+        }
+      `,
+    }),
+    next: { revalidate: 60 }, // Cache for 60 seconds [4, 5]
+  });
 
-export const metadata: Metadata = {
-  title: "ReadBoot Docs",
-  description: "ReBooting Education Through Visionary Futures",
-};
+  const json = await res.json();
+  return json.data.menuItems.nodes;
+}
 
-// async function getHeaderData() {
-//   const response = await fetch('https://readboot.cloudaccess.host/graphql', {
-//     method: 'POST',
-//     headers: { 'Content-Type': 'application/json' },
-//     body: JSON.stringify({ query: LOGO_QUERY }),
-//     // Revalidate ensures your logo updates shortly after you change it in WordPress
-//     next: { revalidate: 60 },
-//   });
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const menuItems = await getMenuData();
+  // Transform the flat list into a hierarchy if you have sub-menus
+const navLinks = menuItems.map((item: { label: string; url: string }) => ({
+  label: item.label,
+  href: item.url.replace('https://readboot.cloudaccess.host', '')
+}));
 
-//   const { data } = await response.json();
-//   return data.siteSettings.siteSettings.headerLogo;
-// }
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
   return (
     <html lang="en">
       <body>
-        <NavBar  />
-          <main>{children}</main>
-        <footer>Footer content here</footer>
+        <NavBar links={navLinks} />
+        <main>{children}</main>
       </body>
     </html>
   );

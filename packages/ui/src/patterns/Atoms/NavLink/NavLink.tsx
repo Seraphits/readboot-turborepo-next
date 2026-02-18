@@ -1,5 +1,8 @@
+// packages/ui/src/patterns/Atoms/NavLink/NavLink.tsx
+'use client'; // 1. Add this directive [10, 9]
+
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation'; // 2. Change import to next/navigation [7, 8]
 import styles from './NavLink.module.scss';
 
 interface NavLinkProps {
@@ -8,15 +11,14 @@ interface NavLinkProps {
 }
 
 const NavLink = ({ href, children }: NavLinkProps) => {
-  const { asPath } = useRouter();
-  const isActive = asPath === href;
+  const pathname = usePathname(); // 3. Use usePathname for active states [9, 11]
+  const isActive = pathname === href;
 
   return (
     <Link
       href={href}
-      // Apply the base class and the active modifier based on current path
       className={`${styles.NavLink} ${isActive? styles['NavLink--active'] : ''}`}
-      aria-current={isActive? 'page' : undefined} // Critical for A11y
+      aria-current={isActive? 'page' : undefined}
     >
       {children}
     </Link>

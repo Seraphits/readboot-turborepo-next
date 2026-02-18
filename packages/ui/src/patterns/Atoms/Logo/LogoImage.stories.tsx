@@ -1,72 +1,15 @@
-"use client";
-
 import type { Meta, StoryObj } from "@storybook/react";
-import Image from "next/image";
-import { useEffect, useState } from "react";
-
-const LOGO_QUERY = `
-  query GetLogo {
-    siteSettings {
-      siteSettings {
-        headerLogo {
-          sourceUrl
-          altText
-        }
-      }
-    }
-  }
-`;
-
-/** Storybook-only client wrapper: fetches the same logo as the Server Component */
-function LogoImageStoryWrapper({
-  width = "100%",
-  height = "100%",
-}: {
-  width?: string | number;
-  height?: string | number;
-}) {
-  const [logo, setLogo] = useState<{ sourceUrl: string; altText: string } | null>(null);
-
-  useEffect(() => {
-    fetch("https://readboot.cloudaccess.host/graphql", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query: LOGO_QUERY }),
-    })
-      .then((res) => res.json())
-      .then((json) => {
-        const headerLogo = json.data?.siteSettings?.siteSettings?.headerLogo;
-        if (headerLogo?.sourceUrl) {
-          setLogo({ sourceUrl: headerLogo.sourceUrl, altText: headerLogo.altText || "ReadBoot Logo" });
-        }
-      });
-  }, []);
-
-  if (!logo?.sourceUrl) return <div style={{ width, height, background: "#eee" }}>Loading logo…</div>;
-
-  return (
-    <div style={{ position: "relative", width, height, display: "block" }}>
-      <Image
-        src={logo.sourceUrl}
-        alt={logo.altText}
-        fill
-        style={{ objectFit: "contain" }}
-        priority
-        sizes="(max-width: 768px) 100vw, 50vw"
-      />
-    </div>
-  );
-}
+import { LogoImageClient } from "./LogoImageClient";
 
 const meta = {
   title: "Patterns/Atoms/Logo",
-  component: LogoImageStoryWrapper,
+  component: LogoImageClient,
   parameters: { layout: "centered" },
   argTypes: {
-    width: { control: { type: "text" } },
-    height: { control: { type: "text" } },
+    width: { control: "text" },
+    height: { control: "text" },
   },
-} satisfies Meta<typeof LogoImageStoryWrapper>;
+} satisfies Meta<typeof LogoImageClient>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
