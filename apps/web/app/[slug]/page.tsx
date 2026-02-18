@@ -1,4 +1,16 @@
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const pageData = await getPageData(slug);
+
+  return {
+    title: pageData?.title |
+
+| 'Page Not Found',
+  };
+}
 // 1. Define the data fetching function
 async function getPageData(slug: string) {
   // Use leading/trailing slashes to match standard WordPress URIs
