@@ -7,7 +7,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@repo/ui"],
+  transpilePackages: ["@repo/ui", '@repo/wp-utils', '@repo/ui'],
   sassOptions: {
     // Nested correctly; loadPaths is the modern standard for Dart Sass/Turbopack
     includePaths: [path.join(__dirname, "../../packages/ui/src/styles")],

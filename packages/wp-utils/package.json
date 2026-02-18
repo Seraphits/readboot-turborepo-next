@@ -1,0 +1,14 @@
+{
+  "name": "@repo/wp-utils",
+  "version": "1.0.0",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": {
+    "@apollo/client": "*",
+    "graphql": "*",
+    "react": "*"
+  },
+  "devDependencies": {
+    "@types/react": "*"
+  }
+}
