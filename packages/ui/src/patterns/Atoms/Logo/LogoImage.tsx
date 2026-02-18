@@ -12,7 +12,7 @@ interface LogoResponse {
 }
 
 interface NextFetchOptions extends RequestInit {
-  next?: { revalidate?: number | false; tags?: string };
+  next?: { revalidate?: number | false; tags?: string[] };
 }
 
 interface LogoProps {
