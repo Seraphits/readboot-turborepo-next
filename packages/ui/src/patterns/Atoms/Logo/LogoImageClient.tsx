@@ -29,7 +29,8 @@ export function LogoImageClient({
   const [logo, setLogo] = useState<{ sourceUrl: string; altText: string } | null>(null);
 
   useEffect(() => {
-    fetch("https://readboot.cloudaccess.host/graphql", {
+    const endpoint = process.env.NEXT_PUBLIC_WORDPRESS_API_URL ?? "https://readboot.cloudaccess.host/graphql";
+    fetch(endpoint, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ query: LOGO_QUERY }),

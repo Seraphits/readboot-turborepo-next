@@ -37,7 +37,7 @@ const LOGO_QUERY = `
   }
 `;
 
-const LOGO_ENDPOINT = "https://readboot.cloudaccess.host/graphql";
+const LOGO_ENDPOINT = process.env.NEXT_PUBLIC_WORDPRESS_API_URL ?? "https://readboot.cloudaccess.host/graphql";
 
 /**
  * ReadBoot Logo Atom

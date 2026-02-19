@@ -6,17 +6,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const pageData = await getPageData(slug);
 
   return {
-    title: pageData?.title |
-
-| 'Page Not Found',
+    title: pageData?.title || 'Page Not Found',
   };
 }
 // 1. Define the data fetching function
 async function getPageData(slug: string) {
-  // Use leading/trailing slashes to match standard WordPress URIs
   const uri = `/${slug}/`;
+  const endpoint = process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
 
-  const res = await fetch('https://readboot.cloudaccess.host/graphql', {
+  if (!endpoint) {
+    throw new Error("NEXT_PUBLIC_WORDPRESS_API_URL is missing from.env.local");
+  }
+
+  const res = await fetch(endpoint, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
@@ -30,7 +32,7 @@ async function getPageData(slug: string) {
       `,
       variables: { uri },
     }),
-    next: { revalidate: 60 } // Optional: caches the result for 60 seconds
+    next: { revalidate: 60 }
   });
 
   const { data } = await res.json();
