@@ -4,27 +4,39 @@ import { buildMenuTree } from "@repo/wp-utils";
 
 const WP_GRAPHQL = process.env.NEXT_PUBLIC_WORDPRESS_API_URL ?? "https://readboot.cloudaccess.host/graphql";
 
-async function getMenuData() {
-  const res = await fetch(WP_GRAPHQL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      query: `{
-        menuItems(where: { location: WEB_TOPNAV }) {
-          nodes {
-            id
-            parentId
-            label
-            url
-          }
-        }
-      }`
-    }),
-    next: { revalidate: 60 }
-  });
+const FETCH_TIMEOUT_MS = 8000;
 
-  const json = await res.json();
-  return json.data?.menuItems?.nodes ?? [];
+async function getMenuData() {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+
+  try {
+    const res = await fetch(WP_GRAPHQL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: `{
+          menuItems(where: { location: WEB_TOPNAV }) {
+            nodes {
+              id
+              parentId
+              label
+              url
+            }
+          }
+        }`
+      }),
+      signal: controller.signal,
+      next: { revalidate: 60 }
+    });
+
+    clearTimeout(timeoutId);
+    const json = await res.json();
+    return json.data?.menuItems?.nodes ?? [];
+  } catch {
+    clearTimeout(timeoutId);
+    return [];
+  }
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {

@@ -44,41 +44,53 @@ const LOGO_ENDPOINT = process.env.NEXT_PUBLIC_WORDPRESS_API_URL ?? "https://read
  * Fetches the brandmark from Headless WordPress on the server.
  * Designed to fill its parent container while maintaining aspect ratio.
  */
+const FETCH_TIMEOUT_MS = 8000;
+
 export default async function LogoImage({
   width = "100%",
   height = "100%",
   className,
 }: LogoProps) {
-  const res = await fetch(LOGO_ENDPOINT, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ query: LOGO_QUERY }),
-    next: { revalidate: 3600 },
-  } as NextFetchOptions);
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
 
-  const { data } = (await res.json()) as { data: LogoResponse };
-  const logo = data?.siteSettings?.siteSettings?.headerLogo;
+  try {
+    const res = await fetch(LOGO_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ query: LOGO_QUERY }),
+      signal: controller.signal,
+      next: { revalidate: 3600 },
+    } as NextFetchOptions);
 
-  if (!logo?.sourceUrl) return null;
+    clearTimeout(timeoutId);
+    const { data } = (await res.json()) as { data: LogoResponse };
+    const logo = data?.siteSettings?.siteSettings?.headerLogo;
 
-  return (
-    <div
-      className={className}
-      style={{
-        position: "relative",
-        width,
-        height,
-        display: "block",
-      }}
-    >
-      <Image
-        src={logo.sourceUrl}
-        alt={logo.altText || "ReadBoot Logo"}
-        fill
-        style={{ objectFit: "contain" }}
-        priority
-        sizes="(max-width: 768px) 100vw, 50vw"
-      />
-    </div>
-  );
+    if (!logo?.sourceUrl) return null;
+
+    return (
+      <div
+        className={className}
+        style={{
+          position: "relative",
+          width,
+          height,
+          display: "block",
+        }}
+      >
+        <Image
+          src={logo.sourceUrl}
+          alt={logo.altText || "ReadBoot Logo"}
+          fill
+          style={{ objectFit: "contain" }}
+          priority
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+      </div>
+    );
+  } catch {
+    clearTimeout(timeoutId);
+    return null;
+  }
 }
