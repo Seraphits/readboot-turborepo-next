@@ -14,6 +14,9 @@ h1, h2, h3, h4, h5, h6 {
 h1 { font-size: 3rem; }
 h2 { font-size: 2.5rem; }
 h3 { font-size: 2rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
 
 // ReadBoot: Header uses Baloo 2 (same as headlines)
 header {
@@ -33,7 +36,7 @@ p {
 // Global link defaults
 a {
   color:  inherit;
-  // background-color: colors.$sys-color-ink-text;
+  // background-color: colors.$sys-color-status-success;
   text-decoration: none;
   transition: opacity 0.2s ease;
 
