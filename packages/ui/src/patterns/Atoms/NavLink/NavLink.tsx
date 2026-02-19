@@ -1,8 +1,7 @@
-// packages/ui/src/patterns/Atoms/NavLink/NavLink.tsx
-'use client'; // 1. Add this directive [10, 9]
+'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation'; // 2. Change import to next/navigation [7, 8]
+import { usePathname } from 'next/navigation';
 import styles from './NavLink.module.scss';
 
 interface NavLinkProps {
@@ -11,7 +10,7 @@ interface NavLinkProps {
 }
 
 const NavLink = ({ href, children }: NavLinkProps) => {
-  const pathname = usePathname(); // 3. Use usePathname for active states [9, 11]
+  const pathname = usePathname();
   const isActive = pathname === href;
 
   return (

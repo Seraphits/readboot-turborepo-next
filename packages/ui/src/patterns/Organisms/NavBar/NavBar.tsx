@@ -15,9 +15,10 @@ const NavBar = ({ links, logo }: NavBarProps) => {
       <div className={styles.NavBar__Logo}>
         {logo ?? <LogoImage />}
       </div>
-      <div className={styles.NavBar__Menu}>
+      <nav className={styles.NavBar__Menu}>
         <NavMenu links={links} />
-      </div>
+        {/* <div style={{ backgroundColor: 'blue' }} ></div> */}
+      </nav>
     </header>
   );
 };

@@ -1,32 +1,59 @@
 @use "abstracts/variables/colors" as colors;
+// NavMenu.module.scss
 
 .NavMenu {
-  height: 100%;
-
   &__List {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
     list-style: none;
-    margin: 0;
-    padding: 0;
-    height: 100%;
+    gap: 2rem;
+    align-items: center;
+    // background-color: colors.$sys-color-ink-text;
   }
 
   &__Item {
-    padding-left: 4rem;
+    position: relative; // Keeps the dropdown attached to this item
+    padding: 1rem 0;
 
-    &:first-child {
-      padding-left: 0;
+    a {
+      text-decoration: none;
+      color: inherit;
+      font-weight: 500;
+      &:hover { color: #cc0000; } // Matches your "Crimson" theme
+    }
+
+    // Show dropdown on hover
+    &:hover >.NavMenu__SubList {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
     }
   }
 
   &__SubList {
+    position: absolute;
+    top: 100%; // Appears directly below the parent
+    left: 0;
+    min-width: 220px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
     list-style: none;
-    margin: 0;
-    padding: 0.5rem 0 0 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.25rem;
+    z-index: 50;
+
+    // Smooth transition
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease-in-out;
+  }
+
+  &__SubItem {
+    padding: 0.75rem 1.25rem;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: #f9fafb;
+    }
   }
 }

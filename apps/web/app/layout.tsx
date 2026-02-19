@@ -16,7 +16,7 @@ async function getMenuData() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         query: `{
-          menuItems(where: { location: WEB_TOPNAV }) {
+          menuItems(where: { location: WEB_TOPNAV }, first: 100) {
             nodes {
               id
               parentId
@@ -40,20 +40,21 @@ async function getMenuData() {
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const menuItems = (await getMenuData()) ?? [];
-  const navLinks = buildMenuTree(
-    menuItems.map((item: { id: string; parentId: string | null; label: string; url?: string }) => ({
-      id: item.id,
-      parentId: item.parentId,
-      label: item.label,
-      href: (item.url ?? "").replace("https://readboot.cloudaccess.host", ""),
-    }))
-  );
+  const menuItems = await getMenuData();
+
+  // Map API url to href, then build hierarchical tree
+  const navItems = menuItems.map((item: { id: string; parentId: string | null; label: string; url?: string }) => ({
+    id: item.id,
+    parentId: item.parentId,
+    label: item.label,
+    href: item.url ?? '#',
+  }));
+  const hierarchicalMenu = buildMenuTree(navItems);
 
   return (
     <html lang="en">
       <body>
-        <NavBar links={navLinks} />
+        <NavBar links={hierarchicalMenu} />
         <main>{children}</main>
       </body>
     </html>

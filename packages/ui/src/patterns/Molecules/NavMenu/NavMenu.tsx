@@ -1,10 +1,12 @@
-import NavLink from '../../Atoms/NavLink/NavLink';
 import styles from './NavMenu.module.scss';
+import Link from 'next/link';
 
 export interface NavLinkItem {
   id?: string;
   label: string;
-  href: string;
+  href?: string;
+  /** API returns url; component uses href ?? url */
+  url?: string;
   children?: NavLinkItem[];
 }
 
@@ -12,25 +14,31 @@ export interface NavMenuProps {
   links: NavLinkItem[];
 }
 
-const NavMenu = ({ links }: NavMenuProps) => {
+function getHref(item: NavLinkItem): string {
+  return item.href ?? item.url ?? '#';
+}
+
+export default function NavMenu({ links }: NavMenuProps) {
   return (
-    <nav className={styles.NavMenu}>
-      <ul className={styles.NavMenu__List}>
-       {links.map((link) => (
-  <li key={link.id ?? `${link.href}-${link.label}`} className={styles.NavMenu__Item}>
-    <NavLink href={link.href}>{link.label}</NavLink>
+    <ul className={styles.NavMenu__List}>
+      {links.map((item) => (
+        <li key={item.id ?? item.label} className={styles.NavMenu__Item}>
+          <Link href={getHref(item)}>{item.label}</Link>
 
-    {/* This creates the "layers" */}
-    {link.children && link.children.length > 0 && (
-      <ul className={styles.NavMenu__SubList}>
-        <NavMenu links={link.children} />
-      </ul>
-    )}
-  </li>
-))}
-      </ul>
-    </nav>
+          {/* Recursive check for children */}
+          {item.children && item.children.length > 0 && (
+            <ul className={styles.NavMenu__SubList}>
+              {item.children.map((child) => (
+                <li key={child.id ?? child.label} className={styles.NavMenu__SubItem}>
+                  <Link href={getHref(child)}>{child.label}</Link>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
+    </ul>
   );
-};
+}
 
-export default NavMenu;
+
