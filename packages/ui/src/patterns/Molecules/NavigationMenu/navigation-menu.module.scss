@@ -25,7 +25,7 @@
     }
 
     // Show dropdown on hover
-    &:hover >.NavMenu__SubList {
+    &:hover > .NavigationMenu__SubList {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
