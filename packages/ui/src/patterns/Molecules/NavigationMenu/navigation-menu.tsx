@@ -1,4 +1,4 @@
-import NavigationLink from 'src/patterns/Atoms/NavigationLink/navigation-link';
+import NavigationLink from '../../Atoms/NavigationLink/navigation-link';
 import styles from './navigation-menu.module.scss';
 // import Link from 'next/link';
 
