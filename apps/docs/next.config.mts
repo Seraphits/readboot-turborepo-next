@@ -4,6 +4,8 @@ import { fileURLToPath } from "url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig = {
+  basePath: '/docs',
+  assetPrefix: '/docs',
   transpilePackages: ["@repo/ui"],
   sassOptions: {
     // This tells Sass: "If you can't find a file relatively, look here too"
