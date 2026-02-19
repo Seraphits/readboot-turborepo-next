@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import NavLink from './NavLink';
+import NavigationLink from './navigation-link';
 
-const meta: Meta<typeof NavLink> = {
-  title: 'Patterns/Atoms/NavLink',
-  component: NavLink,
+const meta: Meta<typeof NavigationLink> = {
+  title: 'Patterns/Atoms/NavigationLink',
+  component: NavigationLink,
   parameters: {
     layout: 'centered',
   },
@@ -12,10 +12,10 @@ const meta: Meta<typeof NavLink> = {
     href: { control: 'text' },
     children: { control: 'text' },
   },
-} satisfies Meta<typeof NavLink>;
+} satisfies Meta<typeof NavigationLink>;
 
 export default meta;
-type Story = StoryObj<typeof NavLink>;
+type Story = StoryObj<typeof NavigationLink>;
 
 // Default State (using your $sys-color-ink-text)
 export const Default: Story = {

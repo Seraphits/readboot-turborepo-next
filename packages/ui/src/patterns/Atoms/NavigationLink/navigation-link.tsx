@@ -2,21 +2,21 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import styles from './NavLink.module.scss';
+import styles from './navigation-link.module.scss';
 
-interface NavLinkProps {
+interface NavigationLinkProps {
   href: string;
   children: React.ReactNode;
 }
 
-const NavLink = ({ href, children }: NavLinkProps) => {
+const NavigationLink = ({ href, children }: NavigationLinkProps) => {
   const pathname = usePathname();
   const isActive = pathname === href;
 
   return (
     <Link
       href={href}
-      className={`${styles.NavLink} ${isActive? styles['NavLink--active'] : ''}`}
+      className={`${styles.NavigationLink} ${isActive? styles['NavigationLink--active'] : ''}`}
       aria-current={isActive? 'page' : undefined}
     >
       {children}
@@ -24,4 +24,4 @@ const NavLink = ({ href, children }: NavLinkProps) => {
   );
 };
 
-export default NavLink;
+export default NavigationLink;

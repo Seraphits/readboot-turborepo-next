@@ -1,5 +1,5 @@
 // apps/web/app/layout.tsx
-import NavBar from "@repo/ui/patterns/Organisms/NavBar/NavBar";
+import NavBar from "@repo/ui/patterns/Organisms/NavigationBar/navigation-bar";
 import { buildMenuTree } from "@repo/wp-utils";
 
 const WP_GRAPHQL = process.env.NEXT_PUBLIC_WORDPRESS_API_URL ?? "https://readboot.cloudaccess.host/graphql";
