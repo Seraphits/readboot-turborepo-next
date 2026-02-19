@@ -1,9 +1,10 @@
 import LogoImage from '../../Atoms/Logo/LogoImage';
 import NavMenu from '../../Molecules/NavMenu/NavMenu';
+import type { NavLinkItem } from '../../Molecules/NavMenu/NavMenu';
 import styles from './NavBar.module.scss';
 
 export interface NavBarProps {
-  links: { label: string; href: string }[];
+  links: NavLinkItem[];
   /** Optional logo slot for Storybook/client contexts (avoids async Server Component) */
   logo?: React.ReactNode;
 }

@@ -14,10 +14,19 @@
   }
 
   &__Item {
-    padding-left: 4rem; // Based on your original SCSS from Image 2
+    padding-left: 4rem;
 
     &:first-child {
       padding-left: 0;
     }
+  }
+
+  &__SubList {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem 0 0 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
   }
 }
