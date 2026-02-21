@@ -1,0 +1,16 @@
+{
+  "headers": [
+    {
+      "source": "/docs",
+      "headers": [
+        { "key": "x-vercel-enable-rewrite-caching", "value": "1" }
+      ]
+    },
+    {
+      "source": "/docs/:path*",
+      "headers": [
+        { "key": "x-vercel-enable-rewrite-caching", "value": "1" }
+      ]
+    }
+  ]
+}

@@ -9,6 +9,12 @@ const __dirname = path.dirname(__filename);
 
 const nextConfig: NextConfig = {
   transpilePackages: ["@repo/ui", '@repo/wp-utils', '@repo/ui'],
+  async rewrites() {
+    return [
+      { source: '/docs', destination: 'https://readboot-turborepo-next-docs.vercel.app/docs' },
+      { source: '/docs/:path*', destination: 'https://readboot-turborepo-next-docs.vercel.app/docs/:path*' },
+    ];
+  },
   sassOptions: {
     // Nested correctly; loadPaths is the modern standard for Dart Sass/Turbopack
     includePaths: [path.join(__dirname, "../../packages/ui/src/styles")],
