@@ -41,11 +41,17 @@ async function getMenuData() {
   }
 }
 
+function toDocsHref(url: string): string {
+  const path = url.replace('https://readboot.cloudaccess.host', '').replace('http://readboot.cloudaccess.host', '') || '/';
+  if (path.startsWith('http') || path.startsWith('/docs')) return path;
+  return path.startsWith('/') ? `/docs${path}` : `/docs/${path}`;
+}
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const menuItems = await getMenuData();
   const navLinks = menuItems.map((item: { label: string; url?: string }) => ({
     label: item.label,
-    href: (item.url ?? '').replace('https://readboot.cloudaccess.host', '')
+    href: toDocsHref(item.url ?? '')
   }));
 
   return (

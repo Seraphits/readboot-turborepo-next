@@ -10,9 +10,12 @@ const __dirname = path.dirname(__filename);
 const nextConfig: NextConfig = {
   transpilePackages: ["@repo/ui", '@repo/wp-utils', '@repo/ui'],
   async rewrites() {
+    const docsUrl = 'https://readboot-turborepo-next-docs.vercel.app';
     return [
-      { source: '/docs', destination: 'https://readboot-turborepo-next-docs.vercel.app/docs' },
-      { source: '/docs/:path*', destination: 'https://readboot-turborepo-next-docs.vercel.app/docs/:path*' },
+      { source: '/docs', destination: `${docsUrl}/docs` },
+      { source: '/docs/:path*', destination: `${docsUrl}/docs/:path*` },
+      // Docs app assets (withMicrofrontends adds /vc-ap-* prefix)
+      { source: '/vc-ap-:hash/:rest*', destination: `${docsUrl}/vc-ap-:hash/:rest*` },
     ];
   },
   sassOptions: {
