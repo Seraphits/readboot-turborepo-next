@@ -1,6 +1,16 @@
 # Multi-Zones Setup: readboot.com/docs
 
-Phases 1 and 2 are configured. Phase 3 requires manual steps in Vercel.
+This project uses **Vercel Microfrontends** to serve docs at readboot.com/docs.
+
+## Prerequisites
+
+1. **Microfrontends group**: In Vercel Dashboard → Settings → Microfrontends, create a group and add both `readboot-turborepo-next` (default) and `readboot-turborepo-next-docs`.
+2. **Root directories**: Main app = `apps/web`, Docs app = `apps/docs`.
+
+## What's configured
+
+- **apps/web/microfrontends.json**: Routes `/docs` and `/docs/*` to the docs app.
+- **apps/docs**: All routes live under `app/docs/` so they match the `/docs` path.
 
 ## Phase 3: Zero-Downtime Domain Migration
 

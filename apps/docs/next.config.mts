@@ -1,11 +1,11 @@
+import type { NextConfig } from "next";
 import path from "path";
 import { fileURLToPath } from "url";
+import { withMicrofrontends } from '@vercel/microfrontends/next/config';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const nextConfig = {
-  basePath: '/docs',
-  assetPrefix: '/docs',
+const nextConfig: NextConfig = {
   transpilePackages: ["@repo/ui"],
   sassOptions: {
     // This tells Sass: "If you can't find a file relatively, look here too"
@@ -24,4 +24,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withMicrofrontends(nextConfig);

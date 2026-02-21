@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/microfrontends.json",
+  "applications": {
+    "readboot-turborepo-next": {
+      "development": { "local": 3000, "fallback": "readboot-turborepo-next.vercel.app" }
+    },
+    "readboot-turborepo-next-docs": {
+      "packageName": "docs",
+      "development": { "local": 3001 },
+      "routing": [{ "paths": ["/docs", "/docs/:path*"] }]
+    }
+  }
+}

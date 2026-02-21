@@ -1,4 +1,13 @@
-// apps/docs/app/style-guide/default-styles/page.tsx
+function ColorSwatch({ name, variable, hex }: { name: string; variable: string; hex: string }) {
+  return (
+    <div style={{ border: '1px solid #ccc', padding: '1rem', borderRadius: '8px' }}>
+      <div style={{ backgroundColor: hex, height: '50px', width: '100px', borderRadius: '4px', marginBottom: '0.5rem' }}></div>
+      <strong>{name}</strong>
+      <code style={{ display: 'block', fontSize: '0.8rem' }}>{variable}</code>
+    </div>
+  );
+}
+
 export default function StyleGuide() {
   return (
     <div>
@@ -39,17 +48,6 @@ export default function StyleGuide() {
           <ColorSwatch name="Action Primary" variable="$sys-color-action-primary" hex="#DC143C" />
         </div>
       </section>
-    </div>
-  );
-}
-
-// Simple internal component for the style guide
-function ColorSwatch({ name, variable, hex }: { name: string, variable: string, hex: string }) {
-  return (
-    <div style={{ border: '1px solid #ccc', padding: '1rem', borderRadius: '8px' }}>
-      <div style={{ backgroundColor: hex, height: '50px', width: '100px', borderRadius: '4px', marginBottom: '0.5rem' }}></div>
-      <strong>{name}</strong>
-      <code style={{ display: 'block', fontSize: '0.8rem' }}>{variable}</code>
     </div>
   );
 }

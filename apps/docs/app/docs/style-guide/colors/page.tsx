@@ -90,7 +90,7 @@ export default function ColorsPage() {
   );
 }
 
-function ColorCard({ name, var: variable, hex }: { name: string, var: string, hex: string }) {
+function ColorCard({ name, var: variable, hex }: { name: string; var: string; hex: string }) {
   return (
     <div style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '1rem' }}>
       <div style={{ backgroundColor: hex, height: '80px', borderRadius: '4px', marginBottom: '0.5rem', border: '1px solid #eee' }} />
