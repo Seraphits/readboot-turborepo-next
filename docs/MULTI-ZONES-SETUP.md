@@ -9,8 +9,9 @@ This project uses **Vercel Microfrontends** to serve docs at readboot.com/docs.
 
 ## What's configured
 
-- **apps/web/microfrontends.json**: Routes `/docs` and `/docs/*` to the docs app.
+- **apps/web/microfrontends.json**: Routes `/docs` and `/docs/*` to the docs app. Must only exist in the default (web) app.
 - **apps/docs**: All routes live under `app/docs/` so they match the `/docs` path.
+- **apps/docs/package.json**: Build script sets `VC_MICROFRONTENDS_CONFIG_FILE_NAME=../web/microfrontends.json` so the docs app can find the config when building.
 
 ## Phase 3: Zero-Downtime Domain Migration
 
