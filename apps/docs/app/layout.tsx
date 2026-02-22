@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@repo/ui/styles/globals";
-import  NavBar  from "@repo/ui/patterns/Organisms/NavigationBar/navigation-bar";
+import "@repo/ui/styles/index";
+import NavBar from "@repo/ui/patterns/Organisms/NavigationBar/navigation-bar";
 
 const WP_GRAPHQL = process.env.NEXT_PUBLIC_WORDPRESS_API_URL ?? "https://readboot.cloudaccess.host/graphql";
 

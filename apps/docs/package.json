@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@repo/ui": "workspace:*",
+    "@storybook/nextjs": "^10.2.8",
+    "@storybook/react": "^10.2.8",
     "@vercel/microfrontends": "^2.3.1",
     "next": "16.1.0",
     "react": "^19.2.0",
@@ -19,6 +21,7 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@storybook/addon-a11y": "^10.2.8",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",

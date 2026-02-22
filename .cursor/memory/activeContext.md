@@ -16,4 +16,4 @@ ReadBoot Progress
 - [ ] Migrate Code component to packages/ui/src/components/Code.
 - [ ] Initialize apps/web layout using shared components.
 
-Current Focus: Button on home pages for SCSS verification. Next: Migrating Card and Code components to SCSS Modules.
+Current Focus: Storybook Portable Stories in Docs. Fixed: (1) document is not defined — removed StorybookSetup that imported .storybook/setup during SSR; (2) NextjsRouterMocksNotAvailable — switched ComponentShowcase to use composeStories from @storybook/react instead of @storybook/nextjs. Next: Verify style guide page loads at /docs/style-guide.

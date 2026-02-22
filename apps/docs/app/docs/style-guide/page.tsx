@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ComponentShowcase } from './ComponentShowcase';
 
 export default function StyleGuideHome() {
   return (
@@ -24,6 +25,8 @@ export default function StyleGuideHome() {
         <li><Link href="/docs/style-guide/motion">Motion & Animation</Link> — duration scale, easing, interaction states, glitch.</li>
         <li><Link href="/docs/style-guide/iconography">Iconography</Link> — icon sizes, stroke weight, accessibility.</li>
       </ul>
+
+      <ComponentShowcase />
     </section>
   );
 }
