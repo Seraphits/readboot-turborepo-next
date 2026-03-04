@@ -14,7 +14,7 @@ interface Post {
 
 const GET_POSTS_BY_CATEGORY = `
   query GetPostsByCategory($categorySlug: [String]) {
-    docsPosts(where: { taxQuery: { taxArray: [{ taxonomy: DocsCategory, field: SLUG, terms: $categorySlug }] } }) {
+    docsPosts(where: { taxQuery: { taxArray: [{ taxonomy: DOCS_CATEGORIES, field: SLUG, operator: IN, terms: $categorySlug }] } }) {
       nodes {
         title
         slug
@@ -66,7 +66,7 @@ export default async function BlogCategoryPage({ params }: Props) {
           ))}
         </ul>
       ) : (
-        <p>No posts found. Check if the taxonomy name &apos;DocsCategory&apos; is correct in WordPress.</p>
+        <p>No posts found. </p>
       )}
     </main>
   );
