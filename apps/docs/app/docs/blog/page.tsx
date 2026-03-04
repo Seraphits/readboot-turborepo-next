@@ -20,20 +20,23 @@ async function getAllCategorySlugs() {
 }
 
 // 2. Implementation for [category]
-export async function generateStaticParams() {
+export default async function BlogPage() {
+  // Add this line to fetch the data
   const categories = await getAllCategorySlugs();
 
-  return categories.map((cat: { slug: string }) => ({
-    category: cat.slug, // Must match the folder name [category]
-  }));
-}
-
-// 3. Blog index page component
-export default function BlogPage() {
   return (
     <main>
       <h1>Blog</h1>
       <p>Browse posts by category.</p>
+      <ul>
+        {categories.map((cat: { slug: string }) => (
+          <li key={cat.slug}>
+            <a href={`/docs/blog/${cat.slug}`}>
+              {cat.slug.replace(/-/g, ' ')}
+            </a>
+          </li>
+        ))}
+      </ul>
     </main>
   );
 }
