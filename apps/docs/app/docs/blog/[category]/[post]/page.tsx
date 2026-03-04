@@ -21,9 +21,7 @@ async function getPostData(slug: string): Promise<PostData | null> {
     body: JSON.stringify({ query, variables: { id: slug } }),
   });
   const json = await res.json();
-  return json.data?.docsPost |
-
-| null;
+  return json.data?.docsPost ?? null;
 }
 
 // 2. Generate static paths for ALL posts in ALL categories

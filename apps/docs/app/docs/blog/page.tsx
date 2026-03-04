@@ -27,3 +27,13 @@ export async function generateStaticParams() {
     category: cat.slug, // Must match the folder name [category]
   }));
 }
+
+// 3. Blog index page component
+export default function BlogPage() {
+  return (
+    <main>
+      <h1>Blog</h1>
+      <p>Browse posts by category.</p>
+    </main>
+  );
+}
