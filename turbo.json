@@ -1,5 +1,6 @@
 {
   "$schema": "https://turborepo.dev/schema.json",
+  "globalDotenv": [".env.local"],
   "ui": "tui",
   "tasks": {
     "build": {
