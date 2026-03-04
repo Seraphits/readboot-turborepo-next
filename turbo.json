@@ -1,6 +1,12 @@
 {
-  "$schema": "https://turborepo.dev/schema.json",
+  "$schema": "./node_modules/turbo/schema.json",
   "globalDependencies": [".env.local"],
+  "globalEnv": [
+    "NEXT_PUBLIC_WORDPRESS_API_URL",
+    "WORDPRESS_API_URL",
+    "REVALIDATE_SECRET",
+    "REVALIDATE_SECRET_KEY"
+  ],
   "ui": "tui",
   "tasks": {
     "build": {

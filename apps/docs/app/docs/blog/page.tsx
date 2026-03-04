@@ -13,7 +13,7 @@ async function getAllCategorySlugs() {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ query }),
-    next: { tags: ['docs_categories'] } // Useful for ISR later
+    next: { revalidate: 3600, tags: ['docs_categories'] },
   });
   const json = await res.json();
   return json.data.docsCategories.nodes;

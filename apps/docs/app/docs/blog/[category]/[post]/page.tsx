@@ -19,6 +19,7 @@ async function getPostData(slug: string): Promise<PostData | null> {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ query, variables: { id: slug } }),
+    next: { revalidate: 3600, tags: ['docs_posts'] },
   });
   const json = await res.json();
   return json.data?.docsPost ?? null;
@@ -42,12 +43,14 @@ export async function generateStaticParams() {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ query }),
+    next: { revalidate: 3600, tags: ['docs_posts'] },
   });
   const json = await res.json();
+  const nodes = json.data?.docsPosts?.nodes ?? [];
 
   // Return array of { category: string, post: string }
-  return json.data.docsPosts.nodes.flatMap((post: any) =>
-    post.docsCategories.nodes.map((cat: any) => ({
+  return nodes.flatMap((post: { slug: string; docsCategories: { nodes: { slug: string }[] } }) =>
+    (post.docsCategories?.nodes ?? []).map((cat) => ({
       category: cat.slug,
       post: post.slug,
     }))
