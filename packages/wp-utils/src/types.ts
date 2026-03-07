@@ -12,6 +12,7 @@ export interface Post {
   slug: string;
   date: string;
   excerpt?: string;
+  content: string;
 }
 
 export interface Category {

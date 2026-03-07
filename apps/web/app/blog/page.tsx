@@ -23,7 +23,7 @@ export default async function BlogPage() {
               <div>
                 {category.posts.nodes.map((post: Post) => (
                   <article key={post.id}>
-                    <Link href={`/blog/${post.slug}`}>
+                    <Link href={`/blog/post/${post.slug}`}>
                       <h3>{post.title}</h3>
                       <time dateTime={post.date}>
                         {new Date(post.date).toLocaleDateString()}

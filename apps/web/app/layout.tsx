@@ -53,7 +53,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   const hierarchicalMenu = buildMenuTree(navItems);
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
         <NavBar links={hierarchicalMenu} />
         <main>{children}</main>
