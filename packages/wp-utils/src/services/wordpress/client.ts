@@ -1,5 +1,5 @@
+import type { DocumentNode } from 'graphql';
 import { print } from 'graphql';
-import { DocumentNode } from 'graphql';
 
 type FetchInit = RequestInit & { next?: { revalidate: number } };
 
@@ -7,16 +7,18 @@ type FetchInit = RequestInit & { next?: { revalidate: number } };
  * The base fetcher for the WordPress GraphQL API.
  * Handles the connection to the URL defined in your .env.local
  */
-export async function getWordPressData(query: string | DocumentNode, variables: any = {}) {
-  // If the query is a GQL object from Apollo, convert it to a string for the fetch body
-  const queryStr = typeof query === 'string' ? query : print(query);
+export async function getWordPressData(query: string | DocumentNode, variables = {}) {
+  const queryString = typeof query === 'string' ? query : print(query);
 
   const res = await fetch(process.env.NEXT_PUBLIC_WORDPRESS_API_URL as string, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query: queryStr, variables }),
+    body: JSON.stringify({
+      query: queryString,
+      variables
+    }),
     next: { revalidate: 3600 } // Cache data for 1 hour
-  } as FetchInit);
+  });
 
   const json = await res.json();
 
