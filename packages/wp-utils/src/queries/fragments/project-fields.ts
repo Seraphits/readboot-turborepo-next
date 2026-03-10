@@ -1,16 +1,5 @@
 import { gql } from '@apollo/client';
 
-export const CORE_PAGE_FIELDS = gql`
-  fragment CorePageFields on Page {
-    title
-    content
-    editorBlocks {
-      name
-      renderedHtml
-    }
-  }
-`;
-
 export const PROJECT_FIELDS = gql`
   fragment ProjectFields on Project {
     id

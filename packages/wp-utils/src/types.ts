@@ -23,3 +23,14 @@ export interface Category {
   };
 }
 
+export interface Project extends Post {
+  projectIntelligence: {
+    lifecycleStatus: string;
+    impactMetric: string;
+    liveProjectLink: string;
+    linkedBlogCategory: Category;
+  };
+  tags: {
+    nodes: { name: string }[];
+  };
+}
