@@ -4,7 +4,13 @@ import { getAllProjects } from '@repo/wp-utils';
 import { Project } from '@repo/wp-utils/src/types';
 
 export default async function ProjectsPage() {
-  const projects = await getAllProjects();
+  let projects: Project[] = [];
+  try {
+    projects = await getAllProjects();
+  } catch (err) {
+    console.error('Failed to load projects:', err);
+    // Fall through to render empty state
+  }
 
   return (
     <main>

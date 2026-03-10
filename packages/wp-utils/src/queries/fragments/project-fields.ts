@@ -7,7 +7,7 @@ export const PROJECT_FIELDS = `
     content
     projectIntelligence {
       lifecycleStatus
-      primaryImpactMetric
+      impactMetric
       liveProjectLink
     }
     tags {

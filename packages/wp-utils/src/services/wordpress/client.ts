@@ -21,8 +21,9 @@ export async function getWordPressData(query: string | DocumentNode, variables: 
   const json = await res.json();
 
   if (json.errors) {
+    const messages = json.errors.map((e: { message?: string }) => e?.message ?? JSON.stringify(e)).join('; ');
     console.error('GraphQL Errors:', json.errors);
-    throw new Error('Failed to fetch API');
+    throw new Error(`WordPress GraphQL error: ${messages}`);
   }
 
   return json.data;

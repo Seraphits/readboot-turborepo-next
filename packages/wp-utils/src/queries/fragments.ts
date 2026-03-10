@@ -21,6 +21,7 @@ export const PROJECT_FIELDS = gql`
     projectIntelligence {
       lifecycleStatus
       impactMetric
+      liveProjectLink
     }
     tags {
       nodes {
