@@ -1,6 +1,4 @@
-import { gql } from '@apollo/client';
-
-export const PROJECT_FIELDS = gql`
+export const PROJECT_FIELDS = `
   fragment ProjectFields on Project {
     id
     title
@@ -9,7 +7,8 @@ export const PROJECT_FIELDS = gql`
     content
     projectIntelligence {
       lifecycleStatus
-      impactMetric
+      primaryImpactMetric
+      liveProjectLink
     }
     tags {
       nodes {
