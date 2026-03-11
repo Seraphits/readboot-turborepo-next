@@ -10,15 +10,12 @@ type FetchInit = RequestInit & { next?: { revalidate: number } };
 export async function getWordPressData(query: string | DocumentNode, variables = {}) {
   const queryString = typeof query === 'string' ? query : print(query);
 
-  const res = await fetch(process.env.NEXT_PUBLIC_WORDPRESS_API_URL as string, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      query: queryString,
-      variables
-    }),
-    next: { revalidate: 3600 } // Cache data for 1 hour
-  });
+const res = await fetch(process.env.NEXT_PUBLIC_WORDPRESS_API_URL as string, {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({ query: queryString, variables }),
+  next: { revalidate: 3600 }
+} as RequestInit); // Temporary assertion to bypass outdated type definitions
 
   const json = await res.json();
 
