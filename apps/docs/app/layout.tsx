@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@repo/ui/styles/globals";
 import "@repo/ui/styles/index";
 import NavBar from "@repo/ui/patterns/Organisms/NavigationBar/navigation-bar";
+import { Alert } from "@repo/ui";
 
 const WP_GRAPHQL = process.env.NEXT_PUBLIC_WORDPRESS_API_URL ?? "https://readboot.cloudaccess.host/graphql";
 
@@ -59,6 +60,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="en">
       <body>
         <NavBar links={navLinks} />
+        <Alert />
         <main>{children}</main>
       </body>
     </html>

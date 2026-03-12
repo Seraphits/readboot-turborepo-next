@@ -2,6 +2,7 @@
 import NavBar from "@repo/ui/patterns/Organisms/NavigationBar/navigation-bar";
 import "@repo/ui/styles/globals";
 import { buildMenuTree } from "@repo/wp-utils";
+import { Alert } from "@repo/ui";
 
 const WP_GRAPHQL = process.env.NEXT_PUBLIC_WORDPRESS_API_URL ?? "https://readboot.cloudaccess.host/graphql";
 
@@ -56,6 +57,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
     <html lang="en" suppressHydrationWarning>
       <body>
         <NavBar links={hierarchicalMenu} />
+        <Alert />
         <main>{children}</main>
       </body>
     </html>

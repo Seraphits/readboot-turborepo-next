@@ -7,5 +7,5 @@ export {
 } from "./patterns/Organisms/ColorScheme/color-scheme";
 export * from './patterns/Organisms/Hero/HeroCentered';
 export * from "./patterns/Organisms/Hero/HeroHero";
-
+export * from './patterns/Molecules/Alert/Alert';
 
