@@ -16,7 +16,7 @@ export const BlogCard = ({ post }: { post: Post }) => {
       )}
       <div className="blog-card__content">
         <h3>{post.title}</h3>
-        <div dangerouslySetInnerHTML={{ __html: post.excerpt }} />
+        <div dangerouslySetInnerHTML={{ __html: post.excerpt ?? '' }} />
         <Link href={`/blog/${post.slug}`} className="btn-link">
           Read More →
         </Link>

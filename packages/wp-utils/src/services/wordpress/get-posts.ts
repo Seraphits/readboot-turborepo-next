@@ -1,13 +1,14 @@
 import { gql } from '@apollo/client';
 import { getWordPressData } from './client';
 import { POST_FIELDS } from '../../queries/fragments/post-fields';
+import type { Post } from '../../types';
 
 export async function getPosts(params: {
   categorySlug?: string;
   limit?: number;
   orderBy?: 'DATE' | 'TITLE' | 'NAME';
   order?: 'ASC' | 'DESC';
-}) {
+}): Promise<Post[]> {
   const { categorySlug, limit = 3, orderBy = 'DATE', order = 'DESC' } = params;
 
   const query = gql`

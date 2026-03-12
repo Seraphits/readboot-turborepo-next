@@ -1,22 +1,17 @@
-// 1. Add the missing import (Fixes Image 9 ReferenceError)
-import { BlogCard } from '@repo/ui/patterns/Molecules/BlogCard/BlogCard';
 import { BlogGrid } from '@repo/ui/patterns/Organisms/BlogGrid/BlogGrid';
 import { getProjectBySlug } from '@repo/wp-utils';
 import { notFound } from 'next/navigation';
 
-// apps/web/app/projects/[slug]/page.tsx
-
 interface ProjectPageProps {
-  // slug is back to being a single string
   params: Promise<{ slug: string }>;
 }
-
-const linkedCategory = project.projectIntelligence?.linkedBlogCategory?.nodes?.[0]?.slug;
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = await getProjectBySlug(slug);
   if (!project) notFound();
+
+  const linkedCategory = project.projectIntelligence?.linkedBlogCategory?.slug;
 
   return (
     <main className="project-detail-container">

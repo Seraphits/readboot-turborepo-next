@@ -1,4 +1,4 @@
-import { getPosts } from '@repo/wp-utils';
+import { getPosts, Post } from '@repo/wp-utils';
 import { BlogCard } from '../../Molecules/BlogCard/BlogCard';
 
 interface BlogGridProps {
@@ -25,7 +25,7 @@ export const BlogGrid = async ({
     <section className="blog-grid-organism">
       {sectionTitle && <h2>{sectionTitle}</h2>}
       <div className="blog-grid-organism__wrapper">
-        {posts.map((post: any) => (
+        {posts.map((post: Post) => (
           // Logic: Putting it in the card
           <BlogCard key={post.id} post={post} />
         ))}

@@ -5,6 +5,12 @@ export interface Post {
   date: string;
   excerpt?: string;
   content: string;
+  featuredImage?: {
+    node: {
+      sourceUrl: string;
+      altText?: string;
+    };
+  };
 }
 
 export interface Category {

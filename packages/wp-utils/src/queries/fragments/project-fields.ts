@@ -10,10 +10,8 @@ export const PROJECT_FIELDS = `
       impactMetric: primaryImpactMetric
       liveProjectLink
       linkedBlogCategory {
-        nodes {
-          slug
-          name
-        }
+        slug
+        name
       }
     }
     tags {

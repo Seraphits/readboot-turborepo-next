@@ -1,10 +1,13 @@
-import { Post, Category } from './post';
+import { Post } from './post';
 
 export interface ProjectIntelligence {
   lifecycleStatus: string;
-  primaryImpactMetric: string;
+  impactMetric: string; // GraphQL alias for primaryImpactMetric
   liveProjectLink: string;
-  linkedBlogCategory?: Category;
+  linkedBlogCategory?: {
+    slug: string;
+    name: string;
+  };
 }
 
 export interface Project extends Post {
