@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getMainBlogContent, Category, Post } from '@repo/wp-utils';
+import { BlogGrid } from '@repo/ui/patterns/Organisms/BlogGrid/BlogGrid';
 export default async function BlogPage() {
   // Categories is explicitly typed to resolve the 'any' errors
   const categories: Category[] = await getMainBlogContent();
@@ -38,6 +39,7 @@ export default async function BlogPage() {
           <p>No blog posts found.</p>
         )}
       </div>
+      <BlogGrid limit={10} orderBy="DATE" order="DESC" />
     </main>
   );
 }

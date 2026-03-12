@@ -3,6 +3,9 @@
   "compilerOptions": {
     "outDir": "dist",
     "baseUrl": ".",
+    "paths": {
+      "@repo/wp-utils": ["../wp-utils/src/index.ts"]
+    }
   },
   "include": ["src", "src/styles.d.ts"],
   "exclude": ["node_modules", "dist"]

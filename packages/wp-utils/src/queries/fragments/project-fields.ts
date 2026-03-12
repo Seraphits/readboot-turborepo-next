@@ -9,6 +9,12 @@ export const PROJECT_FIELDS = `
       lifecycleStatus
       impactMetric: primaryImpactMetric
       liveProjectLink
+      linkedBlogCategory {
+        nodes {
+          slug
+          name
+        }
+      }
     }
     tags {
       nodes {

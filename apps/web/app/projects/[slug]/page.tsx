@@ -1,4 +1,6 @@
 // 1. Add the missing import (Fixes Image 9 ReferenceError)
+import { BlogCard } from '@repo/ui/patterns/Molecules/BlogCard/BlogCard';
+import { BlogGrid } from '@repo/ui/patterns/Organisms/BlogGrid/BlogGrid';
 import { getProjectBySlug } from '@repo/wp-utils';
 import { notFound } from 'next/navigation';
 
@@ -9,10 +11,11 @@ interface ProjectPageProps {
   params: Promise<{ slug: string }>;
 }
 
+const linkedCategory = project.projectIntelligence?.linkedBlogCategory?.nodes?.[0]?.slug;
+
 export default async function ProjectPage({ params }: ProjectPageProps) {
   const { slug } = await params;
   const project = await getProjectBySlug(slug);
-
   if (!project) notFound();
 
   return (
@@ -30,6 +33,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <li><strong>Link:</strong> {project.projectIntelligence.liveProjectLink}</li>
           </ul>
         )}
+        <BlogGrid
+          categorySlug={linkedCategory}
+          limit={3}
+          orderBy="DATE"
+          sectionTitle="Related Insights"
+        />
       </section>
 
       {/* 3. Main Project Content (from Image 7) */}
