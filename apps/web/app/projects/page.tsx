@@ -40,7 +40,7 @@ export default async function ProjectsPage() {
               {/* Metrics and Tags */}
               <div className="project-meta">
                 <span className="impact-metric">
-                  {project.projectIntelligence.primaryImpactMetric}
+                  {project.projectIntelligence.impactMetric}
                 </span>
 
                 <div className="tag-list">
