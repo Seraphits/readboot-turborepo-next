@@ -23,3 +23,20 @@
     @extend.button;
   }
 }
+
+:global {
+  button:not([class]) { @extend.button; }
+
+  // Ensure "naked" links also look like your brand
+  a:not([class]) {
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.05);
+      color: var(--sys-color-action-primary);
+    }
+  }
+}

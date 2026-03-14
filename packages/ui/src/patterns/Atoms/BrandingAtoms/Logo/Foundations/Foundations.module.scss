@@ -1,0 +1,22 @@
+// 1. Google Font Import
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&family=Inter:wght@400;500;600&display=swap");
+
+:global {
+  // 2. Universal Reset
+  *, *::before, *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  // 3. Root Canvas
+  html, body {
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--sys-color-paper-bg);
+    color: var(--sys-color-ink-text);
+    font-family: var(--sys-font-body); // Inter
+    // Ensure horizontal scrolling is disabled for responsive stability
+    overflow-x: hidden;
+  }
+}

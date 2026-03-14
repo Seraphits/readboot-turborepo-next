@@ -1,4 +1,4 @@
-import LogoImage from '../../Atoms/BrandingAdams/Logo/LogoImage';
+import LogoImage from '../../Atoms/BrandingAtoms/Logo/LogoImage';
 import NavMenu from '../../Molecules/NavigationMenu/navigation-menu';
 import { NavigationLinkItem } from '../../Molecules/NavigationMenu/navigation-menu';
 import styles from './navigation-bar.module.scss';
