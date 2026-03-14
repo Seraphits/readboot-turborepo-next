@@ -20,13 +20,12 @@ const nextConfig: NextConfig = {
   },
   turbopack: {
     resolveAlias: {
-      '@branding': path.join(__dirname, '../../packages/ui/src/patterns/Atoms/BrandingAtoms/_index.scss'),
+      '@branding': path.join(__dirname, '../../packages/ui/src/patterns/Atoms/BrandingAtoms'),
     },
   },
   sassOptions: {
     loadPaths: [
       path.join(__dirname, '../../packages/ui/src/patterns/Atoms'),
-      '@branding': path.join(__dirname, '../../packages/ui/src/patterns/Atoms/BrandingAtoms'),
     ],
   },
   images: {

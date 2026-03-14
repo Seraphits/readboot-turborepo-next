@@ -1,13 +1,15 @@
 {
   "extends": "@repo/typescript-config/nextjs.json",
   "compilerOptions": {
-    "plugins": [{ "name": "next" }]
+    "plugins": [{ "name": "next" }],
+    "paths": {
+      "@/*": ["./*"],
+      "@branding/*": ["../../packages/ui/src/patterns/Atoms/BrandingAtoms/*"],
+      "@repo/ui": ["../../packages/ui/src/index.tsx"],
+      "@repo/ui/*": ["../../packages/ui/src/*"],
+      "@repo/wp-utils": ["../../packages/wp-utils/src/index.ts"]
+    }
   },
-  "paths": {
-  "@branding/*":,
-  "@repo/ui/*": ["../../packages/ui/src/*"],
-  "@repo/wp-utils": ["../../packages/wp-utils/src/index.ts"]
-},
   "include": [
     "**/*.ts",
     "**/*.tsx",
