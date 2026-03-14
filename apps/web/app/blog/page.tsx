@@ -1,6 +1,9 @@
 import Link from 'next/link';
 import { getMainBlogContent, Category, Post } from '@repo/wp-utils';
 import { BlogGrid } from '@repo/ui/patterns/Organisms/BlogGrid/BlogGrid';
+
+export const dynamic = 'force-dynamic';
+
 export default async function BlogPage() {
   // Categories is explicitly typed to resolve the 'any' errors
   const categories: Category[] = await getMainBlogContent();

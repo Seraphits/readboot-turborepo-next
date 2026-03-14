@@ -2,7 +2,7 @@ Active Context: ReadBoot Shared UI
 - Current Objective: Building the shared "Futurist Carton" component library in packages/ui.
 - Active Task: Migrating basic components (Button, Card, Code) to use the new SCSS Module architecture.
 - Status: Button is complete. Card and Code are pending migration.
-- Recent: UI package structure audit. Added design tokens (_design-tokens.scss) for CSS var() injection in Foundations. Created atoms/molecules/organisms index files and styles/index.scss. package.json exports updated. Storybook and web builds pass.
+- Recent: Fixed Vercel build timeout on /blog: (1) increased wp-utils fetch timeout 8s→25s; (2) added force-dynamic to /blog, /blog/category/[slug], /blog/post/[slug], /projects, /projects/[slug] so WordPress-dependent pages render on demand instead of at build time. Web build passes.
 
 ReadBoot Progress
 - [x] Turborepo boilerplate initialized.

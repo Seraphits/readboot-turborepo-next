@@ -2,6 +2,8 @@ import { BlogGrid } from '@repo/ui/patterns/Organisms/BlogGrid/BlogGrid';
 import { getProjectBySlug } from '@repo/wp-utils';
 import { notFound } from 'next/navigation';
 
+export const dynamic = 'force-dynamic';
+
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
 }

@@ -2,6 +2,8 @@
 import { notFound } from 'next/navigation';
 import { getPostBySlug, Post } from '@repo/wp-utils';
 
+export const dynamic = 'force-dynamic';
+
 interface PostPageProps {
   params: Promise<{ slug: string }>;
 }

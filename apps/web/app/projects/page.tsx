@@ -2,6 +2,8 @@ import Link from 'next/link';
 import { getAllProjects } from '@repo/wp-utils';
 import { Project } from '@repo/wp-utils/src/types';
 
+export const dynamic = 'force-dynamic';
+
 export default async function ProjectsPage() {
   let projects: Project[] = [];
 

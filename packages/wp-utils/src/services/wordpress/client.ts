@@ -1,7 +1,7 @@
 import type { DocumentNode } from 'graphql';
 import { print } from 'graphql';
 
-const DEFAULT_TIMEOUT_MS = 8000;
+const DEFAULT_TIMEOUT_MS = 25000;
 const DEFAULT_REVALIDATE = 3600;
 
 export interface WordPressFetchOptions {
