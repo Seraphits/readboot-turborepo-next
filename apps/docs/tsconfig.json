@@ -1,16 +1,7 @@
 {
   "extends": "@repo/typescript-config/nextjs.json",
   "compilerOptions": {
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "paths": {
-      "@/*": ["./src/*"],
-      "@repo/ui": ["../../packages/ui/src/index.tsx"],
-      "@repo/ui/*": ["../../packages/ui/src/*"]
-    }
+    "plugins": [{ "name": "next" }]
   },
   "include": [
     "**/*.ts",
@@ -20,8 +11,6 @@
     "next.config.ts",
     "next.config.mts",
     ".next/types/**/*.ts"
-, "app/style-guide/default-styles", "../../packages/ui/src/patterns/Organisms/NavBar/NavBar.tsx"  ],
-  "exclude": [
-    "node_modules"
-  ]
+  ],
+  "exclude": ["node_modules"]
 }

@@ -9,6 +9,7 @@
     "react": "*"
   },
   "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
     "@types/react": "*"
   }
 }

@@ -1,17 +1,7 @@
 {
   "extends": "@repo/typescript-config/nextjs.json",
   "compilerOptions": {
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "paths": {
-      "@/*": ["./src/*"],
-      "@repo/ui": ["../../packages/ui/src/index.tsx"],
-      "@repo/ui/*": ["../../packages/ui/src/*"],
-      "@repo/wp-utils": ["../../packages/wp-utils/src/index.ts"]
-    }
+    "plugins": [{ "name": "next" }]
   },
   "include": [
     "**/*.ts",

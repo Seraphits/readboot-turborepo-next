@@ -1,9 +1,10 @@
 {
-  "files": ,
+  "files": [],
   "references": [
     { "path": "./packages/ui" },
     { "path": "./packages/wp-utils" },
     { "path": "./apps/web" },
-    { "path": "./apps/docs" }
+    { "path": "./apps/docs" },
+    { "path": "./apps/storybook" }
   ]
 }

@@ -291,6 +291,9 @@ importers:
         specifier: '*'
         version: 19.2.3
     devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
       '@types/react':
         specifier: '*'
         version: 19.2.2
