@@ -1,4 +1,4 @@
-@use "../../Atoms/BrandingAtoms" as branding;
+@use "@branding" as branding;
 
 .NavigationMenu {
   &__List {

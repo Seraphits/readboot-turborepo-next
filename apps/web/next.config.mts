@@ -20,13 +20,12 @@ const nextConfig: NextConfig = {
   },
   turbopack: {
     resolveAlias: {
-      '@branding': './../../packages/ui/src/patterns/Atoms/BrandingAtoms/_index.scss',
+      '@branding': path.join(__dirname, '../../packages/ui/src/patterns/Atoms/BrandingAtoms/_index.scss'),
     },
   },
   sassOptions: {
-    // Nested correctly; loadPaths is the modern standard for Dart Sass/Turbopack
     loadPaths: [
-      path.join(__dirname, '../../packages/ui/src/patterns/Atoms')
+      path.join(__dirname, '../../packages/ui/src/patterns/Atoms'),
     ],
   },
   images: {

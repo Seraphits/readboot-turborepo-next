@@ -9,12 +9,12 @@ const nextConfig: NextConfig = {
   transpilePackages: ["@repo/ui"],
   turbopack: {
     resolveAlias: {
-      '@branding': './../../packages/ui/src/patterns/Atoms/BrandingAtoms/_index.scss',
+      '@branding': path.join(__dirname, '../../packages/ui/src/patterns/Atoms/BrandingAtoms/_index.scss'),
     },
   },
   sassOptions: {
-  loadPaths: [
-      path.join(__dirname, '../../packages/ui/src/patterns/Atoms')
+    loadPaths: [
+      path.join(__dirname, '../../packages/ui/src/patterns/Atoms'),
     ],
   },
   images: {

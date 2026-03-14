@@ -1,5 +1,5 @@
 // Importing variables assuming your relative path structure
-@use "../../Atoms/BrandingAtoms" as branding;
+@use "@branding" as branding;
 
 .banner {
   // Use the yellow 'Warning' status color from Image 3 for visibility

@@ -1,4 +1,4 @@
-@use "../../BrandingAtoms" as branding;
+@use "@branding" as branding;
 
 :global(button) {
   @include branding.button-base;
