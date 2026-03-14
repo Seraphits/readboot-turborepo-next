@@ -2,7 +2,7 @@ Active Context: ReadBoot Shared UI
 - Current Objective: Building the shared "Futurist Carton" component library in packages/ui.
 - Active Task: Migrating basic components (Button, Card, Code) to use the new SCSS Module architecture.
 - Status: Button is complete. Card and Code are pending migration.
-- Recent: Layout refactor complete. apps/web and apps/docs now use centralized getMenuData from @repo/wp-utils. Menu queries, URL transforms (toDocsHref), and fetch logic live in wp-utils. Layouts are "dumb"—single-line data calls.
+- Recent: GraphQL consolidation complete. getPageByUri and getDocByUri added to wp-utils. apps/web [slug]/page uses getPageByUri. apps/docs/lib/api.ts removed (getDocData was unused; getDocByUri now in wp-utils for future use).
 
 ReadBoot Progress
 - [x] Turborepo boilerplate initialized.
