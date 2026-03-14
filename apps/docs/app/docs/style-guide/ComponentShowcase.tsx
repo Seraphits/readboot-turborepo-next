@@ -1,7 +1,7 @@
 'use client';
 
 import { composeStories } from '@storybook/react';
-import * as ButtonStories from '@repo/ui/patterns/Atoms/Button/Button.stories';
+import * as ButtonStories from '@repo/ui/patterns/Atoms/InteractiveAtoms/Button/Button.stories';
 
 const { Primary } = composeStories(ButtonStories);
 

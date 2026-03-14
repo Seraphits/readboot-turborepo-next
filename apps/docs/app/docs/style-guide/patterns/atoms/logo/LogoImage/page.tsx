@@ -1,4 +1,4 @@
-import LogoImage from "@repo/ui/patterns/Atoms/Logo/LogoImage";
+import LogoImage from "@repo/ui/patterns/Atoms/BrandingAtoms/Logo/LogoImage";
 
 export default function LogoImagePage() {
   return (
