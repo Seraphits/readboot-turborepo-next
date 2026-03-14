@@ -2,46 +2,21 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
-
-const LOGO_QUERY = `
-  query GetLogo {
-    siteSettings {
-      siteSettings {
-        headerLogo {
-          sourceUrl
-          altText
-        }
-      }
-    }
-  }
-`;
+import { getLogoData } from "@repo/wp-utils";
+import type { LogoProps } from "@repo/wp-utils";
 
 /** Client-side logo for Storybook and other client contexts. */
 export function LogoImageClient({
   width = "100%",
   height = "100%",
   className,
-}: {
-  width?: string | number;
-  height?: string | number;
-  className?: string;
-}) {
+}: LogoProps) {
   const [logo, setLogo] = useState<{ sourceUrl: string; altText: string } | null>(null);
 
   useEffect(() => {
-    const endpoint = process.env.NEXT_PUBLIC_WORDPRESS_API_URL ?? "https://readboot.cloudaccess.host/graphql";
-    fetch(endpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query: LOGO_QUERY }),
-    })
-      .then((res) => res.json())
-      .then((json) => {
-        const headerLogo = json.data?.siteSettings?.siteSettings?.headerLogo;
-        if (headerLogo?.sourceUrl) {
-          setLogo({ sourceUrl: headerLogo.sourceUrl, altText: headerLogo.altText || "ReadBoot Logo" });
-        }
-      });
+    getLogoData()
+      .then((data) => data && setLogo(data))
+      .catch(() => setLogo(null));
   }, []);
 
   if (!logo?.sourceUrl) return <div style={{ width, height, background: "#eee" }}>Loading logo…</div>;
