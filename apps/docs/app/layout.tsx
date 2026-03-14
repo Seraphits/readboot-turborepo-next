@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import "@repo/ui/styles/globals";
-import "@repo/ui/styles/index";
+import "@branding/Foundations/Foundations.scss";
 import NavBar from "@repo/ui/patterns/Organisms/NavigationBar/navigation-bar";
 import { Alert } from "@repo/ui";
 
