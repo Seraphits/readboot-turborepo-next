@@ -6,7 +6,7 @@ import { withMicrofrontends } from '@vercel/microfrontends/next/config';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
-  transpilePackages: ["@repo/ui"],
+  transpilePackages: ["@repo/ui", "@repo/wp-utils"],
   turbopack: {
     resolveAlias: {
       '@branding': path.join(__dirname, '../../packages/ui/src/patterns/Atoms/BrandingAtoms'),

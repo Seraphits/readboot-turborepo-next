@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@repo/ui": "workspace:*",
+    "@repo/wp-utils": "workspace:*",
     "@storybook/nextjs": "^10.2.8",
     "@storybook/react": "^10.2.8",
     "@vercel/microfrontends": "^2.3.1",
