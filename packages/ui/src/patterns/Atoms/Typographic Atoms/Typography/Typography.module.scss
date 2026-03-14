@@ -1,0 +1,19 @@
+.typography {
+  color: var(--sys-color-ink-text);
+  margin: 0;
+}
+
+:global {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--sys-font-headline); // Baloo 2
+    color: var(--sys-color-ink-text);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-family: var(--sys-font-body); // Inter
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+}

@@ -1,0 +1,16 @@
+.container {
+  background-color: var(--sys-color-paper-bg);
+  border: 1px solid var(--sys-color-ink-text);
+  border-radius: 8px;
+  padding: 1.5rem;
+}
+
+// Targets "naked" tags globally so they look like cartons by default
+:global {
+  main, section, article, header, footer {
+    background-color: var(--sys-color-paper-bg);
+    border: 1px solid var(--sys-color-ink-text);
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+}

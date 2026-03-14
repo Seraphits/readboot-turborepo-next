@@ -1,4 +1,4 @@
-export * from "./patterns/Atoms/Button/button";
+export * from "./patterns/Atoms/InteractiveAtoms/Button/button";
 export {
   ColorScheme,
   COLOR_PAIRINGS,

@@ -1,0 +1,25 @@
+@use "../../BrandingAtoms/Colors/colors-variables" as *;
+@use "../../BrandingAtoms/Colors/colors-mixins" as *;
+
+.button {
+  background-color: var(--sys-color-action-primary);
+  color: var(--ref-color-offwhite);
+  font-family: var(--sys-font-headline);
+  border: 1px solid var(--sys-color-ink-text);
+  border-radius: 8px;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+
+  // Refined "Bouncy" transition for your personal site [1, 2]
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  &:hover { transform: scale(1.05); }
+  &:active { transform: scale(0.95); }
+}
+
+// Ensure "naked" buttons also get the bouncy look
+:global {
+  button:not([class]) {
+    @extend.button;
+  }
+}

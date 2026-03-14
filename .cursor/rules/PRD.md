@@ -1,4 +1,4 @@
-ReadBoot: Product Requirements Document
+<!-- ReadBoot: Product Requirements Document
 Mission
 ReadBoot: ReBooting Education Through Visionary Futures. This site is dedicated to creating a visionary future for the field of education and learning.
 
@@ -17,4 +17,4 @@ Core Site Map (apps/web)
 Content Pillars
 - Future-focused educational data.
 - Radical pedagogical frameworks.
-- Visionary learning platform components.
+- Visionary learning platform components. -->
