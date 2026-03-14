@@ -1,5 +1,5 @@
 @use "sass:map";
-@use "../variables/colors" as vars;
+@use "colors-variables" as vars;
 
 @mixin set-color-scheme($scheme) {
   $map: map.get(vars.$color-pairings, $scheme);

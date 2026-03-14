@@ -20,8 +20,10 @@ const nextConfig: NextConfig = {
   },
   sassOptions: {
     // Nested correctly; loadPaths is the modern standard for Dart Sass/Turbopack
-    includePaths: [path.join(__dirname, "../../packages/ui/src/styles")],
-    loadPaths: [path.join(__dirname, "../../packages/ui/src/styles")],
+    loadPaths: [
+      path.join(__dirname, "../../packages/ui/src/styles"),
+      path.join(__dirname, "../../packages/ui/src/patterns/Atoms")
+    ],
   },
   images: {
     remotePatterns: [

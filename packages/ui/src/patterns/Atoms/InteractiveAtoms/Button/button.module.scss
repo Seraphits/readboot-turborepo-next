@@ -1,5 +1,8 @@
-@use "../../BrandingAtoms/Colors/colors-variables" as *;
-@use "../../BrandingAtoms/Colors/colors-mixins" as *;
+@use "../../BrandingAtoms" as branding;
+
+.button {
+  @include branding.button-base;
+}
 
 .button {
   background-color: var(--sys-color-action-primary);
@@ -20,7 +23,7 @@
 // Ensure "naked" buttons also get the bouncy look
 :global {
   button:not([class]) {
-    @extend.button;
+    @include button-base; // Use the mixin instead of @extend
   }
 }
 
