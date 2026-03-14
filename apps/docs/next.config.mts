@@ -7,10 +7,14 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
   transpilePackages: ["@repo/ui"],
+  turbopack: {
+    resolveAlias: {
+      '@branding': './../../packages/ui/src/patterns/Atoms/BrandingAtoms/_index.scss',
+    },
+  },
   sassOptions: {
   loadPaths: [
-      path.join(__dirname, "../../packages/ui/src/styles"),
-      path.join(__dirname, "../../packages/ui/src/patterns/Atoms")
+      path.join(__dirname, '../../packages/ui/src/patterns/Atoms')
     ],
   },
   images: {

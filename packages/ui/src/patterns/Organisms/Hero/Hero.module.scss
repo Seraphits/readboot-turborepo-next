@@ -1,8 +1,7 @@
-@use "abstracts/mixins/colors" as color-mixins;
-@use "abstracts/variables/colors" as colors;
+@use "../../Atoms/BrandingAtoms" as branding;
 
-.paper { @include color-mixins.set-color-scheme('paper'); }
-.action { @include color-mixins.set-color-scheme('action'); }
+.paper { @include branding.set-color-scheme('paper'); }
+.action { @include branding.set-color-scheme('action'); }
 
 .bouncyCta {
   margin-top: 2.5rem;
@@ -16,7 +15,7 @@
 .mediaSlot {
   width: 100%;
   height: 400px;
-  background: colors.$sys-color-bg;
-  border: 4px solid colors.$sys-color-ink-text;
+  background: branding.$sys-color-bg;
+  border: 4px solid branding.$sys-color-ink-text;
   border-radius: 8px;
 }

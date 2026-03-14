@@ -1,4 +1,4 @@
-@use "abstracts/variables/colors" as colors;
+@use "../../Atoms/BrandingAtoms" as branding;
 
 .NavigationBar {
   display: flex;
@@ -6,14 +6,14 @@
   align-items: center;
   height: 80px; // Matches your base.scss header height
   padding: 0 2rem;
-  background-color: colors.$sys-color-paper-bg;
-  border-bottom: 1px solid colors.$sys-color-ink-text;
+  background-color: branding.$sys-color-paper-bg;
+  border-bottom: 1px solid branding.$sys-color-ink-text;
 
   &__Logo {
     width: 100px;
     height: 100%;
     position: relative;
-    //  background-color: colors.$sys-color-ink-text;
+    //  background-color: branding.$sys-color-ink-text;
   }
 
   &__Menu {

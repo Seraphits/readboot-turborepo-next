@@ -18,11 +18,15 @@ const nextConfig: NextConfig = {
       { source: '/vc-ap-:hash/:rest*', destination: `${docsUrl}/vc-ap-:hash/:rest*` },
     ];
   },
+  turbopack: {
+    resolveAlias: {
+      '@branding': './../../packages/ui/src/patterns/Atoms/BrandingAtoms/_index.scss',
+    },
+  },
   sassOptions: {
     // Nested correctly; loadPaths is the modern standard for Dart Sass/Turbopack
     loadPaths: [
-      path.join(__dirname, "../../packages/ui/src/styles"),
-      path.join(__dirname, "../../packages/ui/src/patterns/Atoms")
+      path.join(__dirname, '../../packages/ui/src/patterns/Atoms')
     ],
   },
   images: {

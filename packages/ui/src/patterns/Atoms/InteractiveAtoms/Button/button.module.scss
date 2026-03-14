@@ -1,45 +1,17 @@
 @use "../../BrandingAtoms" as branding;
 
-.button {
+:global(button) {
   @include branding.button-base;
 }
 
-.button {
-  background-color: var(--sys-color-action-primary);
-  color: var(--ref-color-offwhite);
-  font-family: var(--sys-font-headline);
-  border: 1px solid var(--sys-color-ink-text);
-  border-radius: 8px;
-  padding: 0.75rem 1.5rem;
+:global(a:not([class])) {
+  color: inherit;
+  text-decoration: none;
   cursor: pointer;
-
-  // Refined "Bouncy" transition for your personal site [1, 2]
   transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-  &:hover { transform: scale(1.05); }
-  &:active { transform: scale(0.95); }
-}
-
-// Ensure "naked" buttons also get the bouncy look
-:global {
-  button:not([class]) {
-    @include button-base; // Use the mixin instead of @extend
-  }
-}
-
-:global {
-  button:not([class]) { @extend.button; }
-
-  // Ensure "naked" links also look like your brand
-  a:not([class]) {
-    color: inherit;
-    text-decoration: none;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-
-    &:hover {
-      transform: scale(1.05);
-      color: var(--sys-color-action-primary);
-    }
+  &:hover {
+    transform: scale(1.05);
+    color: var(--sys-color-action-primary);
   }
 }
