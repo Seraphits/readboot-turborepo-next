@@ -1,6 +1,6 @@
 // apps/web/app/layout.tsx
 import NavBar from "@repo/ui/patterns/Organisms/NavigationBar/navigation-bar";
-import "@repo/ui/styles/globals";
+import "@branding/Foundations/Foundations.scss";
 import { buildMenuTree } from "@repo/wp-utils";
 import { Alert } from "@repo/ui";
 

@@ -3,6 +3,11 @@
   "compilerOptions": {
     "plugins": [{ "name": "next" }]
   },
+  "paths": {
+  "@branding/*":,
+  "@repo/ui/*": ["../../packages/ui/src/*"],
+  "@repo/wp-utils": ["../../packages/wp-utils/src/index.ts"]
+},
   "include": [
     "**/*.ts",
     "**/*.tsx",
