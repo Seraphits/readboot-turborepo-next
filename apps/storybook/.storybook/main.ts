@@ -35,9 +35,15 @@ const config: StorybookConfig = {
     const packagesUiSrc = path.join(projectRoot, 'packages/ui/src');
     const packagesWpUtilsSrc = path.join(projectRoot, 'packages/wp-utils/src');
     return mergeConfig(config, {
+      define: {
+        // Next.js internals (link, has-base-path) expect process.env in browser
+        'process.env': JSON.stringify({}),
+      },
       resolve: {
         alias: {
           'next/image': path.resolve(__dirname, 'next-image-mock.tsx'),
+          'next/link': path.resolve(__dirname, 'next-link-mock.tsx'),
+          'next/navigation': path.resolve(__dirname, 'next-navigation-mock.ts'),
           '@repo/ui': path.join(packagesUiSrc, 'index.tsx'),
           '@repo/ui/*': packagesUiSrc + '/',
           '@repo/wp-utils': path.join(packagesWpUtilsSrc, 'index.ts'),

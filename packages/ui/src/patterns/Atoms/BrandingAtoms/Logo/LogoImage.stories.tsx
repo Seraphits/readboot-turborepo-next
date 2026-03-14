@@ -15,7 +15,12 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  args: { width: "120px", height: "48px" },
+  args: {
+    width: "120px",
+    height: "48px",
+    src: "https://placehold.co/120x48/faf9f6/36454f?text=ReadBoot",
+    alt: "ReadBoot logo",
+  },
 };
 
 // export const Small: Story = {
