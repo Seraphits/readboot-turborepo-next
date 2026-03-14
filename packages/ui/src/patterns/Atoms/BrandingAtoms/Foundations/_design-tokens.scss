@@ -1,0 +1,20 @@
+// Outputs CSS custom properties for use with var() in components.
+// SCSS variables from BrandingAtoms are mapped to :root.
+@use "../Colors/colors-variables" as colors;
+@use "../Typography/fonts-variables" as fonts;
+
+:root {
+  --sys-color-paper-bg: #{colors.$sys-color-paper-bg};
+  --sys-color-ink-text: #{colors.$sys-color-ink-text};
+  --sys-color-action-primary: #{colors.$sys-color-action-primary};
+  --sys-color-dark-paper-bg: #{colors.$sys-color-dark-paper-bg};
+  --sys-color-dark-ink-text: #{colors.$sys-color-dark--ink-text};
+  --sys-color-status-success: #{colors.$sys-color-status-success};
+  --sys-color-status-warning: #{colors.$sys-color-status-warning};
+  --sys-color-status-error: #{colors.$sys-color-status-error};
+  --ref-color-offwhite: #{colors.$ref-color-offwhite};
+  --ref-color-charcoal: #{colors.$ref-color-charcoal};
+  --ref-color-crimson: #{colors.$ref-color-crimson};
+  --sys-font-headline: #{fonts.$sys-font-headline};
+  --sys-font-body: #{fonts.$sys-font-body};
+}

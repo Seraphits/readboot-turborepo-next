@@ -5,11 +5,14 @@
   "main": "./src/index.tsx",
   "types": "./src/index.tsx",
   "exports": {
-    "./*": "./src/*.tsx",
-    "./styles/globals": "./src/styles/base/globals.scss",
+    ".": "./src/index.tsx",
+    "./atoms": "./src/patterns/Atoms/index.tsx",
+    "./molecules": "./src/patterns/Molecules/index.tsx",
+    "./organisms": "./src/patterns/Organisms/index.tsx",
+    "./styles/globals": "./src/styles/index.scss",
+    "./styles/index": "./src/styles/index.scss",
     "./styles/*": "./src/styles/*.scss",
-    "./patterns/*": "./src/patterns/*",
-    "./Alert": "./src/patterns/Molecules/Alert/Alert.tsx"
+    "./patterns/*": "./src/patterns/*"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

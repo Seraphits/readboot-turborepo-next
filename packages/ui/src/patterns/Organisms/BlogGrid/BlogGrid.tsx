@@ -1,6 +1,5 @@
 import { getPosts, Post } from '@repo/wp-utils';
 import { BlogCard } from '../../Molecules/BlogCard/BlogCard';
-
 interface BlogGridProps {
   categorySlug?: string;
   limit?: number;
@@ -8,7 +7,6 @@ interface BlogGridProps {
   order?: 'ASC' | 'DESC';
   sectionTitle?: string;
 }
-
 export const BlogGrid = async ({
   categorySlug,
   limit = 3,
@@ -18,9 +16,7 @@ export const BlogGrid = async ({
 }: BlogGridProps) => {
   // Logic: Pulling the data in
   const posts = await getPosts({ categorySlug, limit, orderBy, order });
-
   if (!posts || posts.length === 0) return null;
-
   return (
     <section className="blog-grid-organism">
       {sectionTitle && <h2>{sectionTitle}</h2>}
