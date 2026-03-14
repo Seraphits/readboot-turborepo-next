@@ -1,4 +1,4 @@
-@use "@branding" as branding;
+@use "BrandingAtoms" as branding;
 
 .paper { @include branding.set-color-scheme('paper'); }
 .action { @include branding.set-color-scheme('action'); }
