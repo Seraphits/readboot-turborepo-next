@@ -1,19 +1,27 @@
+@use "../../animations/animations" as fx;
+@use "../../SpatialAtoms/geometric/geometric-variables" as geom;
+
 .typography {
   color: var(--sys-color-ink-text);
   margin: 0;
-}
 
-:global {
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--sys-font-headline); // Baloo 2
-    color: var(--sys-color-ink-text);
+  &--h1 {
+    font-family: var(--sys-font-headline);
+    font-size: geom.to-rem(48px);
     line-height: 1.2;
-    margin-bottom: 1rem;
+    margin-bottom: geom.$space-md;
   }
 
-  p {
-    font-family: var(--sys-font-body); // Inter
+  &--body {
+    font-family: var(--sys-font-body);
+    font-size: geom.to-rem(16px);
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    margin-bottom: geom.$space-sm;
+  }
+
+  // Effect: Glitch Modifier
+  &.fx--glitch {
+    // Keyframes imported from global Base styles
+    animation: glitch-anim 1s linear infinite;
   }
 }

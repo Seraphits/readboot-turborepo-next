@@ -1,0 +1,6 @@
+@keyframes glitch-anim {
+  0% { clip-path: inset(50% 0 30% 0); transform: translate(-5px, 0); }
+  20% { clip-path: inset(10% 0 85% 0); transform: translate(5px, 0); }
+  40% { clip-path: inset(80% 0 5% 0); transform: translate(-5px, 0); }
+  100% { clip-path: inset(0% 0 0% 0); transform: translate(0); }
+}

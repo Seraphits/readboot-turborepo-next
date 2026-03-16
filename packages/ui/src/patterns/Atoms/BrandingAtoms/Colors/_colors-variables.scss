@@ -1,41 +1,84 @@
-// ReadBoot Primitive Tokens (Ref)
-$ref-color-offwhite: #FAF9F6;
+// TIER 1: REFERENCE TOKENS (Brand Primitives)
 $ref-color-charcoal: #36454F;
-$ref-color-crimson: #DC143C;
-$ref-color-yellow:#FAD20A;
-$ref-color-teal: #29ECFF ;
-$ref-color-green:#56F000;
-$ref-color-purple:#905FEA;
+$ref-color-offwhite: #FAF9F6;
+$ref-color-crimson:  #DC143C;
+$ref-color-yellow:   #FAD20A;
+$ref-color-green:    #56F000;
+$ref-color-teal:     #29ECFF;
+$ref-color-purple:   #905FEA;
 
-// ReadBoot Semantic Tokens (Sys)
-$sys-color-paper-bg: $ref-color-offwhite;
-$sys-color-ink-text: $ref-color-charcoal;
-$sys-color-action-primary: $ref-color-crimson;
-$sys-color-dark-paper-bg: $ref-color-charcoal;
-$sys-color-dark--ink-text: $ref-color-offwhite;
-$sys-color-status-success: $ref-color-green;
-$sys-color-status-warning: $ref-color-yellow;
-$sys-color-status-error: $ref-color-crimson;
-
-$color-pairings: (
-  "paper": (
-    "bg": $sys-color-paper-bg,
-    "text": $sys-color-ink-text
+// TIER 2: THEME MAPS (The "Negative-Ink" Logic)
+$themes: (
+  "light": (
+    "bg-paper": $ref-color-offwhite,
+    "ink-text": $ref-color-charcoal,
+    "border":   $ref-color-charcoal,
+    "action":   $ref-color-crimson,
+    "success":  $ref-color-green,
+    "warning":  $ref-color-yellow,
+    "error":    $ref-color-crimson,
+    "info":     $ref-color-teal
   ),
-  "dark-paper": (
-    "bg": $sys-color-dark-paper-bg,
-    "text": $sys-color-dark--ink-text
+  "dark": (
+    "bg-paper": $ref-color-charcoal,
+    "ink-text": $ref-color-offwhite,
+    "border":   $ref-color-offwhite,
+    // Use expressions to hit 4.5:1 contrast while keeping brand hue
+    "action":   lighten($ref-color-crimson, 15%),
+    "success":  desaturate(lighten($ref-color-green, 10%), 15%),
+    "warning":  lighten($ref-color-yellow, 5%),
+    "error":    lighten($ref-color-crimson, 15%),
+    "info":     $ref-color-teal
+  )
+);
+
+// TIER 3: COMPLETE SEMANTIC PAIRINGS
+$color-pairings: (
+  // --- Core Brand Pairings ---
+  "default": (
+    "bg": "bg-paper",    // Off-white in Light / Charcoal in Dark
+    "text": "ink-text"   // Charcoal in Light / Off-white in Dark
+  ),
+  "inverted": (
+    "bg": "ink-text",    // Charcoal in Light / Off-white in Dark
+    "text": "bg-paper"   // Off-white in Light / Charcoal in Dark
   ),
   "action": (
-    "bg": $sys-color-action-primary,
-    "text": $ref-color-offwhite // High contrast for buttons
+    "bg": "action",      // Brand Crimson (Adjusted in Dark Mode)
+    "text": "bg-paper"   // High contrast "Paper" ink on the action color
+  ),
+
+  // --- Feedback & Status Pairings ---
+  "success": (
+    "bg": "success",     // Brand Green
+    "text": "bg-paper"   // "Paper" (Off-white/Charcoal) for maximum punch
+  ),
+  "warning": (
+    "bg": "warning",     // Brand Yellow
+    "text": "$ref-color-charcoal" // Always use dark ink on yellow for contrast
   ),
   "error": (
-    "bg": $sys-color-status-error,
-    "text": $ref-color-offwhite
+    "bg": "error",       // Brand Crimson (distinct from action for semantics)
+    "text": "bg-paper"
   ),
-  "success": (
-    "bg": $sys-color-status-success,
-    "text": $ref-color-charcoal
+  "info": (
+    "bg": "info",        // Brand Teal
+    "text": "$ref-color-charcoal" // Dark ink required on teal backgrounds
+  ),
+
+  // --- Accent Pairings ---
+  "tertiary": (
+    "bg": "purple",      // Secondary Brand Accent
+    "text": "bg-paper"
+  ),
+
+  // --- High-Intensity Text Signals (Color text on Paper BG) ---
+  "text-action": (
+    "bg": "bg-paper",
+    "text": "action"
+  ),
+  "text-error": (
+    "bg": "bg-paper",
+    "text": "error"
   )
 );

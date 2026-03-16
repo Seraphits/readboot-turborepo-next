@@ -1,0 +1,15 @@
+// REFERENCE TOKENS (Fixed Identity)
+$ref-border-width-thick: 4px; // Keep PX for crisp linework
+$ref-border-radius-brand: to-rem(12px); // 0.75rem: Scales with text
+$ref-space-unit: 4px;
+
+// SYSTEM TOKENS
+$sys-geom-border-main: $ref-border-width-thick;
+$sys-geom-radius-main: $ref-border-radius-brand;
+
+// SPACING SCALE (Now outputting REM)
+$space-xs: to-rem($ref-space-unit);        // 0.25rem
+$space-sm: to-rem($ref-space-unit * 2);    // 0.5rem
+$space-md: to-rem($ref-space-unit * 4);    // 1rem
+$space-lg: to-rem($ref-space-unit * 6);    // 1.5rem
+$space-xl: to-rem($ref-space-unit * 8);    // 2rem

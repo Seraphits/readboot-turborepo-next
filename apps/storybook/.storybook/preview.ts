@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react-vite';
-import '../../../packages/ui/src/patterns/Atoms/BrandingAtoms/Foundations/Foundations.scss';
+import '@repo/ui/src/patterns/globals.scss';
 
 const preview: Preview = {
   parameters: {

@@ -1,0 +1,36 @@
+@use "geometric-variables" as geom;
+
+.container-base {
+  display: flex;
+  // Border thickness in px for sharp lines, color from theme
+  border: geom.$sys-geom-border-main solid var(--sys-color-border);
+  border-radius: geom.$sys-geom-radius-main;
+  padding: geom.$space-md;
+  gap: geom.$space-sm;
+  background-color: var(--sys-color-paper-bg);
+  transition: transform 0.5s cubic-bezier(0.8, -0.5, 0.2, 1.8);
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.swatch-layout {
+  @extend.container-base;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+
+  &__preview {
+    height: geom.to-rem(96px); // Use function for height precision
+    width: 100%;
+    border-bottom: geom.$sys-geom-border-main solid var(--sys-color-border);
+  }
+
+  &__info {
+    padding: geom.$space-md;
+    display: flex;
+    flex-direction: column;
+    gap: geom.$space-xs;
+  }
+}

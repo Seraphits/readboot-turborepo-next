@@ -32,8 +32,20 @@ export function LogoImageClient({
   const sourceUrl = staticSrc ?? logo?.sourceUrl;
   const altText = staticAlt ?? logo?.altText ?? "";
 
-  if (!sourceUrl) return <div style={{ width, height, background: "#eee" }}>Loading logo…</div>;
+  if (!sourceUrl) return (
+  <div
 
+    style={{
+      width,
+      height,
+      background: "var(--sys-color-border)", // Corrected from #eee
+      opacity: 0.1
+    }}
+    aria-busy="true"
+  >
+    Loading logo...
+  </div>
+);
   return (
     <div className={className} style={{ position: "relative", width, height, display: "block" }}>
       <Image

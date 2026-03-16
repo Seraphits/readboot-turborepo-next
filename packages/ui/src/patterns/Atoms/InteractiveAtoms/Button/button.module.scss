@@ -1,17 +1,16 @@
-@use "BrandingAtoms" as branding;
+@use "../../../BrandingAtoms/Mixins/button-mixins" as mixins;
 
-:global(button) {
-  @include branding.button-base;
-}
+.button {
+  // 1. This is your "Base Style" that applies to every Button component
+  @include mixins.button-base;
+  background-color: var(--sys-color-paper-bg); // Light mode default
+  color: var(--sys-color-ink-text);
 
-:global(a:not([class])) {
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-  &:hover {
-    transform: scale(1.05);
-    color: var(--sys-color-action-primary);
+  // 2. This only changes specific values if the variant is applied
+  &--action {
+    background-color: var(--sys-color-action-primary);
+    color: var(--sys-color-paper-bg);
+    // Notice we don't repeat the 4px border or 12px radius;
+    // those stay because they are in the.button block above.
   }
 }

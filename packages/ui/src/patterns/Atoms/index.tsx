@@ -5,4 +5,5 @@ export { LogoImageClient } from './BrandingAtoms/Logo/LogoImageClient';
 export { Typography } from './BrandingAtoms/Typography/Typography';
 export { default as NavigationLink } from './InteractiveAtoms/NavigationLink/navigation-link';
 export { SectionLayout } from './LayoutAtoms/SectionLayout/SectionLayout';
-export { Container } from './Environmental Atoms/Container/Container';
+export { Container } from './EnvironmentalAtoms/Container/Container';
+export { SpacingScale } from './SpatialAtoms/spacing/SpacingScale';

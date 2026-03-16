@@ -1,13 +1,18 @@
 @use "sass:map";
 @use "colors-variables" as vars;
 
-@mixin set-color-scheme($scheme) {
-  $map: map.get(vars.$color-pairings, $scheme);
+@mixin set-color-scheme($scheme, $theme: "light") {
+  $current-theme: map.get(vars.$themes, $theme);
+  $pairing: map.get(vars.$color-pairings, $scheme);
 
-  @if $map {
-    background-color: map.get($map, "bg");
-    color: map.get($map, "text");
+  @if $pairing {
+    $bg-key: map.get($pairing, "bg");
+    $text-key: map.get($pairing, "text");
+
+    background-color: map.get($current-theme, $bg-key);
+    color: map.get($current-theme, $text-key);
+    border-color: map.get($current-theme, "border");
   } @else {
-    @error "Unknown color scheme: #{$scheme}. Please check _colors.scss.";
+    @error "Unknown color scheme: #{$scheme}";
   }
 }

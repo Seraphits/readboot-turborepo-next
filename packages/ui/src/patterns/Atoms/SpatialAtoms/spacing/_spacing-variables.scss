@@ -1,0 +1,24 @@
+@use "../../BrandingAtoms/Mixins/global-mixins" as global;
+
+// TIER 1: REFERENCE (4pt Grid Base)
+$ref-space-unit: 4px;
+
+// TIER 2: SYSTEM SCALE (REM-based for Accessibility)
+$space-xs: global.to-rem($ref-space-unit);         // 4px  -> 0.25rem
+$space-sm: global.to-rem($ref-space-unit * 2);     // 8px  -> 0.5rem
+$space-md: global.to-rem($ref-space-unit * 3);     // 12px -> 0.75rem
+$space-lg: global.to-rem($ref-space-unit * 4);     // 16px -> 1rem
+$space-xl: global.to-rem($ref-space-unit * 6);     // 24px -> 1.5rem
+$space-2xl: global.to-rem($ref-space-unit * 8);    // 32px -> 2rem
+$space-3xl: global.to-rem($ref-space-unit * 12);   // 48px -> 3rem
+
+// Map for programmatic iteration in the Pattern Lab
+$spacing-map: (
+  "xs": $space-xs,
+  "sm": $space-sm,
+  "md": $space-md,
+  "lg": $space-lg,
+  "xl": $space-xl,
+  "2xl": $space-2xl,
+  "3xl": $space-3xl
+);
