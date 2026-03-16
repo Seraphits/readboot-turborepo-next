@@ -1,3 +1,4 @@
+"use client"
 import NavigationLink from '../../Atoms/InteractiveAtoms/NavigationLink/navigation-link';
 import styles from './navigation-menu.module.scss';
 // import Link from 'next/link';

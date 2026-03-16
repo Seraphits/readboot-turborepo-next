@@ -1,3 +1,5 @@
+"use client"
+
 import LogoImage from '../../Atoms/BrandingAtoms/Logo/LogoImage';
 import NavMenu from '../../Molecules/NavigationMenu/navigation-menu';
 import { NavigationLinkItem } from '../../Molecules/NavigationMenu/navigation-menu';
