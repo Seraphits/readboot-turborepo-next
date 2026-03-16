@@ -11,6 +11,7 @@
   --sys-color-warning: #{map-get(colors.$themes, "light", "warning")};
   --sys-color-error:   #{map-get(colors.$themes, "light", "error")};
   --sys-color-info:    #{map-get(colors.$themes, "light", "info")};
+  --sys-color-accent-secondary: #{map-get(colors.$themes, "light", "purple")};
 
   // Fonts from Image 5 (Turn 11)
   --sys-font-headline: 'Baloo 2', display;
@@ -26,4 +27,5 @@
   --sys-color-warning: #{map-get(colors.$themes, "dark", "warning")};
   --sys-color-error:   #{map-get(colors.$themes, "dark", "error")};
   --sys-color-info:    #{map-get(colors.$themes, "dark", "info")};
+  --sys-color-accent-secondary: #{map-get(colors.$themes, "dark", "purple")};
 }

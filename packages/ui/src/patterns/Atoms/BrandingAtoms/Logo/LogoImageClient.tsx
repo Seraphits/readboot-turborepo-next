@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { getLogoData } from "@repo/wp-utils";
 import type { LogoProps } from "@repo/wp-utils";
+import styles from "./LogoImage.module.scss";
 
 export interface LogoImageClientProps extends LogoProps {
   /** Static src for Storybook/mock contexts; skips fetch when provided with alt. */
@@ -33,21 +34,21 @@ export function LogoImageClient({
   const altText = staticAlt ?? logo?.altText ?? "";
 
   if (!sourceUrl) return (
-  <div
-
-    style={{
-      width,
-      height,
-      background: "var(--sys-color-border)", // Corrected from #eee
-      opacity: 0.1
-    }}
-    aria-busy="true"
-  >
-    Loading logo...
-  </div>
-);
+    <div
+      className={styles.loading}
+      style={{
+        width,
+        height,
+        background: "var(--sys-color-border)",
+        opacity: 0.1,
+      }}
+      aria-busy="true"
+    >
+      Loading logo...
+    </div>
+  );
   return (
-    <div className={className} style={{ position: "relative", width, height, display: "block" }}>
+    <div className={`${styles.container} ${className ?? ""}`.trim()} style={{ width, height }}>
       <Image
         src={sourceUrl}
         alt={altText}

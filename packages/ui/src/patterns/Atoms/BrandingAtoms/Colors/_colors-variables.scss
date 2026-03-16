@@ -17,7 +17,8 @@ $themes: (
     "success":  $ref-color-green,
     "warning":  $ref-color-yellow,
     "error":    $ref-color-crimson,
-    "info":     $ref-color-teal
+    "info":     $ref-color-teal,
+    "purple":   $ref-color-purple
   ),
   "dark": (
     "bg-paper": $ref-color-charcoal,
@@ -28,7 +29,8 @@ $themes: (
     "success":  desaturate(lighten($ref-color-green, 10%), 15%),
     "warning":  lighten($ref-color-yellow, 5%),
     "error":    lighten($ref-color-crimson, 15%),
-    "info":     $ref-color-teal
+    "info":     $ref-color-teal,
+    "purple":   lighten($ref-color-purple, 8%)
   )
 );
 

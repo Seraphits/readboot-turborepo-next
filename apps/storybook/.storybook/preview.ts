@@ -1,7 +1,18 @@
 import type { Preview } from '@storybook/react-vite';
-import '@repo/ui/src/patterns/globals.scss';
+import { withThemeByDataAttribute } from '@storybook/addon-themes';
+import '../../../packages/ui/src/patterns/globals.scss';
 
 const preview: Preview = {
+  decorators: [
+    withThemeByDataAttribute({
+      themes: {
+        light: 'light',
+        dark: 'dark',
+      },
+      defaultTheme: 'light',
+      attributeName: 'data-theme',
+    }),
+  ],
   parameters: {
     controls: {
       matchers: {
