@@ -1,4 +1,3 @@
-@use "BrandingAtoms" as branding;
 
 .NavigationMenu {
   &__List {
@@ -6,8 +5,6 @@
     list-style: none;
     gap: 2rem;
     align-items: center;
-    // font-family: branding.$sys-font-headline;
-    // background-color: branding.$sys-color-ink-text;
   }
 
   &__Item {
@@ -16,9 +13,11 @@
 
     a {
       text-decoration: none;
-      font-family: branding.$sys-font-headline;
-    //   font-weight: 500;
-      &:hover, &:focus { color: branding.$sys-color-action-primary; }
+      font-family: var(--sys-font-headline);
+      &:hover,
+      &:focus {
+        color: var(--sys-color-action-primary);
+      }
       //
     }
 

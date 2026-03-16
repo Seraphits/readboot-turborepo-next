@@ -1,3 +1,4 @@
+@use "../../BrandingAtoms/Mixins/global-mixins" as global;
 @use "../../SpatialAtoms/geometric/geometric-variables" as geom;
 
 @mixin button-base {
@@ -13,7 +14,7 @@
   border-radius: geom.$sys-geom-radius-main;
 
   // Spacing and Typography: REM for accessibility
-  padding: geom.to-rem(12px) geom.to-rem(24px);
+  padding: global.to-rem(12px) global.to-rem(24px);
   font-family: var(--sys-font-headline);
   font-weight: 700;
 

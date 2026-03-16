@@ -1,5 +1,5 @@
 import NavBar from "@repo/ui/patterns/Organisms/NavigationBar/navigation-bar";
-import "@branding/Foundations/Foundations.scss";
+import "@repo/ui/patterns/globals.scss";
 import { getMenuData } from "@repo/wp-utils";
 import { Alert } from "@repo/ui";
 

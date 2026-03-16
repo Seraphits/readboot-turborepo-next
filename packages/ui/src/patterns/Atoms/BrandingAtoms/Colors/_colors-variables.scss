@@ -34,6 +34,16 @@ $themes: (
   )
 );
 
+// Semantic tokens for SCSS modules (light theme default; CSS vars handle theme toggle)
+$sys-color-paper-bg: map-get(map-get($themes, "light"), "bg-paper");
+$sys-color-ink-text: map-get(map-get($themes, "light"), "ink-text");
+$sys-color-border: map-get(map-get($themes, "light"), "border");
+$sys-color-action-primary: map-get(map-get($themes, "light"), "action");
+$sys-color-status-warning: map-get(map-get($themes, "light"), "warning");
+$sys-color-status-success: map-get(map-get($themes, "light"), "success");
+$sys-color-status-error: map-get(map-get($themes, "light"), "error");
+$sys-color-status-info: map-get(map-get($themes, "light"), "info");
+
 // TIER 3: COMPLETE SEMANTIC PAIRINGS
 $color-pairings: (
   // --- Core Brand Pairings ---

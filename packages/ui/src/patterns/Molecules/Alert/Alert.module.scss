@@ -1,13 +1,7 @@
-// Importing variables assuming your relative path structure
-@use "BrandingAtoms" as branding;
-
 .banner {
-  // Use the yellow 'Warning' status color from Image 3 for visibility
-  background-color: branding.$sys-color-status-warning;
-  color: branding.$sys-color-ink-text;
-
-  // Use the Baloo 2 font and weight from Image 4
-  font-family: branding.$sys-font-headline;
+  background-color: var(--sys-color-warning);
+  color: var(--sys-color-ink-text);
+  font-family: var(--sys-font-headline);
   font-weight: 700;
 
   text-align: center;

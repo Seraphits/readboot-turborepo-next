@@ -1,19 +1,16 @@
-@use "BrandingAtoms" as branding;
-
 .NavigationBar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 80px; // Matches your base.scss header height
+  height: 80px;
   padding: 0 2rem;
-  background-color: branding.$sys-color-paper-bg;
-  border-bottom: 1px solid branding.$sys-color-ink-text;
+  background-color: var(--sys-color-paper-bg);
+  border-bottom: 1px solid var(--sys-color-ink-text);
 
   &__Logo {
     width: 100px;
     height: 100%;
     position: relative;
-    //  background-color: branding.$sys-color-ink-text;
   }
 
   &__Menu {
