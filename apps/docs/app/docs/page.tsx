@@ -1,11 +1,11 @@
-import { Button, HeroCentered } from "@repo/ui";
+import { Button, Hero } from "@repo/ui";
 
 export default function DocsHome() {
   return (
     <div>
-      <HeroCentered
+      <Hero
         title="REBOOTING EDUCATION"
-        subtitle="High-contrast academic tools for the next generation."
+        subhead="High-contrast academic tools for the next generation."
         ctaText="Join the Mission"
       />
       <h1>Docs Home</h1>

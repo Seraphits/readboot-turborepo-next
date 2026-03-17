@@ -7,6 +7,10 @@ const meta: Meta<typeof Button> = {
 };
 export default meta;
 
+export const Primary: StoryObj<typeof Button> = {
+  args: { children: 'Primary Button' },
+};
+
 export const ComponentSet: StoryObj = {
   render: () => (
     <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>

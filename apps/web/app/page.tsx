@@ -1,4 +1,4 @@
-import { Button, HeroHome } from "@repo/ui";
+import { Button, Hero } from "@repo/ui";
 import Head from "next/head";
 
 
@@ -11,9 +11,9 @@ export default function Home() {
         <meta name="description" content="ReBooting Education" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <HeroHome
+      <Hero
         title="REBOOTING EDUCATION"
-        subtitle="High-contrast academic tools for the next generation."
+        subhead="High-contrast academic tools for the next generation."
         ctaText="Join the Mission"
       />
       <h1 className="glitch-title" data-text="DISRUPTION">Web Home</h1>

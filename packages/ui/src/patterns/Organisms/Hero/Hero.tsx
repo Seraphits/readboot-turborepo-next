@@ -1,33 +1,53 @@
-import { SectionLayout } from '../LayoutAtoms/SectionLayout';
-import { GridArea } from '../LayoutAtoms/GridArea';
-import { GlitchHeader } from '../Molecules/GlitchHeader';
-import { CaptureForm } from '../Molecules/CaptureForm';
-import { MediaMockup } from '../Molecules/MediaMockup';
-import { Button } from '../Atoms/Button/button';
+import { ElementType, ReactNode } from 'react';
+import { SectionLayout } from '../../Atoms/LayoutAtoms/SectionLayout/SectionLayout';
+import { Button } from '../../Atoms/InteractiveAtoms/Button/button';
 import styles from './Hero.module.scss';
+import clsx from 'clsx';
 
-export const Hero = ({ layout = 'centered', title, subhead, ctaText, imageNode }) => {
+export type HeroLayoutVariant = 'centered' | 'split' | 'asymmetrical' | 'preview';
+
+export interface HeroProps<T extends ElementType = 'section'> {
+  as?: T;
+  layout?: HeroLayoutVariant;
+  title: string;
+  subhead?: string;
+  ctaText?: string;
+  imageNode?: ReactNode;
+  isGlitchy?: boolean;
+}
+
+export const Hero = <T extends ElementType = 'section'>({
+  as,
+  layout = 'centered',
+  title,
+  subhead,
+  ctaText = 'Get Started',
+  imageNode,
+  isGlitchy = false,
+  ...props
+}: HeroProps<T> & Omit<React.ComponentPropsWithoutRef<T>, keyof HeroProps<T>>) => {
+  const Component = (as ?? 'section') as ElementType;
+
   return (
-    <SectionLayout variant={layout}>
-      <GridArea area="content">
-        <GlitchHeader title={title} subhead={subhead} />
+    <Component className={styles.heroRoot} {...props}>
+      <SectionLayout variant={layout}>
+        <div className={styles.heroContent}>
+          <h1
+            className={clsx(styles.glitchHeadline, isGlitchy && 'fx--glitch')}
+            data-text={title}
+          >
+            {title}
+          </h1>
+          {subhead && <p className={styles.subheadline}>{subhead}</p>}
+          <Button variant="action" className={styles.bouncyCta}>
+            {ctaText}
+          </Button>
+        </div>
 
-        {layout === 'inputCapture'? (
-          <CaptureForm ctaText={ctaText} />
-        ) : (
-          <Button className={styles.bouncyCta}>{ctaText}</Button>
+        {layout !== 'centered' && (
+          <div className={styles.mediaSlot}>{imageNode}</div>
         )}
-      </GridArea>
-
-      {layout!== 'centered' && (
-        <GridArea area="media">
-          {layout === 'productPreview'? (
-            <MediaMockup>{imageNode}</MediaMockup>
-          ) : (
-            imageNode
-          )}
-        </GridArea>
-      )}
-    </SectionLayout>
+      </SectionLayout>
+    </Component>
   );
 };

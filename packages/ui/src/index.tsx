@@ -7,5 +7,4 @@ export {
   COLOR_SCHEME_NAMES,
   type ColorSchemeName,
 } from './patterns/Organisms/ColorScheme/color-scheme';
-export { HeroCentered } from './patterns/Organisms/Hero/HeroCentered';
-export { HeroHome } from './patterns/Organisms/Hero/HeroHero';
+export { Hero } from './patterns/Organisms/Hero/Hero';
