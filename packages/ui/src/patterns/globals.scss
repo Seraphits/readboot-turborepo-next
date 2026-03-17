@@ -15,6 +15,9 @@
   // Fonts from Image 5 (Turn 11)
   --sys-font-headline: 'Baloo 2', display;
   --sys-font-body: 'Inter', sans-serif;
+
+  // Geometry (4px border, 12px radius)
+  --sys-radius-primary: 12px;
 }
 
 [data-theme="dark"] {

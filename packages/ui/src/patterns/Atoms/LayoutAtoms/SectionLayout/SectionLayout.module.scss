@@ -6,7 +6,7 @@
   margin: space.$space-2xl;
   padding: space.$space-3xl space.$space-2xl;
   border: 4px solid var(--sys-color-border);
-  border-radius: 12px;
+  border-radius: var(--sys-radius-primary, 12px);
   gap: space.$space-2xl;
   align-items: center;
 
