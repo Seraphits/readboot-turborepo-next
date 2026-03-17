@@ -9,6 +9,9 @@ const __dirname = path.dirname(__filename);
 
 const nextConfig: NextConfig = {
   transpilePackages: ["@repo/ui", '@repo/wp-utils'],
+  experimental: {
+    optimizePackageImports: ["@repo/ui"],
+  },
   async rewrites() {
     const docsUrl = 'https://readboot-turborepo-next-docs.vercel.app';
     return [

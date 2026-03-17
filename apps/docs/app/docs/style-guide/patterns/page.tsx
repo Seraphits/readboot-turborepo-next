@@ -20,7 +20,7 @@ export default function ComponentsPage() {
         ))}
       </div>
       <pre style={{ padding: "1rem", backgroundColor: "#f4f4f4", borderRadius: "4px", marginBottom: "2rem" }}>
-        <code>{`import { ColorScheme } from "@repo/ui";\n\n<ColorScheme scheme="paper">Content here</ColorScheme>\n<ColorScheme scheme="action">Primary surface</ColorScheme>`}</code>
+        <code>{`import { ColorScheme } from "@repo/ui/organisms";\n\n<ColorScheme scheme="paper">Content here</ColorScheme>\n<ColorScheme scheme="action">Primary surface</ColorScheme>`}</code>
       </pre>
 
       <h2>Button</h2>
@@ -39,7 +39,7 @@ export default function ComponentsPage() {
 
       <h3 style={{ marginTop: '2rem' }}>Usage Example</h3>
       <pre style={{ padding: '1rem', backgroundColor: '#f4f4f4', borderRadius: '4px' }}>
-        <code>{`import { Button } from "@repo/ui";\n\n<Button>Click Me</Button>`}</code>
+        <code>{`import { Button } from "@repo/ui/atoms";\n\n<Button>Click Me</Button>`}</code>
       </pre>
     </section>
   );

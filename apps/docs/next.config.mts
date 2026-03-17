@@ -7,6 +7,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
   transpilePackages: ["@repo/ui", "@repo/wp-utils"],
+  experimental: {
+    optimizePackageImports: ["@repo/ui"],
+  },
   turbopack: {
     resolveAlias: {
       '@branding': path.join(__dirname, '../../packages/ui/src/patterns/Atoms/BrandingAtoms'),
