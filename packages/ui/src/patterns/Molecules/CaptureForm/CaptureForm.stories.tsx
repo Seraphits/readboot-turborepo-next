@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { CaptureForm } from './CaptureForm';
 
 const meta: Meta<typeof CaptureForm> = {
-  title: 'Molecules/CaptureForm',
+  title: 'Patterns/Molecules/CaptureForm',
   component: CaptureForm,
 };
 export default meta;

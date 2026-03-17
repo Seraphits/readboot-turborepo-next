@@ -3,7 +3,7 @@ import { BlogCard } from './BlogCard';
 import type { Post } from '@repo/wp-utils';
 
 const meta: Meta<typeof BlogCard> = {
-  title: 'Molecules/BlogCard',
+  title: 'Patterns/Molecules/BlogCard',
   component: BlogCard,
 };
 export default meta;

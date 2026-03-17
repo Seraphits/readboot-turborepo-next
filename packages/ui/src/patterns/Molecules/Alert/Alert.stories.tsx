@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Alert } from './Alert';
 
 const meta: Meta<typeof Alert> = {
-  title: 'Molecules/Alert',
+  title: 'Patterns/Molecules/Alert',
   component: Alert,
 };
 export default meta;

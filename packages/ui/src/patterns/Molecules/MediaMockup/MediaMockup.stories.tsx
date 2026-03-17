@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { MediaMockup } from './MediaMockup';
-import { Typography } from '../../Atoms/BrandingAtoms/Typography/Typography';
 
 const meta: Meta<typeof MediaMockup> = {
-  title: 'Molecules/MediaMockup',
+  title: 'Patterns/Molecules/MediaMockup',
   component: MediaMockup,
 };
 export default meta;
@@ -12,12 +11,12 @@ export const BrowserPreview: StoryObj<typeof MediaMockup> = {
   render: () => (
     <MediaMockup>
       <div style={{ padding: '2rem' }}>
-        <Typography as="h2" variant="h2">
+        <h2 style={{ margin: 0, fontFamily: 'var(--sys-font-headline)' }}>
           Internal Page Preview
-        </Typography>
-        <Typography as="p" variant="body">
+        </h2>
+        <p style={{ margin: '0.5rem 0 0' }}>
           This content is wrapped in the MediaMockup browser frame.
-        </Typography>
+        </p>
       </div>
     </MediaMockup>
   ),
