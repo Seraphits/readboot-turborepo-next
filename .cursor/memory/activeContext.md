@@ -16,4 +16,4 @@ ReadBoot Progress
 - [ ] Migrate Code component to packages/ui/src/components/Code.
 - [ ] Initialize apps/web layout using shared components.
 
-Current Focus: Pattern Lab / Storybook launch readiness. Audit fixes completed. Molecule stories added: Alert, Masthead, BlogCard, CaptureForm, MediaMockup. Build fixes: (1) MediaMockup.module.scss created; (2) CaptureForm.module.scss created; (3) Storybook viteFinal — stripUseClient plugin to handle "use client" in LogoImageClient, NavigationMenu, NavigationBar. Storybook build passes. Next: Pattern Lab page redo (apps/docs/app/docs/) with nuqs, hierarchy mirroring, a11y tables; optionally Organism stories (BlogGrid, NavigationBar).
+Current Focus: Monorepo governance complete. Knip: wp-utils entry points protected with `!` suffix. Style guide: manual audit checklist at .cursor/memory/style-guide-audit-checklist.md; patterns page hardcoded HEX replaced with design tokens. LCP: LogoImage/LogoImageClient have priority; Hero homepage uses centered layout (no image). Next: Task 3 Programmatic SEO (sitemap.ts via wp-utils).
