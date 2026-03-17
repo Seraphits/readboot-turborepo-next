@@ -1,0 +1,20 @@
+---
+description: USE WHEN generating interactive component examples or documentation to ensure WCAG compliance and accessible Pattern Lab previews.
+globs: ["apps/docs//*.tsx", "packages/ui/src/patterns//*.tsx"]
+alwaysApply: false
+---
+Accessibility Documentation Standards
+1. Required Attributes
+ARIA: All component examples MUST include appropriate aria-label, aria-expanded, or role attributes as defined by the component's purpose.
+
+Images: Ensure all next/image instances have descriptive alt text or alt="" for decorative elements.
+
+2. Interactive Navigation
+Keyboard Access: Documentation examples must be navigable via keyboard. Ensure tabIndex="0" is applied to custom interactive elements.
+
+Event Handlers: Every onClick must have a corresponding onKeyDown or onKeyUp handler for Tab/Space/Enter support.
+
+3. Visual Compliance
+Contrast: Previews must adhere to WCAG AA targets (minimum 4.5:1 ratio for standard text).
+
+Focus Indicators: Never disable default focus outlines without providing a high-visibility "Futurist Carton" replacement.

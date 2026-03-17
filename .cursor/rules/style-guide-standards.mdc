@@ -1,53 +1,41 @@
 ---
-description: Standards for creating and maintaining the ReadBoot Style Guide and custom Next.js Pattern Lab
-globs: ["apps/docs//*.tsx", "packages/ui/src/components//.tsx", "packages/ui/src/styles/**/.scss"]
+description: USE WHEN creating or modifying UI components or documentation in apps/docs to ensure adherence to the ReadBoot Pattern Lab architecture.
+globs: ["apps/docs//*.tsx", "packages/ui/src/patterns//.tsx", "packages/ui/src/styles/**/.scss"]
 alwaysApply: false
 ---
 ReadBoot Style Guide & Pattern Lab Standards
 1. Documentation Philosophy
-Intent: Function as a "System-First Instructional Manual" for experienced React developers.
+Intent: Function as a "System-First Instructional Manual" for React developers.
 
-Strategy: Focus strictly on implementation logic, semantic guardrails, and accessibility.
+Tone: Neutral and competent technical instruction. No gamification or completion tracking.
 
-Tone: Neutral and competent technical instruction.
+Dumb Layouts: All application routes (layout.tsx, page.tsx) must be "dumb." They should specify what data to fetch (e.g., location name) and delegate the how (fetching logic, URI normalization, and error handling) to services in @repo/wp-utils.
 
-Constraint: No gamification (badges, completion tracking).
+2. Information Architecture (Mirror @repo/ui)
+Documentation in apps/docs must mirror the @repo/ui filesystem hierarchy exactly:
 
-2. Information Architecture (Tree Structure)
-Documentation in apps/docs must mirror the @repo/ui filesystem hierarchy.
+LayoutAtoms/: Box, Prose, SectionLayout.
 
-Component Hierarchy
-Each folder acts as a parent node:
-
-LayoutAtoms/: Foundational elements (Box, Prose, SectionLayout).
-
-Molecules/: Functional groups (BouncyCTA, Masthead).
+Molecules/: Functional groups like BouncyCTA, Masthead.
 
 Organisms/: Complex UI sections.
 
 Templates/: Page-level skeletons.
 
-Styles Hierarchy
-Abstracts/: Functions, Mixins, and Semantic Token Variables.
-
-Base/: Resets, global animations, and primary typography.
-
-Other/: Catch-all for specialized styles that fall outside abstracts/base (e.g., typography.scss overrides).
-
 3. Pattern Lab Page Requirements
-Every component page must include these four text-based modules:
+Every component documentation page must include these four modules:
 
-How to Use: Text-only instructions on React implementation.
+How to Use: Pure React implementation details and prop definitions.
 
-Interactive Preview: Live playground using nuqs for linkable URL states.
+Interactive Preview: A live playground utilizing nuqs for linkable URL states (variants should be toggleable via URL parameters).
 
-Accessibility Notes: Keyboard navigation, ARIA roles, and WCAG targets.
+Accessibility Notes: Detailed documentation of ARIA roles, keyboard navigation maps, and specific WCAG targets.
 
-Dos and Don'ts: Guardrails to prevent design debt and ensure consistency.
+Dos and Don'ts: Technical guardrails to prevent design debt and ensure consistency.
 
-4. Technical Implementation Rules
-State Management: Use useQueryState from nuqs for all component modifiers.
+4. Technical Implementation
+URI Normalization: All services must enforce trailing slashes (e.g., /about-us/) to align with the trailingSlash: true configuration in next.config.mts and prevent infinite redirect loops.
 
-Naming: Strict BEM convention without custom prefixes (e.g., .card, .card__title).
+State Management: Use useQueryState from nuqs for all component modifiers in the documentation.
 
-Styling: SCSS Modules only. Variables must be sourced from abstracts/, never hardcoded.
+Styling: SCSS Modules only. Variables MUST be sourced from @repo/ui/src/styles/abstracts/, never hardcoded.

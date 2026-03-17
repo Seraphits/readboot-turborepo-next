@@ -1,0 +1,18 @@
+---
+description: USE WHEN writing styling for shared UI components in the packages/ui directory to prevent global leakage.
+globs: ["packages/ui/src/**/*.module.scss"]
+alwaysApply: false
+---
+SCSS Module BEM Standards
+1. Naming Convention
+Structure: Use strict BEM syntax (.block__element--modifier) even within local SCSS modules.
+
+Purpose: This ensures clear semantic intent and makes it easy to transition styles between components if needed.
+
+2. Scoping & Nesting
+Specificity: Limit nesting depth to a maximum of 3 levels. High specificity is an anti-pattern in the ReadBoot system.
+
+Global Escaping: Use :global() sparingly and only for integrating with 3rd-party libraries (e.g., nuqs or Storybook wrappers).
+
+3. Variable Usage
+Strict Sourcing: Never use hardcoded HEX or pixel values. All values MUST be referenced from the abstracts layer (e.g., color: $sys-color-ink-text;).

@@ -1,0 +1,18 @@
+---
+description: USE WHEN creating interactive previews in the Pattern Lab to standardize URL-driven state management.
+globs: ["apps/docs/**/*.tsx"]
+alwaysApply: false
+---
+Interactive Playground Logic (nuqs)
+1. URL-State Synchronization
+useQueryState: Use useQueryState from nuqs to synchronize component variants (e.g., size, color, boolean toggles) with the browser URL.
+
+Shareability: Every modification in a Pattern Lab playground MUST update the URL parameters so that states are bookmarkable and shareable.
+
+2. Type Safety
+Parsers: Use strictly typed parsers (parseAsInteger, parseAsBoolean, parseAsStringLiteral) to ensure URL parameters map correctly to component props.
+
+Defaults: Always provide a defaultValue that matches the component’s default visual state.
+
+3. Performance
+Shallow Updates: Use shallow routing by default to prevent unnecessary server-side re-renders during variant toggling.
