@@ -60,6 +60,7 @@ const config: StorybookConfig = {
           'next/image': path.resolve(__dirname, 'next-image-mock.tsx'),
           'next/link': path.resolve(__dirname, 'next-link-mock.tsx'),
           'next/navigation': path.resolve(__dirname, 'next-navigation-mock.ts'),
+          '@repo/ui/patterns': path.join(packagesUiSrc, 'patterns'),
           '@repo/ui/*': packagesUiSrc + '/',
           '@repo/ui': path.join(packagesUiSrc, 'index.tsx'),
           '@repo/wp-utils': path.join(packagesWpUtilsSrc, 'index.ts'),

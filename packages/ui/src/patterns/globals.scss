@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "../patterns/Atoms/BrandingAtoms/Colors/colors-variables" as colors;
 
 *, *::before, *::after {
@@ -15,15 +16,15 @@ html, body {
 
 :root {
   // Map SCSS Primitives to CSS Variables for the Theme Toggle
-  --sys-color-paper-bg: #{map-get(colors.$themes, "light", "bg-paper")};
-  --sys-color-ink-text: #{map-get(colors.$themes, "light", "ink-text")};
-  --sys-color-border: #{map-get(colors.$themes, "light", "border")};
-  --sys-color-action-primary: #{map-get(colors.$themes, "light", "action")};
-  --sys-color-success: #{map-get(colors.$themes, "light", "success")};
-  --sys-color-warning: #{map-get(colors.$themes, "light", "warning")};
-  --sys-color-error:   #{map-get(colors.$themes, "light", "error")};
-  --sys-color-info:    #{map-get(colors.$themes, "light", "info")};
-  --sys-color-accent-secondary: #{map-get(colors.$themes, "light", "purple")};
+  --sys-color-paper-bg: #{map.get(colors.$themes, "light", "bg-paper")};
+  --sys-color-ink-text: #{map.get(colors.$themes, "light", "ink-text")};
+  --sys-color-border: #{map.get(colors.$themes, "light", "border")};
+  --sys-color-action-primary: #{map.get(colors.$themes, "light", "action")};
+  --sys-color-success: #{map.get(colors.$themes, "light", "success")};
+  --sys-color-warning: #{map.get(colors.$themes, "light", "warning")};
+  --sys-color-error:   #{map.get(colors.$themes, "light", "error")};
+  --sys-color-info:    #{map.get(colors.$themes, "light", "info")};
+  --sys-color-accent-secondary: #{map.get(colors.$themes, "light", "purple")};
 
   // Fonts from Image 5 (Turn 11)
   --sys-font-headline: 'Baloo 2', display;
@@ -34,13 +35,13 @@ html, body {
 }
 
 [data-theme="dark"] {
-  --sys-color-paper-bg: #{map-get(colors.$themes, "dark", "bg-paper")};
-  --sys-color-ink-text: #{map-get(colors.$themes, "dark", "ink-text")};
-  --sys-color-border: #{map-get(colors.$themes, "dark", "border")};
-  --sys-color-action-primary: #{map-get(colors.$themes, "dark", "action")};
-  --sys-color-success: #{map-get(colors.$themes, "dark", "success")};
-  --sys-color-warning: #{map-get(colors.$themes, "dark", "warning")};
-  --sys-color-error:   #{map-get(colors.$themes, "dark", "error")};
-  --sys-color-info:    #{map-get(colors.$themes, "dark", "info")};
-  --sys-color-accent-secondary: #{map-get(colors.$themes, "dark", "purple")};
+  --sys-color-paper-bg: #{map.get(colors.$themes, "dark", "bg-paper")};
+  --sys-color-ink-text: #{map.get(colors.$themes, "dark", "ink-text")};
+  --sys-color-border: #{map.get(colors.$themes, "dark", "border")};
+  --sys-color-action-primary: #{map.get(colors.$themes, "dark", "action")};
+  --sys-color-success: #{map.get(colors.$themes, "dark", "success")};
+  --sys-color-warning: #{map.get(colors.$themes, "dark", "warning")};
+  --sys-color-error:   #{map.get(colors.$themes, "dark", "error")};
+  --sys-color-info:    #{map.get(colors.$themes, "dark", "info")};
+  --sys-color-accent-secondary: #{map.get(colors.$themes, "dark", "purple")};
 }

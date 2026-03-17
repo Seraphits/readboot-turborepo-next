@@ -1,12 +1,9 @@
 import React from 'react';
 import styles from './button.module.scss';
-import { ALLOWED_COMBINATIONS } from '../../BrandingAtoms/Colors/colors-data';
-
-export type ButtonVariant = (typeof ALLOWED_COMBINATIONS)[number]['name'];
 
 interface ButtonProps {
   children: React.ReactNode;
-  variant?: ButtonVariant;
+  variant?: 'default' | 'action';
   className?: string;
   type?: 'button' | 'submit' | 'reset';
 }

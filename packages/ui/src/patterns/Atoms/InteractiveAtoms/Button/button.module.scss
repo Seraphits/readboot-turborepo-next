@@ -2,56 +2,11 @@
 
 .button {
   @include mixins.button-base;
-  // Default (Paper BG / Ink Text) — base applies when variant is 'default'
   background-color: var(--sys-color-paper-bg);
   color: var(--sys-color-ink-text);
 
-  // 2. Inverted (Ink BG / Paper Text)
-  &--inverted {
-    background-color: var(--sys-color-ink-text);
-    color: var(--sys-color-paper-bg);
-  }
-
-  // 3. Action (Primary Action BG)
   &--action {
     background-color: var(--sys-color-action-primary);
     color: var(--sys-color-paper-bg);
-  }
-
-  // 4. Success, Warning, Error, Info, Tertiary
-  &--success {
-    background-color: var(--sys-color-success);
-    color: var(--sys-color-paper-bg);
-  }
-
-  &--warning {
-    background-color: var(--sys-color-warning);
-    color: var(--sys-color-ink-text);
-  }
-
-  &--error {
-    background-color: var(--sys-color-error);
-    color: var(--sys-color-paper-bg);
-  }
-
-  &--info {
-    background-color: var(--sys-color-info);
-    color: var(--sys-color-ink-text);
-  }
-
-  &--tertiary {
-    background-color: var(--sys-color-accent-secondary);
-    color: var(--sys-color-paper-bg);
-  }
-
-  // 5. Text-based variants (Ghost buttons)
-  &--text-action {
-    background-color: var(--sys-color-paper-bg);
-    color: var(--sys-color-action-primary);
-  }
-
-  &--text-error {
-    background-color: var(--sys-color-paper-bg);
-    color: var(--sys-color-error);
   }
 }
