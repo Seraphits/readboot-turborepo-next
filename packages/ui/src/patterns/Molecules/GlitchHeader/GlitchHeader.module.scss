@@ -1,16 +1,16 @@
-@use "abstracts/variables/fonts" as fonts;
-@use "abstracts/mixins/animations" as anim;
+@use "../../Atoms/BrandingAtoms/Typography/fonts-variables" as fonts;
+@use "../../Atoms/animations/animations";
 
 .glitchHeadline {
-  font-family: fonts.$sys-font-headline; // Baloo 2 [Image 5]
+  font-family: fonts.$sys-font-headline;
   font-size: clamp(3rem, 10vw, 5rem);
   font-weight: 800;
   line-height: 1.1;
-  @include anim.glitch-disruption(0.4s); // Critical system break [Image 6]
+  animation: glitch-anim 1s linear infinite;
 }
 
 .subheadline {
-  font-family: fonts.$sys-font-body; // Inter [Image 5]
+  font-family: fonts.$sys-font-body;
   font-size: 1.25rem;
   margin-top: 1.5rem;
   max-width: 60ch;
