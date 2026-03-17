@@ -1,12 +1,10 @@
 @use "../../Atoms/BrandingAtoms/Typography/fonts-variables" as fonts;
-@use "../../Atoms/animations/animations";
 
 .glitchHeadline {
   font-family: fonts.$sys-font-headline;
   font-size: clamp(3rem, 10vw, 5rem);
   font-weight: 800;
   line-height: 1.1;
-  animation: glitch-anim 1s linear infinite;
 }
 
 .subheadline {

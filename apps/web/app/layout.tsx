@@ -1,7 +1,7 @@
-import NavBar from "@repo/ui/patterns/Organisms/NavigationBar/navigation-bar";
 import "@repo/ui/patterns/globals.scss";
 import { getMenuData } from "@repo/wp-utils";
-import { Alert } from "@repo/ui";
+import { Alert } from "@repo/ui/molecules";
+import { NavigationBar } from "@repo/ui/organisms";
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const links = await getMenuData({ location: "WEB_TOPNAV" });
@@ -9,7 +9,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <NavBar links={links} />
+        <NavigationBar links={links} />
         <Alert />
         <main>{children}</main>
       </body>

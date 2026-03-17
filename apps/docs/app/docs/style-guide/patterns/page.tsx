@@ -1,4 +1,5 @@
-import { Button, ColorScheme, COLOR_SCHEME_NAMES } from "@repo/ui";
+import { Button } from "@repo/ui/atoms";
+import { ColorScheme, COLOR_SCHEME_NAMES } from "@repo/ui/organisms";
 
 export default function ComponentsPage() {
   return (

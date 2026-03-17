@@ -1,4 +1,5 @@
-import { Button, Hero } from "@repo/ui";
+import { Button } from "@repo/ui/atoms";
+import { Hero } from "@repo/ui/organisms";
 import Head from "next/head";
 
 

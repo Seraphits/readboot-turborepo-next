@@ -2,7 +2,7 @@ import {
   ColorScheme,
   COLOR_SCHEME_NAMES,
   type ColorSchemeName,
-} from "@repo/ui";
+} from "@repo/ui/organisms";
 
 type RefColor = { name: string; var: string; hex: string };
 type SysColor = { var: string; usage: string };

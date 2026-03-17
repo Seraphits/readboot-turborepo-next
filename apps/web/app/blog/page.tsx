@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getMainBlogContent, Category, Post } from '@repo/wp-utils';
-import { BlogGrid } from '@repo/ui/patterns/Organisms/BlogGrid/BlogGrid';
+import { BlogGrid } from '@repo/ui/organisms';
 
 export const dynamic = 'force-dynamic';
 

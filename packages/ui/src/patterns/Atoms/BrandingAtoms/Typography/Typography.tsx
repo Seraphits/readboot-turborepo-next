@@ -6,7 +6,6 @@ type TypographyVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body' | 'cap
 interface TypographyProps<T extends React.ElementType> {
   as?: T;
   variant?: TypographyVariant;
-  effects?: 'glitch';
   children: React.ReactNode;
   className?: string;
 }
@@ -14,7 +13,6 @@ interface TypographyProps<T extends React.ElementType> {
 export const Typography = <T extends React.ElementType = 'p'>({
   as,
   variant = 'body',
-  effects,
   children,
   className = '',
   ...props
@@ -24,7 +22,6 @@ export const Typography = <T extends React.ElementType = 'p'>({
   const combinedClasses = [
     styles.typography,
     styles[`typography--${variant}`],
-    effects === 'glitch' && styles['fx--glitch'],
     className,
   ]
     .filter(Boolean)

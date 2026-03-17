@@ -20,8 +20,8 @@ export const AllVariants: StoryObj = {
         Body: Inter Academic. This text scales via rem units to ensure
         accessibility for all users while maintaining the brand&apos;s clean tone.
       </Typography>
-      <Typography as="span" variant="caption" effects="glitch">
-        Caption: System Fracture Glitch Effect
+      <Typography as="span" variant="caption">
+        Caption: System scale for labels and metadata
       </Typography>
     </div>
   ),

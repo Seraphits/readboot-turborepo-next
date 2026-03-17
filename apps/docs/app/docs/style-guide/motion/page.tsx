@@ -4,7 +4,7 @@ export default function MotionPage() {
       <h1>Motion & Animation</h1>
       <p>
         ReadBoot uses motion to reinforce the &quot;Futurist Carton&quot; brand: bouncy, deliberate,
-        and occasionally glitchy. All timing and keyframes live in <code>@repo/ui</code> base styles.
+        All timing and keyframes live in <code>@repo/ui</code> base styles.
       </p>
 
       <h2>Duration Scale</h2>

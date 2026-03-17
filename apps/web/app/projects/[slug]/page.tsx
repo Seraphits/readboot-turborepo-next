@@ -1,4 +1,4 @@
-import { BlogGrid } from '@repo/ui/patterns/Organisms/BlogGrid/BlogGrid';
+import { BlogGrid } from '@repo/ui/organisms';
 import { getProjectBySlug } from '@repo/wp-utils';
 import { notFound } from 'next/navigation';
 

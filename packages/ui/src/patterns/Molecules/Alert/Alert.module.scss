@@ -1,12 +1,15 @@
+@use "../../Atoms/SpatialAtoms/geometric/geometric-variables" as geom;
+
 .banner {
   background-color: var(--sys-color-warning);
   color: var(--sys-color-ink-text);
   font-family: var(--sys-font-headline);
   font-weight: 700;
-
   text-align: center;
   padding: 0.75rem 1rem;
   font-size: 0.9rem;
   width: 100%;
   display: block;
+  border: geom.$sys-geom-border-main solid var(--sys-color-border);
+  border-radius: geom.$sys-geom-radius-main;
 }

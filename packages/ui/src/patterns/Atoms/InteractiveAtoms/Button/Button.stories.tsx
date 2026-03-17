@@ -23,11 +23,6 @@ export const ComponentSet: StoryObj = {
         <small>Action Variant</small>
         <Button variant="action">Action Button</Button>
       </div>
-
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-        <small>Glitch State</small>
-        <Button className="fx--glitch">Glitch Button</Button>
-      </div>
     </div>
   ),
 };

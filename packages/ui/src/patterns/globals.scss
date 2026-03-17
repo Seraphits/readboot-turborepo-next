@@ -1,6 +1,4 @@
 @use "../patterns/Atoms/BrandingAtoms/Colors/colors-variables" as colors;
-@use "../patterns/Atoms/SpatialAtoms/geometric/geometric-variables" as geom;
-@use "../patterns/Atoms/animations/animations" as fx;
 
 :root {
   // Map SCSS Primitives to CSS Variables for the Theme Toggle
@@ -31,7 +29,14 @@
   --sys-color-accent-secondary: #{map-get(colors.$themes, "dark", "purple")};
 }
 
-/* Shared glitch effect utility - use with className="fx--glitch" */
-.fx--glitch {
-  animation: glitch-anim 1s linear infinite;
+/* Structural elements: carton-style defaults */
+main,
+section,
+article,
+header,
+footer {
+  background-color: var(--sys-color-paper-bg);
+  border: 1px solid var(--sys-color-ink-text);
+  border-radius: 8px;
+  padding: 1.5rem;
 }

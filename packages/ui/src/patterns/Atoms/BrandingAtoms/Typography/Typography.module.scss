@@ -1,4 +1,3 @@
-@use "../../animations/animations" as fx;
 @use "../Mixins/global-mixins" as global;
 @use "../../SpatialAtoms/geometric/geometric-variables" as geom;
 
@@ -44,11 +43,5 @@
     &:hover {
       transform: scale(1.05);
     }
-  }
-
-  // Effect: Glitch Modifier
-  &.fx--glitch {
-    // Keyframes imported from global Base styles
-    animation: glitch-anim 1s linear infinite;
   }
 }

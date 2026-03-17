@@ -2,7 +2,6 @@ import { ElementType, ReactNode } from 'react';
 import { SectionLayout } from '../../Atoms/LayoutAtoms/SectionLayout/SectionLayout';
 import { Button } from '../../Atoms/InteractiveAtoms/Button/button';
 import styles from './Hero.module.scss';
-import clsx from 'clsx';
 
 export type HeroLayoutVariant = 'centered' | 'split' | 'asymmetrical' | 'preview';
 
@@ -13,7 +12,6 @@ export interface HeroProps<T extends ElementType = 'section'> {
   subhead?: string;
   ctaText?: string;
   imageNode?: ReactNode;
-  isGlitchy?: boolean;
 }
 
 export const Hero = <T extends ElementType = 'section'>({
@@ -23,7 +21,6 @@ export const Hero = <T extends ElementType = 'section'>({
   subhead,
   ctaText = 'Get Started',
   imageNode,
-  isGlitchy = false,
   ...props
 }: HeroProps<T> & Omit<React.ComponentPropsWithoutRef<T>, keyof HeroProps<T>>) => {
   const Component = (as ?? 'section') as ElementType;
@@ -32,10 +29,7 @@ export const Hero = <T extends ElementType = 'section'>({
     <Component className={styles.heroRoot} {...props}>
       <SectionLayout variant={layout}>
         <div className={styles.heroContent}>
-          <h1
-            className={clsx(styles.glitchHeadline, isGlitchy && 'fx--glitch')}
-            data-text={title}
-          >
+          <h1 className={styles.heroHeadline} data-text={title}>
             {title}
           </h1>
           {subhead && <p className={styles.subheadline}>{subhead}</p>}
