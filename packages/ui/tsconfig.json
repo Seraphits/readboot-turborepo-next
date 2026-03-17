@@ -4,7 +4,8 @@
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "@repo/wp-utils": ["../wp-utils/src/index.ts"]
+      "@repo/wp-utils": ["../wp-utils/src/index.ts"],
+      "@repo/ui/*": ["./src/patterns/*"]
     }
   },
   "include": ["src", "src/styles.d.ts"],
