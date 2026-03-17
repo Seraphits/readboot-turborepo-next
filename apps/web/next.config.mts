@@ -14,12 +14,13 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ["@repo/ui"],
   },
   async rewrites() {
-    const docsUrl = 'https://readboot-turborepo-next-docs.vercel.app';
+    const isDev = process.env.NODE_ENV === 'development';
+    const docsUrl = isDev ? 'http://localhost:3001' : 'https://readboot-turborepo-next-docs.vercel.app';
     return [
-      { source: '/docs', destination: `${docsUrl}/docs` },
-      { source: '/docs/:path*', destination: `${docsUrl}/docs/:path*` },
+      { source: '/docs/', destination: `${docsUrl}/docs/` },
+      { source: '/docs/:path*/', destination: `${docsUrl}/docs/:path*/` },
       // Docs app assets (withMicrofrontends adds /vc-ap-* prefix)
-      { source: '/vc-ap-:hash/:rest*', destination: `${docsUrl}/vc-ap-:hash/:rest*` },
+      { source: '/vc-ap-:hash/:rest*/', destination: `${docsUrl}/vc-ap-:hash/:rest*` },
     ];
   },
   turbopack: {
