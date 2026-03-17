@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "rm -rf node_modules/.cache/storybook node_modules/.vite",
     "dev": "storybook dev -p 6006 --host localhost",
     "dev:clean": "rm -rf node_modules/.cache storybook-static .turbo && storybook dev -p 6006 --host localhost",
     "build": "next build",
@@ -19,11 +20,11 @@
     "react-dom": "19.2.3"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "10.3.0-alpha.17",
-    "@storybook/addon-docs": "10.3.0-alpha.17",
-    "@storybook/addon-themes": "10.3.0-alpha.17",
-    "@storybook/addon-vitest": "10.3.0-alpha.17",
-    "@storybook/react-vite": "10.3.0-alpha.17",
+    "@storybook/addon-a11y": "catalog:",
+    "@storybook/addon-docs": "catalog:",
+    "@storybook/addon-themes": "catalog:",
+    "@storybook/addon-vitest": "catalog:",
+    "@storybook/react-vite": "catalog:",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -31,14 +32,14 @@
     "@vitest/browser-playwright": "^4.0.18",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
-    "eslint-plugin-storybook": "10.3.0-alpha.17",
+    "eslint-plugin-storybook": "catalog:",
     "playwright": "^1.58.2",
-    "sass": "^1.97.3",
     "rollup": "^4.28.0",
-    "storybook": "10.3.0-alpha.17",
+    "sass": "^1.97.3",
+    "storybook": "catalog:",
     "styled-jsx": "^5.1.7",
     "typescript": "^5",
-    "vite": "6.0.11",
+    "vite": "catalog:",
     "vitest": "^4.0.18"
   }
 }
