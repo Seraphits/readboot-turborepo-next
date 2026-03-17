@@ -1,4 +1,9 @@
-// Public API: commonly used components (matches pre-refactor exports)
+/**
+ * Root barrel - prefer subpath imports for better tree-shaking:
+ * import { Button } from '@repo/ui/atoms'
+ * import { Alert } from '@repo/ui/molecules'
+ * import { Hero } from '@repo/ui/organisms'
+ */
 export { Button } from './patterns/Atoms/InteractiveAtoms/Button/button';
 export { Alert } from './patterns/Molecules/Alert/Alert';
 export {

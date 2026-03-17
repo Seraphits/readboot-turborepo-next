@@ -1,6 +1,10 @@
 @use "../../Atoms/BrandingAtoms/Typography/fonts-variables" as fonts;
 
-.glitchHeadline {
+.headerGroup {
+  /* Brand hero identity container */
+}
+
+.headline {
   font-family: fonts.$sys-font-headline;
   font-size: clamp(3rem, 10vw, 5rem);
   font-weight: 800;

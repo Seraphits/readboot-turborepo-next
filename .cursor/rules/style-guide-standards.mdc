@@ -21,7 +21,7 @@ Each folder acts as a parent node:
 
 LayoutAtoms/: Foundational elements (Box, Prose, SectionLayout).
 
-Molecules/: Functional groups (BouncyCTA, GlitchHeader, Masthead).
+Molecules/: Functional groups (BouncyCTA, Masthead).
 
 Organisms/: Complex UI sections.
 
