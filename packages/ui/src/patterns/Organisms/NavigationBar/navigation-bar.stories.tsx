@@ -3,7 +3,7 @@ import { LogoImageClient } from '../../Atoms/BrandingAtoms/Logo/LogoImageClient'
 import NavigationBar from './navigation-bar';
 
 const meta = {
-  title: 'Patterns/Organisms/NavigationBar',
+  title: 'Organisms/NavigationBar',
   component: NavigationBar,
   parameters: {
     layout: 'fullscreen',

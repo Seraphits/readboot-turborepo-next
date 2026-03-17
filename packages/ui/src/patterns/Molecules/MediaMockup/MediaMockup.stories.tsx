@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { MediaMockup } from './MediaMockup';
 
 const meta: Meta<typeof MediaMockup> = {
-  title: 'Patterns/Molecules/MediaMockup',
+  title: 'Molecules/MediaMockup',
   component: MediaMockup,
 };
 export default meta;

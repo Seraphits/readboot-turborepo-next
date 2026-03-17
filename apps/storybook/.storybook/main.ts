@@ -38,7 +38,8 @@ const config: StorybookConfig = {
     ...(process.env.CHROMATIC_PROJECT_TOKEN
       ? [getAbsolutePath('@chromatic-com/storybook')]
       : []),
-    getAbsolutePath('@storybook/addon-vitest'),
+    // addon-vitest can cause vite-app.js 404 with Vite 7; re-enable when fixed
+    // getAbsolutePath('@storybook/addon-vitest'),
     getAbsolutePath('@storybook/addon-a11y'),
     getAbsolutePath('@storybook/addon-themes'),
     getAbsolutePath('@storybook/addon-docs'),
@@ -73,6 +74,18 @@ const config: StorybookConfig = {
             loadPaths: [path.join(packagesUiSrc, "patterns/Atoms")],
           },
         },
+      },
+      optimizeDeps: {
+        include: [
+          ...(config.optimizeDeps?.include ?? []),
+          'react',
+          'react-dom',
+          'react/jsx-runtime',
+          'react/jsx-dev-runtime',
+        ],
+      },
+      server: {
+        allowedHosts: true,
       },
     });
   },

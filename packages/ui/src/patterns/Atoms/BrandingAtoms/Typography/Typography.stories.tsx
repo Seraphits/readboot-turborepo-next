@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Typography } from './Typography';
 
 const meta: Meta<typeof Typography> = {
-  title: 'Patterns/Atoms/Branding Atoms/Typography',
+  title: 'Atoms/Branding/Typography',
   component: Typography,
 };
 export default meta;

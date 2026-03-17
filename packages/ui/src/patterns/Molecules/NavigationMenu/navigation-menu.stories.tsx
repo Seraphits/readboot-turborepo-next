@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import NavigationMenu from './navigation-menu';
 
 const meta = {
-  title: 'Patterns/Molecules/NavigationMenu',
+  title: 'Molecules/NavigationMenu',
   component: NavigationMenu,
   parameters: {
     layout: 'fullscreen',

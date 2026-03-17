@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Masthead } from './Masthead';
 
 const meta: Meta<typeof Masthead> = {
-  title: 'Patterns/Molecules/Masthead',
+  title: 'Molecules/Masthead',
   component: Masthead,
 };
 export default meta;

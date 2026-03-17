@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './button';
 
 const meta: Meta<typeof Button> = {
-  title: 'Patterns/Atoms/Interactive Atoms/Button',
+  title: 'Atoms/Interactive/Button',
   component: Button,
 };
 export default meta;

@@ -8,6 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const nextConfig: NextConfig = {
+  trailingSlash: true,
   transpilePackages: ["@repo/ui", '@repo/wp-utils'],
   experimental: {
     optimizePackageImports: ["@repo/ui"],

@@ -1,8 +1,12 @@
 {
   "$schema": "https://unpkg.com/knip@5/schema.json",
+  "ignoreWorkspaces": ["apps/storybook", "apps/docs"],
   "workspaces": {
     "packages/wp-utils": {
-      "entry": ["src/index.ts!"],
+      "entry": [
+        "src/index.ts!",
+        "src/services/wordpress/index.ts!"
+      ],
       "project": ["src/**/*.ts!"]
     }
   }

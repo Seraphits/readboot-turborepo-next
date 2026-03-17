@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "storybook dev -p 3002 --host 127.0.0.1",
-    "dev:clean": "rm -rf node_modules/.cache storybook-static && storybook dev -p 3002",
+    "dev:clean": "rm -rf node_modules/.cache storybook-static .turbo && storybook dev -p 3002 --host 127.0.0.1",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006 --host 127.0.0.1",
     "build-storybook": "storybook build"
   },
   "dependencies": {

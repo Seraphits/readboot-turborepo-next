@@ -6,6 +6,7 @@ import { withMicrofrontends } from '@vercel/microfrontends/next/config';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
+  trailingSlash: true,
   transpilePackages: ["@repo/ui", "@repo/wp-utils"],
   experimental: {
     optimizePackageImports: ["@repo/ui"],
