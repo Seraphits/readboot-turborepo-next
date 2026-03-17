@@ -1,5 +1,18 @@
 @use "../patterns/Atoms/BrandingAtoms/Colors/colors-variables" as colors;
 
+*, *::before, *::after {
+  box-sizing: border-box; /* Ensures padding doesn't bloat element size */
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
 :root {
   // Map SCSS Primitives to CSS Variables for the Theme Toggle
   --sys-color-paper-bg: #{map-get(colors.$themes, "light", "bg-paper")};
@@ -30,16 +43,4 @@
   --sys-color-error:   #{map-get(colors.$themes, "dark", "error")};
   --sys-color-info:    #{map-get(colors.$themes, "dark", "info")};
   --sys-color-accent-secondary: #{map-get(colors.$themes, "dark", "purple")};
-}
-
-/* Structural elements: carton-style defaults */
-main,
-section,
-article,
-header,
-footer {
-  background-color: var(--sys-color-paper-bg);
-  border: 1px solid var(--sys-color-ink-text);
-  border-radius: 8px;
-  padding: 1.5rem;
 }

@@ -1,11 +1,7 @@
 @use "../../Atoms/BrandingAtoms/Typography/fonts-variables" as fonts;
-@use "../../Atoms/SpatialAtoms/geometric/geometric-variables" as geom;
 
 .root {
-  border: geom.$sys-geom-border-main solid var(--sys-color-border);
-  border-radius: geom.$sys-geom-radius-main;
-  padding: 1.5rem 2rem;
-  background: var(--sys-color-paper-bg);
+  /* Minimal container; no border or padding by default */
 }
 
 .toolbar {

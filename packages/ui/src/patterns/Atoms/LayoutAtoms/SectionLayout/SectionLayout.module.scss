@@ -2,13 +2,20 @@
 
 .container {
   display: grid;
-  min-height: 80vh;
-  margin: space.$space-2xl;
-  padding: space.$space-3xl space.$space-2xl;
-  border: 4px solid var(--sys-color-border);
-  border-radius: var(--sys-radius-primary, 12px);
+  margin: 0;
+  padding: 0;
+  border: none;
   gap: space.$space-2xl;
   align-items: center;
+
+  // Only apply border when explicitly requested
+  &--bordered {
+    min-height: 80vh;
+    margin: space.$space-2xl;
+    padding: space.$space-3xl space.$space-2xl;
+    border: 4px solid var(--sys-color-border);
+    border-radius: var(--sys-radius-primary, 12px);
+  }
 
   // Variant Canvas Maps [2]
   &.centered { grid-template-areas: "content"; justify-items: center; text-align: center; }

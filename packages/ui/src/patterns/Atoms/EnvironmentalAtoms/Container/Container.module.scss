@@ -1,6 +1,3 @@
 .container {
-  background-color: var(--sys-color-paper-bg);
-  border: 1px solid var(--sys-color-ink-text);
-  border-radius: 8px;
-  padding: 1.5rem;
+  /* Minimal container; no border or padding by default */
 }

@@ -27,7 +27,7 @@ export const Hero = <T extends ElementType = 'section'>({
 
   return (
     <Component className={styles.heroRoot} {...props}>
-      <SectionLayout variant={layout}>
+      <SectionLayout variant={layout} bordered>
         <div className={styles.heroContent}>
           <h1 className={styles.heroHeadline} data-text={title}>
             {title}
