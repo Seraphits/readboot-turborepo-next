@@ -3,7 +3,7 @@ import { ColorSwatch } from './ColorSwatch';
 import { BRAND_COLORS, ALLOWED_COMBINATIONS } from './colors-data';
 
 const meta: Meta = {
-  title: 'Patterns/Atoms/Colors',
+  title: 'Patterns/Atoms/Branding Atoms/Colors',
   component: ColorSwatch,
 };
 export default meta;

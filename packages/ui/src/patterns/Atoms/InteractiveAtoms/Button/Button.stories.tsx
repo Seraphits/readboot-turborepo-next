@@ -3,7 +3,7 @@ import { Button, type ButtonVariant } from './button';
 import { ALLOWED_COMBINATIONS } from '../../BrandingAtoms/Colors/colors-data';
 
 const meta: Meta<typeof Button> = {
-  title: 'Patterns/Atoms/Button',
+  title: 'Patterns/Atoms/Interactive Atoms/Button',
   component: Button,
   argTypes: {
     variant: {

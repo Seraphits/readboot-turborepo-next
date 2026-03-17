@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import NavigationLink from './navigation-link';
 
 const meta: Meta<typeof NavigationLink> = {
-  title: 'Patterns/Atoms/NavigationLink',
+  title: 'Patterns/Atoms/Interactive Atoms/NavigationLink',
   component: NavigationLink,
   parameters: {
     layout: 'centered',

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { LogoImageClient } from "./LogoImageClient";
 
 const meta = {
-  title: "Patterns/Atoms/Logo",
+  title: "Patterns/Atoms/Branding Atoms/Logo",
   component: LogoImageClient,
   parameters: { layout: "centered" },
   argTypes: {

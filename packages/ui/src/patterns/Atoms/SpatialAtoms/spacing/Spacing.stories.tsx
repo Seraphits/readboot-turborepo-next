@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { SpacingScale } from './SpacingScale';
 
 const meta: Meta = {
-  title: 'Patterns/Atoms/Spacing',
+  title: 'Patterns/Atoms/Spatial Atoms/Spacing',
   component: SpacingScale,
 };
 export default meta;
