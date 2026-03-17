@@ -3,7 +3,6 @@ import type { StorybookConfig } from '@storybook/react-vite';
 import { dirname } from 'path';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { searchForWorkspaceRoot } from 'vite';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, '../../..');
@@ -23,42 +22,55 @@ function stripUseClient() {
   };
 }
 
-/**
- * This function is used to resolve the absolute path of a package.
- * It is needed in projects that use Yarn PnP or are set up within a monorepo.
- */
-function getAbsolutePath(value: string) {
-  return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)));
-}
-
 const config: StorybookConfig = {
   stories: [
     `${packagesUiSrc}/**/*.stories.@(js|jsx|mjs|ts|tsx)`,
   ],
   addons: [
     ...(process.env.CHROMATIC_PROJECT_TOKEN
-      ? [getAbsolutePath('@chromatic-com/storybook')]
+      ? ['@chromatic-com/storybook']
       : []),
     // addon-vitest can cause vite-app.js 404 with Vite 7; re-enable when fixed
-    // getAbsolutePath('@storybook/addon-vitest'),
-    getAbsolutePath('@storybook/addon-a11y'),
-    getAbsolutePath('@storybook/addon-themes'),
-    getAbsolutePath('@storybook/addon-docs'),
+    // '@storybook/addon-vitest',
+    '@storybook/addon-a11y',
+    '@storybook/addon-themes',
+    '@storybook/addon-docs',
   ],
   framework: {
-    name: getAbsolutePath('@storybook/react-vite'),
+    name: '@storybook/react-vite',
     options: {},
   },
   staticDirs: ['../public'],
   async viteFinal(config) {
-    const { mergeConfig } = await import('vite');
+    const { mergeConfig, searchForWorkspaceRoot } = await import('vite');
     const packagesUiSrc = path.join(projectRoot, 'packages/ui/src');
-    const packagesWpUtilsSrc = path.join(projectRoot, 'packages/wp-utils/src');
 
     return mergeConfig(config, {
-      plugins: [...(config.plugins || []), stripUseClient()],
+      plugins: [
+        ...(config.plugins ?? []),
+        {
+          name: 'fix-double-encoding-patch',
+          enforce: 'pre',
+          resolveId(id: string) {
+            if (id.includes('virtual:') && id.includes('__x00__')) {
+              return '\0' + id.replace(/^.*virtual:/, 'virtual:');
+            }
+            return null;
+          },
+        },
+        {
+          name: 'fix-double-encoding-url-middleware',
+          configureServer(server) {
+            server.middlewares.use((req, _res, next) => {
+              if (req.url?.includes('@id/__x00__/@id/__x00__')) {
+                req.url = req.url.replace(/\/@id\/__x00__\/@id\/__x00__/g, '/@id/__x00__');
+              }
+              next();
+            });
+          },
+        },
+      ],
       define: {
-        // Next.js internals (link, has-base-path) expect process.env in browser
         'process.env': JSON.stringify({}),
       },
       resolve: {
@@ -66,11 +78,8 @@ const config: StorybookConfig = {
           'next/image': path.resolve(__dirname, 'next-image-mock.tsx'),
           'next/link': path.resolve(__dirname, 'next-link-mock.tsx'),
           'next/navigation': path.resolve(__dirname, 'next-navigation-mock.ts'),
-          '@repo/ui/patterns': path.join(packagesUiSrc, 'patterns'),
-          '@repo/ui/*': `${packagesUiSrc}/`,
-          '@repo/ui': path.join(packagesUiSrc, 'index.tsx'),
-          '@repo/wp-utils': path.join(packagesWpUtilsSrc, 'index.ts'),
-          '@repo/wp-utils/*': `${packagesWpUtilsSrc}/`,
+          '@repo/ui': path.resolve(projectRoot, 'packages/ui/src'),
+          '@repo/wp-utils': path.resolve(projectRoot, 'packages/wp-utils/src'),
         },
       },
       css: {
@@ -88,17 +97,14 @@ const config: StorybookConfig = {
           'react/jsx-runtime',
           'react/jsx-dev-runtime',
         ],
+        exclude: ['@storybook/builder-vite', '@storybook/react-vite'],
       },
       server: {
         ...config.server,
+        preTransformRequests: false,
         fs: {
-          ...(config.server?.fs ?? {}),
-          allow: [
-            ...(config.server?.fs?.allow ?? []),
-            searchForWorkspaceRoot(projectRoot),
-          ],
+          allow: [searchForWorkspaceRoot(projectRoot)],
         },
-        // Explicit whitelist for Vite 6/7 hostname security; prevents vite-app.js 404 when using 127.0.0.1 or proxy
         allowedHosts: ['127.0.0.1', 'localhost'],
       },
     });

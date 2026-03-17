@@ -19,11 +19,11 @@
     "react-dom": "19.2.3"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^10.2.19",
-    "@storybook/addon-docs": "^10.2.19",
-    "@storybook/addon-themes": "^10.2.19",
-    "@storybook/addon-vitest": "^10.2.19",
-    "@storybook/react-vite": "^10.2.19",
+    "@storybook/addon-a11y": "10.3.0-alpha.17",
+    "@storybook/addon-docs": "10.3.0-alpha.17",
+    "@storybook/addon-themes": "10.3.0-alpha.17",
+    "@storybook/addon-vitest": "10.3.0-alpha.17",
+    "@storybook/react-vite": "10.3.0-alpha.17",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -31,13 +31,14 @@
     "@vitest/browser-playwright": "^4.0.18",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
-    "eslint-plugin-storybook": "^10.2.19",
+    "eslint-plugin-storybook": "10.3.0-alpha.17",
     "playwright": "^1.58.2",
     "sass": "^1.97.3",
-    "storybook": "^10.2.19",
+    "rollup": "^4.28.0",
+    "storybook": "10.3.0-alpha.17",
     "styled-jsx": "^5.1.7",
     "typescript": "^5",
-    "vite": "^7.3.1",
+    "vite": "6.0.11",
     "vitest": "^4.0.18"
   }
 }

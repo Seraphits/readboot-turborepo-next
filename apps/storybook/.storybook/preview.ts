@@ -22,7 +22,7 @@ function ServiceWorkerClearDecorator(Story: React.ComponentType) {
       });
     }
   }, []);
-  return <Story />;
+  return React.createElement(Story);
 }
 
 const preview: Preview = {
