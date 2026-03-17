@@ -1,51 +1,59 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { useState, useEffect } from 'react';
-import { ALLOWED_COMBINATIONS } from './colors-data';
+import { ColorSwatch } from './ColorSwatch';
+import { BRAND_COLORS, ALLOWED_COMBINATIONS } from './colors-data';
 
 const meta: Meta = {
-  title: 'Atoms/Branding Atoms/Colors',
+  title: 'Atoms/Branding/Colors',
+  component: ColorSwatch,
 };
 export default meta;
 
-/** Helper component so hooks run in a proper function component. */
-function LiveCyclePreview() {
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % ALLOWED_COMBINATIONS.length);
-    }, 2500); // 2.5s allows for the bouncy transition
-    return () => clearInterval(interval);
-  }, []);
-
-  const safeIndex = index % ALLOWED_COMBINATIONS.length;
-  const pairing = ALLOWED_COMBINATIONS[safeIndex]!;
-
-  return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      padding: '2rem',
-      border: '4px solid var(--sys-color-border)',
-      borderRadius: '12px',
-      backgroundColor: pairing.bgHex,
-      color: pairing.textHex,
-      transition: 'all 0.5s cubic-bezier(0.8, -0.5, 0.2, 1.8)'
-    }}>
-      <h2 style={{ fontFamily: 'Baloo 2', marginBottom: '1rem' }}>
-        Pairing: {pairing.name}
-      </h2>
-      <code style={{ fontSize: '1rem' }}>
-        BG: {pairing.bgVariable} ({pairing.bgHex})
-      </code>
-      <code style={{ fontSize: '1rem' }}>
-        Text: {pairing.textVariable} ({pairing.textHex})
-      </code>
+// View 1: Raw Brand Tokens (Primitives)
+export const Primitives: StoryObj = {
+  render: () => (
+    <div
+      style={{
+        display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))',
+        gap: '1.5rem',
+      }}
+    >
+      {BRAND_COLORS.map((color) => (
+        <ColorSwatch key={color.variable} {...color} />
+      ))}
     </div>
-  );
-}
+  ),
+};
 
-export const LiveCycle: StoryObj = {
-  render: () => <LiveCyclePreview />,
+// View 2: Official Pairing Rules (Semantic Rulebook)
+export const PairingRules: StoryObj = {
+  render: () => (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      {ALLOWED_COMBINATIONS.map((pairing) => (
+        <div
+          key={pairing.name}
+          style={{
+            padding: '1.5rem',
+            backgroundColor: pairing.bgHex,
+            color: pairing.textHex,
+            border: '4px solid var(--sys-color-border)',
+            borderRadius: '12px',
+          }}
+        >
+          <h3
+            style={{
+              fontFamily: 'Baloo 2',
+              marginBottom: '0.5rem',
+              textTransform: 'capitalize',
+            }}
+          >
+            {pairing.name} Pairing
+          </h3>
+          <code>
+            BG: {pairing.bgVariable} / Text: {pairing.textVariable}
+          </code>
+        </div>
+      ))}
+    </div>
+  ),
 };

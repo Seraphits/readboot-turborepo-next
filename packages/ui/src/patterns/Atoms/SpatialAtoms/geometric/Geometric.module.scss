@@ -1,3 +1,4 @@
+@use "../../BrandingAtoms/Mixins/global-mixins" as global;
 @use "geometric-variables" as geom;
 
 .container-base {
@@ -22,7 +23,7 @@
   padding: 0;
 
   &__preview {
-    height: geom.to-rem(96px); // Use function for height precision
+    height: global.to-rem(96px);
     width: 100%;
     border-bottom: geom.$sys-geom-border-main solid var(--sys-color-border);
   }
@@ -32,5 +33,25 @@
     display: flex;
     flex-direction: column;
     gap: geom.$space-xs;
+    background: var(--sys-color-paper-bg);
+    color: var(--sys-color-ink-text);
+    font-size: 0.875rem;
+
+    strong {
+      display: block;
+      font-family: var(--sys-font-headline);
+      margin-bottom: 0.25rem;
+    }
+
+    code {
+      font-size: 0.75rem;
+      opacity: 0.9;
+    }
+
+    small {
+      display: block;
+      margin-top: 0.25rem;
+      font-size: 0.7rem;
+    }
   }
 }

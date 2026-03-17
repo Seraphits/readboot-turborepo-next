@@ -1,11 +1,12 @@
 import React from 'react';
 import styles from './Typography.module.scss';
 
-type TypographyVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body' | 'caption';
+type TypographyVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body' | 'caption' | 'link';
 
 interface TypographyProps<T extends React.ElementType> {
   as?: T;
   variant?: TypographyVariant;
+  effects?: 'glitch';
   children: React.ReactNode;
   className?: string;
 }
@@ -13,17 +14,21 @@ interface TypographyProps<T extends React.ElementType> {
 export const Typography = <T extends React.ElementType = 'p'>({
   as,
   variant = 'body',
+  effects,
   children,
   className = '',
- ...props
+  ...props
 }: TypographyProps<T> & React.ComponentPropsWithoutRef<T>) => {
-  const Component = as || (variant.startsWith('h')? variant : 'p');
+  const Component = as ?? (variant === 'link' ? 'a' : variant.startsWith('h') ? variant : 'p');
 
   const combinedClasses = [
     styles.typography,
     styles[`typography--${variant}`],
-    className
-  ].join(' ');
+    effects === 'glitch' && styles['fx--glitch'],
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
   return (
     <Component className={combinedClasses} {...props}>

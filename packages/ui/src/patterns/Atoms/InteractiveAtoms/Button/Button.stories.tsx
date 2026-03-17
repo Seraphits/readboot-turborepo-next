@@ -1,14 +1,29 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from './button'; // Co-located import
+import { Button } from './button';
 
-const meta = {
-  title: 'Patterns/Atoms/Button',
+const meta: Meta<typeof Button> = {
+  title: 'Atoms/Interactive/Button',
   component: Button,
-} satisfies Meta<typeof Button>;
-
+};
 export default meta;
-type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
-  args: { children: 'Click Me' },
+export const ComponentSet: StoryObj = {
+  render: () => (
+    <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+        <small>Default (Base)</small>
+        <Button>Base Button</Button>
+      </div>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+        <small>Action Variant</small>
+        <Button variant="action">Action Button</Button>
+      </div>
+
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+        <small>Glitch State</small>
+        <Button className="fx--glitch">Glitch Button</Button>
+      </div>
+    </div>
+  ),
 };

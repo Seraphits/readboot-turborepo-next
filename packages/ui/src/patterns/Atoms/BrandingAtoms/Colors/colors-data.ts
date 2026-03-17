@@ -31,6 +31,17 @@ const resolve = (token: string): string => {
   return LIGHT[token as keyof typeof LIGHT] ?? token;
 };
 
+// 1. Raw Brand Tokens (Tier 1 Primitives) for ColorSwatch grid
+export const BRAND_COLORS: ColorData[] = [
+  { name: "Charcoal", variable: "$ref-color-charcoal", hex: "#36454F" },
+  { name: "Off-white", variable: "$ref-color-offwhite", hex: "#FAF9F6" },
+  { name: "Crimson", variable: "$ref-color-crimson", hex: "#DC143C" },
+  { name: "Yellow", variable: "$ref-color-yellow", hex: "#FAD20A" },
+  { name: "Green", variable: "$ref-color-green", hex: "#56F000" },
+  { name: "Teal", variable: "$ref-color-teal", hex: "#29ECFF" },
+  { name: "Purple", variable: "$ref-color-purple", hex: "#905FEA" },
+];
+
 // 2. All allowed background/text combinations (Semantic Pairings)
 // These match your Tier 3 map in _colors-variables.scss
 // Light theme hex values for Storybook runtime (inline styles)

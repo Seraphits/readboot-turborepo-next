@@ -1,4 +1,4 @@
-import styles from './Colors.module.scss';
+import styles from '../../SpatialAtoms/geometric/Geometric.module.scss';
 
 interface ColorSwatchProps {
   name: string;
@@ -8,9 +8,9 @@ interface ColorSwatchProps {
 
 export const ColorSwatch = ({ name, variable, hex }: ColorSwatchProps) => {
   return (
-    <article className={styles.swatch}>
-      <div className={styles.swatch__preview} style={{ backgroundColor: hex }} />
-      <div className={styles.swatch__info}>
+    <article className={styles['swatch-layout']}>
+      <div className={styles['swatch-layout__preview']} style={{ backgroundColor: hex }} />
+      <div className={styles['swatch-layout__info']}>
         <strong>{name}</strong>
         <code>{variable}</code>
         <small>{hex}</small>

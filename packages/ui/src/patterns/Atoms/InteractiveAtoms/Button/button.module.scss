@@ -10,7 +10,6 @@
   &--action {
     background-color: var(--sys-color-action-primary);
     color: var(--sys-color-paper-bg);
-    // Notice we don't repeat the 4px border or 12px radius;
-    // those stay because they are in the.button block above.
   }
+
 }
