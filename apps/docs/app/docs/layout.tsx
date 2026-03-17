@@ -1,4 +1,5 @@
 import "@repo/ui/patterns/globals.scss";
+import Script from "next/script";
 import { getMenuData } from "@repo/wp-utils";
 import { Alert } from "@repo/ui/molecules";
 import { NavigationBar } from "@repo/ui/organisms";
@@ -8,6 +9,8 @@ import { NavigationBar } from "@repo/ui/organisms";
 const DOCS_MENU_LOCATION =
   process.env.NEXT_PUBLIC_DOCS_MENU_LOCATION ?? "DOCS_TOPNAV";
 
+const THEME_INIT_SCRIPT = `(function(){var t=localStorage.getItem('theme');if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);})();`;
+
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const links = await getMenuData({
     location: DOCS_MENU_LOCATION,
@@ -15,8 +18,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   });
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
+        <Script id="theme-init" strategy="beforeInteractive" dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <NavigationBar links={links} />
         <Alert />
         <main>{children}</main>

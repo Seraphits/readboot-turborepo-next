@@ -85,7 +85,8 @@ const config: StorybookConfig = {
         ],
       },
       server: {
-        allowedHosts: true,
+        ...config.server,
+        allowedHosts: true, // Bypass Vite 6 host security for local development
       },
     });
   },

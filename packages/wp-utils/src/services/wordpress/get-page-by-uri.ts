@@ -4,12 +4,13 @@ import type { PageData } from '../../types';
 
 /**
  * Fetches a WordPress page by URI (e.g. /about-us/).
+ * WPGraphQL expects URIs without trailing slash for internal matching.
  */
 export async function getPageByUri(uri: string): Promise<PageData | null> {
   const normalizedUri = uri.startsWith('/') ? uri : `/${uri}`;
-  const uriWithTrailing = normalizedUri.endsWith('/') ? normalizedUri : `${normalizedUri}/`;
+  const uriForApi = normalizedUri.replace(/\/$/, ''); // No trailing slash for API
 
-  const data = (await getWordPressData(GET_PAGE_QUERY, { uri: uriWithTrailing }, {
+  const data = (await getWordPressData(GET_PAGE_QUERY, { uri: uriForApi }, {
     revalidate: 60,
   })) as { page?: PageData } | undefined;
 

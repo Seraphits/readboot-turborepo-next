@@ -3,6 +3,7 @@
 import { useCallback } from 'react';
 import styles from './ThemeToggle.module.scss';
 
+const THEME_KEY = 'theme';
 type Theme = 'light' | 'dark';
 
 export const ThemeToggle = () => {
@@ -10,6 +11,11 @@ export const ThemeToggle = () => {
     const root = document.documentElement;
     const next: Theme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
     root.setAttribute('data-theme', next);
+    try {
+      localStorage.setItem(THEME_KEY, next);
+    } catch {
+      // localStorage unavailable (e.g. private browsing)
+    }
   }, []);
 
   return (

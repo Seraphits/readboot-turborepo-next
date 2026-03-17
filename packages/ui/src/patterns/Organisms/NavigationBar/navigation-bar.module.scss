@@ -16,4 +16,9 @@
   &__Menu {
     height: 100%;
   }
+
+  &__Theme {
+    display: flex;
+    align-items: center;
+  }
 }

@@ -2,6 +2,7 @@
 
 import LogoImage from '../../Atoms/BrandingAtoms/Logo/LogoImage';
 import NavMenu from '../../Molecules/NavigationMenu/navigation-menu';
+import { ThemeToggle } from '../../Molecules/ThemeToggle/ThemeToggle';
 import { NavigationLinkItem } from '../../Molecules/NavigationMenu/navigation-menu';
 import styles from './navigation-bar.module.scss';
 
@@ -20,6 +21,9 @@ const NavigationBar = ({ links, logo }: NavigationBarProps) => {
       <nav className={styles.NavigationBar__Menu}>
         <NavMenu links={links} />
       </nav>
+      <div className={styles.NavigationBar__Theme}>
+        <ThemeToggle />
+      </div>
     </header>
   );
 };

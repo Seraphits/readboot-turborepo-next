@@ -4,6 +4,8 @@ Active Context: ReadBoot Shared UI
 - Status: Button is complete. Card and Code are pending migration.
 - Recent: Fixed Vercel build timeout on /blog: (1) increased wp-utils fetch timeout 8s→25s; (2) added force-dynamic to /blog, /blog/category/[slug], /blog/post/[slug], /projects, /projects/[slug] so WordPress-dependent pages render on demand instead of at build time. Web build passes.
 - Recent: Fixed docs rewrite redirect loop in apps/web/next.config.mts: destination URLs now include trailing slashes to match trailingSlash: true.
+- Recent: Storybook viteFinal: server config now spreads ...config.server before allowedHosts: true. Nuclear clean executed; pnpm install completed.
+- Recent: Dark mode fixes: ThemeToggle added to NavigationBar; localStorage persistence; beforeInteractive theme-init script in docs/web layouts; color-scheme + html[data-theme="dark"] in globals.scss.
 
 ReadBoot Progress
 - [x] Turborepo boilerplate initialized.
