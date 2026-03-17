@@ -1,5 +1,18 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
 
+## Storybook (port 6006)
+
+Run the component workshop:
+
+```bash
+pnpm --filter storybook dev
+# or
+pnpm --filter storybook dev:clean
+```
+
+- **URL:** Open [http://localhost:6006](http://localhost:6006) (or `http://localhost:6006/` with a trailing slash).
+- **If the preview spins or iframe.html 404s:** Use URLs that end with a trailing slash; or upgrade Storybook to 10.3+ if the path regression persists. Run `pnpm clean:nuclear:full` from the repo root if caches are poisoned.
+
 ## Getting Started
 
 First, run the development server:

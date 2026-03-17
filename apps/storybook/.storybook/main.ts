@@ -1,12 +1,13 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 
-import { dirname } from "path";
+import { dirname } from 'path';
 import path from 'path';
-import { fileURLToPath } from "url";
+import { fileURLToPath } from 'url';
+import { searchForWorkspaceRoot } from 'vite';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const projectRoot = path.resolve(__dirname, "../../..");
-const packagesUiSrc = path.join(projectRoot, "packages/ui/src");
+const projectRoot = path.resolve(__dirname, '../../..');
+const packagesUiSrc = path.join(projectRoot, 'packages/ui/src');
 
 /** Strip "use client" so Vite can bundle Next.js client components in Storybook */
 function stripUseClient() {
@@ -23,9 +24,9 @@ function stripUseClient() {
 }
 
 /**
-* This function is used to resolve the absolute path of a package.
-* It is needed in projects that use Yarn PnP or are set up within a monorepo.
-*/
+ * This function is used to resolve the absolute path of a package.
+ * It is needed in projects that use Yarn PnP or are set up within a monorepo.
+ */
 function getAbsolutePath(value: string) {
   return dirname(fileURLToPath(import.meta.resolve(`${value}/package.json`)));
 }
@@ -44,12 +45,16 @@ const config: StorybookConfig = {
     getAbsolutePath('@storybook/addon-themes'),
     getAbsolutePath('@storybook/addon-docs'),
   ],
-  framework: getAbsolutePath('@storybook/react-vite'),
-  staticDirs: ["../public"],
+  framework: {
+    name: getAbsolutePath('@storybook/react-vite'),
+    options: {},
+  },
+  staticDirs: ['../public'],
   async viteFinal(config) {
     const { mergeConfig } = await import('vite');
     const packagesUiSrc = path.join(projectRoot, 'packages/ui/src');
     const packagesWpUtilsSrc = path.join(projectRoot, 'packages/wp-utils/src');
+
     return mergeConfig(config, {
       plugins: [...(config.plugins || []), stripUseClient()],
       define: {
@@ -62,16 +67,16 @@ const config: StorybookConfig = {
           'next/link': path.resolve(__dirname, 'next-link-mock.tsx'),
           'next/navigation': path.resolve(__dirname, 'next-navigation-mock.ts'),
           '@repo/ui/patterns': path.join(packagesUiSrc, 'patterns'),
-          '@repo/ui/*': packagesUiSrc + '/',
+          '@repo/ui/*': `${packagesUiSrc}/`,
           '@repo/ui': path.join(packagesUiSrc, 'index.tsx'),
           '@repo/wp-utils': path.join(packagesWpUtilsSrc, 'index.ts'),
-          '@repo/wp-utils/*': packagesWpUtilsSrc + '/',
+          '@repo/wp-utils/*': `${packagesWpUtilsSrc}/`,
         },
       },
       css: {
         preprocessorOptions: {
           scss: {
-            loadPaths: [path.join(packagesUiSrc, "patterns/Atoms")],
+            loadPaths: [path.join(packagesUiSrc, 'patterns/Atoms')],
           },
         },
       },
@@ -86,7 +91,15 @@ const config: StorybookConfig = {
       },
       server: {
         ...config.server,
-        allowedHosts: true, // Bypass Vite 6 host security for local development
+        fs: {
+          ...(config.server?.fs ?? {}),
+          allow: [
+            ...(config.server?.fs?.allow ?? []),
+            searchForWorkspaceRoot(projectRoot),
+          ],
+        },
+        // Explicit whitelist for Vite 6/7 hostname security; prevents vite-app.js 404 when using 127.0.0.1 or proxy
+        allowedHosts: ['127.0.0.1', 'localhost'],
       },
     });
   },
