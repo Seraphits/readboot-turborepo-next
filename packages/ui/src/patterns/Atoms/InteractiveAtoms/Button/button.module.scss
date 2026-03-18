@@ -1,12 +1,36 @@
-@use "../../BrandingAtoms/Mixins/button-mixins" as mixins;
+@use "../../BrandingAtoms/Colors/colors-variables" as vars;
+@use "../../BrandingAtoms/Colors/colors-pairings" as pairings;
+@use "../../BrandingAtoms/Typography/fonts-variables" as fonts;
+@use "sass:map";
 
 .button {
-  @include mixins.button-base;
-  background-color: var(--sys-color-paper-bg);
-  color: var(--sys-color-ink-text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: fonts.$sys-font-body; // Replacing CSS variable with SCSS variable
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
-  &--action {
-    background-color: var(--sys-color-action-primary);
-    color: var(--sys-color-paper-bg);
+  // Iterative generation of color variants from the map
+  @each $name, $colors in pairings.$color-pairings {
+    &--#{$name} {
+      background-color: map.get($colors, "bg");
+      color: map.get($colors, "text");
+      border-color: map.get($colors, "border");
+
+      &:hover {
+        // Advanced ink-on-paper logic:
+        // Slight darkening or scale increase rather than simple opacity
+        filter: brightness(0.95);
+        transform: scale(1.02);
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
+    }
   }
 }

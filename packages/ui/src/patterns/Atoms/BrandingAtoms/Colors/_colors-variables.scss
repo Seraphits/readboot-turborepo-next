@@ -1,7 +1,6 @@
-@use 'sass:color';
-@use 'sass:map';
+@use "sass:color";
 
-// TIER 1: REFERENCE TOKENS (Brand Primitives)
+// TIER 1: REFERENCE TOKENS (Brand Primitives - Fixed "Stars")
 $ref-color-charcoal: #36454F;
 $ref-color-offwhite: #FAF9F6;
 $ref-color-crimson:  #DC143C;
@@ -10,90 +9,29 @@ $ref-color-green:    #56F000;
 $ref-color-teal:     #29ECFF;
 $ref-color-purple:   #905FEA;
 
-// TIER 2: THEME MAPS (The "Negative-Ink" Logic)
-$themes: (
-  "light": (
-    "bg-paper": $ref-color-offwhite,
-    "ink-text": $ref-color-charcoal,
-    "border":   $ref-color-charcoal,
-    "action":   $ref-color-crimson,
-    "success":  $ref-color-green,
-    "warning":  $ref-color-yellow,
-    "error":    $ref-color-crimson,
-    "info":     $ref-color-teal,
-    "purple":   $ref-color-purple
-  ),
-  "dark": (
-    "bg-paper": $ref-color-charcoal,
-    "ink-text": $ref-color-offwhite,
-    "border":   $ref-color-offwhite,
-    // Use expressions to hit 4.5:1 contrast while keeping brand hue (Dart Sass 2+ color module)
-    "action":   color.adjust($ref-color-crimson, $lightness: 15%),
-    "success":  color.adjust(color.adjust($ref-color-green, $lightness: 10%), $saturation: -15%),
-    "warning":  color.adjust($ref-color-yellow, $lightness: 5%),
-    "error":    color.adjust($ref-color-crimson, $lightness: 15%),
-    "info":     $ref-color-teal,
-    "purple":   color.adjust($ref-color-purple, $lightness: 8%)
-  )
-);
+// TIER 2: SYSTEM COLORS (Literal Role Tokens)
+$sys-color-paper-light-bg: $ref-color-offwhite;
+$sys-color-ink-light-text: $ref-color-offwhite;
+$sys-color-paper-dark-bg:  $ref-color-charcoal;
+$sys-color-ink-dark-text:  $ref-color-charcoal;
 
-// Semantic tokens for SCSS modules (light theme default; CSS vars handle theme toggle)
-$sys-color-paper-bg: map.get(map.get($themes, "light"), "bg-paper");
-$sys-color-ink-text: map.get(map.get($themes, "light"), "ink-text");
-$sys-color-border: map.get(map.get($themes, "light"), "border");
-$sys-color-action-primary: map.get(map.get($themes, "light"), "action");
-$sys-color-status-warning: map.get(map.get($themes, "light"), "warning");
-$sys-color-status-success: map.get(map.get($themes, "light"), "success");
-$sys-color-status-error: map.get(map.get($themes, "light"), "error");
-$sys-color-status-info: map.get(map.get($themes, "light"), "info");
+$sys-color-light-border:   $ref-color-offwhite;
+$sys-color-dark-border:    $ref-color-charcoal;
 
-// TIER 3: COMPLETE SEMANTIC PAIRINGS
-$color-pairings: (
-  // --- Core Brand Pairings ---
-  "default": (
-    "bg": "bg-paper",    // Off-white in Light / Charcoal in Dark
-    "text": "ink-text"   // Charcoal in Light / Off-white in Dark
-  ),
-  "inverted": (
-    "bg": "ink-text",    // Charcoal in Light / Off-white in Dark
-    "text": "bg-paper"   // Off-white in Light / Charcoal in Dark
-  ),
-  "action": (
-    "bg": "action",      // Brand Crimson (Adjusted in Dark Mode)
-    "text": "bg-paper"   // High contrast "Paper" ink on the action color
-  ),
+// Action/Status Core Values
+$sys-color-action-primary: $ref-color-crimson;
+$sys-color-status-warning: $ref-color-yellow;
+$sys-color-status-success: $ref-color-green;
+$sys-color-status-error:   $ref-color-crimson;
+$sys-color-status-info:    $ref-color-teal;
 
-  // --- Feedback & Status Pairings ---
-  "success": (
-    "bg": "success",     // Brand Green
-    "text": "bg-paper"   // "Paper" (Off-white/Charcoal) for maximum punch
-  ),
-  "warning": (
-    "bg": "warning",     // Brand Yellow
-    "text": "$ref-color-charcoal" // Always use dark ink on yellow for contrast
-  ),
-  "error": (
-    "bg": "error",       // Brand Crimson (distinct from action for semantics)
-    "text": "bg-paper"
-  ),
-  "info": (
-    "bg": "info",        // Brand Teal
-    "text": "$ref-color-charcoal" // Dark ink required on teal backgrounds
-  ),
+// Specific Border Tokens (Turn 9 Requirement)
+$sys-color-action-border:  $ref-color-crimson;
+$sys-color-error-border:   $ref-color-crimson;
+$sys-color-warning-border: $ref-color-yellow;
+$sys-color-success-border: $ref-color-green;
+$sys-color-info-border:    $ref-color-teal;
 
-  // --- Accent Pairings ---
-  "tertiary": (
-    "bg": "purple",      // Secondary Brand Accent
-    "text": "bg-paper"
-  ),
-
-  // --- High-Intensity Text Signals (Color text on Paper BG) ---
-  "text-action": (
-    "bg": "bg-paper",
-    "text": "action"
-  ),
-  "text-error": (
-    "bg": "bg-paper",
-    "text": "error"
-  )
-);
+// Accessibility: Safe Red for Dark Backgrounds (Turn 8 Logic)
+// Meets 4.5:1 ratio against charcoal base [1, 3]
+$sys-color-action-on-dark: color.adjust($ref-color-crimson, $lightness: 15%);

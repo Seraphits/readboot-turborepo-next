@@ -1,47 +1,16 @@
-@use "../Mixins/global-mixins" as global;
-@use "../../SpatialAtoms/geometric/geometric-variables" as geom;
+@use "./fonts-variables" as fonts;
+@use "../../BrandingAtoms/Colors/colors-mixins" as colors;
 
 .typography {
-  color: var(--sys-color-ink-text);
-  margin: 0;
-
-  &--h1 {
-    font-family: var(--sys-font-headline);
-    font-size: global.to-rem(48px);
-    line-height: 1.2;
-    margin-bottom: geom.$space-md;
+  // Use the headline font for all heading variants
+  &--h1, &--h2, &--h3, &--h4, &--h5, &--h6 {
+    font-family: fonts.$sys-font-headline;
   }
 
-  &--h2 {
-    font-family: var(--sys-font-headline);
-    font-size: global.to-rem(36px);
-    line-height: 1.2;
-    margin-bottom: geom.$space-md;
+  // Use the body font for standard text
+  &--body, &--caption {
+    font-family: fonts.$sys-font-body;
   }
 
-  &--body {
-    font-family: var(--sys-font-body);
-    font-size: global.to-rem(16px);
-    line-height: 1.6;
-    margin-bottom: geom.$space-sm;
-  }
-
-  &--caption {
-    font-family: var(--sys-font-body);
-    font-size: global.to-rem(14px);
-    line-height: 1.4;
-    opacity: 0.9;
-  }
-
-  &--link {
-    font-family: var(--sys-font-headline);
-    font-size: global.to-rem(18px);
-    color: var(--sys-color-action-primary);
-    text-decoration: none;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-    &:hover {
-      transform: scale(1.05);
-    }
-  }
+  //... rest of your link and dark mode logic
 }

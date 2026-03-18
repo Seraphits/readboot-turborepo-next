@@ -1,11 +1,13 @@
+@use "../../Atoms/BrandingAtoms/Colors/colors-mixins" as colors;
+@use "../../Atoms/BrandingAtoms/Typography/fonts-variables" as fonts;
+
 .banner {
-  background-color: var(--sys-color-warning);
-  color: var(--sys-color-ink-text);
-  font-family: var(--sys-font-headline);
+  font-family: fonts.$sys-font-headline;
   font-weight: 700;
   text-align: center;
   padding: 0.75rem 1rem;
   font-size: 0.9rem;
   width: 100%;
   display: block;
+  @include colors.apply-pairing("alert");
 }

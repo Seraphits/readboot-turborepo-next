@@ -1,30 +1,32 @@
 import React from 'react';
 import styles from './button.module.scss';
+import clsx from 'clsx';
+// Import the pairing keys directly from your SCSS module
+import pairingKeys from '../../Atoms/BrandingAtoms/Colors/_colors-pairings.module.scss';
 
-interface ButtonProps {
+// 1. DYNAMIC TYPE: This automatically becomes 'alert' | 'action-on-light' | etc.
+export type ButtonVariant = keyof typeof pairingKeys;
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: ButtonVariant;
   children: React.ReactNode;
-  variant?: 'default' | 'action';
-  className?: string;
-  type?: 'button' | 'submit' | 'reset';
 }
 
-export function Button({
+export const Button: React.FC<ButtonProps> = ({
+  variant = 'ink-dark-on-paper-light',
+  className,
   children,
-  variant = 'default',
-  className = '',
-  type = 'button',
-}: ButtonProps) {
-  const combinedClasses = [
-    styles.button,
-    variant !== 'default' ? styles[`button--${variant}`] : '',
-    className,
-  ]
-    .join(' ')
-    .trim();
+ ...props
+}) => {
+  // 2. Class Mapping: matches the &--#{$name} loop in your button.module.scss
+  const variantClass = styles[`button--${variant}`];
 
   return (
-    <button className={combinedClasses} type={type}>
+    <button
+      className={clsx(styles.button, variantClass, className)}
+      {...props}
+    >
       {children}
     </button>
   );
-}
+};

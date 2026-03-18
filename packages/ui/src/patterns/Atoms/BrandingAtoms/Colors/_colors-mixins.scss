@@ -1,18 +1,14 @@
 @use "sass:map";
-@use "colors-variables" as vars;
+@use "colors-pairings" as pairings;
 
-@mixin set-color-scheme($scheme, $theme: "light") {
-  $current-theme: map.get(vars.$themes, $theme);
-  $pairing: map.get(vars.$color-pairings, $scheme);
+@mixin apply-pairing($scheme) {
+  $pairing: map.get(pairings.$color-pairings, $scheme);
 
   @if $pairing {
-    $bg-key: map.get($pairing, "bg");
-    $text-key: map.get($pairing, "text");
-
-    background-color: map.get($current-theme, $bg-key);
-    color: map.get($current-theme, $text-key);
-    border-color: map.get($current-theme, "border");
+    background-color: map.get($pairing, "bg");
+    color: map.get($pairing, "text");
+    border-color: map.get($pairing, "border");
   } @else {
-    @error "Unknown color scheme: #{$scheme}";
+    @error "Unknown color pairing: #{$scheme}";
   }
 }

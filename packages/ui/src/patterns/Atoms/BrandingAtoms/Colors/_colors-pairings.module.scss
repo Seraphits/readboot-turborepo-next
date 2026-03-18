@@ -1,0 +1,42 @@
+@use "colors-variables" as vars;
+
+// TIER 3: THE PAIRING MAP (The "Purpose" Logic)
+$color-pairings: (
+  // Literal Light Setup: Light Paper + Dark Ink + Dark Border
+  "ink-dark-on-paper-light": (
+    "bg": vars.$sys-color-paper-light-bg,
+    "text": vars.$sys-color-ink-dark-text,
+    "border": vars.$sys-color-dark-border
+  ),
+  // Literal Dark Setup: Dark Paper + Light Ink + Light Border
+  "ink-light-on-paper-dark": (
+    "bg": vars.$sys-color-paper-dark-bg,
+    "text": vars.$sys-color-ink-light-text,
+    "border": vars.$sys-color-light-border
+  ),
+  // Action Setup (Light Mode): Matching Crimson Text and Borders
+  "action-on-light": (
+    "bg": vars.$sys-color-paper-light-bg,
+    "text": vars.$sys-color-action-primary,
+    "border": vars.$sys-color-action-border
+  ),
+  // Action Setup (Dark Mode): Using Safe Crimson for Text and Border
+  "action-on-dark": (
+    "bg": vars.$sys-color-paper-dark-bg,
+    "text": vars.$sys-color-action-on-dark,
+    "border": vars.$sys-color-action-on-dark
+  ),
+  // Fixed Alert: Yellow BG + Charcoal Ink (Stays readable in all modes) [6]
+  "alert": (
+    "bg": vars.$sys-color-status-warning,
+    "text": vars.$sys-color-ink-dark-text,
+    "border": vars.$sys-color-dark-border
+  )
+);
+
+// This loop generates the keys for TypeScript to consume
+:export {
+  @each $key, $value in $color-pairings {
+    #{$key}: #{$key};
+  }
+}
