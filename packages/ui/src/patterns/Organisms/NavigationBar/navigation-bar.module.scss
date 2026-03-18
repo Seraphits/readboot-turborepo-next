@@ -1,11 +1,15 @@
+@use "../../Atoms/BrandingAtoms/Colors/colors-variables" as vars;
+
 .NavigationBar {
+  position: relative;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 80px;
   padding: 0 2rem;
-  background-color: var(--sys-color-paper-bg);
-  border-bottom: 1px solid var(--sys-color-ink-text);
+  background-color: vars.$sys-color-paper-light-bg;
+  border-bottom: 1px solid vars.$sys-color-dark-border;
 
   &__Logo {
     width: 100px;
@@ -20,5 +24,10 @@
   &__Theme {
     display: flex;
     align-items: center;
+  }
+
+  [data-theme='dark'] & {
+    background-color: vars.$sys-color-paper-dark-bg;
+    border-bottom-color: vars.$sys-color-light-border;
   }
 }

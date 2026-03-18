@@ -1,5 +1,6 @@
 @use "spacing-variables" as vars;
 @use "../geometric/Geometric.module" as spatial;
+@use "../../BrandingAtoms/Colors/colors-variables" as colors;
 
 .spacing-row {
   @extend.container-base; // Inherits 4px border & 12px radius
@@ -8,11 +9,11 @@
   gap: vars.$space-lg;
   padding: vars.$space-md;
   margin-bottom: vars.$space-sm;
-  background: var(--sys-color-paper-bg);
+  background: colors.$sys-color-paper-light-bg;
 
   &__visual {
     height: vars.$space-lg;
-    background: var(--sys-color-action-primary);
+    background: colors.$sys-color-action-primary;
     border-radius: 4px; // Small radius for the measurement bar
     min-width: 2px;
   }
@@ -29,7 +30,7 @@
 
     code {
       font-size: 0.8rem;
-      color: var(--sys-color-ink-text);
+      color: colors.$sys-color-ink-dark-text;
       opacity: 0.7;
     }
   }

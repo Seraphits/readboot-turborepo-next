@@ -1,4 +1,6 @@
 @use "../../SpatialAtoms/spacing/spacing-variables" as space;
+@use "../../BrandingAtoms/Colors/colors-variables" as vars;
+@use "../../SpatialAtoms/geometric/geometric-variables" as geom;
 
 .container {
   display: grid;
@@ -8,13 +10,16 @@
   gap: space.$space-2xl;
   align-items: center;
 
-  // Only apply border when explicitly requested
   &--bordered {
     min-height: 80vh;
     margin: space.$space-2xl;
     padding: space.$space-3xl space.$space-2xl;
-    border: 4px solid var(--sys-color-border);
-    border-radius: var(--sys-radius-primary, 12px);
+    border: 4px solid vars.$sys-color-dark-border;
+    border-radius: geom.$sys-geom-radius-main;
+
+    [data-theme='dark'] & {
+      border-color: vars.$sys-color-light-border;
+    }
   }
 
   // Variant Canvas Maps [2]

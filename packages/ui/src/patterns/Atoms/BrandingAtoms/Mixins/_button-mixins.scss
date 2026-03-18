@@ -1,5 +1,7 @@
-@use "../../BrandingAtoms/Mixins/global-mixins" as global;
+@use "global-mixins" as global;
 @use "../../SpatialAtoms/geometric/geometric-variables" as geom;
+@use "../Colors/colors-variables" as vars;
+@use "../Typography/fonts-variables" as fonts;
 
 @mixin button-base {
   display: inline-flex;
@@ -7,15 +9,10 @@
   justify-content: center;
   cursor: pointer;
 
-  // High-Contrast Linework: PX for crispness
-  border: geom.$sys-geom-border-main solid var(--sys-color-border);
-
-  // Brand Radius: REM for proportional scaling
+  border: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
   border-radius: geom.$sys-geom-radius-main;
-
-  // Spacing and Typography: REM for accessibility
   padding: global.to-rem(12px) global.to-rem(24px);
-  font-family: var(--sys-font-headline);
+  font-family: fonts.$sys-font-headline;
   font-weight: 700;
 
   // Standard ReadBoot Bounce [1]

@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "../../Atoms/BrandingAtoms/Colors/colors-variables" as vars;
+@use "../../Atoms/BrandingAtoms/Typography/fonts-variables" as fonts;
 
 .NavigationMenu {
   &__List {
@@ -8,20 +11,19 @@
   }
 
   &__Item {
-    position: relative; // Keeps the dropdown attached to this item
-    padding: .5rem 0;
+    position: relative;
+    padding: 0.5rem 0;
 
     a {
       text-decoration: none;
-      font-family: var(--sys-font-headline);
+      font-family: fonts.$sys-font-headline;
+
       &:hover,
       &:focus {
-        color: var(--sys-color-action-primary);
+        color: vars.$sys-color-action-primary;
       }
-      //
     }
 
-    // Show dropdown on hover
     &:hover > .NavigationMenu__SubList {
       opacity: 1;
       visibility: visible;
@@ -31,17 +33,16 @@
 
   &__SubList {
     position: absolute;
-    top: 100%; // Appears directly below the parent
+    top: 100%;
     left: 0;
     min-width: 220px;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
+    background: vars.$sys-color-paper-light-bg;
+    border: 1px solid vars.$sys-color-dark-border;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     padding: 0.5rem 0;
     list-style: none;
     z-index: 50;
 
-    // Smooth transition
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
@@ -53,7 +54,23 @@
     white-space: nowrap;
 
     &:hover {
-      background-color: #f9fafb;
+      background-color: color.adjust(vars.$sys-color-paper-light-bg, $lightness: -3%);
+    }
+  }
+
+  [data-theme='dark'] & {
+    a:hover,
+    a:focus {
+      color: vars.$sys-color-action-on-dark;
+    }
+
+    .NavigationMenu__SubList {
+      background: vars.$sys-color-paper-dark-bg;
+      border-color: vars.$sys-color-light-border;
+    }
+
+    .NavigationMenu__SubItem:hover {
+      background-color: color.adjust(vars.$sys-color-paper-dark-bg, $lightness: 10%);
     }
   }
 }

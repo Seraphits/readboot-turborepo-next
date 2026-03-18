@@ -1,3 +1,5 @@
+@use "../../Atoms/BrandingAtoms/Colors/colors-variables" as vars;
+
 .formGroup {
   display: flex;
   flex-wrap: wrap;
@@ -9,15 +11,25 @@
   flex: 1;
   min-width: 12rem;
   padding: 0.5rem 0.75rem;
-  border: 4px solid var(--sys-color-border);
+  border: 4px solid vars.$sys-color-dark-border;
   border-radius: 12px;
-  background: var(--sys-color-paper-bg);
-  color: var(--sys-color-ink-text);
+  background: vars.$sys-color-paper-light-bg;
+  color: vars.$sys-color-ink-dark-text;
   font-family: inherit;
   font-size: 1rem;
 
   &::placeholder {
-    color: var(--sys-color-ink-text);
+    color: vars.$sys-color-ink-dark-text;
     opacity: 0.6;
+  }
+
+  [data-theme='dark'] & {
+    border-color: vars.$sys-color-light-border;
+    background: vars.$sys-color-paper-dark-bg;
+    color: vars.$sys-color-ink-light-text;
+
+    &::placeholder {
+      color: vars.$sys-color-ink-light-text;
+    }
   }
 }

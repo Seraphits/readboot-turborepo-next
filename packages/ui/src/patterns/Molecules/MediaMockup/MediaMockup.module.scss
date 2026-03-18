@@ -1,14 +1,25 @@
+@use "../../Atoms/BrandingAtoms/Colors/colors-variables" as vars;
+
 .browserFrame {
-  border: 4px solid var(--sys-color-border);
+  border: 4px solid vars.$sys-color-dark-border;
   border-radius: 12px;
   overflow: hidden;
-  background: var(--sys-color-paper-bg);
+  background: vars.$sys-color-paper-light-bg;
+
+  [data-theme='dark'] & {
+    border-color: vars.$sys-color-light-border;
+    background: vars.$sys-color-paper-dark-bg;
+  }
 }
 
 .chromeToolbar {
   height: 2rem;
-  background: var(--sys-color-ink-text);
+  background: vars.$sys-color-ink-dark-text;
   opacity: 0.1;
+
+  [data-theme='dark'] & {
+    background: vars.$sys-color-ink-light-text;
+  }
 }
 
 .content {

@@ -1,5 +1,7 @@
+@use "../../BrandingAtoms/Colors/colors-variables" as vars;
+
 .NavigationLink {
-  color: var(--sys-color-ink-text);
+  color: vars.$sys-color-ink-dark-text;
   text-decoration: none;
   transition: all 0.3s ease;
   padding: 0.5rem 1rem;
@@ -8,13 +10,27 @@
 
   &:hover,
   &:focus {
-    color: var(--sys-color-action-primary);
+    color: vars.$sys-color-action-primary;
     outline: none;
   }
 
   &--active {
-    color: var(--sys-color-action-primary);
+    color: vars.$sys-color-action-primary !important;
     font-weight: 700;
-    border-bottom: 3px solid var(--sys-color-action-primary);
+    border-bottom: 3px solid vars.$sys-color-action-primary;
+  }
+
+  [data-theme='dark'] & {
+    color: vars.$sys-color-ink-light-text;
+
+    &:hover,
+    &:focus {
+      color: vars.$sys-color-action-on-dark;
+    }
+  }
+
+  [data-theme='dark'] &#{&}--active {
+    color: vars.$sys-color-action-on-dark !important;
+    border-bottom-color: vars.$sys-color-action-on-dark;
   }
 }

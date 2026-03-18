@@ -1,18 +1,24 @@
 @use "../../BrandingAtoms/Mixins/global-mixins" as global;
 @use "geometric-variables" as geom;
+@use "../../BrandingAtoms/Colors/colors-variables" as vars;
+@use "../../BrandingAtoms/Typography/fonts-variables" as fonts;
 
 .container-base {
   display: flex;
-  // Border thickness in px for sharp lines, color from theme
-  border: geom.$sys-geom-border-main solid var(--sys-color-border);
+  border: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
   border-radius: geom.$sys-geom-radius-main;
   padding: geom.$space-md;
   gap: geom.$space-sm;
-  background-color: var(--sys-color-paper-bg);
+  background-color: vars.$sys-color-paper-light-bg;
   transition: transform 0.5s cubic-bezier(0.8, -0.5, 0.2, 1.8);
 
   &:hover {
     transform: scale(1.05);
+  }
+
+  [data-theme='dark'] & {
+    border-color: vars.$sys-color-light-border;
+    background-color: vars.$sys-color-paper-dark-bg;
   }
 }
 
@@ -25,7 +31,11 @@
   &__preview {
     height: global.to-rem(96px);
     width: 100%;
-    border-bottom: geom.$sys-geom-border-main solid var(--sys-color-border);
+    border-bottom: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
+
+    [data-theme='dark'] & {
+      border-bottom-color: vars.$sys-color-light-border;
+    }
   }
 
   &__info {
@@ -33,14 +43,19 @@
     display: flex;
     flex-direction: column;
     gap: geom.$space-xs;
-    background: var(--sys-color-paper-bg);
-    color: var(--sys-color-ink-text);
+    background: vars.$sys-color-paper-light-bg;
+    color: vars.$sys-color-ink-dark-text;
     font-size: 0.875rem;
 
     strong {
       display: block;
-      font-family: var(--sys-font-headline);
+      font-family: fonts.$sys-font-headline;
       margin-bottom: 0.25rem;
+    }
+
+    [data-theme='dark'] .container-base & {
+      background: vars.$sys-color-paper-dark-bg;
+      color: vars.$sys-color-ink-light-text;
     }
 
     code {

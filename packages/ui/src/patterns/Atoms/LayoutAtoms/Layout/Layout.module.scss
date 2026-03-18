@@ -1,3 +1,5 @@
+@use "../../BrandingAtoms/Colors/colors-variables" as vars;
+
 .layout {
   display: flex;
   gap: 1.5rem;
@@ -11,6 +13,10 @@
     display: block;
     column-count: 2;
     column-gap: 2rem;
-    column-rule: 1px dashed var(--sys-color-ink-text);
+    column-rule: 1px dashed vars.$sys-color-ink-dark-text;
+
+    [data-theme='dark'] & {
+      column-rule-color: vars.$sys-color-ink-light-text;
+    }
   }
 }

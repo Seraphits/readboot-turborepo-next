@@ -11,7 +11,7 @@ interface NavigationLinkProps {
 
 const NavigationLink = ({ href, children }: NavigationLinkProps) => {
   const pathname = usePathname();
-  const isActive = pathname === href;
+  const isActive = href === '/' ? pathname === '/' : pathname.startsWith(href);
 
   return (
     <Link
