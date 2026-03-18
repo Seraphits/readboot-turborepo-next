@@ -1,5 +1,5 @@
 @use "../../BrandingAtoms/Colors/colors-variables" as vars;
-@use "../../BrandingAtoms/Colors/colors-pairings" as pairings;
+@use "../../BrandingAtoms/Colors/colors-pairings.module" as pairings;
 @use "../../BrandingAtoms/Typography/fonts-variables" as fonts;
 @use "sass:map";
 

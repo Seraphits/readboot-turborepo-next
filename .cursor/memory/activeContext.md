@@ -7,6 +7,7 @@ Active Context: ReadBoot Shared UI
 - Recent: Storybook viteFinal: server config now spreads ...config.server before allowedHosts: true. Nuclear clean executed; pnpm install completed.
 - Recent: Dark mode fixes: ThemeToggle added to NavigationBar; localStorage persistence; beforeInteractive theme-init script in docs/web layouts; color-scheme + html[data-theme="dark"] in globals.scss.
 - Recent: Sass module migration: _colors-variables.scss uses sass:color and sass:math (no deprecated lighten/unit). Storybook hardening: pnpm catalog for Storybook/Vite, predev cache clear, main.ts double-encoding patch + URL middleware; see .cursor/memory/storybook-maintenance.md.
+- Recent: Fixed branding SCSS module resolution + Turbopack `:export` parsing by updating `colors-pairings` imports and replacing `:export`-based pairing keys with `pairingKeys.ts`.
 - Recent: Fixed WPGraphQL request storm / `net::ERR_HTTP2_PROTOCOL_ERROR` in browser by making `NavigationBar` a Server Component (logo fetch stays server-side) and adding a client-safety guard to `getWordPressData`.
 
 ReadBoot Progress

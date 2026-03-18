@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "colors-variables" as vars;
 
 // TIER 3: THE PAIRING MAP (The "Purpose" Logic)
@@ -34,9 +35,11 @@ $color-pairings: (
   )
 );
 
-// This loop generates the keys for TypeScript to consume
-:export {
-  @each $key, $value in $color-pairings {
-    #{$key}: #{$key};
+// Generate pairing helper classes (consumed by stories / UI).
+@each $key, $colors in $color-pairings {
+  .pairing--#{$key} {
+    background-color: map.get($colors, "bg");
+    color: map.get($colors, "text");
+    border-color: map.get($colors, "border");
   }
 }

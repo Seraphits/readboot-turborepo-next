@@ -1,5 +1,7 @@
 @use "sass:map";
-@use "colors-pairings" as pairings;
+// `_colors-pairings` is a CSS-module-styled SCSS file, so we must include the
+// `.module` segment for Sass to resolve the filename.
+@use "./colors-pairings.module" as pairings;
 
 @mixin apply-pairing($scheme) {
   $pairing: map.get(pairings.$color-pairings, $scheme);

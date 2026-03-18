@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './button';
-import pairingKeys from '../../Atoms/BrandingAtoms/Colors/_colors-pairings.module.scss';
+import { PAIRING_KEYS } from '../../BrandingAtoms/Colors/pairingKeys';
 
 const meta: Meta<typeof Button> = {
   title: 'Style Guide/3. Buttons',
@@ -8,10 +8,14 @@ const meta: Meta<typeof Button> = {
 };
 export default meta;
 
+export const Primary: StoryObj<typeof Button> = {
+  render: () => <Button variant="ink-dark-on-paper-light">Primary</Button>,
+};
+
 export const AllButtonVariants: StoryObj = {
   render: () => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-      {Object.keys(pairingKeys).map((variant) => (
+      {PAIRING_KEYS.map((variant) => (
         <div key={variant} style={{ textAlign: 'center' }}>
           <Button variant={variant as any}>
             {variant.split('-')}

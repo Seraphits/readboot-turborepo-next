@@ -33,7 +33,7 @@ export const Hero = <T extends ElementType = 'section'>({
             {title}
           </h1>
           {subhead && <p className={styles.subheadline}>{subhead}</p>}
-          <Button variant="action" className={styles.bouncyCta}>
+          <Button variant="action-on-light" className={styles.bouncyCta}>
             {ctaText}
           </Button>
         </div>

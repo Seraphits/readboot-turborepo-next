@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import pairingKeys from './_colors-pairings.module.scss';
+import { PAIRING_KEYS } from './pairingKeys';
 // We use the mixin's generated classes or inline styles
 import styles from './_colors-pairings.module.scss';
 
@@ -11,10 +11,10 @@ export default meta;
 export const PairingRules: StoryObj = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-      {Object.keys(pairingKeys).map((key) => (
+      {PAIRING_KEYS.map((key) => (
         <div
           key={key}
-          className={styles[`pairing--${key}`]} // Assumes you have a helper class in SCSS
+          className={styles[`pairing--${key}`]}
           style={{ padding: '2rem', border: '1px solid', borderRadius: '8px' }}
         >
           <h4>{key.replace(/-/g, ' ').toUpperCase()}</h4>

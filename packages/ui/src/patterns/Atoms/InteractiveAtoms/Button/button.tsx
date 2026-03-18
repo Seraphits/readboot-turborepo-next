@@ -1,11 +1,10 @@
 import React from 'react';
 import styles from './button.module.scss';
 import clsx from 'clsx';
-// Import the pairing keys directly from your SCSS module
-import pairingKeys from '../../Atoms/BrandingAtoms/Colors/_colors-pairings.module.scss';
+import type { PairingKey } from '../../BrandingAtoms/Colors/pairingKeys';
 
 // 1. DYNAMIC TYPE: This automatically becomes 'alert' | 'action-on-light' | etc.
-export type ButtonVariant = keyof typeof pairingKeys;
+export type ButtonVariant = PairingKey;
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
