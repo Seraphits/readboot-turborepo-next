@@ -1,15 +1,13 @@
-"use client"
-
+import type { ReactNode } from 'react';
 import LogoImage from '../../Atoms/BrandingAtoms/Logo/LogoImage';
-import NavMenu from '../../Molecules/NavigationMenu/navigation-menu';
+import NavMenu, { type NavigationLinkItem } from '../../Molecules/NavigationMenu/navigation-menu';
 import { ThemeToggle } from '../../Molecules/ThemeToggle/ThemeToggle';
-import { NavigationLinkItem } from '../../Molecules/NavigationMenu/navigation-menu';
 import styles from './navigation-bar.module.scss';
 
 export interface NavigationBarProps {
   links: NavigationLinkItem[];
-  /** Optional logo slot for Storybook/client contexts (avoids async Server Component) */
-  logo?: React.ReactNode;
+  /** Optional logo slot for non-WordPress contexts (e.g. Storybook). */
+  logo?: ReactNode;
 }
 
 const NavigationBar = ({ links, logo }: NavigationBarProps) => {
