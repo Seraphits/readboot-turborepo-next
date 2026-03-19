@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { shouldSkipNextImageOptimization } from "../../../../lib/remoteImageUtils";
 import { getLogoData } from "@repo/wp-utils";
 import type { LogoProps } from "@repo/wp-utils";
 
@@ -33,6 +34,7 @@ export default async function LogoImage({
         style={{ objectFit: "contain" }}
         priority
         sizes="(max-width: 768px) 100vw, 50vw"
+        unoptimized={shouldSkipNextImageOptimization(logo.sourceUrl)}
       />
     </div>
   );

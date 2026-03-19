@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '../../Atoms/InteractiveAtoms/Button/Button';
+import { shouldSkipNextImageOptimization } from '../../../lib/remoteImageUtils';
 import styles from './SplitHomeHero.module.scss';
 
 export type SplitHomeHeroProps = {
@@ -35,6 +36,7 @@ export const SplitHomeHero = ({
           className={styles.portraitImage}
           priority
           sizes="(max-width: 900px) 100vw, 50vw"
+          unoptimized={shouldSkipNextImageOptimization(portraitSrc)}
         />
       </div>
       <div className={styles.content}>

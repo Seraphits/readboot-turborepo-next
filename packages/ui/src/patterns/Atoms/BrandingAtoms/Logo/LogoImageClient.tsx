@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { shouldSkipNextImageOptimization } from "../../../../lib/remoteImageUtils";
 import { getLogoData } from "@repo/wp-utils";
 import type { LogoProps } from "@repo/wp-utils";
 import styles from "./LogoImage.module.scss";
@@ -54,6 +55,7 @@ export function LogoImageClient({
         style={{ objectFit: "contain" }}
         priority
         sizes="(max-width: 768px) 100vw, 50vw"
+        unoptimized={shouldSkipNextImageOptimization(sourceUrl)}
       />
     </div>
   );
