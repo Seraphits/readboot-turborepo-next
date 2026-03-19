@@ -11,6 +11,10 @@
   margin-bottom: vars.$space-sm;
   background: colors.$sys-color-paper-light-bg;
 
+  [data-theme='dark'] & {
+    background: colors.$sys-color-paper-dark-bg;
+  }
+
   &__visual {
     height: vars.$space-lg;
     background: colors.$sys-color-action-primary;
@@ -32,6 +36,12 @@
       font-size: 0.8rem;
       color: colors.$sys-color-ink-dark-text;
       opacity: 0.7;
+    }
+
+    [data-theme='dark'] & {
+      code {
+        color: colors.$sys-color-ink-light-text;
+      }
     }
   }
 }

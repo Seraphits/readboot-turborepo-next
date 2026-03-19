@@ -39,8 +39,6 @@ export function LogoImageClient({
       style={{
         width,
         height,
-        background: "var(--sys-color-border)",
-        opacity: 0.1,
       }}
       aria-busy="true"
     >

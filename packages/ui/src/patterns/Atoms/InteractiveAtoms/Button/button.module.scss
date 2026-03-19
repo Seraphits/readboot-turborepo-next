@@ -1,6 +1,7 @@
 @use "../../BrandingAtoms/Colors/colors-variables" as vars;
 @use "../../BrandingAtoms/Colors/colors-pairings.module" as pairings;
 @use "../../BrandingAtoms/Typography/fonts-variables" as fonts;
+@use "../../SpatialAtoms/geometric/geometric-variables" as geom;
 @use "sass:map";
 
 .button {
@@ -8,29 +9,41 @@
   align-items: center;
   justify-content: center;
   font-family: fonts.$sys-font-body; // Replacing CSS variable with SCSS variable
-  font-weight: 500;
+  font-weight: 700;
   padding: 0.75rem 1.5rem;
-  border: 1px solid transparent;
+  border: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
+  border-radius: geom.$sys-geom-radius-main;
   cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition:
+    transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    filter 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  &:hover {
+    filter: brightness(0.95);
+    transform: scale(1.05);
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+
+  // Enforce “ink linework” borders regardless of pairing.
+  [data-theme='dark'] & {
+    border-color: vars.$sys-color-light-border;
+  }
 
   // Iterative generation of color variants from the map
   @each $name, $colors in pairings.$color-pairings {
     &--#{$name} {
       background-color: map.get($colors, "bg");
       color: map.get($colors, "text");
-      border-color: map.get($colors, "border");
 
       &:hover {
-        // Advanced ink-on-paper logic:
-        // Slight darkening or scale increase rather than simple opacity
+        // Keep hover behavior centralized in `.button` for bouncy consistency.
         filter: brightness(0.95);
-        transform: scale(1.02);
       }
 
-      &:active {
-        transform: scale(0.98);
-      }
+      // &:active handled by the base `.button`
     }
   }
 }

@@ -19,14 +19,14 @@ export default function ComponentsPage() {
           </ColorScheme>
         ))}
       </div>
-      <pre style={{ padding: "1rem", backgroundColor: "var(--sys-color-paper-bg)", border: "1px solid var(--sys-color-border)", borderRadius: "var(--sys-radius-primary)", marginBottom: "2rem" }}>
+      <pre style={{ padding: "1rem", backgroundColor: "#FAF9F6", border: "1px solid #36454F", borderRadius: "12px", marginBottom: "2rem" }}>
         <code>{`import { ColorScheme } from "@repo/ui/organisms";\n\n<ColorScheme scheme="paper">Content here</ColorScheme>\n<ColorScheme scheme="action">Primary surface</ColorScheme>`}</code>
       </pre>
 
       <h2>Button</h2>
       <p>Buttons trigger actions and come with a standard bounce effect on hover.</p>
 
-      <div style={{ display: 'flex', gap: '1rem', padding: '2rem', border: '1px dashed var(--sys-color-border)', borderRadius: 'var(--sys-radius-primary)' }}>
+      <div style={{ display: 'flex', gap: '1rem', padding: '2rem', border: '1px dashed #36454F', borderRadius: '12px' }}>
         <div>
           <p><small>Default State</small></p>
           <Button>Action Button</Button>
@@ -38,7 +38,7 @@ export default function ComponentsPage() {
       </div>
 
       <h3 style={{ marginTop: '2rem' }}>Usage Example</h3>
-      <pre style={{ padding: '1rem', backgroundColor: 'var(--sys-color-paper-bg)', border: '1px solid var(--sys-color-border)', borderRadius: 'var(--sys-radius-primary)' }}>
+      <pre style={{ padding: '1rem', backgroundColor: '#FAF9F6', border: '1px solid #36454F', borderRadius: '12px' }}>
         <code>{`import { Button } from "@repo/ui/atoms";\n\n<Button>Click Me</Button>`}</code>
       </pre>
     </section>
