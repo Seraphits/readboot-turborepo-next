@@ -1,0 +1,21 @@
+@use "BrandingAtoms/Colors/colors-variables" as colors;
+@use "SpatialAtoms/spacing/spacing-variables" as space;
+@use "SpatialAtoms/geometric/geometric-variables" as geom;
+
+.buttonDemoRow {
+  display: flex;
+  gap: space.$space-md;
+  padding: space.$space-xl;
+  border: 1px dashed colors.$sys-color-dark-border;
+  border-radius: geom.$sys-geom-radius-main;
+}
+
+.buttonDemoItem {
+  p {
+    margin: 0 0 space.$space-xs 0;
+  }
+}
+
+.usageTitle {
+  margin-top: space.$space-xl;
+}

@@ -1,4 +1,5 @@
 type SpacingStep = { step: string; rem: string; px: string; usage: string };
+import styles from './page.module.scss';
 
 const spacingScale: SpacingStep[] = [
   { step: "0", rem: "0", px: "0px", usage: "Reset / none" },
@@ -10,6 +11,17 @@ const spacingScale: SpacingStep[] = [
   { step: "6", rem: "2rem", px: "32px", usage: "Block margin" },
   { step: "8", rem: "3rem", px: "48px", usage: "Large section" },
 ];
+
+const BAR_WIDTH_BY_PX: Record<string, string> = {
+  '0px': styles.w0!,
+  '4px': styles.w4!,
+  '8px': styles.w8!,
+  '12px': styles.w12!,
+  '16px': styles.w16!,
+  '24px': styles.w24!,
+  '32px': styles.w32!,
+  '48px': styles.w48!,
+};
 
 export default function SpacingPage() {
   return (
@@ -29,7 +41,7 @@ export default function SpacingPage() {
         <tbody>
           {spacingScale.map((s) => (
             <tr key={s.step}>
-              <td><div style={{ width: s.px, height: '20px', backgroundColor: '#DC143C' }} /></td>
+              <td><div className={`${styles.spacingBar} ${BAR_WIDTH_BY_PX[s.px] ?? styles.w0}`} /></td>
               <td><code>{s.rem}</code></td>
               <td>{s.px}</td>
               <td>{s.usage}</td>

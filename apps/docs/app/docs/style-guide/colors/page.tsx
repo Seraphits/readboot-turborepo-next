@@ -1,14 +1,17 @@
-type RefColor = { name: string; var: string; hex: string };
+type RefColor = { name: string; var: string; swatchClass: string };
 type SysColor = { var: string; usage: string };
+import { SectionIntro } from '../components/SectionIntro';
+import { TokenCard } from '../components/TokenCard';
+import styles from './page.module.scss';
 
 const referenceColors: RefColor[] = [
-  { name: "Offwhite", var: "$ref-color-offwhite", hex: "#FAF9F6" },
-  { name: "Charcoal", var: "$ref-color-charcoal", hex: "#36454F" },
-  { name: "Crimson", var: "$ref-color-crimson", hex: "#DC143C" },
-  { name: "Yellow", var: "$ref-color-yellow", hex: "#FAD20A" },
-  { name: "Teal", var: "$ref-color-teal", hex: "#29ECFF" },
-  { name: "Green", var: "$ref-color-green", hex: "#56F000" },
-  { name: "Purple", var: "$ref-color-purple", hex: "#905FEA" },
+  { name: "Offwhite", var: "$ref-color-offwhite", swatchClass: 'swatch--offwhite' },
+  { name: "Charcoal", var: "$ref-color-charcoal", swatchClass: 'swatch--charcoal' },
+  { name: "Crimson", var: "$ref-color-crimson", swatchClass: 'swatch--crimson' },
+  { name: "Yellow", var: "$ref-color-yellow", swatchClass: 'swatch--yellow' },
+  { name: "Teal", var: "$ref-color-teal", swatchClass: 'swatch--teal' },
+  { name: "Green", var: "$ref-color-green", swatchClass: 'swatch--green' },
+  { name: "Purple", var: "$ref-color-purple", swatchClass: 'swatch--purple' },
 ];
 
 const systemColors: SysColor[] = [
@@ -25,25 +28,32 @@ const systemColors: SysColor[] = [
 export default function ColorsPage() {
   return (
     <section>
-      <h1>Colors & Tokens</h1>
-      <p>Our color system is built on a two-tier token architecture for maximum flexibility.</p>
+      <SectionIntro
+        headingLevel={1}
+        title="Colors & Tokens"
+        description="Our color system is built on a two-tier token architecture for maximum flexibility."
+      />
 
-      <h2>Primitive Tokens (Ref)</h2>
-      <p>Raw brand colors defined in <code>_colors.scss</code>.</p>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '1rem' }}>
+      <SectionIntro title="Primitive Tokens (Ref)" description={<>Raw brand colors defined in <code>_colors.scss</code>.</>} />
+      <div className={styles.tokenGrid}>
         {referenceColors.map((color) => (
           <ColorCard key={color.var} {...color} />
         ))}
       </div>
 
-      <h2 style={{ marginTop: '3rem' }}>Color Combinations (Pairings)</h2>
-      <p>
-        Pairing demos from the legacy static docs are being retired. This section will be rebuilt as
-        WordPress-backed documentation with Storybook-powered live examples.
-      </p>
+      <div className={styles.sectionTop}>
+        <SectionIntro
+          title="Color Combinations (Pairings)"
+          description="Pairing demos from the legacy static docs are being retired. This section will be rebuilt as WordPress-backed documentation with Storybook-powered live examples."
+        />
+      </div>
 
-      <h2 style={{ marginTop: '3rem' }}>Semantic Tokens (Sys)</h2>
-      <p>Context-aware tokens mapped to primitives for consistent usage.</p>
+      <div className={styles.sectionTop}>
+        <SectionIntro
+          title="Semantic Tokens (Sys)"
+          description="Context-aware tokens mapped to primitives for consistent usage."
+        />
+      </div>
       <table>
         <thead>
           <tr>
@@ -64,12 +74,8 @@ export default function ColorsPage() {
   );
 }
 
-function ColorCard({ name, var: variable, hex }: { name: string; var: string; hex: string }) {
+function ColorCard({ name, var: variable, swatchClass }: RefColor) {
   return (
-    <div style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '1rem' }}>
-      <div style={{ backgroundColor: hex, height: '80px', borderRadius: '4px', marginBottom: '0.5rem', border: '1px solid #eee' }} />
-      <div style={{ fontWeight: 'bold' }}>{name}</div>
-      <code style={{ fontSize: '0.8rem' }}>{variable}</code>
-    </div>
+    <TokenCard label={name} token={variable} previewClassName={`${styles.swatch} ${styles[swatchClass]}`} />
   );
 }

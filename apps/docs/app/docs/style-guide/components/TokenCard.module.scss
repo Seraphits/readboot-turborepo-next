@@ -1,0 +1,23 @@
+@use "BrandingAtoms/Colors/colors-variables" as colors;
+@use "SpatialAtoms/spacing/spacing-variables" as space;
+@use "SpatialAtoms/geometric/geometric-variables" as geom;
+
+.card {
+  border: 1px solid colors.$sys-color-dark-border;
+  border-radius: geom.$sys-geom-radius-main;
+  padding: space.$space-md;
+}
+
+.preview {
+  border-radius: 0.25rem;
+  margin-bottom: space.$space-sm;
+  border: 1px solid colors.$sys-color-dark-border;
+}
+
+.label {
+  font-weight: 700;
+}
+
+.token {
+  font-size: 0.8rem;
+}

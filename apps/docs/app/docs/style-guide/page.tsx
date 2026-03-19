@@ -1,22 +1,27 @@
 import Link from "next/link";
 import { ComponentShowcase } from './ComponentShowcase';
+import { SectionIntro } from './components/SectionIntro';
 
 export default function StyleGuideHome() {
   return (
     <section>
-      <h1>Welcome to the ReadBoot Style Guide</h1>
-      <p>This system provides a unified design language for the ReadBoot project.</p>
+      <SectionIntro
+        headingLevel={1}
+        title="Welcome to the ReadBoot Style Guide"
+        description="This system provides a unified design language for the ReadBoot project."
+      />
 
-      <h2>Getting Started</h2>
-      <p>All styles are managed in the <code>@repo/ui</code> package using the SCSS 7-1 pattern.</p>
+      <SectionIntro
+        title="Getting Started"
+        description={<>All styles are managed in the <code>@repo/ui</code> package using the SCSS 7-1 pattern.</>}
+      />
 
       <ul>
         <li><strong>Consistency:</strong> Use semantic tokens instead of hardcoded hex values.</li>
         <li><strong>Accessibility:</strong> Always use standard HTML5 tags for primary layout.</li>
       </ul>
 
-      <h2>Style Guide Covers</h2>
-      <p>Key areas documented in this guide:</p>
+      <SectionIntro title="Style Guide Covers" description="Key areas documented in this guide:" />
       <ul>
         <li><Link href="/docs/style-guide/default-styles">Default Styles</Link></li>
         <li><Link href="/docs/style-guide/colors">Colors & Tokens</Link> — primitives, semantic tokens, and <strong>color combinations</strong> (pairings) for surfaces and text.</li>

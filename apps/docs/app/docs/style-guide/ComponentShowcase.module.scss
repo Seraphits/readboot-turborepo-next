@@ -1,0 +1,7 @@
+@use "SpatialAtoms/spacing/spacing-variables" as space;
+
+.storyWrap {
+  display: flex;
+  gap: space.$space-md;
+  padding: space.$space-md 0;
+}

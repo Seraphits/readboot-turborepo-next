@@ -1,6 +1,7 @@
 'use client'; // Error boundaries must be Client Components
 
 import { useEffect } from 'react';
+import styles from './error.module.scss';
 
 export default function Error({
   error,
@@ -15,12 +16,12 @@ export default function Error({
   }, [error]);
 
   return (
-    <div style={{ padding: '20px', border: '1px solid red', margin: '20px' }}>
+    <div className={styles.container}>
       <h2>Something went wrong!</h2>
       <p>There was an error loading this WordPress page.</p>
       <button
         onClick={() => reset()}
-        style={{ padding: '10px 20px', cursor: 'pointer' }}
+        className={styles.retryButton}
       >
         Try again
       </button>

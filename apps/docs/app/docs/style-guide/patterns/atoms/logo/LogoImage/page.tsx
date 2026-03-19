@@ -1,11 +1,12 @@
 import { LogoImage } from "@repo/ui/atoms";
+import styles from './page.module.scss';
 
 export default function LogoImagePage() {
   return (
     <section>
       <h1>Logo</h1>
       <p>The ReadBoot logo fetched from Headless WordPress.</p>
-      <div style={{ width: 120, height: 48 }}>
+      <div className={styles.logoWrap}>
         <LogoImage />
       </div>
     </section>

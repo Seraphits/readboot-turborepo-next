@@ -14,6 +14,8 @@ Active Context: ReadBoot Shared UI
 - Recent: Rules harmonization complete: updated branding/style-guide/accessibility `.mdc` files to use valid recursive globs and current `patterns/Atoms/**` token-source guidance.
 - Recent: Rules tree audit pass: aligned `memory-bank.mdc` PRD path with actual location, resolved deprecated "glitch" references in web/docs, and generated remaining standards decisions.
 - Recent: Legacy docs/pattern cleanup: removed obsolete UI components (`MediaMockup`, `CaptureForm`, `Masthead`, `ColorScheme`), updated docs style-guide pages to migration placeholders, fixed docs font parity by loading the same Google fonts as web, and added `apps/docs/STYLE_GUIDE_PATTERN_LAB_REBUILD_PLAN.md`.
+- Recent: Docs atomic cleanup: converted style-guide layout/pages away from inline styles into SCSS-module-backed structure (`layout`, `default-styles`, `colors`, `patterns`, `spacing`, `ComponentShowcase`, logo docs page), and moved web slug error boundary styles to a module.
+- Recent: Added reusable docs components (`SectionIntro`, `CodeExampleBlock`, `TokenCard`) and integrated them into style-guide pages to reduce page-level duplication and move toward atomic composition.
 
 ReadBoot Progress
 - [x] Turborepo boilerplate initialized.

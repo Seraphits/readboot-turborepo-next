@@ -7,3 +7,5 @@
 [x] Rules cleanup: fixed outdated token path references and malformed glob patterns in branding/style-guide/accessibility rules.
 [x] Rules-tree consistency pass: memory-bank PRD path alignment and deprecated glitch references removed from app/docs copy.
 [x] Legacy style-guide component cleanup: removed MediaMockup/CaptureForm/Masthead/ColorScheme and added WP+Storybook rebuild plan at apps/docs/STYLE_GUIDE_PATTERN_LAB_REBUILD_PLAN.md.
+[x] Removed inline styles from docs style-guide subtree and refactored page styling into SCSS modules; web slug error page also migrated from inline styles to module.
+[x] Introduced reusable docs components (SectionIntro, CodeExampleBlock, TokenCard) and adopted them across style-guide pages.

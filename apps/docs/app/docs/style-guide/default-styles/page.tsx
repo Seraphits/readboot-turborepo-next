@@ -1,19 +1,24 @@
-function ColorSwatch({ name, variable, hex }: { name: string; variable: string; hex: string }) {
+import styles from './page.module.scss';
+import { SectionIntro } from '../components/SectionIntro';
+import { TokenCard } from '../components/TokenCard';
+
+type SwatchKind = 'paper' | 'ink' | 'action';
+
+function ColorSwatch({ name, variable, swatchKind }: { name: string; variable: string; swatchKind: SwatchKind }) {
   return (
-    <div style={{ border: '1px solid #ccc', padding: '1rem', borderRadius: '8px' }}>
-      <div style={{ backgroundColor: hex, height: '50px', width: '100px', borderRadius: '4px', marginBottom: '0.5rem' }}></div>
-      <strong>{name}</strong>
-      <code style={{ display: 'block', fontSize: '0.8rem' }}>{variable}</code>
-    </div>
+    <TokenCard label={name} token={variable} previewClassName={`${styles.tokenPreview} ${styles[swatchKind]}`} />
   );
 }
 
 export default function StyleGuide() {
   return (
-    <div>
+    <div className={styles.page}>
       <section>
-        <h1>Typography Defaults</h1>
-        <p>This page demonstrates the global styles defined in <code>base/typography.scss</code>.</p>
+        <SectionIntro
+          headingLevel={1}
+          title="Typography Defaults"
+          description={<>This page demonstrates the global styles defined in <code>base/typography.scss</code>.</>}
+        />
 
         <hr />
 
@@ -39,13 +44,15 @@ export default function StyleGuide() {
         </p>
       </section>
 
-      <section style={{ marginTop: '4rem' }}>
-        <h2>System Tokens</h2>
-        <p>These values are controlled via <code>abstracts/variables/_colors.scss</code>.</p>
-        <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-          <ColorSwatch name="Paper BG" variable="$sys-color-paper-bg" hex="#FAF9F6" />
-          <ColorSwatch name="Ink Text" variable="$sys-color-ink-text" hex="#36454F" />
-          <ColorSwatch name="Action Primary" variable="$sys-color-action-primary" hex="#DC143C" />
+      <section className={styles.sectionGap}>
+        <SectionIntro
+          title="System Tokens"
+          description={<>These values are controlled via <code>abstracts/variables/_colors.scss</code>.</>}
+        />
+        <div className={styles.tokenSwatchRow}>
+          <ColorSwatch name="Paper BG" variable="$sys-color-paper-bg" swatchKind="paper" />
+          <ColorSwatch name="Ink Text" variable="$sys-color-ink-text" swatchKind="ink" />
+          <ColorSwatch name="Action Primary" variable="$sys-color-action-primary" swatchKind="action" />
         </div>
       </section>
     </div>

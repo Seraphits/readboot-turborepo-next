@@ -1,21 +1,30 @@
 import Link from 'next/link';
+import styles from './layout.module.scss';
+
+const STYLE_GUIDE_LINKS = [
+  { href: '/docs/style-guide', label: 'Introduction' },
+  { href: '/docs/style-guide/default-styles', label: 'Default Styles' },
+  { href: '/docs/style-guide/colors', label: 'Colors & Tokens' },
+  { href: '/docs/style-guide/patterns', label: 'Component Library' },
+  { href: '/docs/style-guide/spacing', label: 'Spacing Scale' },
+  { href: '/docs/style-guide/motion', label: 'Motion & Animation' },
+  { href: '/docs/style-guide/iconography', label: 'Iconography' },
+] as const;
 
 export default function StyleGuideLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div style={{ display: 'flex', gap: '2rem' }}>
-      <aside style={{ width: '200px', borderRight: '1px solid #ccc', minHeight: '100vh', padding: '1rem' }}>
-        <h3>Style Guide</h3>
-        <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-          <Link href="/docs/style-guide">Introduction</Link>
-          <Link href="/docs/style-guide/default-styles">Default Styles</Link>
-          <Link href="/docs/style-guide/colors">Colors & Tokens</Link>
-          <Link href="/docs/style-guide/patterns">Component Library</Link>
-          <Link href="/docs/style-guide/spacing">Spacing Scale</Link>
-          <Link href="/docs/style-guide/motion">Motion & Animation</Link>
-          <Link href="/docs/style-guide/iconography">Iconography</Link>
+    <div className={styles.layout}>
+      <aside className={styles.sidebar}>
+        <h3 className={styles.title}>Style Guide</h3>
+        <nav className={styles.nav}>
+          {STYLE_GUIDE_LINKS.map((item) => (
+            <Link key={item.href} href={item.href}>
+              {item.label}
+            </Link>
+          ))}
         </nav>
       </aside>
-      <main style={{ flex: 1, padding: '1rem' }}>
+      <main className={styles.content}>
         {children}
       </main>
     </div>
