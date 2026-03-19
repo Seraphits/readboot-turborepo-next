@@ -9,6 +9,8 @@ Active Context: ReadBoot Shared UI
 - Recent: Sass module migration: _colors-variables.scss uses sass:color and sass:math (no deprecated lighten/unit). Storybook hardening: pnpm catalog for Storybook/Vite, predev cache clear, main.ts double-encoding patch + URL middleware; see .cursor/memory/storybook-maintenance.md.
 - Recent: Fixed branding SCSS module resolution + Turbopack `:export` parsing by updating `colors-pairings` imports and replacing `:export`-based pairing keys with `pairingKeys.ts`.
 - Recent: Fixed WPGraphQL request storm / `net::ERR_HTTP2_PROTOCOL_ERROR` in browser by making `NavigationBar` a Server Component (logo fetch stays server-side) and adding a client-safety guard to `getWordPressData`.
+- Recent: Linking standards refactor started: added `.cursor/rules/linking-standards.mdc`, exported `@repo/ui/templates`, removed deep `@repo/wp-utils/src` imports, applied docs `transformHref` via `toDocsHref`, and routed WP HTML through `WPContent` with click interception.
+- Recent: Routing polish: added `toWebHref()` for web top-nav `transformHref` to avoid full refreshes from absolute WP URLs.
 
 ReadBoot Progress
 - [x] Turborepo boilerplate initialized.

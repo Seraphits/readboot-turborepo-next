@@ -1,0 +1,54 @@
+---
+description: USE WHEN creating components, importing modules, or managing navigation to ensure architectural consistency across monorepo layers.
+globs: ["**/*.tsx", "**/*.ts", "**/package.json"]
+alwaysApply: true
+---
+
+Linking & Navigation Standards
+
+1. Module Resolution (Module Linking)
+PUBLIC API ONLY: Cross-package imports must use explicit public subpaths defined by each package's `package.json` exports.
+- UI layers: `@repo/ui/atoms`, `@repo/ui/molecules`, `@repo/ui/organisms`, `@repo/ui/templates`
+- WP utilities: `@repo/wp-utils` (no internal `src/` imports)
+
+NO DEEP SRC IMPORTS: Never import from another package's internal `src/` directory.
+- Example: ❌ `@repo/wp-utils/src/types`
+
+RELATIVE PATHS: Allowed only WITHIN the same package. Prohibit relative paths across package boundaries.
+
+STYLE IMPORTS:
+- Global app resets must be imported once at the root layout via `@repo/ui/patterns/globals.scss`.
+- `packages/ui/src/styles/**` is reserved for guidebook/rule documentation and must not be imported by app components.
+
+2. Export Conventions
+NAMED EXPORTS FOR CONSUMED UI: Prefer named exports for components, hooks, and utilities.
+
+DEFAULT EXPORTS:
+- Allowed for Next.js mandated files like `page.tsx` and `layout.tsx`.
+- Allowed in internal implementation modules, provided the layer entrypoint re-exports them as a named export (consumers must still use named imports from the layer entrypoint).
+- Prefer named exports for new reusable modules.
+- When a UI layer entrypoint re-exports something as a named export, consumers must use named imports from that entrypoint.
+
+HOOK INTEGRITY: Hooks/components must never be imported under an aliased name that breaks the `use*` semantics.
+
+3. Component Composition (asChild)
+Only use the `asChild` composition API with components that explicitly implement `asChild`.
+
+Interactive components that can wrap navigation must support Slot composition (e.g. your `Button`).
+Preferred usage:
+`<Button asChild><Link href="/">Home</Link></Button>`
+
+4. Route Navigation & CMS Content (WP HTML)
+WPContent MANDATE: Do not render WordPress-derived HTML using `dangerouslySetInnerHTML` directly in app routes.
+Instead, wrap WP-derived HTML with `WPContent` from `@repo/wp-utils`.
+
+EXCEPTIONS: `dangerouslySetInnerHTML` is allowed inside Next.js `<Script ... dangerouslySetInnerHTML={...} />` usage.
+
+CLICK INTERCEPTION: `WPContent` must implement client-side click interception (event delegation) for internal `<a>` tags and navigate via Next routing to avoid full page reloads.
+
+5. URL Transformation (menu/link hrefs)
+All menu/link hrefs fetched from WordPress must be mapped at the data-fetching layer (e.g. `getMenuData({ transformHref })`).
+
+In the docs app, use `toDocsHref()` for menu href transformation before passing items to the UI navigation components.
+In the web app, use `toWebHref()` for menu href transformation before passing items to the UI navigation components.
+

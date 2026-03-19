@@ -1,6 +1,6 @@
 import "@repo/ui/patterns/globals.scss";
 import Script from "next/script";
-import { getMenuData } from "@repo/wp-utils";
+import { getMenuData, toDocsHref } from "@repo/wp-utils";
 import { Alert } from "@repo/ui/molecules";
 import { NavigationBar } from "@repo/ui/organisms";
 
@@ -17,7 +17,7 @@ const SW_FORCE_CLEAR_SCRIPT = `(function(){if(typeof window==='undefined'||!navi
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
   const links = await getMenuData({
     location: DOCS_MENU_LOCATION,
-
+    transformHref: (url) => toDocsHref(url),
   });
 
   return (

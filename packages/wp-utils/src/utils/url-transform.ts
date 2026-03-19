@@ -30,3 +30,16 @@ export function toDocsHref(url: string, wpBaseUrl?: string): string {
   if (path.startsWith('http') || path.startsWith('/docs')) return path;
   return path.startsWith('/') ? `/docs${path}` : `/docs/${path}`;
 }
+
+/**
+ * Strips the WordPress base URL and returns an application path for the web app.
+ * Unlike `toDocsHref`, this does NOT prefix routes with `/docs`.
+ */
+export function toWebHref(url: string, wpBaseUrl?: string): string {
+  const base = wpBaseUrl ?? getWpBaseUrl();
+  const httpBase = base.replace('https://', 'http://');
+
+  const path = url.replace(base, '').replace(httpBase, '').trim() || '/';
+  if (path.startsWith('http')) return path;
+  return path.startsWith('/') ? path : `/${path}`;
+}

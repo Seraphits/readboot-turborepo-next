@@ -3,7 +3,7 @@ import { SectionLayout } from '../../Atoms/LayoutAtoms/SectionLayout/SectionLayo
 import { Typography } from '../../Atoms/BrandingAtoms/Typography/Typography';
 import { ProjectCard } from '../../Molecules/Cards/ProjectCard/ProjectCard';
 import { BlogCard } from '../../Molecules/Cards/BlogCard/BlogCard';
-import { Project, Post } from '@repo/wp-utils/src/types';
+import type { Project, Post } from '@repo/wp-utils';
 import styles from './Showcase.module.scss';
 import clsx from 'clsx';
 

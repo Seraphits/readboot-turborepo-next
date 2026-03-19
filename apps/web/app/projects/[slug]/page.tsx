@@ -1,5 +1,5 @@
 import { BlogShowcase } from '@repo/ui/organisms';
-import { getProjectBySlug } from '@repo/wp-utils';
+import { getProjectBySlug, WPContent } from '@repo/wp-utils';
 import { notFound } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
@@ -39,10 +39,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       </section>
 
       {/* 3. Main Project Content (from Image 7) */}
-      <section
-        className="project-content"
-        dangerouslySetInnerHTML={{ __html: project.content }}
-      />
+            <WPContent
+              data={{ title: project.title, content: project.content }}
+              renderTitle={false}
+              className="project-content"
+            />
     </main>
   );
 }

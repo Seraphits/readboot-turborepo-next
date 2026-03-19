@@ -1,6 +1,6 @@
 import "@repo/ui/patterns/globals.scss";
 import Script from "next/script";
-import { getMenuData } from "@repo/wp-utils";
+import { getMenuData, toWebHref } from "@repo/wp-utils";
 import { Alert } from "@repo/ui/molecules";
 import { NavigationBar } from "@repo/ui/organisms";
 
@@ -10,7 +10,10 @@ const THEME_INIT_SCRIPT = `(function(){var t=localStorage.getItem('theme');if(!t
 const SW_FORCE_CLEAR_SCRIPT = `(function(){if(typeof window==='undefined'||!navigator.serviceWorker)return;navigator.serviceWorker.getRegistrations().then(function(r){r.forEach(function(reg){reg.unregister();});});'caches'in window&&caches.keys().then(function(n){n.forEach(function(name){caches.delete(name);});});})();`;
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const links = await getMenuData({ location: "WEB_TOPNAV" });
+  const links = await getMenuData({
+    location: "WEB_TOPNAV",
+    transformHref: (url) => toWebHref(url),
+  });
 
   return (
     <html lang="en" suppressHydrationWarning>

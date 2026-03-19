@@ -1,6 +1,6 @@
 // apps/web/app/blog/post/[slug]/page.tsx
 import { notFound } from 'next/navigation';
-import { getPostBySlug, Post } from '@repo/wp-utils';
+import { getPostBySlug, Post, WPContent } from '@repo/wp-utils';
 
 export const dynamic = 'force-dynamic';
 
@@ -30,9 +30,7 @@ export default async function PostPage({ params }: PostPageProps) {
                   Renders the raw HTML for your custom CSS.
                   Using dangerouslySetInnerHTML is standard for WordPress content.
                 */}
-                <div
-                    dangerouslySetInnerHTML={{ __html: post.content }}
-                />
+                <WPContent data={{ title: post.title, content: post.content }} renderTitle={false} />
             </article>
         </main>
     );

@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import { getPageByUri } from '@repo/wp-utils';
+import { getPageByUri, WPContent } from '@repo/wp-utils';
 
 export async function generateMetadata({
   params,
@@ -30,7 +30,7 @@ export default async function Page({
   return (
     <>
       <h1>{pageData.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: pageData.content }} />
+      <WPContent data={{ title: pageData.title, content: pageData.content }} renderTitle={false} />
     </>
   );
 }

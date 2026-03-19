@@ -9,6 +9,7 @@
     "./atoms": "./src/patterns/Atoms/index.tsx",
     "./molecules": "./src/patterns/Molecules/index.tsx",
     "./organisms": "./src/patterns/Organisms/index.tsx",
+    "./templates": "./src/patterns/Templates/index.tsx",
     "./styles/globals": "./src/styles/index.scss",
     "./styles/index": "./src/styles/index.scss",
     "./styles/*": "./src/styles/*.scss",

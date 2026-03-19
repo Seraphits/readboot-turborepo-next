@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Badge } from '../../../Atoms/DisplayAtoms/Badge/Badge';
 import { Button } from '../../../Atoms/InteractiveAtoms/Button/Button';
 import { Typography } from '../../../Atoms/BrandingAtoms/Typography/Typography';
-import { Project } from '@repo/wp-utils/src/types';
+import type { Project } from '@repo/wp-utils';
 import styles from './ProjectCard.module.scss';
 import clsx from 'clsx';
 
