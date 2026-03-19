@@ -17,7 +17,7 @@ export default function Home() {
         subhead="High-contrast academic tools for the next generation."
         ctaText="Join the Mission"
       />
-      <h1 className="glitch-title" data-text="DISRUPTION">Web Home</h1>
+      <h1>Web Home</h1>
       <Button>Button</Button>
     </div>
   );

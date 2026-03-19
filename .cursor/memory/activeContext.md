@@ -11,6 +11,9 @@ Active Context: ReadBoot Shared UI
 - Recent: Fixed WPGraphQL request storm / `net::ERR_HTTP2_PROTOCOL_ERROR` in browser by making `NavigationBar` a Server Component (logo fetch stays server-side) and adding a client-safety guard to `getWordPressData`.
 - Recent: Linking standards refactor started: added `.cursor/rules/linking-standards.mdc`, exported `@repo/ui/templates`, removed deep `@repo/wp-utils/src` imports, applied docs `transformHref` via `toDocsHref`, and routed WP HTML through `WPContent` with click interception.
 - Recent: Routing polish: added `toWebHref()` for web top-nav `transformHref` to avoid full refreshes from absolute WP URLs.
+- Recent: Rules harmonization complete: updated branding/style-guide/accessibility `.mdc` files to use valid recursive globs and current `patterns/Atoms/**` token-source guidance.
+- Recent: Rules tree audit pass: aligned `memory-bank.mdc` PRD path with actual location, resolved deprecated "glitch" references in web/docs, and generated remaining standards decisions.
+- Recent: Legacy docs/pattern cleanup: removed obsolete UI components (`MediaMockup`, `CaptureForm`, `Masthead`, `ColorScheme`), updated docs style-guide pages to migration placeholders, fixed docs font parity by loading the same Google fonts as web, and added `apps/docs/STYLE_GUIDE_PATTERN_LAB_REBUILD_PLAN.md`.
 
 ReadBoot Progress
 - [x] Turborepo boilerplate initialized.

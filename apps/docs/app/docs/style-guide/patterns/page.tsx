@@ -1,5 +1,4 @@
 import { Button } from "@repo/ui/atoms";
-import { ColorScheme, COLOR_SCHEME_NAMES } from "@repo/ui/organisms";
 
 export default function ComponentsPage() {
   return (
@@ -7,21 +6,11 @@ export default function ComponentsPage() {
       <h1>Component Library</h1>
       <p>Interactive demos of shared components from the <code>@repo/ui</code> package.</p>
 
-      <h2>ColorScheme</h2>
+      <h2>Rebuild In Progress</h2>
       <p>
-        Renders a div with a background color and text color from the <code>$color-pairings</code> map.
-        Use for surfaces (cards, banners, alerts) that need guaranteed contrast.
+        The previous static Pattern Lab examples are being retired. This page will be rebuilt using
+        WordPress-backed documentation content with Storybook-powered component previews.
       </p>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "1rem", marginBottom: "2rem" }}>
-        {COLOR_SCHEME_NAMES.map((scheme) => (
-          <ColorScheme key={scheme} scheme={scheme}>
-            {scheme}
-          </ColorScheme>
-        ))}
-      </div>
-      <pre style={{ padding: "1rem", backgroundColor: "#FAF9F6", border: "1px solid #36454F", borderRadius: "12px", marginBottom: "2rem" }}>
-        <code>{`import { ColorScheme } from "@repo/ui/organisms";\n\n<ColorScheme scheme="paper">Content here</ColorScheme>\n<ColorScheme scheme="action">Primary surface</ColorScheme>`}</code>
-      </pre>
 
       <h2>Button</h2>
       <p>Buttons trigger actions and come with a standard bounce effect on hover.</p>

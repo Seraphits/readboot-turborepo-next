@@ -20,9 +20,9 @@ export default function StyleGuideHome() {
       <ul>
         <li><Link href="/docs/style-guide/default-styles">Default Styles</Link></li>
         <li><Link href="/docs/style-guide/colors">Colors & Tokens</Link> — primitives, semantic tokens, and <strong>color combinations</strong> (pairings) for surfaces and text.</li>
-        <li><Link href="/docs/style-guide/patterns">Component Library</Link> — including <code>ColorScheme</code> for background + text pairings.</li>
+        <li><Link href="/docs/style-guide/patterns">Component Library</Link> — Storybook-powered previews embedded in docs pages.</li>
         <li><Link href="/docs/style-guide/spacing">Spacing Scale</Link></li>
-        <li><Link href="/docs/style-guide/motion">Motion & Animation</Link> — duration scale, easing, interaction states, glitch.</li>
+        <li><Link href="/docs/style-guide/motion">Motion & Animation</Link> — duration scale, easing, and interaction states.</li>
         <li><Link href="/docs/style-guide/iconography">Iconography</Link> — icon sizes, stroke weight, accessibility.</li>
       </ul>
 

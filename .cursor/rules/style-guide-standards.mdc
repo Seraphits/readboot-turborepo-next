@@ -1,6 +1,6 @@
 ---
 description: USE WHEN creating or modifying UI components or documentation in apps/docs to ensure adherence to the ReadBoot Pattern Lab architecture.
-globs: ["apps/docs//*.tsx", "packages/ui/src/patterns//.tsx", "packages/ui/src/styles/**/.scss"]
+globs: ["apps/docs/**/*.tsx", "packages/ui/src/patterns/**/*.tsx", "packages/ui/src/patterns/**/*.scss"]
 alwaysApply: false
 ---
 ReadBoot Style Guide & Pattern Lab Standards
@@ -38,4 +38,4 @@ URI Normalization: All services must enforce trailing slashes (e.g., /about-us/)
 
 State Management: Use useQueryState from nuqs for all component modifiers in the documentation.
 
-Styling: SCSS Modules only. Variables MUST be sourced from @repo/ui/src/styles/abstracts/, never hardcoded.
+Styling: SCSS Modules only. Variables MUST be sourced from token modules under `packages/ui/src/patterns/Atoms/**`, never hardcoded.

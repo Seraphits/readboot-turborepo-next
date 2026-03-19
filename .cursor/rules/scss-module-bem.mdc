@@ -15,4 +15,7 @@ Specificity: Limit nesting depth to a maximum of 3 levels. High specificity is a
 Global Escaping: Use :global() sparingly and only for integrating with 3rd-party libraries (e.g., nuqs or Storybook wrappers).
 
 3. Variable Usage
-Strict Sourcing: Never use hardcoded HEX or pixel values. All values MUST be referenced from the abstracts layer (e.g., color: $sys-color-ink-text;).
+Strict Sourcing:
+- Do not hardcode visual values directly in component modules (especially HEX colors and one-off spacing/radius/border numbers).
+- Use token modules under `packages/ui/src/patterns/Atoms/**` (colors, spacing, geometric, typography).
+- Pixel primitives are allowed only in token-definition layers (e.g., reference tokens/mixins), not as arbitrary literals in component styles.

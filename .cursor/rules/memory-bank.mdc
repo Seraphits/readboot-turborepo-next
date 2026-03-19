@@ -4,7 +4,7 @@ globs: ["**/*"]
 alwaysApply: true
 ---
 Memory Bank Protocol
-- Start of Session: ALWAYS read .cursor/PRD.md and all files in .cursor/memory/ to orient yourself.
+- Start of Session: ALWAYS read `.cursor/rules/PRD.md` (or `.cursor/PRD.md` if present) and all files in `.cursor/memory/` to orient yourself.
 
 - Workflow:
 

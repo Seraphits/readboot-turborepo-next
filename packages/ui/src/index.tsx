@@ -6,10 +6,4 @@
  */
 export { Button } from './patterns/Atoms/InteractiveAtoms/Button/Button';
 export { Alert } from './patterns/Molecules/Alert/Alert';
-export {
-  ColorScheme,
-  COLOR_PAIRINGS,
-  COLOR_SCHEME_NAMES,
-  type ColorSchemeName,
-} from './patterns/Organisms/ColorScheme/color-scheme';
 export { Hero } from './patterns/Organisms/Hero/Hero';

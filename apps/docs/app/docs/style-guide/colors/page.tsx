@@ -1,19 +1,5 @@
-import {
-  ColorScheme,
-  COLOR_SCHEME_NAMES,
-  type ColorSchemeName,
-} from "@repo/ui/organisms";
-
 type RefColor = { name: string; var: string; hex: string };
 type SysColor = { var: string; usage: string };
-
-const SCHEME_LABELS: Record<ColorSchemeName, string> = {
-  paper: "Paper (default surface)",
-  "dark-paper": "Dark paper",
-  action: "Action / primary",
-  error: "Error state",
-  success: "Success state",
-};
 
 const referenceColors: RefColor[] = [
   { name: "Offwhite", var: "$ref-color-offwhite", hex: "#FAF9F6" },
@@ -52,21 +38,9 @@ export default function ColorsPage() {
 
       <h2 style={{ marginTop: '3rem' }}>Color Combinations (Pairings)</h2>
       <p>
-        Use the <code>ColorScheme</code> component or the <code>set-color-scheme</code> mixin for
-        background + text pairs. These match <code>$color-pairings</code> in <code>_colors.scss</code>.
+        Pairing demos from the legacy static docs are being retired. This section will be rebuilt as
+        WordPress-backed documentation with Storybook-powered live examples.
       </p>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", gap: "1rem", marginBottom: "3rem" }}>
-        {COLOR_SCHEME_NAMES.map((scheme) => (
-          <div key={scheme}>
-            <div style={{ fontSize: "0.875rem", fontWeight: 600, marginBottom: "0.5rem" }}>
-              {SCHEME_LABELS[scheme]}
-            </div>
-            <ColorScheme scheme={scheme}>
-              Sample text in this combination. Use for surfaces and readable contrast.
-            </ColorScheme>
-          </div>
-        ))}
-      </div>
 
       <h2 style={{ marginTop: '3rem' }}>Semantic Tokens (Sys)</h2>
       <p>Context-aware tokens mapped to primitives for consistent usage.</p>

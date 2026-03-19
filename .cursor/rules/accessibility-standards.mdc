@@ -1,6 +1,6 @@
 ---
 description: USE WHEN generating interactive component examples or documentation to ensure WCAG compliance and accessible Pattern Lab previews.
-globs: ["apps/docs//*.tsx", "packages/ui/src/patterns//*.tsx"]
+globs: ["apps/docs/**/*.tsx", "packages/ui/src/patterns/**/*.tsx"]
 alwaysApply: false
 ---
 Accessibility Documentation Standards
