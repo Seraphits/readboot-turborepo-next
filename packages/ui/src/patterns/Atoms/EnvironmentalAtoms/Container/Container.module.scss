@@ -1,3 +1,9 @@
+@use "../../BrandingAtoms/Colors/colors-variables" as vars;
+
 .container {
-  /* Minimal container; no border or padding by default */
+  background: vars.$sys-color-paper-light-bg; // Light default
+
+  [data-theme='dark'] & {
+    background: vars.$sys-color-paper-dark-bg; // Dark override
+  }
 }

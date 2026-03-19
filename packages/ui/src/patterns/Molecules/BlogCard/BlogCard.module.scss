@@ -1,0 +1,55 @@
+@use "../../Atoms/BrandingAtoms/Colors/colors-variables" as vars;
+@use "../../Atoms/BrandingAtoms/Typography/fonts-variables" as fonts;
+
+.card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  background: vars.$sys-color-paper-light-bg;
+  border: 1px solid vars.$sys-color-dark-border;
+
+  [data-theme='dark'] & {
+    background: vars.$sys-color-paper-dark-bg;
+    border-color: vars.$sys-color-light-border;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  &__imageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  &__content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    h3 {
+      font-family: fonts.$sys-font-headline;
+      margin: 0;
+    }
+  }
+
+  &__link {
+    font-weight: 600;
+    text-decoration: none;
+    color: vars.$sys-color-action-primary;
+
+    [data-theme='dark'] & {
+      color: vars.$sys-color-action-on-dark;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

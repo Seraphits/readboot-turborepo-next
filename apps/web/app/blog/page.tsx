@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getMainBlogContent, Category, Post } from '@repo/wp-utils';
-import { BlogGrid } from '@repo/ui/organisms';
+import { BlogShowcase } from '@repo/ui/organisms';
 
 export const dynamic = 'force-dynamic';
 
@@ -42,7 +42,7 @@ export default async function BlogPage() {
           <p>No blog posts found.</p>
         )}
       </div>
-      <BlogGrid limit={10} orderBy="DATE" order="DESC" />
+      <BlogShowcase limit={10} orderBy="DATE" order="DESC" />
     </main>
   );
 }

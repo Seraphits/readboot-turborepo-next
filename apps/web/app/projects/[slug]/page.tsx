@@ -1,4 +1,4 @@
-import { BlogGrid } from '@repo/ui/organisms';
+import { BlogShowcase } from '@repo/ui/organisms';
 import { getProjectBySlug } from '@repo/wp-utils';
 import { notFound } from 'next/navigation';
 
@@ -30,7 +30,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <li><strong>Link:</strong> {project.projectIntelligence.liveProjectLink}</li>
           </ul>
         )}
-        <BlogGrid
+        <BlogShowcase
           categorySlug={linkedCategory}
           limit={3}
           orderBy="DATE"
