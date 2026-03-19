@@ -27,4 +27,15 @@
     background-color: vars.$sys-color-action-primary;
     color: vars.$sys-color-paper-light-bg;
   }
+
+  &--outline-on-light {
+    background-color: vars.$sys-color-paper-light-bg;
+    color: vars.$sys-color-ink-dark-text;
+
+    [data-theme='dark'] & {
+      background-color: vars.$sys-color-paper-dark-bg;
+      color: vars.$sys-color-ink-light-text;
+      border-color: vars.$sys-color-light-border;
+    }
+  }
 }

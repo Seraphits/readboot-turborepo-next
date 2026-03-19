@@ -1,0 +1,15 @@
+@use "../../Atoms/SpatialAtoms/spacing/spacing-variables" as space;
+@use "../../Atoms/BrandingAtoms/Colors/colors-variables" as vars;
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: space.$space-3xl;
+  width: 100%;
+  min-height: 60vh;
+  background: vars.$sys-color-paper-light-bg;
+
+  [data-theme='dark'] & {
+    background: vars.$sys-color-paper-dark-bg;
+  }
+}

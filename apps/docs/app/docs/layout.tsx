@@ -2,7 +2,7 @@ import "@repo/ui/patterns/globals.scss";
 import Script from "next/script";
 import { getMenuData, toDocsHref } from "@repo/wp-utils";
 import { Alert } from "@repo/ui/molecules";
-import { NavigationBar } from "@repo/ui/organisms";
+import { ConnectFooterSection, defaultConnect, NavigationBar } from "@repo/ui/organisms";
 
 /** Menu location must match WordPress theme's register_nav_menus slug (WPGraphQL uses UPPERCASE_SNAKE_CASE).
  *  e.g. docs_site_navigation → DOCS_SITE_NAVIGATION, docs_topnav → DOCS_TOPNAV */
@@ -36,6 +36,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <NavigationBar links={links} />
         <Alert />
         <main>{children}</main>
+        <ConnectFooterSection {...defaultConnect} />
       </body>
     </html>
   );

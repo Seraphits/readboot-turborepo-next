@@ -2,7 +2,7 @@ import "@repo/ui/patterns/globals.scss";
 import Script from "next/script";
 import { getMenuData, toWebHref } from "@repo/wp-utils";
 import { Alert } from "@repo/ui/molecules";
-import { NavigationBar } from "@repo/ui/organisms";
+import { ConnectFooterSection, defaultConnect, NavigationBar } from "@repo/ui/organisms";
 
 const THEME_INIT_SCRIPT = `(function(){var t=localStorage.getItem('theme');if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);})();`;
 
@@ -31,6 +31,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         <NavigationBar links={links} />
         <Alert />
         <main>{children}</main>
+        <ConnectFooterSection {...defaultConnect} />
       </body>
     </html>
   );

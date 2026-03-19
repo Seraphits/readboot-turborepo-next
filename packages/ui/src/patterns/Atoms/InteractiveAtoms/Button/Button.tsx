@@ -3,7 +3,12 @@ import { Slot } from '@radix-ui/react-slot';
 import styles from './Button.module.scss';
 import clsx from 'clsx';
 
-export type ButtonVariant = 'action-on-light' | 'ink-dark-on-paper-light' | 'alert';
+export type ButtonVariant =
+  | 'action-on-light'
+  /** Paper fill, charcoal border, ink text — Futurist Carton secondary CTA */
+  | 'outline-on-light'
+  | 'ink-dark-on-paper-light'
+  | 'alert';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;

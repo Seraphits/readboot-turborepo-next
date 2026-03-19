@@ -1,0 +1,120 @@
+@use "../../Atoms/SpatialAtoms/spacing/spacing-variables" as space;
+@use "../../Atoms/BrandingAtoms/Colors/colors-variables" as vars;
+@use "../../Atoms/BrandingAtoms/Typography/fonts-variables" as fonts;
+@use "../../Atoms/SpatialAtoms/geometric/geometric-variables" as geom;
+
+.root {
+  width: 100%;
+  padding: space.$space-xl space.$space-lg;
+  background: vars.$sys-color-paper-light-bg;
+
+  [data-theme='dark'] & {
+    background: vars.$sys-color-paper-dark-bg;
+  }
+}
+
+.inner {
+  max-width: 960px;
+  margin: 0 auto;
+  border: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
+  border-radius: geom.$sys-geom-radius-main;
+  padding: space.$space-xl;
+
+  [data-theme='dark'] & {
+    border-color: vars.$sys-color-light-border;
+  }
+}
+
+.title {
+  font-family: fonts.$sys-font-headline;
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  margin: 0 0 space.$space-md;
+  color: vars.$sys-color-ink-dark-text;
+
+  [data-theme='dark'] & {
+    color: vars.$sys-color-ink-light-text;
+  }
+}
+
+.body {
+  font-family: fonts.$sys-font-body;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  margin: 0 0 space.$space-xl;
+  color: vars.$sys-color-ink-dark-text;
+
+  [data-theme='dark'] & {
+    color: vars.$sys-color-ink-light-text;
+  }
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: space.$space-sm;
+  padding-top: space.$space-md;
+  flex-wrap: wrap;
+
+  @media (min-width: 640px) {
+    flex-wrap: nowrap;
+    padding-top: space.$space-lg;
+  }
+}
+
+.timelineLine {
+  display: none;
+
+  @media (min-width: 640px) {
+    display: block;
+    position: absolute;
+    top: calc(space.$space-lg + 0.5rem);
+    left: 8%;
+    right: 8%;
+    height: geom.$sys-geom-border-main;
+    background: vars.$sys-color-dark-border;
+    z-index: 0;
+
+    [data-theme='dark'] & {
+      background: vars.$sys-color-light-border;
+    }
+  }
+}
+
+.node {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: space.$space-sm;
+  flex: 1;
+  min-width: 5rem;
+  text-align: center;
+}
+
+.nodeDot {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 50%;
+  border: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
+  background: vars.$sys-color-paper-light-bg;
+
+  [data-theme='dark'] & {
+    border-color: vars.$sys-color-light-border;
+    background: vars.$sys-color-paper-dark-bg;
+  }
+}
+
+.nodeLabel {
+  font-family: fonts.$sys-font-body;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: vars.$sys-color-ink-dark-text;
+
+  [data-theme='dark'] & {
+    color: vars.$sys-color-ink-light-text;
+  }
+}

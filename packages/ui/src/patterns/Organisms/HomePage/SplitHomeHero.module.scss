@@ -1,0 +1,109 @@
+@use "../../Atoms/SpatialAtoms/spacing/spacing-variables" as space;
+@use "../../Atoms/BrandingAtoms/Colors/colors-variables" as vars;
+@use "../../Atoms/BrandingAtoms/Typography/fonts-variables" as fonts;
+@use "../../Atoms/SpatialAtoms/geometric/geometric-variables" as geom;
+
+.root {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: space.$space-xl;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: space.$space-xl space.$space-lg;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.portraitFrame {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  border: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
+  border-radius: geom.$sys-geom-radius-main;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: vars.$sys-color-paper-light-bg;
+
+  [data-theme='dark'] & {
+    border-color: vars.$sys-color-light-border;
+    background: vars.$sys-color-paper-dark-bg;
+  }
+}
+
+.portraitImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.content {
+  text-align: left;
+}
+
+.eyebrow {
+  font-family: fonts.$sys-font-body;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: vars.$sys-color-ink-dark-text;
+  margin: 0 0 space.$space-sm;
+
+  [data-theme='dark'] & {
+    color: vars.$sys-color-ink-light-text;
+  }
+}
+
+.headline {
+  font-family: fonts.$sys-font-headline;
+  font-weight: 700;
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  line-height: 1.1;
+  margin: 0 0 space.$space-sm;
+  color: vars.$sys-color-ink-dark-text;
+
+  [data-theme='dark'] & {
+    color: vars.$sys-color-ink-light-text;
+  }
+}
+
+.subheadline {
+  font-family: fonts.$sys-font-headline;
+  font-weight: 700;
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  line-height: 1.3;
+  margin: 0 0 space.$space-md;
+  color: vars.$sys-color-ink-dark-text;
+
+  [data-theme='dark'] & {
+    color: vars.$sys-color-ink-light-text;
+  }
+}
+
+.intro {
+  font-family: fonts.$sys-font-body;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  margin: 0 0 space.$space-lg;
+  color: vars.$sys-color-ink-dark-text;
+
+  [data-theme='dark'] & {
+    color: vars.$sys-color-ink-light-text;
+  }
+}
+
+.ctaRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: space.$space-md;
+}
+
+.cta {
+  text-decoration: none;
+}

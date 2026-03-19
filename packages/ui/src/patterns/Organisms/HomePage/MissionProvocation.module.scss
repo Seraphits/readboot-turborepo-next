@@ -1,0 +1,77 @@
+@use "../../Atoms/SpatialAtoms/spacing/spacing-variables" as space;
+@use "../../Atoms/BrandingAtoms/Colors/colors-variables" as vars;
+@use "../../Atoms/BrandingAtoms/Typography/fonts-variables" as fonts;
+@use "../../Atoms/SpatialAtoms/geometric/geometric-variables" as geom;
+
+.root {
+  width: 100%;
+  padding: space.$space-xl space.$space-lg;
+  background: vars.$sys-color-paper-light-bg;
+
+  [data-theme='dark'] & {
+    background: vars.$sys-color-paper-dark-bg;
+  }
+}
+
+.inner {
+  max-width: 960px;
+  margin: 0 auto;
+  border: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
+  border-radius: geom.$sys-geom-radius-main;
+  padding: space.$space-xl;
+
+  [data-theme='dark'] & {
+    border-color: vars.$sys-color-light-border;
+  }
+}
+
+.title {
+  font-family: fonts.$sys-font-headline;
+  font-weight: 700;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin: 0 0 space.$space-lg;
+  color: vars.$sys-color-ink-dark-text;
+
+  [data-theme='dark'] & {
+    color: vars.$sys-color-ink-light-text;
+  }
+}
+
+.accent {
+  color: vars.$sys-color-action-primary;
+  text-decoration: underline;
+  text-decoration-thickness: geom.$sys-geom-border-main;
+  text-underline-offset: 0.2em;
+}
+
+.columns {
+  column-count: 2;
+  column-gap: space.$space-xl;
+  column-rule: 1px dashed vars.$sys-color-dark-border;
+
+  [data-theme='dark'] & {
+    column-rule-color: vars.$sys-color-light-border;
+  }
+
+  @media (max-width: 640px) {
+    column-count: 1;
+    column-rule: none;
+  }
+}
+
+.body {
+  font-family: fonts.$sys-font-body;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  margin: 0 0 space.$space-md;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  color: vars.$sys-color-ink-dark-text;
+
+  [data-theme='dark'] & {
+    color: vars.$sys-color-ink-light-text;
+  }
+}

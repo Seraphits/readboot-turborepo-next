@@ -9,3 +9,5 @@
 [x] Legacy style-guide component cleanup: removed MediaMockup/CaptureForm/Masthead/ColorScheme and added WP+Storybook rebuild plan at apps/docs/STYLE_GUIDE_PATTERN_LAB_REBUILD_PLAN.md.
 [x] Removed inline styles from docs style-guide subtree and refactored page styling into SCSS modules; web slug error page also migrated from inline styles to module.
 [x] Introduced reusable docs components (SectionIntro, CodeExampleBlock, TokenCard) and adopted them across style-guide pages.
+[x] Web homepage: SplitHomeHero + mission/pillars/roadmap in @repo/ui HomePage; outline Button variant; placehold.co images; apps/web/HOMEPAGE_CONTENT.md (no glitch; rules-aligned).
+[x] ConnectFooterSection in web `app/layout.tsx` and docs `app/docs/layout.tsx` (shared `defaultConnect`); exported from @repo/ui/organisms.
