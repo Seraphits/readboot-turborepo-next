@@ -29,3 +29,9 @@ The dashboard sometimes picks a different path for the thumbnail than the iframe
 ## TypeScript: `@repo/ui/organisms`
 
 Subpaths must map to `packages/ui/src/patterns/...` in **tsconfig `paths`**, not `src/organisms`. Shared config lives in **`@repo/typescript-config/nextjs.json`**.
+
+## Docs homepage (`/docs/`)
+
+- Implemented as **`DocsHomePage`** from `@repo/ui/organisms`; copy defaults live in **`packages/ui/.../HomePage/docsHomeDefaults.ts`**.
+- **Portfolio CTA** uses **`NEXT_PUBLIC_PORTFOLIO_ORIGIN`** (e.g. `http://localhost:3000` in `apps/docs/.env.local` when both apps run locally), falling back to **`https://www.readboot.com/`**.
+- **Placeholder images** (`placehold.co`) are allowed in **`apps/docs/next.config.mts`** under `images.remotePatterns` (same as web) so `DocsHomePage` / `SplitHomeHero` `next/image` does not throw.

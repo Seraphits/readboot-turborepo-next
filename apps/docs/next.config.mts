@@ -28,6 +28,11 @@ const nextConfig: NextConfig = {
         hostname: 'readboot.cloudaccess.host',
         pathname: '/wp-content/uploads/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+        pathname: '/**',
+      },
     ],
   },
 };

@@ -11,3 +11,4 @@
 [x] Introduced reusable docs components (SectionIntro, CodeExampleBlock, TokenCard) and adopted them across style-guide pages.
 [x] Web homepage: SplitHomeHero + mission/pillars/roadmap in @repo/ui HomePage; outline Button variant; placehold.co images; apps/web/HOMEPAGE_CONTENT.md (no glitch; rules-aligned).
 [x] ConnectFooterSection in web `app/layout.tsx` and docs `app/docs/layout.tsx` (shared `defaultConnect`); exported from @repo/ui/organisms.
+[x] Docs landing at `/docs/`: `DocsHomePage` + `docsHomeDefaults` (style guide, patterns, engineering pillars; roadmap strip; portfolio CTA via `NEXT_PUBLIC_PORTFOLIO_ORIGIN`).
