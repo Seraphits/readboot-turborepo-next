@@ -1,36 +1,42 @@
 @use "../../SpatialAtoms/spacing/spacing-variables" as space;
-@use "../../BrandingAtoms/Colors/colors-variables" as vars;
 @use "../../SpatialAtoms/geometric/geometric-variables" as geom;
+@use "../../BrandingAtoms/Colors/colors-variables" as vars;
 
-.container {
+.section-layout {
   display: grid;
-  margin: 0;
-  padding: 0;
-  border: none;
-  gap: space.$space-2xl;
-  align-items: center;
+  gap: space.$space-md;
+  width: 100%;
 
-  &--bordered {
-    min-height: 80vh;
-    margin: space.$space-2xl;
-    padding: space.$space-3xl space.$space-2xl;
-    border: 4px solid vars.$sys-color-dark-border;
-    border-radius: geom.$sys-geom-radius-main;
-
-    [data-theme='dark'] & {
-      border-color: vars.$sys-color-light-border;
-    }
+  // Variant: Centered (Standard page content)
+  &--centered {
+    justify-items: center;
+    text-align: center;
   }
 
-  // Variant Canvas Maps [2]
-  &.centered { grid-template-areas: "content"; justify-items: center; text-align: center; }
-  &.split { grid-template-areas: "content media"; grid-template-columns: 1fr 1fr; }
-  &.asymmetrical { grid-template-areas: "content media"; grid-template-columns: 3fr 2fr; }
-  &.preview { grid-template-areas: "content media"; grid-template-columns: 45% 55%; }
+  // Variant: Grid (Used for Project Showcase and Blog)
+  &--grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: space.$space-lg;
+  }
 
-  @media (max-width: 768px) {
-    grid-template-areas: "content" "media";
-    grid-template-columns: 1fr;
-    text-align: center;
+  // Variant: Newspaper (Used for long-form project content)
+  &--newspaper {
+    display: block;
+    column-count: 2;
+    column-gap: space.$space-lg;
+    column-rule: 1px dashed vars.$sys-color-ink-dark-text;
+  }
+
+  // Variant: Split (Side-by-side Hero assets)
+  &--split {
+    grid-template-areas: "content media";
+    grid-template-columns: 1fr 1fr;
+  }
+
+  // Modifier: Bordered (Futurist Carton Standard)
+  &--bordered {
+    border: 4px solid vars.$sys-color-dark-border;
+    border-radius: geom.$sys-geom-radius-main; // 12px token
+    padding: space.$space-xl;
   }
 }

@@ -1,17 +1,42 @@
+import React, { ElementType } from 'react';
 import styles from './SectionLayout.module.scss';
 import clsx from 'clsx';
 
+export type SectionLayoutVariant =
+
+| 'centered'
+| 'split'
+| 'asymmetrical'
+| 'preview'
+| 'newspaper'
+| 'stack'
+| 'grid';
+
 interface SectionLayoutProps {
-  variant?: 'centered' | 'split' | 'asymmetrical' | 'preview';
+  as?: ElementType;
+  variant?: SectionLayoutVariant;
   bordered?: boolean;
   children: React.ReactNode;
   className?: string;
 }
 
-export const SectionLayout = ({ variant = 'centered', bordered = false, children, className }: SectionLayoutProps) => {
+export const SectionLayout = ({
+  as: Component = 'section',
+  variant = 'centered',
+  bordered = false,
+  children,
+  className
+}: SectionLayoutProps) => {
   return (
-    <section className={clsx(styles.container, styles[variant], bordered && styles['container--bordered'], className)}>
+    <Component
+      className={clsx(
+        styles['section-layout'],
+        styles[`section-layout--${variant}`],
+        bordered && styles['section-layout--bordered'],
+        className
+      )}
+    >
       {children}
-    </section>
+    </Component>
   );
 };

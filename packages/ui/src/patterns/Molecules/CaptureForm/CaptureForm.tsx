@@ -1,4 +1,4 @@
-import { Button } from '../../Atoms/InteractiveAtoms/Button/button';
+import { Button } from '../../Atoms/InteractiveAtoms/Button/Button';
 import styles from './CaptureForm.module.scss';
 
 export const CaptureForm = ({ ctaText }: { ctaText: string }) => (

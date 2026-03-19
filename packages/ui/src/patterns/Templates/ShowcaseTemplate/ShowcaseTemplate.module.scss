@@ -1,0 +1,16 @@
+@use "../../../styles/abstracts/spacing-variables" as space;
+
+.showcase-template {
+  display: flex;
+  flex-direction: column;
+  gap: space.$space-xl;
+  padding: space.$space-lg 0;
+
+  &__header {
+    width: 100%;
+  }
+
+  &__main {
+    width: 100%;
+  }
+}

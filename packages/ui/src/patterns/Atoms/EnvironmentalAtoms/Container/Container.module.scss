@@ -1,9 +1,11 @@
 @use "../../BrandingAtoms/Colors/colors-variables" as vars;
 
-.container {
-  background: vars.$sys-color-paper-light-bg; // Light default
+.viewport-container {
+  background: vars.$sys-color-paper-light-bg;
+  width: 100%;
+  margin: 0 auto;
 
   [data-theme='dark'] & {
-    background: vars.$sys-color-paper-dark-bg; // Dark override
+    background: vars.$sys-color-paper-dark-bg;
   }
 }

@@ -4,7 +4,7 @@
  * import { Alert } from '@repo/ui/molecules'
  * import { Hero } from '@repo/ui/organisms'
  */
-export { Button } from './patterns/Atoms/InteractiveAtoms/Button/button';
+export { Button } from './patterns/Atoms/InteractiveAtoms/Button/Button';
 export { Alert } from './patterns/Molecules/Alert/Alert';
 export {
   ColorScheme,

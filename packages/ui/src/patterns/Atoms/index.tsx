@@ -1,4 +1,4 @@
-export { Button } from './InteractiveAtoms/Button/button';
+export { Button } from './InteractiveAtoms/Button/Button';
 export { ColorSwatch } from './BrandingAtoms/Colors/ColorSwatch';
 export { default as LogoImage } from './BrandingAtoms/Logo/LogoImage';
 export { LogoImageClient } from './BrandingAtoms/Logo/LogoImageClient';
