@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { LogoImageClient } from '../../Atoms/BrandingAtoms/Logo/LogoImageClient';
+import { LogoImageClient } from '../../Atoms/Branding/Logo/LogoImageClient';
 import NavigationBar from './navigation-bar';
 
 const meta = {

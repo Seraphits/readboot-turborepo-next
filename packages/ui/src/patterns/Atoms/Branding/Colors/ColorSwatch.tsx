@@ -1,4 +1,4 @@
-import styles from '../../SpatialAtoms/geometric/Geometric.module.scss';
+import styles from '../../Spatial/geometric/Geometric.module.scss';
 
 interface ColorSwatchProps {
   name: string;

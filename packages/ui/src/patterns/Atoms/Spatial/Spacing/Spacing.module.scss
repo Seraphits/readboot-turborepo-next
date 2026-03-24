@@ -1,6 +1,6 @@
 @use "spacing-variables" as vars;
 @use "../geometric/Geometric.module" as spatial;
-@use "../../BrandingAtoms/Colors/colors-variables" as colors;
+@use "../../Branding/Colors/colors-variables" as colors;
 
 .spacing-row {
   @extend.container-base; // Inherits 4px border & 12px radius

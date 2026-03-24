@@ -1,5 +1,5 @@
-@use "../../Atoms/BrandingAtoms/Colors/colors-mixins" as colors;
-@use "../../Atoms/BrandingAtoms/Typography/fonts-variables" as fonts;
+@use "../../Atoms/Branding/Colors/colors-mixins" as colors;
+@use "../../Atoms/Branding/Typography/fonts-variables" as fonts;
 
 .banner {
   font-family: fonts.$sys-font-headline; // Baloo 2

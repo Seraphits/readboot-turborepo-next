@@ -13,3 +13,5 @@
 [x] ConnectFooterSection in web `app/layout.tsx` and docs `app/docs/layout.tsx` (shared `defaultConnect`); exported from @repo/ui/organisms.
 [x] Docs landing at `/docs/`: `DocsHomePage` + `docsHomeDefaults` (style guide, patterns, engineering pillars; roadmap strip; portfolio CTA via `NEXT_PUBLIC_PORTFOLIO_ORIGIN`).
 [x] Storybook: sidebar rooted at `patterns/` (Atoms/Molecules/Organisms/Templates), removed `title` from story meta, ESLint `no-title-property-in-meta` in `@repo/ui`, Cursor rule `.cursor/rules/storybook.mdc`.
+[x] Storybook rule doc aligned with real `Atoms/` folders (Branding/Interactive/Spatial + DisplayAtoms/LayoutAtoms/EnvironmentalAtoms); BlogCard story uses `/assets/branding/readboot-logo.png` (no external placeholder); `@repo/ui` lint clean (Container/HomePage/Button.stories fixes).
+[x] Atom taxonomy rename: `BrandingAtoms`→`Branding`, `InteractiveAtoms`→`Interactive`, `SpatialAtoms`→`Spatial`; `spacing/`→`Spacing/` under Spatial; all `@use`/imports and `@branding` aliases updated; web/docs/Storybook builds pass.

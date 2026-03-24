@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { Badge } from '../../../Atoms/DisplayAtoms/Badge/Badge';
-import { Button } from '../../../Atoms/InteractiveAtoms/Button/Button';
-import { Typography } from '../../../Atoms/BrandingAtoms/Typography/Typography';
+import { Button } from '../../../Atoms/Interactive/Button/Button';
+import { Typography } from '../../../Atoms/Branding/Typography/Typography';
 import type { Project } from '@repo/wp-utils';
 import styles from './ProjectCard.module.scss';
 import clsx from 'clsx';

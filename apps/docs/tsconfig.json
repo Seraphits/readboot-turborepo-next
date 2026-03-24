@@ -4,7 +4,7 @@
     "plugins": [{ "name": "next" }],
     "paths": {
       "@/*": ["./*"],
-      "@branding/*": ["../../packages/ui/src/patterns/Atoms/BrandingAtoms/*"],
+      "@branding/*": ["../../packages/ui/src/patterns/Atoms/Branding/*"],
       "@repo/ui": ["../../packages/ui/src/index.tsx"],
       "@repo/ui/atoms": ["../../packages/ui/src/patterns/Atoms/index.tsx"],
       "@repo/ui/molecules": ["../../packages/ui/src/patterns/Molecules/index.tsx"],

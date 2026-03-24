@@ -1,6 +1,6 @@
 import React from 'react';
 import { SectionLayout } from '../../Atoms/LayoutAtoms/SectionLayout/SectionLayout';
-import { Typography } from '../../Atoms/BrandingAtoms/Typography/Typography';
+import { Typography } from '../../Atoms/Branding/Typography/Typography';
 import { ProjectCard } from '../../Molecules/Cards/ProjectCard/ProjectCard';
 import { BlogCard } from '../../Molecules/Cards/BlogCard/BlogCard';
 import type { Project, Post } from '@repo/wp-utils';

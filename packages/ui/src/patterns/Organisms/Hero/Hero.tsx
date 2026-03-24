@@ -1,6 +1,6 @@
 import { ElementType, ReactNode } from 'react';
 import { SectionLayout } from '../../Atoms/LayoutAtoms/SectionLayout/SectionLayout';
-import { Button } from '../../Atoms/InteractiveAtoms/Button/Button';
+import { Button } from '../../Atoms/Interactive/Button/Button';
 import styles from './Hero.module.scss';
 
 export type HeroLayoutVariant = 'centered' | 'split' | 'asymmetrical' | 'preview';

@@ -1,7 +1,7 @@
 // 1. ALL @use statements must be at the very top
 @use "sass:map";
-@use "./Atoms/BrandingAtoms/Colors/colors-mixins" as colors;
-@use "./Atoms/BrandingAtoms/Typography/fonts-variables" as fonts;
+@use "./Atoms/Branding/Colors/colors-mixins" as colors;
+@use "./Atoms/Branding/Typography/fonts-variables" as fonts;
 
 * , *::before, *::after {
   box-sizing: border-box;

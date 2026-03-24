@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Button } from '../../Atoms/InteractiveAtoms/Button/Button';
+import { Button } from '../../Atoms/Interactive/Button/Button';
 import { shouldSkipNextImageOptimization } from '../../../lib/remoteImageUtils';
 import styles from './SplitHomeHero.module.scss';
 

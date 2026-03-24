@@ -1,7 +1,7 @@
-@use "../../../Atoms/SpatialAtoms/spacing/spacing-variables" as space;
-@use "../../../Atoms/SpatialAtoms/geometric/geometric-variables" as geom;
-@use "../../../Atoms/BrandingAtoms/Colors/colors-variables" as vars;
-@use "../../../Atoms/BrandingAtoms/Typography/fonts-variables" as fonts;
+@use "../../../Atoms/Spatial/Spacing/spacing-variables" as space;
+@use "../../../Atoms/Spatial/geometric/geometric-variables" as geom;
+@use "../../../Atoms/Branding/Colors/colors-variables" as vars;
+@use "../../../Atoms/Branding/Typography/fonts-variables" as fonts;
 
 .project-card {
   display: flex;

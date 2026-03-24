@@ -25,7 +25,7 @@ const nextConfig: NextConfig = {
   },
   turbopack: {
     resolveAlias: {
-      '@branding': path.join(__dirname, '../../packages/ui/src/patterns/Atoms/BrandingAtoms'),
+      '@branding': path.join(__dirname, '../../packages/ui/src/patterns/Atoms/Branding'),
     },
   },
   sassOptions: {

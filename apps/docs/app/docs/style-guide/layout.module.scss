@@ -1,6 +1,6 @@
-@use "BrandingAtoms/Colors/colors-variables" as colors;
-@use "SpatialAtoms/spacing/spacing-variables" as space;
-@use "BrandingAtoms/Typography/fonts-variables" as fonts;
+@use "Branding/Colors/colors-variables" as colors;
+@use "Spatial/Spacing/spacing-variables" as space;
+@use "Branding/Typography/fonts-variables" as fonts;
 
 .layout {
   display: flex;

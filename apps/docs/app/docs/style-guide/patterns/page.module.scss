@@ -1,6 +1,6 @@
-@use "BrandingAtoms/Colors/colors-variables" as colors;
-@use "SpatialAtoms/spacing/spacing-variables" as space;
-@use "SpatialAtoms/geometric/geometric-variables" as geom;
+@use "Branding/Colors/colors-variables" as colors;
+@use "Spatial/Spacing/spacing-variables" as space;
+@use "Spatial/geometric/geometric-variables" as geom;
 
 .buttonDemoRow {
   display: flex;

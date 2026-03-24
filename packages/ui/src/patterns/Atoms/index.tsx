@@ -1,9 +1,9 @@
-export { Button } from './InteractiveAtoms/Button/Button';
-export { ColorSwatch } from './BrandingAtoms/Colors/ColorSwatch';
-export { default as LogoImage } from './BrandingAtoms/Logo/LogoImage';
-export { LogoImageClient } from './BrandingAtoms/Logo/LogoImageClient';
-export { Typography } from './BrandingAtoms/Typography/Typography';
-export { default as NavigationLink } from './InteractiveAtoms/NavigationLink/navigation-link';
+export { Button } from './Interactive/Button/Button';
+export { ColorSwatch } from './Branding/Colors/ColorSwatch';
+export { default as LogoImage } from './Branding/Logo/LogoImage';
+export { LogoImageClient } from './Branding/Logo/LogoImageClient';
+export { Typography } from './Branding/Typography/Typography';
+export { default as NavigationLink } from './Interactive/NavigationLink/navigation-link';
 export { SectionLayout } from './LayoutAtoms/SectionLayout/SectionLayout';
 export { Container } from './EnvironmentalAtoms/Container/Container';
-export { SpacingScale } from './SpatialAtoms/spacing/SpacingScale';
+export { SpacingScale } from './Spatial/Spacing/SpacingScale';

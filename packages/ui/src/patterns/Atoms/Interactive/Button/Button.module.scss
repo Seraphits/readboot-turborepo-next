@@ -1,6 +1,6 @@
-@use "../../SpatialAtoms/geometric/geometric-variables" as geom;
-@use "../../BrandingAtoms/Colors/colors-variables" as vars;
-@use "../../BrandingAtoms/Mixins/button-mixins" as mixins;
+@use "../../Spatial/geometric/geometric-variables" as geom;
+@use "../../Branding/Colors/colors-variables" as vars;
+@use "../../Branding/Mixins/button-mixins" as mixins;
 
 .button {
   @include mixins.button-base; // Uses your 4px solid charcoal border logic

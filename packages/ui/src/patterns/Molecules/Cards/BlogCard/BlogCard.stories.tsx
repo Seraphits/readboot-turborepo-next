@@ -17,9 +17,8 @@ const mockPost: Post = {
   content: '',
   featuredImage: {
     node: {
-      sourceUrl:
-        'https://placeholder.co/600x400/faf9f6/36454f?text=Featured+Image',
-      altText: 'Technical diagram',
+      sourceUrl: '/assets/storybook/blog-featured-placeholder.svg',
+      altText: 'Abstract editorial graphic for a blog post preview',
     },
   },
 };

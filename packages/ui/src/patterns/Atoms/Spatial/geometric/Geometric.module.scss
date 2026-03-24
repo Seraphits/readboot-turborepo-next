@@ -1,7 +1,7 @@
-@use "../../BrandingAtoms/Mixins/global-mixins" as global;
+@use "../../Branding/Mixins/global-mixins" as global;
 @use "geometric-variables" as geom;
-@use "../../BrandingAtoms/Colors/colors-variables" as vars;
-@use "../../BrandingAtoms/Typography/fonts-variables" as fonts;
+@use "../../Branding/Colors/colors-variables" as vars;
+@use "../../Branding/Typography/fonts-variables" as fonts;
 
 .container-base {
   display: flex;

@@ -1,7 +1,6 @@
 import { FeaturedPillarsSection } from './FeaturedPillarsSection';
 import {
   DEFAULT_PORTRAIT_PLACEHOLDER,
-  defaultConnect,
   defaultHomeHero,
   defaultMission,
   defaultPillars,

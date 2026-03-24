@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" role="img" aria-labelledby="blogFeaturedTitle">
+  <title id="blogFeaturedTitle">Editorial featured image for Storybook</title>
+  <desc>Abstract geometric art using ReadBoot palette  not the brand logo.</desc>
+  <rect width="600" height="400" fill="#FAF9F6" />
+  <rect x="32" y="36" width="536" height="10" fill="#36454F" rx="2" />
+  <rect x="32" y="58" width="280" height="8" fill="#36454F" opacity="0.45" rx="2" />
+  <rect x="32" y="120" width="240" height="200" fill="#36454F" opacity="0.08" rx="12" stroke="#36454F" stroke-width="4" />
+  <path
+    d="M320 280 L420 140 L520 280 Z"
+    fill="none"
+    stroke="#DC143C"
+    stroke-width="5"
+    stroke-linejoin="round"
+  />
+  <circle cx="460" cy="200" r="64" fill="none" stroke="#36454F" stroke-width="4" />
+</svg>

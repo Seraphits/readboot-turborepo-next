@@ -1,6 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from './Button';
-import { PAIRING_KEYS } from '../../BrandingAtoms/Colors/pairingKeys';
+import { Button, type ButtonVariant } from './Button';
+
+/** Variants implemented on `Button` (color pairings are a superset in `pairingKeys.ts`). */
+const BUTTON_VARIANTS = [
+  'ink-dark-on-paper-light',
+  'action-on-light',
+  'outline-on-light',
+  'alert',
+] as const satisfies readonly ButtonVariant[];
 
 const meta: Meta<typeof Button> = {
   component: Button,
@@ -14,9 +21,9 @@ export const Primary: StoryObj<typeof Button> = {
 export const AllButtonVariants: StoryObj = {
   render: () => (
     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.5rem' }}>
-      {PAIRING_KEYS.map((variant) => (
+      {BUTTON_VARIANTS.map((variant) => (
         <div key={variant} style={{ textAlign: 'center' }}>
-          <Button variant={variant as any}>
+          <Button variant={variant}>
             {variant.split('-')}
           </Button>
           <p style={{ fontSize: '0.7rem', marginTop: '0.5rem' }}>{variant}</p>

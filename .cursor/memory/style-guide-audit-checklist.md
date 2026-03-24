@@ -31,7 +31,7 @@ Run this checklist when verifying the "Futurist Carton" aesthetic is correctly p
 | Check | Action |
 |-------|--------|
 | No hardcoded HEX | Search codebase for `#` in component styles; replace with `var(--sys-*)` tokens |
-| Design token source | `packages/ui/src/patterns/Atoms/BrandingAtoms/Colors/_colors-variables.scss` |
+| Design token source | `packages/ui/src/patterns/Atoms/Branding/Colors/_colors-variables.scss` |
 | Config | `next.config.mts` in apps/docs and apps/web must list `transpilePackages: ["@repo/ui", "@repo/wp-utils"]` |
 
 ---

@@ -1,7 +1,7 @@
-@use "../../Atoms/SpatialAtoms/spacing/spacing-variables" as space;
-@use "../../Atoms/BrandingAtoms/Colors/colors-variables" as vars;
-@use "../../Atoms/BrandingAtoms/Typography/fonts-variables" as fonts;
-@use "../../Atoms/SpatialAtoms/geometric/geometric-variables" as geom;
+@use "../../Atoms/Spatial/Spacing/spacing-variables" as space;
+@use "../../Atoms/Branding/Colors/colors-variables" as vars;
+@use "../../Atoms/Branding/Typography/fonts-variables" as fonts;
+@use "../../Atoms/Spatial/geometric/geometric-variables" as geom;
 
 .root {
   width: 100%;

@@ -1,6 +1,6 @@
 @use "sass:color";
-@use "../../Atoms/BrandingAtoms/Colors/colors-variables" as vars;
-@use "../../Atoms/BrandingAtoms/Typography/fonts-variables" as fonts;
+@use "../../Atoms/Branding/Colors/colors-variables" as vars;
+@use "../../Atoms/Branding/Typography/fonts-variables" as fonts;
 
 .NavigationMenu {
   &__List {

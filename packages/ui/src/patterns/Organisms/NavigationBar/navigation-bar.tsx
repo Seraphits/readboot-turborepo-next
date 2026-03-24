@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import LogoImage from '../../Atoms/BrandingAtoms/Logo/LogoImage';
+import LogoImage from '../../Atoms/Branding/Logo/LogoImage';
 import NavMenu, { type NavigationLinkItem } from '../../Molecules/NavigationMenu/navigation-menu';
 import { ThemeToggle } from '../../Molecules/ThemeToggle/ThemeToggle';
 import styles from './navigation-bar.module.scss';
