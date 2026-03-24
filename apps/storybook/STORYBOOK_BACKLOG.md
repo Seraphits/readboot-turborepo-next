@@ -37,7 +37,7 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 
 **Phase 2e (Docs — how to use):**
 
-- [x] **Tokens & typography guide** — `parameters.docs` on individual stories (2c/2d) plus **`patterns/Docs/TokensAndTypography.md`** (authorable Markdown) imported with **`?raw`** into **`TokensAndTypography.stories.tsx`** and rendered with **`Markdown`** from `@storybook/addon-docs/blocks` (MDX optional; avoids MDX compiler issues). Covers reference vs system tokens, pairings mixin usage, Typography `as` / link + `href`, and linking standards; `preview.ts` `storySort` puts **Docs** first.
+- [ ] **Standalone tokens & typography Storybook guide** — **Deferred / removed** (Mar 2026): `patterns/Docs/TokensAndTypography.*` deleted; it duplicated “rules” intent, and the `Markdown` canvas story errored at runtime (`theme.fonts`). **Done instead:** `parameters.docs` on Primitives, Pairings, Typography, etc. (Phase 2c/2d). Revisit a dedicated design-system doc approach later (outside Storybook or with a stable docs pattern).
 
 **Phase 2d (colors + pairings + docs notes):**
 
@@ -67,10 +67,10 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 
 ### Tier B — Homepage sections (isolated)
 
-- [ ] **SplitHomeHero**
-- [ ] **MissionProvocation**
-- [ ] **FeaturedPillarsSection**
-- [ ] **VisionRoadmapSection**
+- [x] **SplitHomeHero**
+- [x] **MissionProvocation**
+- [x] **FeaturedPillarsSection**
+- [x] **VisionRoadmapSection**
 
 ### Tier C — Alternate shells
 
@@ -103,7 +103,7 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 
 ## Reference — components still without any story
 
-See prior audit: BlogShowcase, DocsHomePage, FeaturedPillarsSection, MissionProvocation, SplitHomeHero, VisionRoadmapSection; server: `LogoImage`, async `BlogShowcase`. (Phase 3a–3b: Badge, ColorSwatch, Container, SectionLayout, Hero, Showcase, ShowcaseTemplate, ConnectFooterSection.)
+See prior audit: BlogShowcase, DocsHomePage; server: `LogoImage`, async `BlogShowcase`. (Phase 3a–3c: Badge, ColorSwatch, Container, SectionLayout, Hero, Showcase, ShowcaseTemplate, ConnectFooterSection, SplitHomeHero, MissionProvocation, FeaturedPillarsSection, VisionRoadmapSection.)
 
 ---
 

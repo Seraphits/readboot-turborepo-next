@@ -29,9 +29,10 @@ Active Context: ReadBoot Shared UI
 - Recent: **Storybook Phase 2b** — NavigationBar: `REALISTIC_LINKS` (`/`, `/blog/`, `/projects/`, `/docs/`); `Default` + `LinksOnlyAppDefaultLogo`; ThemeToggle: `parameters.docs.description.component` for `data-theme` + `localStorage` (`theme`).
 - Recent: **Storybook Phase 2c** — Typography: `AllVariants` story for h1–h6, body + `<strong>`, caption, link; `Typography.module.scss` filled in (sizes, ink/action colors, link hover/focus); meta docs note (`as="a"` for link + `href`).
 - Recent: **Storybook Phase 2d** — `SYSTEM_COLORS` in `colors-data.ts`; Primitives: `ReferenceTokens` + `SystemTokens` with `ColorSwatch`; Pairings: mixin line `@include colors.apply-pairing('…')`, 4px/12px frame; `parameters.docs` on Primitives + Pairings.
-- Recent: **Storybook Phase 2e** — `patterns/Docs/TokensAndTypography.md` + `TokensAndTypography.stories.tsx` (`Markdown` from `@storybook/addon-docs/blocks`, `?raw` import); `preview.ts` storySort **Docs** first; `@storybook/addon-docs` devDep on `@repo/ui` for types; MDX skipped (SB MDX plugin errored on this repo).
+- Recent: **Storybook Phase 2e** — Standalone `TokensAndTypography` doc story **removed** (deferred); per-story `parameters.docs` on Colors/Pairings/Typography remains; sidebar order no longer includes a top-level **Docs** group.
 - Recent: **Storybook Phase 3a** — Stories: Badge, Container, SectionLayout, ColorSwatch; `Container.module.scss` class `.container` (was `.viewport-container`); `Badge` `ghost` variant styles.
 - Recent: **Storybook Phase 3b** — Stories: Hero (centered + split/asymmetrical/preview + media placeholder), Showcase (project/blog grids), ShowcaseTemplate, ConnectFooterSection (`defaultConnect` + custom).
+- Recent: **Storybook Phase 3c** — Tier B homepage sections: `SplitHomeHero`, `MissionProvocation` (accent + no-accent), `FeaturedPillarsSection` (three + single pillar), `VisionRoadmapSection` (defaults + longer timeline); `STORYBOOK_BACKLOG.md` Tier B checked.
 
 ReadBoot Progress
 - [x] Turborepo boilerplate initialized.

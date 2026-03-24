@@ -15,9 +15,3 @@ declare module "*.svg" {
   const value: StaticImageData;
   export default value;
 }
-
-/** Vite raw import — Storybook docs (`TokensAndTypography.md`). */
-declare module "*.md?raw" {
-  const content: string;
-  export default content;
-}
