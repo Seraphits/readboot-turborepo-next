@@ -1,7 +1,8 @@
 /** Default homepage copy & URLs — override via `HomePage` props from the app when ready. */
 
-export const DEFAULT_PORTRAIT_PLACEHOLDER =
-  'https://placehold.co/640x800/FAF9F6/36454F/png?text=Headshot+placeholder';
+import { portraitPlaceholder } from "../../../assets/storybook/placeholders";
+
+export const DEFAULT_PORTRAIT_PLACEHOLDER = portraitPlaceholder;
 
 export const defaultHomeHero = {
   eyebrow: 'Design Engineer // Learning Technologist',

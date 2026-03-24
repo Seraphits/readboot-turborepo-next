@@ -24,7 +24,7 @@ export default function IconographyPage() {
 
       <h2>Accessibility</h2>
       <p>
-        Decorative icons should have <code>aria-hidden="true"</code>. Icons that convey meaning alone
+        Decorative icons should have <code>aria-hidden=&quot;true&quot;</code>. Icons that convey meaning alone
         need <code>aria-label</code> or visible text. Prefer &quot;Submit&quot; + icon over icon-only
         for primary actions when space allows.
       </p>

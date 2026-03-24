@@ -1,3 +1,4 @@
+import type { StaticImageData } from "next/image";
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '../../Atoms/Interactive/Button/Button';
@@ -5,7 +6,7 @@ import { shouldSkipNextImageOptimization } from '../../../lib/remoteImageUtils';
 import styles from './SplitHomeHero.module.scss';
 
 export type SplitHomeHeroProps = {
-  portraitSrc: string;
+  portraitSrc: string | StaticImageData;
   portraitAlt: string;
   eyebrow: string;
   headline: string;
@@ -36,7 +37,9 @@ export const SplitHomeHero = ({
           className={styles.portraitImage}
           priority
           sizes="(max-width: 900px) 100vw, 50vw"
-          unoptimized={shouldSkipNextImageOptimization(portraitSrc)}
+          unoptimized={shouldSkipNextImageOptimization(
+            typeof portraitSrc === "string" ? portraitSrc : portraitSrc.src,
+          )}
         />
       </div>
       <div className={styles.content}>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 800" role="img" aria-labelledby="portraitPhTitle">
+  <title id="portraitPhTitle">Portrait placeholder</title>
+  <desc>Abstract stand-in for a headshot; not the ReadBoot logo.</desc>
+  <rect width="640" height="800" fill="#FAF9F6" />
+  <rect x="24" y="24" width="592" height="752" fill="none" stroke="#36454F" stroke-width="4" rx="12" />
+  <circle cx="320" cy="280" r="120" fill="none" stroke="#36454F" stroke-width="4" />
+  <path
+    d="M 160 520 Q 320 640 480 520"
+    fill="none"
+    stroke="#DC143C"
+    stroke-width="5"
+    stroke-linecap="round"
+  />
+  <rect x="120" y="620" width="400" height="12" fill="#36454F" opacity="0.35" rx="2" />
+  <rect x="200" y="652" width="240" height="8" fill="#36454F" opacity="0.2" rx="2" />
+</svg>

@@ -9,6 +9,9 @@
 const HOSTS_SKIP_IMAGE_OPTIMIZATION = new Set(['placehold.co', 'readboot.cloudaccess.host']);
 
 export function shouldSkipNextImageOptimization(src: string): boolean {
+  if (!src) return false;
+  /** Next/Image does not optimize SVG the same way; bundled placeholders are often `.svg`. */
+  if (src.includes(".svg")) return true;
   try {
     const { hostname } = new URL(src);
     if (HOSTS_SKIP_IMAGE_OPTIMIZATION.has(hostname)) return true;

@@ -1,3 +1,4 @@
+import type { StaticImageData } from "next/image";
 import { FeaturedPillarsSection } from './FeaturedPillarsSection';
 import type { DocsHomeHeroCopy, DocsMissionCopy, DocsVisionCopy } from './docsHomeDefaults';
 import {
@@ -14,7 +15,7 @@ import { VisionRoadmapSection } from './VisionRoadmapSection';
 import styles from './HomePage.module.scss';
 
 export type DocsHomePageProps = {
-  portraitSrc?: string;
+  portraitSrc?: string | StaticImageData;
   portraitAlt?: string;
   hero?: DocsHomeHeroCopy;
   mission?: DocsMissionCopy;

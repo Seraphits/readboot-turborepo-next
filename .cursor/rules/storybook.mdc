@@ -33,6 +33,7 @@ alwaysApply: false
 - **Story-only visuals** (e.g. a blog featured image mock) belong under `packages/ui/src/assets/storybook/` so they are clearly not brand marks.
 - Storybook serves `packages/ui/src/assets` at `/assets/...` via `staticDirs` in `apps/storybook/.storybook/main.ts`. Manager `brandImage` and `preview-head` favicon use branding URLs.
 - Do not use external placeholder image URLs in stories; use bundled paths under `/assets/...`.
+- **Placeholder art** lives only in `packages/ui/src/assets/storybook/` and is **imported** from `@repo/ui` (see `placeholders.ts`). Next.js bundles those assets from the package; Storybook still maps `packages/ui/src/assets` at `/assets` for any raw URL usage. Do **not** duplicate placeholders under `apps/*/public/`. The ReadBoot **logo** stays under `assets/branding/` only.
 
 ## Fonts (canvas parity)
 

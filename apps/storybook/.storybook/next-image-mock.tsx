@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element -- Deliberate next/image mock for Storybook (plain img). */
 import React from 'react';
 
 type StaticLike = { src: string };
@@ -19,12 +20,20 @@ export default function MockNextImage(
   props: React.ComponentProps<'img'> & { fill?: boolean; priority?: boolean; sizes?: string }
 ) {
   const { src, alt, fill, priority, sizes, style, ...rest } = props;
+  void fill;
+  void priority;
+  void sizes;
   const srcUrl = normalizeSrc(src);
   return (
     <img
       src={srcUrl}
       alt={alt ?? ''}
-      style={{ width: '100%', height: '100%', objectFit: 'contain', ...style }}
+      style={{
+        width: '100%',
+        height: '100%',
+        objectFit: fill ? 'cover' : 'contain',
+        ...style,
+      }}
       {...rest}
     />
   );

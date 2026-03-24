@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import {
+  pillarPlaceholder,
+  placeholderSrc,
+} from "../../../assets/storybook/placeholders";
 import type { PillarItem } from './homePageDefaults';
 import { shouldSkipNextImageOptimization } from '../../../lib/remoteImageUtils';
 import styles from './FeaturedPillarsSection.module.scss';
-
-const PILLAR_IMAGE = (seed: number) =>
-  `https://placehold.co/600x340/FAF9F6/36454F/png?text=Project+${seed}`;
 
 export type FeaturedPillarsSectionProps = {
   pillars: PillarItem[];
@@ -19,18 +20,18 @@ export const FeaturedPillarsSection = ({ pillars }: FeaturedPillarsSectionProps)
           Featured work
         </h2>
         <div className={styles.grid}>
-          {pillars.map((pillar, index) => {
-            const pillarSrc = PILLAR_IMAGE(index + 1);
-            return (
+          {pillars.map((pillar) => (
             <article key={pillar.title} className={styles.card}>
               <div className={styles.cardImage}>
                 <Image
-                  src={pillarSrc}
+                  src={pillarPlaceholder}
                   alt={`Placeholder artwork for ${pillar.title}`}
                   width={600}
                   height={340}
                   sizes="(max-width: 900px) 100vw, 33vw"
-                  unoptimized={shouldSkipNextImageOptimization(pillarSrc)}
+                  unoptimized={shouldSkipNextImageOptimization(
+                    placeholderSrc(pillarPlaceholder),
+                  )}
                 />
               </div>
               <div className={styles.cardBody}>
@@ -42,8 +43,7 @@ export const FeaturedPillarsSection = ({ pillars }: FeaturedPillarsSectionProps)
                 </Link>
               </div>
             </article>
-            );
-          })}
+          ))}
         </div>
       </div>
     </section>

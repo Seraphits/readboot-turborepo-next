@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-page-custom-font -- Google Fonts in docs layout; matches Storybook preview-head (App Router global fonts). */
 import "@repo/ui/patterns/globals.scss";
 import favicon from "@repo/ui/assets/branding/favicon.png";
 import type { Metadata } from "next";

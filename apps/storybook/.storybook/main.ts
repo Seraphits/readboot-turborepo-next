@@ -58,6 +58,7 @@ const config: StorybookConfig = {
     return mergeConfig(config, {
       plugins: [
         ...(config.plugins ?? []),
+        stripUseClient(),
         {
           name: 'fix-double-encoding-patch',
           enforce: 'pre',

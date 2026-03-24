@@ -8,7 +8,7 @@
     "dev:clean": "rm -rf node_modules/.cache storybook-static .turbo && storybook dev -p 6006 --host localhost",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
+    "lint": "eslint --max-warnings 0",
     "storybook": "storybook dev -p 6006 --host localhost",
     "build-storybook": "storybook build"
   },

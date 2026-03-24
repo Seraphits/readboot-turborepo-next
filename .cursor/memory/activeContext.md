@@ -21,7 +21,8 @@ Active Context: ReadBoot Shared UI
 - Recent: Fixed **TS path aliases** for `@repo/ui/atoms|molecules|organisms|templates` in `typescript-config/nextjs.json` + web/docs tsconfigs (was pointing at `src/*` instead of `patterns/*`, causing missing `BlogShowcase` in the IDE). Docs app added **`app/page.tsx`** → `redirect('/docs/')` so **standalone Vercel preview root `/`** no longer 404s; see `apps/docs/DEPLOYMENT.md`.
 - Recent: **Docs landing page** — `DocsHomePage` + `docsHomeDefaults.ts` (split hero, mission, three pillars → style guide / patterns / how-it’s-coded, roadmap strip); `apps/docs/app/docs/page.tsx` + `NEXT_PUBLIC_PORTFOLIO_ORIGIN` for portfolio CTA.
 - Recent: **Storybook sidebar** — `main.ts` indexes only `packages/ui/src/patterns`; all `title` removed from story meta; `preview.ts` `storySort` orders Atoms → Molecules → Organisms → Templates; ESLint + `.cursor/rules/storybook.mdc` guard against manual titles.
-- Recent: **Storybook rules vs repo** — `storybook.mdc` documents DisplayAtoms/LayoutAtoms/EnvironmentalAtoms; BlogCard story uses bundled branding asset path; Button stories use typed `ButtonVariant` list; `@repo/ui` lint passes.
+- Recent: **Storybook rules vs repo** — `storybook.mdc` documents DisplayAtoms/LayoutAtoms/EnvironmentalAtoms; BlogCard story uses `assets/storybook/` featured SVG; Button stories use typed `ButtonVariant` list; `@repo/ui` lint passes.
+- Recent: **GitHub CI** — lint, typecheck, Storybook static build on main/PRs; a11y strict in Storybook preview; dedicated `assets/storybook/` SVG for blog card featured mock (logo not reused as article art).
 
 ReadBoot Progress
 - [x] Turborepo boilerplate initialized.

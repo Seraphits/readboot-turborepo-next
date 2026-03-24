@@ -7,10 +7,10 @@
  */
 
 import type { PillarItem } from './homePageDefaults';
+import { portraitPlaceholder } from "../../../assets/storybook/placeholders";
 
-/** Reuse portrait placeholder until you add a docs-specific asset. */
-export const DOCS_PORTRAIT_PLACEHOLDER =
-  'https://placehold.co/640x800/FAF9F6/36454F/png?text=Docs+portal+placeholder';
+/** Reuse shared portrait placeholder until you add a docs-specific asset. */
+export const DOCS_PORTRAIT_PLACEHOLDER = portraitPlaceholder;
 
 /**
  * Portfolio primary link: production domain works for standalone docs deploys.

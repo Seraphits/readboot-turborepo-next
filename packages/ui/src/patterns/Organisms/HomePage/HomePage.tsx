@@ -1,3 +1,4 @@
+import type { StaticImageData } from "next/image";
 import { FeaturedPillarsSection } from './FeaturedPillarsSection';
 import {
   DEFAULT_PORTRAIT_PLACEHOLDER,
@@ -13,7 +14,7 @@ import { VisionRoadmapSection } from './VisionRoadmapSection';
 import styles from './HomePage.module.scss';
 
 export type HomePageProps = {
-  portraitSrc?: string;
+  portraitSrc?: string | StaticImageData;
   portraitAlt?: string;
   hero?: typeof defaultHomeHero;
   mission?: typeof defaultMission;

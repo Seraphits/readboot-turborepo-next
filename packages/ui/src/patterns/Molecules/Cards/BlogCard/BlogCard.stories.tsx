@@ -1,4 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import {
+  blogFeaturedPlaceholder,
+  placeholderSrc,
+} from '../../../../assets/storybook/placeholders';
 import { BlogCard } from './BlogCard';
 import type { Post } from '@repo/wp-utils';
 
@@ -17,7 +21,7 @@ const mockPost: Post = {
   content: '',
   featuredImage: {
     node: {
-      sourceUrl: '/assets/storybook/blog-featured-placeholder.svg',
+      sourceUrl: placeholderSrc(blogFeaturedPlaceholder),
       altText: 'Abstract editorial graphic for a blog post preview',
     },
   },
