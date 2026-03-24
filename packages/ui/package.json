@@ -25,6 +25,7 @@
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@storybook/addon-docs": "catalog:",
     "@storybook/react": "^10.2.8",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",

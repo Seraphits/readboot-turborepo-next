@@ -36,4 +36,10 @@
     border-color: vars.$sys-color-dark-border;
     color: vars.$sys-color-ink-dark-text;
   }
+
+  &--ghost {
+    border-color: transparent;
+    background-color: transparent;
+    color: vars.$sys-color-ink-dark-text;
+  }
 }

@@ -51,12 +51,15 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 
 ## Phase 3 — New stories (components without stories)
 
-### Tier A — Straightforward
+**Phase 3a (Tier A — atoms / small):**
 
-- [ ] **Badge** — `Atoms/DisplayAtoms/Badge/Badge.tsx`
-- [ ] **Container** — `Atoms/EnvironmentalAtoms/Container/Container.tsx` (exercise `as`: section vs main)
-- [ ] **SectionLayout** — `Atoms/LayoutAtoms/SectionLayout/SectionLayout.tsx`
-- [ ] **ColorSwatch** — `Atoms/Branding/Colors/ColorSwatch.tsx` (may merge with Phase 2 Primitives refactor)
+- [x] **Badge** — `Atoms/DisplayAtoms/Badge/Badge.tsx`
+- [x] **Container** — `Atoms/EnvironmentalAtoms/Container/Container.tsx` (exercise `as`: section vs main)
+- [x] **SectionLayout** — `Atoms/LayoutAtoms/SectionLayout/SectionLayout.tsx`
+- [x] **ColorSwatch** — `Atoms/Branding/Colors/ColorSwatch.tsx` (may merge with Phase 2 Primitives refactor)
+
+### Tier A — remainder (straightforward)
+
 - [ ] **Hero** — `Organisms/Hero/Hero.tsx`
 - [ ] **Showcase** — `Organisms/Showcase/Showcase.tsx`
 - [ ] **ShowcaseTemplate** — `Templates/ShowcaseTemplate/ShowcaseTemplate.tsx`
@@ -100,7 +103,7 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 
 ## Reference — components still without any story
 
-See prior audit: Badge, ColorSwatch, Container, SectionLayout, BlogShowcase, Showcase, Hero, ConnectFooterSection, DocsHomePage, FeaturedPillarsSection, MissionProvocation, SplitHomeHero, VisionRoadmapSection, ShowcaseTemplate; server: `LogoImage`, async `BlogShowcase`.
+See prior audit: BlogShowcase, Showcase, Hero, ConnectFooterSection, DocsHomePage, FeaturedPillarsSection, MissionProvocation, SplitHomeHero, VisionRoadmapSection, ShowcaseTemplate; server: `LogoImage`, async `BlogShowcase`. (Badge, ColorSwatch, Container, SectionLayout covered in Phase 3a.)
 
 ---
 
