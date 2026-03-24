@@ -1,4 +1,4 @@
-import { HomePage } from "@repo/ui/organisms";
+import { HomePage } from "@repo/ui/templates";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

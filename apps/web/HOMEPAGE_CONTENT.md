@@ -4,7 +4,7 @@ This doc replaces the older Gemini brief. **Glitch effects are removed** — the
 
 ## What’s implemented
 
-- **Split hero** — 12px radius, 4px charcoal frame on the portrait, two CTAs (primary fill + **outline** secondary). Copy lives in `packages/ui/.../HomePage/homePageDefaults.ts`.
+- **Split hero** — 12px radius, 4px charcoal frame on the portrait, two CTAs (primary fill + **outline** secondary). Copy lives in `packages/ui/.../Templates/HomePage/homePageDefaults.ts`.
 - **Mission** — bordered panel, **newspaper `column-count`** over two short paragraphs, accent on the word *Alignment*.
 - **Three pillars** — 4px bordered cards, `placehold.co` images until you ship real art.
 - **100-year roadmap** — horizontal **4px** rule with labeled nodes (Artist, Philosopher, Nomad, Hero).
@@ -47,7 +47,7 @@ These are **defaults you can change** in one place: pass props to `<HomePage />`
 
 ```tsx
 // apps/web/app/page.tsx
-import { HomePage, defaultHomeHero } from "@repo/ui/organisms";
+import { HomePage, defaultHomeHero } from "@repo/ui/templates";
 
 export default function Home() {
   return (
@@ -65,4 +65,4 @@ export default function Home() {
 
 (Adjust paths when `/contact/` or `/images/` exist.)
 
-**Footer (all routes):** change `defaultConnect` in `packages/ui/.../HomePage/homePageDefaults.ts`, or in `apps/web/app/layout.tsx` / `apps/docs/app/docs/layout.tsx` replace `<ConnectFooterSection {...defaultConnect} />` with explicit props.
+**Footer (all routes):** change `defaultConnect` in `packages/ui/.../Templates/HomePage/homePageDefaults.ts`, or in `apps/web/app/layout.tsx` / `apps/docs/app/docs/layout.tsx` replace `<ConnectFooterSection {...defaultConnect} />` with explicit props.

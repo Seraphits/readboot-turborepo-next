@@ -9,11 +9,11 @@
 [x] Legacy style-guide component cleanup: removed MediaMockup/CaptureForm/Masthead/ColorScheme and added WP+Storybook rebuild plan at apps/docs/STYLE_GUIDE_PATTERN_LAB_REBUILD_PLAN.md.
 [x] Removed inline styles from docs style-guide subtree and refactored page styling into SCSS modules; web slug error page also migrated from inline styles to module.
 [x] Introduced reusable docs components (SectionIntro, CodeExampleBlock, TokenCard) and adopted them across style-guide pages.
-[x] Web homepage: SplitHomeHero + mission/pillars/roadmap in @repo/ui HomePage; outline Button variant; placehold.co images; apps/web/HOMEPAGE_CONTENT.md (no glitch; rules-aligned).
-[x] ConnectFooterSection in web `app/layout.tsx` and docs `app/docs/layout.tsx` (shared `defaultConnect`); exported from @repo/ui/organisms.
+[x] Web homepage: SplitHomeHero + mission/pillars/roadmap in `@repo/ui/templates` (`patterns/Templates/HomePage`); outline Button variant; placehold.co images; apps/web/HOMEPAGE_CONTENT.md (no glitch; rules-aligned).
+[x] ConnectFooterSection in web `app/layout.tsx` and docs `app/docs/layout.tsx` (shared `defaultConnect`); exported from @repo/ui/templates (`HomePage` template folder).
 [x] Docs landing at `/docs/`: `DocsHomePage` + `docsHomeDefaults` (style guide, patterns, engineering pillars; roadmap strip; portfolio CTA via `NEXT_PUBLIC_PORTFOLIO_ORIGIN`).
 [x] Storybook: sidebar rooted at `patterns/` (Atoms/Molecules/Organisms/Templates), removed `title` from story meta, ESLint `no-title-property-in-meta` in `@repo/ui`, Cursor rule `.cursor/rules/storybook.mdc`.
 [x] Storybook rule doc aligned with real `Atoms/` folders (Branding/Interactive/Spatial + DisplayAtoms/LayoutAtoms/EnvironmentalAtoms); BlogCard story uses bundled `/assets/storybook/blog-featured-placeholder.svg` (logo stays branding-only); `@repo/ui` lint clean (Container/HomePage/Button.stories fixes).
 [x] Solo portfolio CI: `.github/workflows/ci.yml` runs `pnpm lint`, `pnpm check-types`, `turbo build-storybook` on push/PR; Storybook `a11y.test: 'error'`; `storybook-static/` eslintignored; `stripUseClient` restored in Storybook `viteFinal`; web/docs lint (fonts rule, iconography quotes, turbo `NODE_ENV`).
 [x] Atom taxonomy rename: `BrandingAtoms`→`Branding`, `InteractiveAtoms`→`Interactive`, `SpatialAtoms`→`Spatial`; `spacing/`→`Spacing/` under Spatial; all `@use`/imports and `@branding` aliases updated; web/docs/Storybook builds pass.
-[ ] **Storybook backlog** — Track fix + new stories in `apps/storybook/STORYBOOK_BACKLOG.md` (Phase 1–4 checklists); close when backlog is done or superseded.
+[ ] **Storybook backlog** — Track fix + new stories in `apps/storybook/STORYBOOK_BACKLOG.md` (Phase 1–4 checklists); Phase 1 complete; close when Phases 2–4 done or superseded.

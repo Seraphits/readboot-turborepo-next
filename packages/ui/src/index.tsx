@@ -3,6 +3,7 @@
  * import { Button } from '@repo/ui/atoms'
  * import { Alert } from '@repo/ui/molecules'
  * import { Hero } from '@repo/ui/organisms'
+ * import { HomePage } from '@repo/ui/templates'
  */
 export { Button } from './patterns/Atoms/Interactive/Button/Button';
 export { Alert } from './patterns/Molecules/Alert/Alert';

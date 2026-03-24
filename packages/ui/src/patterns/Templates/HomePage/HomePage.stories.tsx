@@ -9,7 +9,7 @@ const meta: Meta<typeof HomePage> = {
 };
 export default meta;
 
-/** Uses bundled `/assets/storybook/*.svg` placeholders (portrait + pillar cards) via defaults. */
+/** Placeholder art from `packages/ui/src/assets/storybook/placeholders.ts` (bundled imports; Storybook + Next resolve URLs). */
 export const PortfolioPreview: StoryObj<typeof HomePage> = {
   render: () => <HomePage />,
 };

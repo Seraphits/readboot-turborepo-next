@@ -15,7 +15,7 @@ export const Default: Story = {
   args: {
     links: [
       { label: 'Home', href: '/' },
-      { label: 'Page 1', href: '/?path=/story/patterns-molecules-NavigationMenu--default' },
+      { label: 'Blog', href: '/blog/' },
     ],
   },
 };

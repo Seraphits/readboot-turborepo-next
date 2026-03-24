@@ -8,7 +8,13 @@ export default meta;
 
 export const Default: StoryObj<typeof Alert> = {
   render: () => (
-    <div style={{ width: '100%', border: '1px dashed var(--sys-color-border)' }}>
+    <div
+      style={{
+        width: '100%',
+        /** `$sys-color-dark-border` / `$ref-color-charcoal` — visible dashed frame in Storybook */
+        border: '1px dashed #36454F',
+      }}
+    >
       <Alert />
     </div>
   ),

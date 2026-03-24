@@ -1,4 +1,4 @@
-import { DocsHomePage, defaultDocsHomeHero } from "@repo/ui/organisms";
+import { DocsHomePage, defaultDocsHomeHero } from "@repo/ui/templates";
 import type { Metadata } from "next";
 
 const portfolioOrigin =

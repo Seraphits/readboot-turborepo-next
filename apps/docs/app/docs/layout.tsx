@@ -5,7 +5,8 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { getMenuData, toDocsHref } from "@repo/wp-utils";
 import { Alert } from "@repo/ui/molecules";
-import { ConnectFooterSection, defaultConnect, NavigationBar } from "@repo/ui/organisms";
+import { NavigationBar } from "@repo/ui/organisms";
+import { ConnectFooterSection, defaultConnect } from "@repo/ui/templates";
 
 export const metadata: Metadata = {
   icons: { icon: favicon.src },
