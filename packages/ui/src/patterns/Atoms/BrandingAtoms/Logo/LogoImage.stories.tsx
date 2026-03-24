@@ -13,11 +13,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+/** Static `src`/`alt` avoid WP in Storybook; asset lives in `apps/storybook/public/branding/`. */
 export const Default: Story = {
   args: {
     width: "120px",
     height: "48px",
-    src: "https://placehold.co/120x48/faf9f6/36454f?text=ReadBoot",
+    src: "/branding/readboot-logo.png",
     alt: "ReadBoot logo",
   },
 };
