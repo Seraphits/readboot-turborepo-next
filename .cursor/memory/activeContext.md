@@ -23,6 +23,7 @@ Active Context: ReadBoot Shared UI
 - Recent: **Storybook sidebar** — `main.ts` indexes only `packages/ui/src/patterns`; all `title` removed from story meta; `preview.ts` `storySort` orders Atoms → Molecules → Organisms → Templates; ESLint + `.cursor/rules/storybook.mdc` guard against manual titles.
 - Recent: **Storybook rules vs repo** — `storybook.mdc` documents DisplayAtoms/LayoutAtoms/EnvironmentalAtoms; BlogCard story uses `assets/storybook/` featured SVG; Button stories use typed `ButtonVariant` list; `@repo/ui` lint passes.
 - Recent: **GitHub CI** — lint, typecheck, Storybook static build on main/PRs; a11y strict in Storybook preview; dedicated `assets/storybook/` SVG for blog card featured mock (logo not reused as article art).
+- Recent: **Storybook backlog** — `apps/storybook/STORYBOOK_BACKLOG.md` tracks Phase 1–4 (fix stories, deepen coverage, new stories); `.cursor/memory/progress.md` links to it.
 
 ReadBoot Progress
 - [x] Turborepo boilerplate initialized.
