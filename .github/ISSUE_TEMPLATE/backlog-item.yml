@@ -1,0 +1,51 @@
+name: Backlog item
+description: Track work that maps to an in-repo markdown backlog (phases, checklists).
+title: "[Backlog] "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this when work corresponds to a row in a backlog doc (e.g. Storybook Phase 2). Link the PR to this issue when you open it.
+  - type: input
+    id: backlog-ref
+    attributes:
+      label: Backlog file path
+      description: Repo-relative path to the markdown file.
+      placeholder: e.g. apps/storybook/STORYBOOK_BACKLOG.md
+    validations:
+      required: true
+  - type: input
+    id: section
+    attributes:
+      label: Section or phase
+      description: Heading or bullet label so others can find the exact line.
+      placeholder: e.g. Phase 2 — Button
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - storybook
+        - web
+        - docs
+        - packages/ui
+        - wp-utils
+        - tooling / ci
+        - other
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: What “done” means for this slice of work.
+    validations:
+      required: true
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes (optional)
+      description: Links to designs, prior PRs, or blockers.

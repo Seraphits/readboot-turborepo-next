@@ -123,6 +123,10 @@ yarn exec turbo link
 pnpm exec turbo link
 ```
 
+## ReadBoot — backlog
+
+- [Backlog index](docs/BACKLOG.md) — how we track work (markdown in-repo + GitHub Issues).
+
 ## Useful Links
 
 Learn more about the power of Turborepo:
