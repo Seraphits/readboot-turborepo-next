@@ -6,6 +6,8 @@ alwaysApply: false
 
 # Storybook (`packages/ui`)
 
+See also **`storybook-ui-stories.mdc`** (generic canvas copy, footer colocation) and **`ui-atomic-architecture.mdc`** (which components live in which layer).
+
 ## Sidebar = `src/patterns`
 
 - Do **not** set `title` on the story `meta` default export. Story names come from the file path under `packages/ui/src/patterns` (via `apps/storybook/.storybook/main.ts` `directory` → `patterns`).

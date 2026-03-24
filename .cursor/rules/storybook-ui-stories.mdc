@@ -1,0 +1,25 @@
+---
+description: Storybook stories for @repo/ui — colocation, generic copy, footer vs template
+globs: packages/ui/src/**/*.stories.tsx
+alwaysApply: false
+---
+
+# Storybook (`*.stories.tsx` in `@repo/ui`)
+
+## Colocation
+
+- Stories live **next to** the component they exercise. **Footer / connect** organisms belong under **`Organisms/Footer/`** (or equivalent), **not** under `Templates/HomePage/`, even if the footer is used on every page.
+
+## Canvas copy
+
+- Prefer **neutral / placeholder** text for structural stories so the canvas reads as **layout**, not production marketing copy. Real copy stays in defaults modules or apps.
+
+- Drop **edge-case** stories (e.g. single-item grid stress tests) unless they guard real layout bugs.
+
+## Names
+
+- Story **export** names use **PascalCase** (e.g. `Default`, `WithAccent`, `ProjectShowcase`) — same convention as components. **Display** names (`name: '…'` on a story) use **sentence case** for human-readable labels only.
+
+- Avoid user-facing **“grid”** in story titles when the product name should be **Projects** / **Blog** (not “Project grid”).
+
+- Do **not** set `title` on story `meta` (filesystem sidebar) — see `.cursor/rules/storybook.mdc`.

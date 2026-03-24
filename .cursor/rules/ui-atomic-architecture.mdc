@@ -1,0 +1,58 @@
+---
+description: "@repo/ui atomic layers — when to use shape-first names vs domain/role names, and where files live"
+globs: packages/ui/src/patterns/**/*.tsx
+alwaysApply: false
+---
+
+# UI atomic architecture (`packages/ui/src/patterns`)
+
+## Capitalization (consistent naming)
+
+- **React components** — **PascalCase** for every word: `SplitProfileHero`, `BlogCard`, `ConnectFooterSection`. Do not use `camelCase`, `snake_case`, or **partial** PascalCase (e.g. avoid `splitProfileHero` as a component name).
+
+- **File names** — Match the **primary symbol**: `SplitProfileHero.tsx`, `SplitProfileHero.module.scss`, `SplitProfileHero.stories.tsx`. Folder names use the same (**PascalCase**), e.g. `Organisms/Hero/BillboardHero.tsx` or `Molecules/Cards/BlogCard/BlogCard.tsx`.
+
+- **Props / types** — **PascalCase** + `Props` suffix where applicable: `SplitProfileHeroProps`. Type aliases follow the same rule.
+
+- **Non-module SCSS partials** (shared mixins, no CSS Modules class export) — **kebab-case** with leading underscore when shared: `_hero-shared.scss`, `_section-shell.scss`.
+
+- **CSS Module class names** — **camelCase** inside `*.module.scss` (e.g. `.portraitFrame`, `.ctaRow`) unless an existing file already uses a different BEM-style; **stay consistent within a file**.
+
+- **Exports from `index.tsx` barrels** — Re-export names must match **PascalCase** component names; avoid introducing alternate casings for the same component.
+
+## Layers
+
+- **Atoms** — primitives (buttons, typography, tokens, `SectionLayout`).
+- **Molecules** — composed chunks (cards, nav pieces, **reusable layout grids**).
+- **Organisms** — full sections (heroes, bordered content blocks, **footer strips**, card grids).
+- **Templates** — **only** page composition: order sections, pass props, thin wrappers. **No** long-lived marketing copy in the template file; defaults live in modules or apps.
+
+## Naming: shape-first (layout)
+
+Use **layout/shape** names for **reusable** blocks whose primary contract is **silhouette** (grid, split columns, timeline, billboard headline):
+
+- Examples: `BillboardHero`, `SplitProfileHero`, `TwoColumnCalloutSection`, `VisionRoadmapSection`, `TitledCardGrid` (exact names evolve).
+- **SCSS:** shared partials under the same folder (e.g. `Organisms/Hero/_hero-shared.scss`) per variant pair; **module** SCSS per component (`*.module.scss`).
+
+## Naming: domain / role (not shape)
+
+Do **not** force shape-only names for:
+
+- **Cards** tied to a use case (`BlogCard`, `ProjectCard`, future spotlight cards) — shapes may change; name reflects **content + use**.
+- **Navigation** (`NavigationBar`, `NavigationMenu`, `NavigationLink`).
+
+- **Branding** (`LogoImage`, `LogoImageClient`).
+
+- **Typography** and **color/token** stories — semantic or reference names.
+
+- **Footer / connect strips** — **landmark role** (`ConnectFooterSection`, etc.) over abstract shape.
+
+- **Theme / alerts** — behavior or intent.
+
+## Data
+
+- Apps or CMS **assemble props** at the route/page layer. Package **defaults** may exist for Storybook and fallbacks; avoid treating defaults as the only production source.
+
+## Imports
+
+- Cross-package: **public exports** only (`@repo/ui/atoms`, `@repo/ui/molecules`, `@repo/ui/organisms`, `@repo/ui/templates`). No deep `src/` imports across packages.
