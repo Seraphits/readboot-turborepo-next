@@ -15,7 +15,8 @@ alwaysApply: false
   - **`DisplayAtoms/`**, **`LayoutAtoms/`**, **`EnvironmentalAtoms/`** — additional atom groupings (keep names aligned with real folders when adding stories).
   - Shared SCSS such as **`animations/`** may live alongside these; colocate stories only when a component warrants them.
 - Do **not** add a top-level group like `Style Guide/` or other labels that are not real folder names under `patterns/`.
-- Top-level sidebar order is fixed in `apps/storybook/.storybook/preview.ts` (`storySort`): Atoms → Molecules → Organisms → Templates.
+- Top-level sidebar order is fixed in `apps/storybook/.storybook/preview.ts` (`storySort`): Docs → Atoms → Molecules → Organisms → Templates (`patterns/Docs/` for token/typography “how to use” pages).
+- **Docs guides:** use **`*.stories.tsx`** + optional colocated **`*.md`** imported with **`?raw`** and rendered with **`Markdown`** from `@storybook/addon-docs/blocks` (MDX is optional; raw Markdown avoids Storybook MDX compiler issues in some setups). **`*.stories.tsx`** must stay **without** a `title` on the meta default export (see ESLint `no-title-property-in-meta`).
 
 ## Hoisting / “redundant naming” (Storybook default)
 

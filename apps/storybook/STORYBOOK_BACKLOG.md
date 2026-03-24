@@ -35,6 +35,10 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 
 - [x] **Typography** — Show **every** `Typography` variant from `Typography.tsx`: `h1`–`h6`, `body`, `caption`, `link` (story currently only highlights h1/h2 + body + caption). Check **`Typography.module.scss`** for missing rules (e.g. link, h3–h6 sizing); if styles are incomplete, fix SCSS or document as follow-up. Include **bold** / inline emphasis if you standardize on `<strong>` inside `body` or a dedicated pattern.
 
+**Phase 2e (Docs — how to use):**
+
+- [x] **Tokens & typography guide** — `parameters.docs` on individual stories (2c/2d) plus **`patterns/Docs/TokensAndTypography.md`** (authorable Markdown) imported with **`?raw`** into **`TokensAndTypography.stories.tsx`** and rendered with **`Markdown`** from `@storybook/addon-docs/blocks` (MDX optional; avoids MDX compiler issues). Covers reference vs system tokens, pairings mixin usage, Typography `as` / link + `href`, and linking standards; `preview.ts` `storySort` puts **Docs** first.
+
 **Phase 2d (colors + pairings + docs notes):**
 
 - [x] **Primitives (`Colors` → reference swatches)** — Today’s story only maps **`BRAND_COLORS`** (Tier 1 **reference** tokens in `colors-data.ts`). Add a **second section (or story)** for **Tier 2 system colors** from `_colors-variables.scss` (`$sys-color-paper-light-bg`, `$sys-color-ink-dark-text`, `$sys-color-action-primary`, borders, status, etc.). **Rule to document:** components should consume **system** tokens; **reference** tokens exist to define system tokens, not for direct use in UI. Prefer **`ColorSwatch`** or parallel layout for consistency.
