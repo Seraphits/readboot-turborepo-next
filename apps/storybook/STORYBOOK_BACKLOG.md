@@ -20,9 +20,13 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 
 ## Phase 2 — Deepen existing stories (coverage)
 
-- [ ] **Button** — Stories for `asChild` + `Link`, `disabled`, optional `aria-label`; tighten `StoryObj<typeof Button>` where possible.
-- [ ] **BlogCard** — Story without featured image (excerpt-only layout).
-- [ ] **ProjectCard** — Stress variants: long title, many tags.
+**Phase 2a (component stories):**
+
+- [x] **Button** — Stories for `asChild` + `Link`, `disabled`, optional `aria-label`; tighten `StoryObj<typeof Button>` where possible.
+- [x] **BlogCard** — Story without featured image (excerpt-only layout).
+- [x] **ProjectCard** — Stress variants: long title, many tags.
+
+**Phase 2 remainder:**
 - [ ] **Typography** — Show **every** `Typography` variant from `Typography.tsx`: `h1`–`h6`, `body`, `caption`, `link` (story currently only highlights h1/h2 + body + caption). Check **`Typography.module.scss`** for missing rules (e.g. link, h3–h6 sizing); if styles are incomplete, fix SCSS or document as follow-up. Include **bold** / inline emphasis if you standardize on `<strong>` inside `body` or a dedicated pattern.
 - [ ] **NavigationBar** — Realistic `href`s; optional story without custom `logo` slot (if compatible).
 - [ ] **ThemeToggle** — Optional: `parameters.docs` note on `data-theme` / `html` for debugging.

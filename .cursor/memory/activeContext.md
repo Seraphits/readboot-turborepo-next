@@ -25,6 +25,7 @@ Active Context: ReadBoot Shared UI
 - Recent: **GitHub CI** — lint, typecheck, Storybook static build on main/PRs; a11y strict in Storybook preview; dedicated `assets/storybook/` SVG for blog card featured mock (logo not reused as article art).
 - Recent: **Storybook backlog** — `apps/storybook/STORYBOOK_BACKLOG.md` tracks Phase 1–4 (fix stories, deepen coverage, new stories); `.cursor/memory/progress.md` links to it.
 - Recent: **Storybook Phase 1** — NavigationMenu href fix; Alert border `#36454F`; HomePage story comment; `storybookPathnameOverride` + `next-navigation-mock` for NavigationLink active state; LogoImage Small/Large/FillContainer enabled.
+- Recent: **Storybook Phase 2a** — Button: `args`-based Primary, `AsChildWithLink`, `Disabled`, `WithAriaLabel`; BlogCard `PostPreviewNoFeaturedImage`; ProjectCard `LongTitleManyTags` (`STORYBOOK_BACKLOG.md` updated).
 
 ReadBoot Progress
 - [x] Turborepo boilerplate initialized.

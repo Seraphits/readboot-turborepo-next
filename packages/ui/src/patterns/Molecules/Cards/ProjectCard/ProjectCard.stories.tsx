@@ -32,3 +32,28 @@ export const Default: StoryObj<typeof ProjectCard> = {
     </div>
   ),
 };
+
+const mockProjectStress: Project = {
+  ...mockProject,
+  title:
+    'Embedded Debug Platform — Long Title Stress Test for Line Wrapping and Layout Stability Across Multiple Viewports',
+  tags: {
+    nodes: [
+      { name: 'Firmware' },
+      { name: 'Docs' },
+      { name: 'Monorepo' },
+      { name: 'TypeScript' },
+      { name: 'CI' },
+      { name: 'Design system' },
+      { name: 'Accessibility' },
+    ],
+  },
+};
+
+export const LongTitleManyTags: StoryObj<typeof ProjectCard> = {
+  render: () => (
+    <div style={{ maxWidth: '420px' }}>
+      <ProjectCard project={mockProjectStress} />
+    </div>
+  ),
+};

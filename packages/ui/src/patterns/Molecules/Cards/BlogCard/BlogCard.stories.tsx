@@ -34,3 +34,17 @@ export const PostPreview: StoryObj<typeof BlogCard> = {
     </div>
   ),
 };
+
+const mockPostNoImage: Post = {
+  ...mockPost,
+  featuredImage: undefined,
+};
+
+/** No `featuredImage` — content column only (excerpt + link). */
+export const PostPreviewNoFeaturedImage: StoryObj<typeof BlogCard> = {
+  render: () => (
+    <div style={{ maxWidth: '400px' }}>
+      <BlogCard post={mockPostNoImage} />
+    </div>
+  ),
+};
