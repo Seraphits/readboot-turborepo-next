@@ -31,9 +31,12 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 - [x] **NavigationBar** — Realistic `href`s; optional story without custom `logo` slot (if compatible).
 - [x] **ThemeToggle** — Optional: `parameters.docs` note on `data-theme` / `html` for debugging.
 
+**Phase 2c (Typography):**
+
+- [x] **Typography** — Show **every** `Typography` variant from `Typography.tsx`: `h1`–`h6`, `body`, `caption`, `link` (story currently only highlights h1/h2 + body + caption). Check **`Typography.module.scss`** for missing rules (e.g. link, h3–h6 sizing); if styles are incomplete, fix SCSS or document as follow-up. Include **bold** / inline emphasis if you standardize on `<strong>` inside `body` or a dedicated pattern.
+
 **Phase 2 remainder:**
 
-- [ ] **Typography** — Show **every** `Typography` variant from `Typography.tsx`: `h1`–`h6`, `body`, `caption`, `link` (story currently only highlights h1/h2 + body + caption). Check **`Typography.module.scss`** for missing rules (e.g. link, h3–h6 sizing); if styles are incomplete, fix SCSS or document as follow-up. Include **bold** / inline emphasis if you standardize on `<strong>` inside `body` or a dedicated pattern.
 - [ ] **Primitives (`Colors` → reference swatches)** — Today’s story only maps **`BRAND_COLORS`** (Tier 1 **reference** tokens in `colors-data.ts`). Add a **second section (or story)** for **Tier 2 system colors** from `_colors-variables.scss` (`$sys-color-paper-light-bg`, `$sys-color-ink-dark-text`, `$sys-color-action-primary`, borders, status, etc.). **Rule to document:** components should consume **system** tokens; **reference** tokens exist to define system tokens, not for direct use in UI. Prefer **`ColorSwatch`** or parallel layout for consistency.
 - [ ] **Pairings story** — Each row must show the **SCSS mixin pairing key** used with `@include colors.apply-pairing('…')` (see `pairingKeys.ts` — e.g. `ink-dark-on-paper-light`, `action-on-light`, …). The older lab named these explicitly; restore that discoverability next to each preview. Keep visuals aligned with `_colors-pairings.module.scss` / `PAIRING_KEYS`.
 - [ ] **Storybook “how to use” / docs** — Use **`@storybook/addon-docs`** (already in the app) to add **usage notes**: short **Docs** description or a **`*.mdx`** companion for Colors (reference vs system), Typography variants, and default token/mixin patterns. Options: `parameters.docs.description` on the story meta, MDX file colocated with stories, or a “Usage” story that renders markdown via `docs` parameters.

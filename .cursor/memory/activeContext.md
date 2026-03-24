@@ -27,6 +27,7 @@ Active Context: ReadBoot Shared UI
 - Recent: **Storybook Phase 1** — NavigationMenu href fix; Alert border `#36454F`; HomePage story comment; `storybookPathnameOverride` + `next-navigation-mock` for NavigationLink active state; LogoImage Small/Large/FillContainer enabled.
 - Recent: **Storybook Phase 2a** — Button: `args`-based Primary, `AsChildWithLink`, `Disabled`, `WithAriaLabel`; BlogCard `PostPreviewNoFeaturedImage`; ProjectCard `LongTitleManyTags` (`STORYBOOK_BACKLOG.md` updated).
 - Recent: **Storybook Phase 2b** — NavigationBar: `REALISTIC_LINKS` (`/`, `/blog/`, `/projects/`, `/docs/`); `Default` + `LinksOnlyAppDefaultLogo`; ThemeToggle: `parameters.docs.description.component` for `data-theme` + `localStorage` (`theme`).
+- Recent: **Storybook Phase 2c** — Typography: `AllVariants` story for h1–h6, body + `<strong>`, caption, link; `Typography.module.scss` filled in (sizes, ink/action colors, link hover/focus); meta docs note (`as="a"` for link + `href`).
 
 ReadBoot Progress
 - [x] Turborepo boilerplate initialized.
