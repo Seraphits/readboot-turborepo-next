@@ -4,6 +4,7 @@ Prevents recurrence of virtual-module 404 (vite-app.js double-encoding) and reso
 
 ## What We Already Did (Hardening)
 
+- **Sidebar = filesystem under `patterns/`**: `main.ts` uses a `stories` entry with `directory` → `packages/ui/src/patterns` (no `title` in `*.stories.tsx`; order via `preview.ts` `storySort`). See `.cursor/rules/storybook.mdc`.
 - **pnpm catalog** (root `pnpm-workspace.yaml`): Single-version policy for Storybook and Vite. All `@storybook/*` and `vite` in `apps/storybook` use `catalog:` so versions stay in sync. Requires pnpm 9.5+ (project uses 9.15.0).
 - **predev cache clear** (`apps/storybook/package.json`): `predev` removes `node_modules/.cache/storybook` and `node_modules/.vite` before every `pnpm --filter storybook dev`, so the server never starts with a stale virtual-module map.
 - **main.ts**: `server.fs.allow` with `searchForWorkspaceRoot`, `preTransformRequests: false`, `optimizeDeps.exclude` for builder/react-vite, and the double-encoding patch + URL-rewrite middleware for malformed request paths.

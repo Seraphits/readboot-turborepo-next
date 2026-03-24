@@ -2,9 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 // Import the raw hex data from your variables file
 import { BRAND_COLORS } from './colors-data';
 
-const meta: Meta = {
-  title: 'Style Guide/1. Primal Colors',
-};
+const meta: Meta = {};
 export default meta;
 
 export const AllColors: StoryObj = {

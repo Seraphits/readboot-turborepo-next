@@ -22,9 +22,15 @@ function stripUseClient() {
   };
 }
 
+const patternsRoot = path.join(packagesUiSrc, 'patterns');
+
 const config: StorybookConfig = {
+  /** Sidebar mirrors `packages/ui/src/patterns` (Atoms, Molecules, Organisms, Templates). */
   stories: [
-    `${packagesUiSrc}/**/*.stories.@(js|jsx|mjs|ts|tsx)`,
+    {
+      directory: patternsRoot,
+      files: '**/*.stories.@(js|jsx|mjs|ts|tsx)',
+    },
   ],
   addons: [
     ...(process.env.CHROMATIC_PROJECT_TOKEN

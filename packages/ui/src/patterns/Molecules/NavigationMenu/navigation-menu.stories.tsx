@@ -1,9 +1,7 @@
-
 import type { Meta, StoryObj } from '@storybook/react';
 import NavigationMenu from './navigation-menu';
 
 const meta = {
-  title: 'Molecules/NavigationMenu',
   component: NavigationMenu,
   parameters: {
     layout: 'fullscreen',

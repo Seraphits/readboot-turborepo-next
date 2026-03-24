@@ -1,0 +1,14 @@
+---
+description: Storybook stories in @repo/ui — sidebar follows filesystem under patterns/
+globs: packages/ui/src/**/*.stories.tsx
+alwaysApply: false
+---
+
+# Storybook (`packages/ui`)
+
+## Sidebar = `src/patterns`
+
+- Do **not** set `title` on the story `meta` default export. Story names come from the file path under `packages/ui/src/patterns` (via `apps/storybook/.storybook/main.ts` `directory` → `patterns`).
+- To change where a story appears, **move or rename the file/folders** under `patterns/` (e.g. `Atoms/`, `Molecules/`, `Organisms/`, `Templates/`). Do not invent path strings in code.
+- Do **not** add a top-level group like `Style Guide/` or other labels that are not real folder names under `patterns/`.
+- Top-level sidebar order is fixed in `apps/storybook/.storybook/preview.ts` (`storySort`): Atoms → Molecules → Organisms → Templates.

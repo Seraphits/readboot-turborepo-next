@@ -3,9 +3,7 @@ import { PAIRING_KEYS } from './pairingKeys';
 // We use the mixin's generated classes or inline styles
 import styles from './_colors-pairings.module.scss';
 
-const meta: Meta = {
-  title: 'Style Guide/2. Color Pairings',
-};
+const meta: Meta = {};
 export default meta;
 
 export const PairingRules: StoryObj = {

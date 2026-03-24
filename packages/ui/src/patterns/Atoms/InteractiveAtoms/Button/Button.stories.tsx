@@ -3,7 +3,6 @@ import { Button } from './Button';
 import { PAIRING_KEYS } from '../../BrandingAtoms/Colors/pairingKeys';
 
 const meta: Meta<typeof Button> = {
-  title: 'Style Guide/3. Buttons',
   component: Button,
 };
 export default meta;

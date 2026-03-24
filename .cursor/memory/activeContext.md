@@ -20,6 +20,7 @@ Active Context: ReadBoot Shared UI
 - Recent: `ConnectFooterSection` moved to **web** and **docs** root layouts (`app/layout.tsx`, `app/docs/layout.tsx`) with shared `defaultConnect`; no longer part of `HomePage`.
 - Recent: Fixed **TS path aliases** for `@repo/ui/atoms|molecules|organisms|templates` in `typescript-config/nextjs.json` + web/docs tsconfigs (was pointing at `src/*` instead of `patterns/*`, causing missing `BlogShowcase` in the IDE). Docs app added **`app/page.tsx`** → `redirect('/docs/')` so **standalone Vercel preview root `/`** no longer 404s; see `apps/docs/DEPLOYMENT.md`.
 - Recent: **Docs landing page** — `DocsHomePage` + `docsHomeDefaults.ts` (split hero, mission, three pillars → style guide / patterns / how-it’s-coded, roadmap strip); `apps/docs/app/docs/page.tsx` + `NEXT_PUBLIC_PORTFOLIO_ORIGIN` for portfolio CTA.
+- Recent: **Storybook sidebar** — `main.ts` indexes only `packages/ui/src/patterns`; all `title` removed from story meta; `preview.ts` `storySort` orders Atoms → Molecules → Organisms → Templates; ESLint + `.cursor/rules/storybook.mdc` guard against manual titles.
 
 ReadBoot Progress
 - [x] Turborepo boilerplate initialized.
