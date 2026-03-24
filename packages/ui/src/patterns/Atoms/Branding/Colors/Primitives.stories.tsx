@@ -1,23 +1,46 @@
 import type { Meta, StoryObj } from '@storybook/react';
-// Import the raw hex data from your variables file
-import { BRAND_COLORS } from './colors-data';
+import { BRAND_COLORS, SYSTEM_COLORS } from './colors-data';
+import { ColorSwatch } from './ColorSwatch';
 
-const meta: Meta = {};
+const meta: Meta = {
+  parameters: {
+    docs: {
+      description: {
+        component: [
+          '**Tier 1 — reference (`$ref-*`)** — brand primitives (fixed “stars”).',
+          '**Tier 2 — system (`$sys-*`)** — role tokens used in components and SCSS modules.',
+          '**Rule:** ship UI against **system** tokens; reference tokens exist to define system tokens, not for ad-hoc use in feature code.',
+          'Source of truth: `_colors-variables.scss`.',
+        ].join(' '),
+      },
+    },
+  },
+};
 export default meta;
 
-export const AllColors: StoryObj = {
+const grid = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+  gap: '1.5rem',
+} as const;
+
+export const ReferenceTokens: StoryObj = {
+  name: 'Reference tokens (Tier 1)',
   render: () => (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '2rem' }}>
+    <div style={grid}>
       {BRAND_COLORS.map((color) => (
-        <div key={color.variable}>
-          {/* Square with the color */}
-          <div style={{ width: '100px', height: '100px', backgroundColor: color.hex, border: '1px solid #ccc', borderRadius: '4px' }} />
-          {/* Text under it with Name and Usage */}
-          <div style={{ marginTop: '0.5rem' }}>
-            <strong>{color.name}</strong>
-            <p style={{ fontSize: '0.8rem', color: '#666' }}>Usage: {color.variable}</p>
-          </div>
-        </div>
+        <ColorSwatch key={color.variable} name={color.name} variable={color.variable} hex={color.hex} />
+      ))}
+    </div>
+  ),
+};
+
+export const SystemTokens: StoryObj = {
+  name: 'System tokens (Tier 2)',
+  render: () => (
+    <div style={grid}>
+      {SYSTEM_COLORS.map((color) => (
+        <ColorSwatch key={color.variable} name={color.name} variable={color.variable} hex={color.hex} />
       ))}
     </div>
   ),

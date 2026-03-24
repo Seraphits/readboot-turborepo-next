@@ -28,6 +28,7 @@ Active Context: ReadBoot Shared UI
 - Recent: **Storybook Phase 2a** — Button: `args`-based Primary, `AsChildWithLink`, `Disabled`, `WithAriaLabel`; BlogCard `PostPreviewNoFeaturedImage`; ProjectCard `LongTitleManyTags` (`STORYBOOK_BACKLOG.md` updated).
 - Recent: **Storybook Phase 2b** — NavigationBar: `REALISTIC_LINKS` (`/`, `/blog/`, `/projects/`, `/docs/`); `Default` + `LinksOnlyAppDefaultLogo`; ThemeToggle: `parameters.docs.description.component` for `data-theme` + `localStorage` (`theme`).
 - Recent: **Storybook Phase 2c** — Typography: `AllVariants` story for h1–h6, body + `<strong>`, caption, link; `Typography.module.scss` filled in (sizes, ink/action colors, link hover/focus); meta docs note (`as="a"` for link + `href`).
+- Recent: **Storybook Phase 2d** — `SYSTEM_COLORS` in `colors-data.ts`; Primitives: `ReferenceTokens` + `SystemTokens` with `ColorSwatch`; Pairings: mixin line `@include colors.apply-pairing('…')`, 4px/12px frame; `parameters.docs` on Primitives + Pairings.
 
 ReadBoot Progress
 - [x] Turborepo boilerplate initialized.
