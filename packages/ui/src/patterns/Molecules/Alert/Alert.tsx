@@ -1,8 +1,15 @@
 import { ElementType, ReactNode } from 'react';
 import styles from './Alert.module.scss';
 
-const DEFAULT_MESSAGE =
-  "🛠️ Status: Live Engineering Lab. This portfolio is being architected in public using Next.js Turborepo and headless WordPress. Follow the blog to see the system's evolution.";
+const DEFAULT_MESSAGE =(
+  <>
+    🛠️ <strong>Active Build:</strong> Next.js + WordPress |
+    <strong> Phase:</strong> Establishing structural 🦴bones🦴 via SCSS wireframing 📐
+    <div>
+      Learn why I prototype directly in code 🚀
+    </div>
+  </>
+);
 
 export interface AlertProps<T extends ElementType = 'aside'> {
   as?: T;

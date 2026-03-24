@@ -2,12 +2,27 @@
 @use "../../Atoms/BrandingAtoms/Typography/fonts-variables" as fonts;
 
 .banner {
-  font-family: fonts.$sys-font-headline;
+  font-family: fonts.$sys-font-headline; // Baloo 2
   font-weight: 700;
   text-align: center;
   padding: 0.75rem 1rem;
   font-size: 0.9rem;
   width: 100%;
   display: block;
+  line-height: 1.4; // Added for better emoji vertical alignment
   @include colors.apply-pairing("alert");
+
+  strong {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em; // Slightly wider for that "Header" feel
+  margin-right: 4px;      // Gives the lowercase "explanation" some breathing room
+}
+
+  // Optional: A little extra "bounce" for the emojis to match your brand
+  span[role="img"], .emoji {
+    display: inline-block;
+    padding: 0 0.2rem;
+    vertical-align: middle;
+  }
 }
