@@ -1,17 +1,28 @@
 import React from 'react';
 
+type StaticLike = { src: string };
+
+function normalizeSrc(src: unknown): string {
+  if (typeof src === 'string') return src;
+  if (src && typeof src === 'object' && 'src' in src) {
+    return String((src as StaticLike).src);
+  }
+  return '';
+}
+
 /**
  * Mock for next/image used in Storybook (react-vite framework).
  * Replaces Next.js Image with a plain img to avoid Next.js config loading.
- * Ignores fill, priority, sizes - passes through standard img props.
+ * Supports string URLs and Next.js `StaticImageData` ({ src, width, height, ... }).
  */
 export default function MockNextImage(
   props: React.ComponentProps<'img'> & { fill?: boolean; priority?: boolean; sizes?: string }
 ) {
   const { src, alt, fill, priority, sizes, style, ...rest } = props;
+  const srcUrl = normalizeSrc(src);
   return (
     <img
-      src={src as string}
+      src={srcUrl}
       alt={alt ?? ''}
       style={{ width: '100%', height: '100%', objectFit: 'contain', ...style }}
       {...rest}

@@ -46,7 +46,11 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
-  staticDirs: ['../public'],
+  /** Shared UI branding; URLs like `/assets/branding/readboot-logo.png` */
+  staticDirs: [
+    { from: path.join(packagesUiSrc, 'assets'), to: '/assets' },
+    '../public',
+  ],
   async viteFinal(config) {
     const { mergeConfig, searchForWorkspaceRoot } = await import('vite');
     const packagesUiSrc = path.join(projectRoot, 'packages/ui/src');

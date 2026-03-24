@@ -6,7 +6,7 @@ addons.setConfig({
   theme: create({
     base: 'light',
     brandTitle: 'ReadBoot',
-    brandImage: '/branding/readboot-logo.png',
+    brandImage: '/assets/branding/readboot-logo.png',
     brandTarget: '_self',
   }),
 });

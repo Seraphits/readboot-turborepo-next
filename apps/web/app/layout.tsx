@@ -1,8 +1,14 @@
 import "@repo/ui/patterns/globals.scss";
+import favicon from "@repo/ui/assets/branding/favicon.png";
+import type { Metadata } from "next";
 import Script from "next/script";
 import { getMenuData, toWebHref } from "@repo/wp-utils";
 import { Alert } from "@repo/ui/molecules";
 import { ConnectFooterSection, defaultConnect, NavigationBar } from "@repo/ui/organisms";
+
+export const metadata: Metadata = {
+  icons: { icon: favicon.src },
+};
 
 const THEME_INIT_SCRIPT = `(function(){var t=localStorage.getItem('theme');if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);})();`;
 

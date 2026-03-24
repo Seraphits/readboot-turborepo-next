@@ -13,7 +13,9 @@
     "./styles/globals": "./src/styles/index.scss",
     "./styles/index": "./src/styles/index.scss",
     "./styles/*": "./src/styles/*.scss",
-    "./patterns/*": "./src/patterns/*"
+    "./patterns/*": "./src/patterns/*",
+    "./assets/branding/readboot-logo.png": "./src/assets/branding/readboot-logo.png",
+    "./assets/branding/favicon.png": "./src/assets/branding/favicon.png"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",

@@ -13,13 +13,11 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-/** Static `src`/`alt` avoid WP in Storybook; asset lives in `apps/storybook/public/branding/`. */
+/** Bundled logo from `packages/ui/src/assets/branding` (no WP fetch). */
 export const Default: Story = {
   args: {
     width: "120px",
     height: "48px",
-    src: "/branding/readboot-logo.png",
-    alt: "ReadBoot logo",
   },
 };
 

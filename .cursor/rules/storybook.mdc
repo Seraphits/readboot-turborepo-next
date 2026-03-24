@@ -12,3 +12,19 @@ alwaysApply: false
 - To change where a story appears, **move or rename the file/folders** under `patterns/` (e.g. `Atoms/`, `Molecules/`, `Organisms/`, `Templates/`). Do not invent path strings in code.
 - Do **not** add a top-level group like `Style Guide/` or other labels that are not real folder names under `patterns/`.
 - Top-level sidebar order is fixed in `apps/storybook/.storybook/preview.ts` (`storySort`): Atoms → Molecules → Organisms → Templates.
+
+## Story filenames vs sidebar shape (“hoisting”)
+
+- Storybook **merges** the parent folder with the story file when their names are the **same segment** after normalization (often **case-insensitive**). Examples that **collapse** and hide the folder row: `Alert/Alert.stories.tsx`, `Alert/alert.stories.tsx`, `Typography/typography.stories.tsx`, `Button/button.stories.tsx`, `ThemeToggle/theme-toggle.stories.tsx`, `spacing/Spacing.stories.tsx`.
+- To mirror Explorer (**Category → Component folder → story**), the story file stem must **differ** from the folder name in a way Storybook won’t merge. Patterns that work:
+  - **Kebab file, Pascal folder** when the strings stay distinct: `NavigationMenu/navigation-menu.stories.tsx` (NavigationMenu ≠ navigation-link).
+  - **Neutral stem** when kebab would still fold onto the folder: `Alert/component.stories.tsx`, `Typography/component.stories.tsx`, `spacing/scale.stories.tsx` (for `SpacingScale`), etc.
+- **Do not** use `ComponentName/ComponentName.stories.tsx` if you want the folder to stay visible—Storybook will hoist.
+- Folders with **multiple** story files (e.g. `Colors/Pairings.stories.tsx` and `Primitives.stories.tsx`) stay grouped; no change needed.
+- On case-insensitive volumes, use a two-step `git mv` through a temp name when only changing case.
+
+## Branding assets (SSOT)
+
+- Shared files live under `packages/ui/src/assets/branding/` (e.g. `readboot-logo.png`, `favicon.png`).
+- Storybook serves them at `/assets/branding/...` via `staticDirs` in `apps/storybook/.storybook/main.ts` (maps `packages/ui/src/assets` → `/assets`). Manager `brandImage` and `preview-head` favicon use those URLs.
+- Prefer bundled logo in components (`READBOOT_LOGO` from `assets/branding`); do not use placeholder image URLs in stories.
