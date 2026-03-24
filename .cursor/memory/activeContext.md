@@ -31,6 +31,7 @@ Active Context: ReadBoot Shared UI
 - Recent: **Storybook Phase 2d** — `SYSTEM_COLORS` in `colors-data.ts`; Primitives: `ReferenceTokens` + `SystemTokens` with `ColorSwatch`; Pairings: mixin line `@include colors.apply-pairing('…')`, 4px/12px frame; `parameters.docs` on Primitives + Pairings.
 - Recent: **Storybook Phase 2e** — `patterns/Docs/TokensAndTypography.md` + `TokensAndTypography.stories.tsx` (`Markdown` from `@storybook/addon-docs/blocks`, `?raw` import); `preview.ts` storySort **Docs** first; `@storybook/addon-docs` devDep on `@repo/ui` for types; MDX skipped (SB MDX plugin errored on this repo).
 - Recent: **Storybook Phase 3a** — Stories: Badge, Container, SectionLayout, ColorSwatch; `Container.module.scss` class `.container` (was `.viewport-container`); `Badge` `ghost` variant styles.
+- Recent: **Storybook Phase 3b** — Stories: Hero (centered + split/asymmetrical/preview + media placeholder), Showcase (project/blog grids), ShowcaseTemplate, ConnectFooterSection (`defaultConnect` + custom).
 
 ReadBoot Progress
 - [x] Turborepo boilerplate initialized.
