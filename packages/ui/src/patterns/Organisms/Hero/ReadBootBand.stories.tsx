@@ -2,18 +2,22 @@ import type { ReactNode } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Typography } from '../../Atoms/Branding/Typography/Typography';
 import {
-  BoxedFeatureHero,
+  DEFAULT_PORTRAIT_PLACEHOLDER,
+  defaultHomeHero,
+} from '../../Templates/HomePage/homePageDefaults';
+import {
+  ReadBootBand,
   type BoxedFeatureHeroLayoutVariant,
-} from './BoxedFeatureHero';
+} from './ReadBootBand';
 
-const meta: Meta<typeof BoxedFeatureHero> = {
-  component: BoxedFeatureHero,
+const meta: Meta<typeof ReadBootBand> = {
+  component: ReadBootBand,
   parameters: {
     layout: 'fullscreen',
     docs: {
       description: {
         component:
-          '**Boxed feature** hero: a rule wraps the whole module (newspaper inset). Uses `SectionLayout` + headline + deck + CTA. Non-`centered` layouts render a **media** slot (`grid-area: media`) — pass `imageNode` (e.g. `next/image` or a placeholder).',
+          '**`ReadBootBand`** — single hero primitive: **`surface="boxed"`** (`SectionLayout` + ruled inset) or **`surface="open"`** (portrait + kicker + lead + dual CTAs, no outer band rule). Presets: `BoxedFeatureHero`, `FullBleedHero`.',
       },
     },
   },
@@ -40,10 +44,12 @@ const mediaPlaceholder = (
   </div>
 );
 
-export const Centered: StoryObj<typeof BoxedFeatureHero> = {
+export const BoxedCentered: StoryObj<typeof ReadBootBand> = {
+  name: 'Boxed · centered',
   render: () =>
     shell(
-      <BoxedFeatureHero
+      <ReadBootBand
+        surface="boxed"
         title="Engineering the Operating Systems of Human Growth"
         subhead="Centered layout: no media column."
         ctaText="View portfolio"
@@ -54,7 +60,8 @@ export const Centered: StoryObj<typeof BoxedFeatureHero> = {
 
 const withMedia = (layout: BoxedFeatureHeroLayoutVariant) =>
   shell(
-    <BoxedFeatureHero
+    <ReadBootBand
+      surface="boxed"
       title="Split headline for layout preview"
       subhead="Media slot uses the Futurist Carton frame from `BoxedFeatureHero.module.scss`."
       ctaText="Get started"
@@ -63,14 +70,34 @@ const withMedia = (layout: BoxedFeatureHeroLayoutVariant) =>
     />
   );
 
-export const Split: StoryObj<typeof BoxedFeatureHero> = {
+export const BoxedSplit: StoryObj<typeof ReadBootBand> = {
+  name: 'Boxed · split',
   render: () => withMedia('split'),
 };
 
-export const Asymmetrical: StoryObj<typeof BoxedFeatureHero> = {
+export const BoxedAsymmetrical: StoryObj<typeof ReadBootBand> = {
+  name: 'Boxed · asymmetrical',
   render: () => withMedia('asymmetrical'),
 };
 
-export const Preview: StoryObj<typeof BoxedFeatureHero> = {
+export const BoxedPreview: StoryObj<typeof ReadBootBand> = {
+  name: 'Boxed · preview',
   render: () => withMedia('preview'),
+};
+
+export const OpenHomeDefaults: StoryObj<typeof ReadBootBand> = {
+  name: 'Open · home defaults',
+  render: () => (
+    <ReadBootBand
+      surface="open"
+      portraitSrc={DEFAULT_PORTRAIT_PLACEHOLDER}
+      portraitAlt="Portrait placeholder"
+      eyebrow={defaultHomeHero.eyebrow}
+      headline={defaultHomeHero.headline}
+      subheadline={defaultHomeHero.subheadline}
+      intro={defaultHomeHero.intro}
+      primaryCta={defaultHomeHero.primaryCta}
+      secondaryCta={defaultHomeHero.secondaryCta}
+    />
+  ),
 };

@@ -7,7 +7,7 @@ import type { Project } from '@repo/wp-utils';
 import styles from './ProjectCard.module.scss';
 import clsx from 'clsx';
 
-interface ProjectCardProps {
+export interface ProjectCardProps {
   project: Project;
   className?: string;
 }

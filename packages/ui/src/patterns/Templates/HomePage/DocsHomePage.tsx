@@ -9,7 +9,7 @@ import {
   defaultDocsPillars,
   defaultDocsVision,
 } from './docsHomeDefaults';
-import { FullBleedHero } from '../../Organisms/Hero/FullBleedHero';
+import { ReadBootBand } from '../../Organisms/Hero/ReadBootBand';
 import { MissionProvocation } from '../../Organisms/MissionProvocation/MissionProvocation';
 import { VisionRoadmapSection } from '../../Organisms/VisionRoadmapSection/VisionRoadmapSection';
 import styles from './HomePage.module.scss';
@@ -33,7 +33,8 @@ export const DocsHomePage = ({
 }: DocsHomePageProps) => {
   return (
     <div className={styles.stack}>
-      <FullBleedHero
+      <ReadBootBand
+        surface="open"
         portraitSrc={portraitSrc}
         portraitAlt={portraitAlt}
         eyebrow={hero.eyebrow}

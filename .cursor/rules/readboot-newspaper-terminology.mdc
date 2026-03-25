@@ -52,9 +52,9 @@ Use **print / editorial** language in **Storybook** `parameters.docs`, **UI** co
 
 | Component | Metaphor |
 |-----------|----------|
-| **`BoxedFeatureHero`** | Boxed / framed band. |
-| **`FullBleedHero`** | Open band on newsprint (kicker, deck, lead); **not** full-bleed *splash* unless you add edge media. |
-| **`Hero`** (deprecated) | Alias for **`BoxedFeatureHero`**. |
+| **`ReadBootBand`** | Single hero band; use **`surface`** (boxed vs open) — see layout model. |
+| **`BoxedFeatureHero`** | Preset: boxed / framed band (`surface="boxed"`). |
+| **`FullBleedHero`** | Preset: open band on newsprint (kicker, deck, lead); **not** full-bleed *splash* unless you add edge media (`surface="open"`). |
 
 ## 6. SCSS Modules (implementation)
 

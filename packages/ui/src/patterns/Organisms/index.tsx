@@ -1,14 +1,19 @@
 export type { PillarItem } from '../homeContentTypes';
 export { default as NavigationBar } from './NavigationBar/navigation-bar';
-export { BoxedFeatureHero, Hero } from './Hero/BoxedFeatureHero';
+export {
+  ReadBootBand,
+  BoxedFeatureHero,
+  FullBleedHero,
+} from './Hero/ReadBootBand';
 export type {
+  BandSurface,
+  ReadBootBandProps,
+  BoxedBandProps,
+  OpenBandProps,
   BoxedFeatureHeroProps,
   BoxedFeatureHeroLayoutVariant,
-  HeroProps,
-  HeroLayoutVariant,
-} from './Hero/BoxedFeatureHero';
-export { FullBleedHero } from './Hero/FullBleedHero';
-export type { FullBleedHeroProps } from './Hero/FullBleedHero';
+  FullBleedHeroProps,
+} from './Hero/ReadBootBand';
 export { Showcase } from './Showcase/Showcase';
 export { BlogShowcase } from './BlogShowcase/BlogShowcase';
 export { ConnectFooterSection } from './Footer/ConnectFooterSection';

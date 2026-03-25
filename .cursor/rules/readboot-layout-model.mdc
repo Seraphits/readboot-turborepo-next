@@ -6,7 +6,7 @@ alwaysApply: true
 
 # ReadBoot layout model (Futurist Carton / newsprint)
 
-This is the **target mental model** for how **heroes**, **sections**, and **showcases** relate. Implementation may still use discrete components (`BoxedFeatureHero`, `FullBleedHero`, etc.) until a **unified band** primitive lands; new work should **not** fork a second layout engine.
+This is the **target mental model** for how **heroes**, **sections**, and **showcases** relate. **`ReadBootBand`** implements the hero band with **`surface: 'boxed' | 'open'`**; `BoxedFeatureHero` / `FullBleedHero` are thin presets. New work should **not** fork a second layout engine.
 
 ## 1. One layout engine for hero and section (conceptual)
 
@@ -26,14 +26,14 @@ This is the **target mental model** for how **heroes**, **sections**, and **show
 
 ## 3. Types and defaults (avoid awkward imports)
 
-- Shared **content types** (`PillarItem`, etc.) should live in a **neutral module** (e.g. `contentTypes.ts` next to templates or under `patterns/`) so **organisms** do not import from **template-only** paths in a circular way.
+- Shared **content types** (`PillarItem`, etc.) live in **`patterns/homeContentTypes/`** (`index.ts`; see **`README.md`**) so **organisms** do not import from **template-only** paths in a circular way.
 - **Defaults** for Storybook / fallbacks stay separate from types or live beside the template.
 
 ## 4. Component breakdown — reassess stance
 
 | Area | Current (typical) | Direction |
 |------|-------------------|-----------|
-| Heroes | `BoxedFeatureHero`, `FullBleedHero` | Converge toward **one band primitive** + presets, or keep thin wrappers only. |
+| Heroes | `ReadBootBand` (`surface` + presets `BoxedFeatureHero`, `FullBleedHero`) | **Done** for hero band; sections/showcases may still converge further. |
 | Homepage sections | Under `Templates/HomePage/` | Move to **`Organisms/`**; optional **boxed/open** prop; extract **grid** for reuse with Showcase. |
 | Footer | `ConnectFooterSection` | **`Organisms/Footer/`**; name is **placeholder** until replaced. |
 | Showcase | `Showcase` + WP cards | Align **grid** with featured strip; **one** card molecule per showcase type. |

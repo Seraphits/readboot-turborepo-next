@@ -38,6 +38,11 @@ See also **`storybook-ui-stories.mdc`** (generic canvas copy, footer colocation)
 - Do not use external placeholder image URLs in stories; use bundled paths under `/assets/...`.
 - **Placeholder art** lives only in `packages/ui/src/assets/storybook/` and is **imported** from `@repo/ui` (see `placeholders.ts`). Next.js bundles those assets from the package; Storybook still maps `packages/ui/src/assets` at `/assets` for any raw URL usage. Do **not** duplicate placeholders under `apps/*/public/`. The ReadBoot **logo** stays under `assets/branding/` only.
 
+## WordPress-shaped data & server-only components
+
+- **Image URL strings in mocks** — When a WP type expects a **`sourceUrl` string** (e.g. `Post.featuredImage.node.sourceUrl`) but you import art from `assets/storybook/placeholders.ts`, use **`placeholderSrc(asset)`** so the same mock works under Next (`StaticImageData`) and Storybook/Vite (often a plain string). Do not hand-roll `.src` from `StaticImageData` in stories; reuse **`wpShowcaseMocks.ts`** for Showcase/BlogShowcase-shaped grids when possible.
+- **Server / async RSC** — Default **`LogoImage`** (async, optional WP fetch) and **`BlogShowcase`** (async `getPosts`) are not executed in the Storybook canvas. Preview with **`LogoImageClient`**, **`Showcase` + `MOCK_POSTS` / `MOCK_PROJECTS`**, or document the real entry in **`parameters.docs.description`** (see existing `LogoImage.stories.tsx` and `BlogShowcase.stories.tsx`).
+
 ## Fonts (canvas parity)
 
 - Match `apps/web/app/layout.tsx` Google Fonts in `apps/storybook/.storybook/preview-head.html`.

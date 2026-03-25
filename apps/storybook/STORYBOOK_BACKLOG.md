@@ -37,7 +37,7 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 
 **Phase 2e (Docs — how to use):**
 
-- [ ] **Standalone tokens & typography Storybook guide** — **Deferred / removed** (Mar 2026): `patterns/Docs/TokensAndTypography.*` deleted; it duplicated “rules” intent, and the `Markdown` canvas story errored at runtime (`theme.fonts`). **Done instead:** `parameters.docs` on Primitives, Pairings, Typography, etc. (Phase 2c/2d). Revisit a dedicated design-system doc approach later (outside Storybook or with a stable docs pattern).
+- [x] **Skipped (by design)** — **Standalone tokens & typography Storybook guide** — Not rebuilding `patterns/Docs/TokensAndTypography.*` (removed Mar 2026: duplicated rules intent; canvas `Markdown` errored at runtime). **Substitute:** `parameters.docs` on Primitives, Pairings, Typography (Phase 2c/2d). Optional future: design-system doc **outside** Storybook or a stable MDX/docs pattern.
 
 **Phase 2d (colors + pairings + docs notes):**
 
@@ -60,16 +60,16 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 
 **Phase 3b (Tier A — remainder):**
 
-- [x] **BoxedFeatureHero** (formerly Hero) — `Organisms/Hero/BoxedFeatureHero.tsx`
+- [x] **ReadBootBand** (`surface` boxed/open; presets `BoxedFeatureHero`, `FullBleedHero`) — `Organisms/Hero/ReadBootBand.tsx`
 - [x] **Showcase** — `Organisms/Showcase/Showcase.tsx`
 - [x] **ShowcaseTemplate** — `Templates/ShowcaseTemplate/ShowcaseTemplate.tsx`
 - [x] **ConnectFooterSection** — `Organisms/Footer/ConnectFooterSection.tsx` (e.g. `defaultConnect` from `Templates/HomePage/homePageDefaults.ts`; still re-exported from `@repo/ui/templates`)
 
 ### Tier B — Homepage sections (isolated)
 
-- [x] **FullBleedHero** (formerly SplitHomeHero) — `Organisms/Hero/FullBleedHero.tsx`
+- [x] **Open band** (same primitive; was `FullBleedHero`) — `ReadBootBand` + `FullBleedHero.module.scss`
 - [x] **MissionProvocation** — `Organisms/MissionProvocation/MissionProvocation.tsx`
-- [x] **FeaturedPillarsSection** — `Organisms/FeaturedPillarsSection/FeaturedPillarsSection.tsx` (`PillarItem` in `patterns/homeContentTypes.ts`)
+- [x] **FeaturedPillarsSection** — `Organisms/FeaturedPillarsSection/FeaturedPillarsSection.tsx` (`PillarItem` in `patterns/homeContentTypes/`)
 - [x] **VisionRoadmapSection** — `Organisms/VisionRoadmapSection/VisionRoadmapSection.tsx`
 
 ### Tier C — Alternate shells
@@ -85,9 +85,9 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 
 ## Phase 4 — Consistency pass
 
-- [ ] ESLint clean on all `*.stories.tsx` (`pnpm --filter @repo/ui lint`).
-- [ ] String image mocks: `placeholderSrc()` / `StaticImageData` usage consistent.
-- [ ] Optional: one bullet in `.cursor/rules/storybook.mdc` on WP-shaped URLs and server-only components.
+- [x] ESLint clean on all `*.stories.tsx` (`pnpm --filter @repo/ui lint`).
+- [x] String image mocks: `placeholderSrc()` / `StaticImageData` usage consistent (BlogCard + `wpShowcaseMocks`; pillar/hero use bundled imports + `placeholderSrc` where unoptimized checks need strings).
+- [x] **storybook.mdc** — Section **WordPress-shaped data & server-only components** (`placeholderSrc`, WP mocks, `LogoImage` / `BlogShowcase` preview patterns).
 
 ---
 
@@ -95,9 +95,8 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 
 1. **Sprint 1:** Phase 1 + Button / BlogCard / NavigationMenu href.
 2. **Sprint 2:** Phase 2 **design-token stories** (system colors + pairing mixin labels + full Typography variants + Docs/MDX usage notes) — high impact for daily component work.
-3. **Sprint 3:** Phase 2 remainder (NavigationBar, ThemeToggle polish) + Tier A (Badge, Container, SectionLayout, ConnectFooter).
-4. **Sprint 4:** Tier B + Hero + Showcase + ShowcaseTemplate + DocsHomePage as needed.
-5. **Sprint 5:** Tier D only if scheduled.
+3. **Sprint 3:** Phase 2 remainder (NavigationBar, ThemeToggle polish) + Phase 3 Tier A–D (Badge through BlogShowcase / DocsHomePage) — **complete** as of repo state (paths post–organism refactor: e.g. `Organisms/Footer/ConnectFooterSection`, `MissionProvocation`, …).
+4. **Phase 4** — **complete** (ESLint, mock consistency note, `storybook.mdc` server/WP guidance). **Next:** optional Phase 2e deferred guide or product backlog outside Storybook.
 
 ---
 
@@ -107,4 +106,4 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 
 ---
 
-*Last updated: expanded Phase 2 with system vs reference colors, pairing mixin keys, full Typography variants, and addon-docs usage (portfolio feedback). Two-layer tracking: `progress.md` points here.*
+*Last updated: Phases 1–4 complete; Phase 2e marked skipped-by-design. Two-layer tracking: `progress.md` points here.*

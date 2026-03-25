@@ -8,13 +8,11 @@ alwaysApply: false
 
 ## Capitalization (consistent naming)
 
-- **React components** — **PascalCase** for every word. **Hero organisms** use **newspaper layout names**: `BoxedFeatureHero` (boxed / inset), `FullBleedHero` (open layout). Also: `BlogCard`, `ConnectFooterSection`. Do not use `camelCase`, `snake_case`, or **partial** PascalCase for component names.
+- **React components** — **PascalCase** for every word. **Hero band** — **`ReadBootBand`** with **`surface`** (boxed vs open); presets **`BoxedFeatureHero`**, **`FullBleedHero`**. Also: `BlogCard`, `ConnectFooterSection`. Do not use `camelCase`, `snake_case`, or **partial** PascalCase for component names.
 
 - **File names** — Match the **primary symbol**: `BoxedFeatureHero.tsx`, `FullBleedHero.module.scss`, etc. Folder names use the same (**PascalCase**), e.g. `Organisms/Hero/BoxedFeatureHero.tsx` or `Molecules/Cards/BlogCard/BlogCard.tsx`.
 
 - **Props / types** — **PascalCase** + `Props` suffix where applicable: `FullBleedHeroProps`. Type aliases follow the same rule.
-
-- **`Hero` alias** — `Hero` may remain as a **deprecated** export for `BoxedFeatureHero` during migration; prefer `BoxedFeatureHero` in new code.
 
 - **Non-module SCSS partials** (shared mixins, no CSS Modules class export) — **kebab-case** with leading underscore when shared: `_hero-shared.scss`, `_section-shell.scss`.
 
@@ -28,6 +26,10 @@ alwaysApply: false
 - **Molecules** — composed chunks (cards, nav pieces, **reusable layout grids**).
 - **Organisms** — full sections (heroes, bordered content blocks, **footer strips**, card grids).
 - **Templates** — **only** page composition: order sections, pass props, thin wrappers. **No** long-lived marketing copy in the template file; defaults live in modules or apps.
+
+## README in each component folder
+
+- Every **component directory** (the folder that owns the primary `*.tsx`) includes a **`README.md`**: **import** (`@repo/ui/atoms` / `molecules` / `organisms` / `templates`, or `@repo/ui/patterns/...` when not on a barrel), **when to use**, **Storybook** colocation, and pointers to workspace rules (linking, branding) as needed.
 
 ## Naming: shape-first (layout)
 
