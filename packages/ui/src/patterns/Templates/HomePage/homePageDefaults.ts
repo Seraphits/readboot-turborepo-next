@@ -1,6 +1,9 @@
 /** Default homepage copy & URLs — override via `HomePage` props from the app when ready. */
 
+import type { PillarItem } from '../../homeContentTypes';
 import { portraitPlaceholder } from "../../../assets/storybook/placeholders";
+
+export type { PillarItem } from '../../homeContentTypes';
 
 export const DEFAULT_PORTRAIT_PLACEHOLDER = portraitPlaceholder;
 
@@ -24,14 +27,6 @@ export const defaultMission = {
     'I ask: "Why does this specific learner need this to improve their life?"',
   ] as const,
 } as const;
-
-export type PillarItem = {
-  title: string;
-  tagline: string;
-  summary: string;
-  actionLabel: string;
-  href: string;
-};
 
 export const defaultPillars: PillarItem[] = [
   {

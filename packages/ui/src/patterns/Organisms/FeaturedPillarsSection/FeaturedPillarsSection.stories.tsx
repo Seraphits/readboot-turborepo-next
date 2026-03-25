@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { defaultPillars } from '../../Templates/HomePage/homePageDefaults';
 import { FeaturedPillarsSection } from './FeaturedPillarsSection';
-import { defaultPillars, type PillarItem } from './homePageDefaults';
 
 const meta: Meta<typeof FeaturedPillarsSection> = {
   component: FeaturedPillarsSection,
@@ -17,20 +17,6 @@ const meta: Meta<typeof FeaturedPillarsSection> = {
 export default meta;
 
 export const ThreePillars: StoryObj<typeof FeaturedPillarsSection> = {
-  name: 'Default (three pillars)',
+  name: 'Three pillars (home defaults)',
   render: () => <FeaturedPillarsSection pillars={defaultPillars} />,
-};
-
-const singlePillar: PillarItem[] = [
-  {
-    title: 'Single project spotlight',
-    tagline: 'Short tagline for narrow layouts.',
-    summary: 'One card to stress the grid when the list has a single item.',
-    actionLabel: 'Read more',
-    href: '/projects/',
-  },
-];
-
-export const SinglePillar: StoryObj<typeof FeaturedPillarsSection> = {
-  render: () => <FeaturedPillarsSection pillars={singlePillar} />,
 };

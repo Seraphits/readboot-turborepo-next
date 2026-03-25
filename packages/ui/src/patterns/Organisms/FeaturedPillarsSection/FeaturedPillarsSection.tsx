@@ -3,8 +3,8 @@ import Link from 'next/link';
 import {
   pillarPlaceholder,
   placeholderSrc,
-} from "../../../assets/storybook/placeholders";
-import type { PillarItem } from './homePageDefaults';
+} from '../../../assets/storybook/placeholders';
+import type { PillarItem } from '../../homeContentTypes';
 import { shouldSkipNextImageOptimization } from '../../../lib/remoteImageUtils';
 import styles from './FeaturedPillarsSection.module.scss';
 

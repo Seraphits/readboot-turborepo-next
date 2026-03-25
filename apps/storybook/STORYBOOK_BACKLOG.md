@@ -63,23 +63,23 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 - [x] **BoxedFeatureHero** (formerly Hero) — `Organisms/Hero/BoxedFeatureHero.tsx`
 - [x] **Showcase** — `Organisms/Showcase/Showcase.tsx`
 - [x] **ShowcaseTemplate** — `Templates/ShowcaseTemplate/ShowcaseTemplate.tsx`
-- [x] **ConnectFooterSection** — `Templates/HomePage/ConnectFooterSection.tsx` (e.g. `defaultConnect`)
+- [x] **ConnectFooterSection** — `Organisms/Footer/ConnectFooterSection.tsx` (e.g. `defaultConnect` from `Templates/HomePage/homePageDefaults.ts`; still re-exported from `@repo/ui/templates`)
 
 ### Tier B — Homepage sections (isolated)
 
 - [x] **FullBleedHero** (formerly SplitHomeHero) — `Organisms/Hero/FullBleedHero.tsx`
-- [x] **MissionProvocation**
-- [x] **FeaturedPillarsSection**
-- [x] **VisionRoadmapSection**
+- [x] **MissionProvocation** — `Organisms/MissionProvocation/MissionProvocation.tsx`
+- [x] **FeaturedPillarsSection** — `Organisms/FeaturedPillarsSection/FeaturedPillarsSection.tsx` (`PillarItem` in `patterns/homeContentTypes.ts`)
+- [x] **VisionRoadmapSection** — `Organisms/VisionRoadmapSection/VisionRoadmapSection.tsx`
 
 ### Tier C — Alternate shells
 
-- [ ] **DocsHomePage** — Same spirit as HomePage; docs defaults; fullscreen layout if needed.
+- [x] **DocsHomePage** — `Templates/HomePage/DocsHomePage.stories.tsx` (fullscreen; docs defaults).
 
 ### Tier D — Deferred / spike
 
-- [ ] **LogoImage** (async server) — Document in story description: **LogoImageClient** is the Storybook target; server component optional.
-- [ ] **BlogShowcase** (async) — Spike: MSW, loader, or presentational split.
+- [x] **LogoImage** (async server) — `parameters.docs` on `LogoImage.stories.tsx`: **LogoImageClient** in preview; default export `LogoImage` for RSC / optional WP logo.
+- [x] **BlogShowcase** (async) — `Organisms/BlogShowcase/BlogShowcase.stories.tsx` documents server wrapper; renders `Showcase` + `wpShowcaseMocks` for equivalent UI.
 
 ---
 
@@ -103,7 +103,7 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 
 ## Reference — components still without any story
 
-See prior audit: BlogShowcase, DocsHomePage; server: `LogoImage`, async `BlogShowcase`. (Phase 3a–3c: Badge, ColorSwatch, Container, SectionLayout, BoxedFeatureHero, FullBleedHero, Showcase, ShowcaseTemplate, ConnectFooterSection, MissionProvocation, FeaturedPillarsSection, VisionRoadmapSection.)
+**Coverage:** Every exported UI component under `packages/ui/src/patterns` has a colocated `*.stories.tsx` (including async/server wrappers documented via `Showcase` or docs notes). Shared WP-shaped mocks: `assets/storybook/wpShowcaseMocks.ts`.
 
 ---
 

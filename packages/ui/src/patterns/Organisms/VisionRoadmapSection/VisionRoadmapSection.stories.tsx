@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { defaultVision } from '../../Templates/HomePage/homePageDefaults';
 import { VisionRoadmapSection } from './VisionRoadmapSection';
-import { defaultVision } from './homePageDefaults';
 
 const meta: Meta<typeof VisionRoadmapSection> = {
   component: VisionRoadmapSection,
@@ -16,8 +16,8 @@ const meta: Meta<typeof VisionRoadmapSection> = {
 };
 export default meta;
 
-export const Default: StoryObj<typeof VisionRoadmapSection> = {
-  name: 'Default (homePageDefaults)',
+export const SampleTimeline: StoryObj<typeof VisionRoadmapSection> = {
+  name: 'Sample timeline (home defaults)',
   render: () => (
     <VisionRoadmapSection
       title={defaultVision.title}
@@ -28,6 +28,7 @@ export const Default: StoryObj<typeof VisionRoadmapSection> = {
 };
 
 export const LongerTimeline: StoryObj<typeof VisionRoadmapSection> = {
+  name: 'More timeline nodes',
   render: () => (
     <VisionRoadmapSection
       title="Roadmap with more nodes"

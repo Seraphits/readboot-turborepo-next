@@ -16,8 +16,8 @@ export const VisionRoadmapSection = ({ title, body, generations }: VisionRoadmap
         <p className={styles.body}>{body}</p>
         <div className={styles.timeline} role="list" aria-label="Generational roadmap">
           <div className={styles.timelineLine} aria-hidden />
-          {generations.map((label) => (
-            <div key={label} className={styles.node} role="listitem">
+          {generations.map((label, index) => (
+            <div key={`${label}-${index}`} className={styles.node} role="listitem">
               <span className={styles.nodeDot} aria-hidden />
               <span className={styles.nodeLabel}>{label}</span>
             </div>

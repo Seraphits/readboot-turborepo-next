@@ -1,5 +1,6 @@
 import type { StaticImageData } from "next/image";
-import { FeaturedPillarsSection } from './FeaturedPillarsSection';
+import type { PillarItem } from '../../homeContentTypes';
+import { FeaturedPillarsSection } from '../../Organisms/FeaturedPillarsSection/FeaturedPillarsSection';
 import type { DocsHomeHeroCopy, DocsMissionCopy, DocsVisionCopy } from './docsHomeDefaults';
 import {
   DOCS_PORTRAIT_PLACEHOLDER,
@@ -8,10 +9,9 @@ import {
   defaultDocsPillars,
   defaultDocsVision,
 } from './docsHomeDefaults';
-import type { PillarItem } from './homePageDefaults';
 import { FullBleedHero } from '../../Organisms/Hero/FullBleedHero';
-import { MissionProvocation } from './MissionProvocation';
-import { VisionRoadmapSection } from './VisionRoadmapSection';
+import { MissionProvocation } from '../../Organisms/MissionProvocation/MissionProvocation';
+import { VisionRoadmapSection } from '../../Organisms/VisionRoadmapSection/VisionRoadmapSection';
 import styles from './HomePage.module.scss';
 
 export type DocsHomePageProps = {

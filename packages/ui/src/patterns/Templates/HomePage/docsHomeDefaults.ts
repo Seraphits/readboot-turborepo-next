@@ -6,7 +6,7 @@
  * Override from `apps/docs/app/docs/page.tsx` when you add env-based portfolio URLs.
  */
 
-import type { PillarItem } from './homePageDefaults';
+import type { PillarItem } from '../../homeContentTypes';
 import { portraitPlaceholder } from "../../../assets/storybook/placeholders";
 
 /** Reuse shared portrait placeholder until you add a docs-specific asset. */

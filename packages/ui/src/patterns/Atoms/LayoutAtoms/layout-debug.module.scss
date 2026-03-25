@@ -1,0 +1,85 @@
+/**
+ * Storybook-only layout slot fills: visible boxes for empty grid regions.
+ * Import ONLY from `*.stories.tsx` — not from production components.
+ * Colors: distinct tints from reference tokens (never paper-bg alone).
+ */
+@use "sass:color";
+@use "../Branding/Colors/colors-variables" as vars;
+@use "../Spatial/Spacing/spacing-variables" as space;
+@use "../Spatial/geometric/geometric-variables" as geom;
+
+$slot-1: color.mix(#fff, vars.$sys-color-status-info, 72%);
+$slot-2: color.mix(#fff, vars.$ref-color-purple, 70%);
+$slot-3: color.mix(#fff, vars.$sys-color-status-warning, 76%);
+$slot-4: color.mix(#fff, vars.$sys-color-status-success, 74%);
+$slot-5: color.mix(#fff, vars.$sys-color-action-primary, 82%);
+$slot-6: color.mix(#fff, vars.$sys-color-ink-dark-text, 88%);
+
+@mixin slot-base($min-height: 5rem) {
+  box-sizing: border-box;
+  min-height: $min-height;
+  min-width: 0;
+  padding: space.$space-md;
+  border-radius: calc(geom.$sys-geom-radius-main / 2);
+  border: 2px dashed vars.$sys-color-dark-border;
+}
+
+.slot1 {
+  @include slot-base;
+  background-color: $slot-1;
+}
+
+.slot2 {
+  @include slot-base;
+  background-color: $slot-2;
+}
+
+.slot3 {
+  @include slot-base;
+  background-color: $slot-3;
+}
+
+.slot4 {
+  @include slot-base;
+  background-color: $slot-4;
+}
+
+.slot5 {
+  @include slot-base;
+  background-color: $slot-5;
+}
+
+.slot6 {
+  @include slot-base;
+  background-color: $slot-6;
+}
+
+.slot1Tall {
+  @include slot-base(12rem);
+  background-color: $slot-1;
+}
+
+.slot2Tall {
+  @include slot-base(12rem);
+  background-color: $slot-2;
+}
+
+.slot3Tall {
+  @include slot-base(12rem);
+  background-color: $slot-3;
+}
+
+.slot4Tall {
+  @include slot-base(12rem);
+  background-color: $slot-4;
+}
+
+.slot5Tall {
+  @include slot-base(12rem);
+  background-color: $slot-5;
+}
+
+.slot6Tall {
+  @include slot-base(12rem);
+  background-color: $slot-6;
+}

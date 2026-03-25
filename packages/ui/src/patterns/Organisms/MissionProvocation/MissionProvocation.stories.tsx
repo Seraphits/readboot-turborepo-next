@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { MissionProvocation } from './MissionProvocation';
-import { defaultMission } from './homePageDefaults';
 
 const meta: Meta<typeof MissionProvocation> = {
   component: MissionProvocation,
@@ -16,13 +15,16 @@ const meta: Meta<typeof MissionProvocation> = {
 };
 export default meta;
 
-export const WithAccentWord: StoryObj<typeof MissionProvocation> = {
-  name: 'Default (accent in title)',
+export const AccentInTitle: StoryObj<typeof MissionProvocation> = {
+  name: 'Accent word in title',
   render: () => (
     <MissionProvocation
-      title={defaultMission.title}
-      accentWord={defaultMission.accentWord}
-      paragraphs={defaultMission.paragraphs}
+      title="Example mission with highlighted emphasis in the headline"
+      accentWord="highlighted"
+      paragraphs={[
+        'First column: neutral Storybook copy for layout and typography.',
+        'Second column: multi-column body with an optional brand accent on one phrase.',
+      ]}
     />
   ),
 };

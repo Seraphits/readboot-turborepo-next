@@ -10,7 +10,7 @@ export type {
   DocsVisionCopy,
 } from './HomePage/DocsHomePage';
 export { defaultDocsHomeHero } from './HomePage/docsHomeDefaults';
-export { ConnectFooterSection } from './HomePage/ConnectFooterSection';
-export type { ConnectFooterSectionProps, ConnectLink } from './HomePage/ConnectFooterSection';
+export { ConnectFooterSection } from '../Organisms/Footer/ConnectFooterSection';
+export type { ConnectFooterSectionProps, ConnectLink } from '../Organisms/Footer/ConnectFooterSection';
 export { defaultConnect } from './HomePage/homePageDefaults';
 

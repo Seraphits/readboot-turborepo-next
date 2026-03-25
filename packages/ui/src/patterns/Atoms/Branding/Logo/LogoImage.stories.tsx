@@ -3,7 +3,15 @@ import { LogoImageClient } from "./LogoImageClient";
 
 const meta = {
   component: LogoImageClient,
-  parameters: { layout: "centered" },
+  parameters: {
+    layout: "centered",
+    docs: {
+      description: {
+        component:
+          'Storybook uses **`LogoImageClient`** (bundled asset, client-safe). The default export **`LogoImage`** in `LogoImage.tsx` is an **async** server component: it can render the same bundled mark or fetch a WordPress logo via `getLogoData` when `useWordPressLogo` is true. Use `LogoImage` in Next.js RSC routes; use `LogoImageClient` in client islands and Storybook.',
+      },
+    },
+  },
   argTypes: {
     width: { control: "text" },
     height: { control: "text" },

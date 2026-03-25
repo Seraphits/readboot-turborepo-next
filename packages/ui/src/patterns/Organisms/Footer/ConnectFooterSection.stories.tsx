@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { defaultConnect } from '../../Templates/HomePage/homePageDefaults';
 import { ConnectFooterSection } from './ConnectFooterSection';
-import { defaultConnect } from './homePageDefaults';
 
 const meta: Meta<typeof ConnectFooterSection> = {
   component: ConnectFooterSection,
