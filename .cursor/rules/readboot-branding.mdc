@@ -39,3 +39,8 @@ Note: "The Glitch" effect is officially deprecated and has been removed from the
 Format: Use SCSS Modules (.module.scss) exclusively. No CSS-in-JS or Styled-Components.
 
 SCSS Modules: Prefer local `@use` imports from token modules under `packages/ui/src/patterns/Atoms/**` in component `.module.scss` files.
+
+5. Newspaper layout vocabulary
+**Full glossary and when to use each term:** **`readboot-newspaper-terminology.mdc`** (boxed vs full-bleed, kicker, deck, lead, rule, etc.). Prefer that vocabulary in docs, Storybook descriptions, and SCSS comments; component **code names** stay per `ui-atomic-architecture.mdc`.
+
+**Hero shorthand:** **Boxed feature** = component `BoxedFeatureHero` (ruled shell). **Full-bleed / open** = component `FullBleedHero` (portrait + lead on newsprint, no outer rule on the band). In CSS Modules, encode with local roots like `.rootBoxed` / `.rootBleed` or `data-layout`, not loose global BEM unless one root wraps the block.

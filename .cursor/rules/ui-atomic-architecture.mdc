@@ -8,11 +8,13 @@ alwaysApply: false
 
 ## Capitalization (consistent naming)
 
-- **React components** — **PascalCase** for every word: `SplitProfileHero`, `BlogCard`, `ConnectFooterSection`. Do not use `camelCase`, `snake_case`, or **partial** PascalCase (e.g. avoid `splitProfileHero` as a component name).
+- **React components** — **PascalCase** for every word. **Hero organisms** use **newspaper layout names**: `BoxedFeatureHero` (boxed / inset), `FullBleedHero` (open layout). Also: `BlogCard`, `ConnectFooterSection`. Do not use `camelCase`, `snake_case`, or **partial** PascalCase for component names.
 
-- **File names** — Match the **primary symbol**: `SplitProfileHero.tsx`, `SplitProfileHero.module.scss`, `SplitProfileHero.stories.tsx`. Folder names use the same (**PascalCase**), e.g. `Organisms/Hero/BillboardHero.tsx` or `Molecules/Cards/BlogCard/BlogCard.tsx`.
+- **File names** — Match the **primary symbol**: `BoxedFeatureHero.tsx`, `FullBleedHero.module.scss`, etc. Folder names use the same (**PascalCase**), e.g. `Organisms/Hero/BoxedFeatureHero.tsx` or `Molecules/Cards/BlogCard/BlogCard.tsx`.
 
-- **Props / types** — **PascalCase** + `Props` suffix where applicable: `SplitProfileHeroProps`. Type aliases follow the same rule.
+- **Props / types** — **PascalCase** + `Props` suffix where applicable: `FullBleedHeroProps`. Type aliases follow the same rule.
+
+- **`Hero` alias** — `Hero` may remain as a **deprecated** export for `BoxedFeatureHero` during migration; prefer `BoxedFeatureHero` in new code.
 
 - **Non-module SCSS partials** (shared mixins, no CSS Modules class export) — **kebab-case** with leading underscore when shared: `_hero-shared.scss`, `_section-shell.scss`.
 
@@ -31,7 +33,7 @@ alwaysApply: false
 
 Use **layout/shape** names for **reusable** blocks whose primary contract is **silhouette** (grid, split columns, timeline, billboard headline):
 
-- Examples: `BillboardHero`, `SplitProfileHero`, `TwoColumnCalloutSection`, `VisionRoadmapSection`, `TitledCardGrid` (exact names evolve).
+- Examples: `BoxedFeatureHero`, `FullBleedHero`, `TwoColumnCalloutSection`, `VisionRoadmapSection`, `TitledCardGrid` (exact names evolve).
 - **SCSS:** shared partials under the same folder (e.g. `Organisms/Hero/_hero-shared.scss`) per variant pair; **module** SCSS per component (`*.module.scss`).
 
 ## Naming: domain / role (not shape)
@@ -56,3 +58,15 @@ Do **not** force shape-only names for:
 ## Imports
 
 - Cross-package: **public exports** only (`@repo/ui/atoms`, `@repo/ui/molecules`, `@repo/ui/organisms`, `@repo/ui/templates`). No deep `src/` imports across packages.
+
+## Editorial copy (docs, Storybook, markdown)
+
+- For **human-facing** descriptions of layout and hierarchy, prefer **newspaper terminology** in **`readboot-newspaper-terminology.mdc`** (kicker, deck, lead, boxed, full-bleed, rule). **PascalCase code names** stay as defined above.
+
+## Layout model (surface × grid × slots)
+
+- **Target architecture** for heroes, sections, and showcases: **`readboot-layout-model.mdc`** (unified bands, boxed/open prop, showcases as repeating card + data, types placement, migration table).
+
+## Atomic inventory (which atom type per band)
+
+- **Band-by-band** breakdown with **Branding / Interactive / LayoutAtoms / …**: **`readboot-atomic-layout-inventory.mdc`**.

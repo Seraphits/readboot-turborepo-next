@@ -1,16 +1,19 @@
 import type { ReactNode } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Typography } from '../../Atoms/Branding/Typography/Typography';
-import { Hero, type HeroLayoutVariant } from './Hero';
+import {
+  BoxedFeatureHero,
+  type BoxedFeatureHeroLayoutVariant,
+} from './BoxedFeatureHero';
 
-const meta: Meta<typeof Hero> = {
-  component: Hero,
+const meta: Meta<typeof BoxedFeatureHero> = {
+  component: BoxedFeatureHero,
   parameters: {
     layout: 'fullscreen',
     docs: {
       description: {
         component:
-          'Hero wraps `SectionLayout` + headline + CTA. Non-`centered` layouts render a **media** slot (`grid-area: media`) — pass `imageNode` (e.g. `next/image` or a placeholder).',
+          '**Boxed feature** hero: a rule wraps the whole module (newspaper inset). Uses `SectionLayout` + headline + deck + CTA. Non-`centered` layouts render a **media** slot (`grid-area: media`) — pass `imageNode` (e.g. `next/image` or a placeholder).',
       },
     },
   },
@@ -37,37 +40,37 @@ const mediaPlaceholder = (
   </div>
 );
 
-export const Centered: StoryObj<typeof Hero> = {
+export const Centered: StoryObj<typeof BoxedFeatureHero> = {
   render: () =>
     shell(
-      <Hero
+      <BoxedFeatureHero
         title="Engineering the Operating Systems of Human Growth"
-        subhead="Split hero copy and CTA — centered layout has no media column."
+        subhead="Centered layout: no media column."
         ctaText="View portfolio"
         layout="centered"
       />
     ),
 };
 
-const withMedia = (layout: HeroLayoutVariant) =>
+const withMedia = (layout: BoxedFeatureHeroLayoutVariant) =>
   shell(
-    <Hero
+    <BoxedFeatureHero
       title="Split headline for layout preview"
-      subhead="Media slot uses the Futurist Carton frame from `Hero.module.scss`."
+      subhead="Media slot uses the Futurist Carton frame from `BoxedFeatureHero.module.scss`."
       ctaText="Get started"
       layout={layout}
       imageNode={mediaPlaceholder}
     />
   );
 
-export const Split: StoryObj<typeof Hero> = {
+export const Split: StoryObj<typeof BoxedFeatureHero> = {
   render: () => withMedia('split'),
 };
 
-export const Asymmetrical: StoryObj<typeof Hero> = {
+export const Asymmetrical: StoryObj<typeof BoxedFeatureHero> = {
   render: () => withMedia('asymmetrical'),
 };
 
-export const Preview: StoryObj<typeof Hero> = {
+export const Preview: StoryObj<typeof BoxedFeatureHero> = {
   render: () => withMedia('preview'),
 };

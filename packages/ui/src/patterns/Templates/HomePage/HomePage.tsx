@@ -8,8 +8,8 @@ import {
   defaultVision,
   type PillarItem,
 } from './homePageDefaults';
+import { FullBleedHero } from '../../Organisms/Hero/FullBleedHero';
 import { MissionProvocation } from './MissionProvocation';
-import { SplitHomeHero } from './SplitHomeHero';
 import { VisionRoadmapSection } from './VisionRoadmapSection';
 import styles from './HomePage.module.scss';
 
@@ -32,7 +32,7 @@ export const HomePage = ({
 }: HomePageProps) => {
   return (
     <div className={styles.stack}>
-      <SplitHomeHero
+      <FullBleedHero
         portraitSrc={portraitSrc}
         portraitAlt={portraitAlt}
         eyebrow={hero.eyebrow}

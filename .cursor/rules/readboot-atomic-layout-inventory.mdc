@@ -1,0 +1,140 @@
+---
+description: ReadBoot — atomic breakdown of layout bands (organism → molecules → atoms by atom folder type)
+globs: ["packages/ui/src/patterns/**/*"]
+alwaysApply: false
+---
+
+# Atomic layout inventory (ReadBoot)
+
+**Atom folder types** in `packages/ui/src/patterns/Atoms/`:
+
+| Type | Folders / role |
+|------|----------------|
+| **Branding** | `Typography`, `Logo`, `Colors` — type, identity, token display |
+| **Interactive** | `Button`, `NavigationLink` — clicks, navigation affordances |
+| **LayoutAtoms** | `SectionLayout` — grid shells, regions |
+| **DisplayAtoms** | `Badge` — small status/chip UI |
+| **EnvironmentalAtoms** | `Container` — page / region width |
+| **Spatial** | spacing scales, geometric tokens (usually `@use` in SCSS, not always a component) |
+| **External (Next)** | `next/image`, `next/link` — wrap or compose; not in `Atoms/` but primitive |
+
+**Layers:** **Template** → stacks **Organisms**. **Organisms** compose **Molecules** (optional today) and **Atoms**. **Molecules** = repeated chunks (card, headline stack, CTA row, timeline rail).
+
+---
+
+## `HomePage` (template)
+
+| Layer | Name | Notes |
+|-------|------|--------|
+| **Template** | `HomePage` | Orders bands; passes props; **no** atoms directly. |
+
+---
+
+## `FullBleedHero` (organism)
+
+Newspaper: **open** band, **side-saddle** (portrait + copy).
+
+| Piece | Atomic layer | Atom type (folder) | Today in code |
+|-------|----------------|----------------------|----------------|
+| Root `<section>` | Organism | — | `FullBleedHero` |
+| Portrait frame + image | Organism internals | **Next** (`next/image`) | `Image` in ruled frame |
+| Kicker line | Atom candidate | **Branding** (`Typography`) | `<p>` + SCSS |
+| Headline | Atom candidate | **Branding** (`Typography`) | `<h1>` + SCSS |
+| Deck / subhead | Atom candidate | **Branding** (`Typography`) | `<p>` + SCSS |
+| Lead | Atom candidate | **Branding** (`Typography`) | `<p>` + SCSS |
+| Primary / secondary CTA | **Atom** | **Interactive** (`Button` + `asChild`) | `Button` + **Next** `Link` |
+| Grid / gap / borders | Layout tokens | **Spatial** + **Branding** (colors) | `FullBleedHero.module.scss` |
+
+**Molecules to extract later:** `HeadlineStack` (kicker + h1 + deck), `DualCtaRow` (two buttons).
+
+---
+
+## `BoxedFeatureHero` (organism)
+
+Newspaper: **boxed** band; inner **modular** grid from `SectionLayout`.
+
+| Piece | Atomic layer | Atom type | Today in code |
+|-------|----------------|-----------|----------------|
+| Outer wrapper | Organism | — | `BoxedFeatureHero` |
+| Ruled grid shell | **Atom** | **LayoutAtoms** (`SectionLayout`) | `SectionLayout` `bordered` |
+| Headline, subhead | Atom candidates | **Branding** (`Typography`) | `<h1>`, `<p>` + SCSS |
+| CTA | **Atom** | **Interactive** (`Button`) | `Button` |
+| Media slot | Slot / molecule | **Next** or custom | `imageNode` |
+| Media frame styling | Tokens | **Spatial** + colors | `BoxedFeatureHero.module.scss` |
+
+---
+
+## `MissionProvocation` (organism)
+
+Newspaper: **boxed** inner; **two-column** body + vertical rule.
+
+| Piece | Atomic layer | Atom type | Today in code |
+|-------|----------------|-----------|----------------|
+| Section + framed inner | Organism | — | SCSS-only frame |
+| Title + accent span | Atom candidates | **Branding** (`Typography`) | `<h2>`, `<span>` + SCSS |
+| Column paragraphs | Atom candidates | **Branding** (`Typography`) | `<p>` + `column-count` in SCSS |
+
+**Molecule to extract:** `TwoColumnCopy` (columns + divider).
+
+---
+
+## `FeaturedPillarsSection` (organism)
+
+Newspaper: **open** section title + **modular** three-up grid.
+
+| Piece | Atomic layer | Atom type | Today in code |
+|-------|----------------|-----------|----------------|
+| Section + inner | Organism | — | — |
+| Section title | Atom candidate | **Branding** (`Typography`) | `<h2>` + SCSS |
+| Grid | Layout | **Spatial** / future **molecule** | `.grid` in SCSS |
+| Per item: image | **Atom** (media) | **Next** (`next/image`) | `Image` |
+| Per item: title, tagline, body, link | Molecule candidate | **Branding** + **Interactive** | Inline in `.card` |
+| Card chrome | **Molecule** (target) | Composed | **Pillar card** (not split out yet) |
+
+---
+
+## `VisionRoadmapSection` (organism)
+
+Newspaper: **boxed** optional; **timeline** = horizontal **modular** strip.
+
+| Piece | Atomic layer | Atom type | Today in code |
+|-------|----------------|-----------|----------------|
+| Title, body | Atom candidates | **Branding** (`Typography`) | `<h2>`, `<p>` |
+| Timeline line + nodes + labels | **Molecule** (target) | Composed from tokens | Divs + SCSS |
+
+---
+
+## `Showcase` (organism)
+
+Surface + grid + **homogeneous** slots.
+
+| Piece | Atomic layer | Atom type | Today in code |
+|-------|----------------|-----------|----------------|
+| Section + `SectionLayout` grid | Organism + **Atom** | **LayoutAtoms** | `Showcase` uses `SectionLayout` |
+| Per item | **Molecule** | Domain cards | `ProjectCard` or `BlogCard` (not under Atoms — **Molecules/Cards**) |
+
+Card **atom types** inside those molecules: **Branding** (`Typography`, `Badge`), **Interactive** (`Button`, `Link`).
+
+---
+
+## `ConnectFooterSection` (organism)
+
+| Piece | Atomic layer | Atom type | Today in code |
+|-------|----------------|-----------|----------------|
+| Title | Atom candidate | **Branding** (`Typography`) | `<h2>` |
+| Links | **Atom** | **Interactive** (`next/link`) | `Link` |
+| Copyright | Atom candidate | **Branding** (`Typography`) | `<p>` |
+
+---
+
+## Gaps (refactor targets)
+
+1. Replace raw `<h1>`–`<p>` with **`Typography`** (**Branding**) where it matches the scale.
+2. Extract **molecules**: pillar card, two-column mission, timeline strip, headline stack.
+3. Extract **layout grid** shared by **Featured** + **Showcase** (per `readboot-layout-model.mdc`).
+
+## See also
+
+- `readboot-layout-model.mdc` — surface × grid × slots.
+- `ui-atomic-architecture.mdc` — naming and layers.
+- `readboot-newspaper-terminology.mdc` — print terms.

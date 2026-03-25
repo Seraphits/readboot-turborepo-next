@@ -9,8 +9,8 @@ import {
   defaultDocsVision,
 } from './docsHomeDefaults';
 import type { PillarItem } from './homePageDefaults';
+import { FullBleedHero } from '../../Organisms/Hero/FullBleedHero';
 import { MissionProvocation } from './MissionProvocation';
-import { SplitHomeHero } from './SplitHomeHero';
 import { VisionRoadmapSection } from './VisionRoadmapSection';
 import styles from './HomePage.module.scss';
 
@@ -33,7 +33,7 @@ export const DocsHomePage = ({
 }: DocsHomePageProps) => {
   return (
     <div className={styles.stack}>
-      <SplitHomeHero
+      <FullBleedHero
         portraitSrc={portraitSrc}
         portraitAlt={portraitAlt}
         eyebrow={hero.eyebrow}

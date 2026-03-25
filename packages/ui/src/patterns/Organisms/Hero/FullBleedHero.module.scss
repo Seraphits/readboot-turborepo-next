@@ -3,6 +3,8 @@
 @use "../../Atoms/Branding/Typography/fonts-variables" as fonts;
 @use "../../Atoms/Spatial/geometric/geometric-variables" as geom;
 
+/* Full-bleed hero: no outer rule on the module — portrait + lead on newsprint (newspaper open layout). */
+
 .root {
   display: grid;
   grid-template-columns: 1fr 1fr;

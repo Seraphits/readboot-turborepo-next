@@ -3,20 +3,27 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '../../Atoms/Interactive/Button/Button';
 import { shouldSkipNextImageOptimization } from '../../../lib/remoteImageUtils';
-import styles from './SplitHomeHero.module.scss';
+import styles from './FullBleedHero.module.scss';
 
-export type SplitHomeHeroProps = {
+export type FullBleedHeroProps = {
   portraitSrc: string | StaticImageData;
   portraitAlt: string;
+  /** Kicker / eyebrow (small line above the head). */
   eyebrow: string;
   headline: string;
+  /** Deck / subdeck under the headline. */
   subheadline: string;
+  /** Lead paragraph. */
   intro: string;
   primaryCta: { label: string; href: string };
   secondaryCta: { label: string; href: string };
 };
 
-export const SplitHomeHero = ({
+/**
+ * **Full-bleed** hero — portrait + copy on newsprint without a single outer rule
+ * around the whole band (newspaper open layout). Distinct from `BoxedFeatureHero`.
+ */
+export const FullBleedHero = ({
   portraitSrc,
   portraitAlt,
   eyebrow,
@@ -25,9 +32,9 @@ export const SplitHomeHero = ({
   intro,
   primaryCta,
   secondaryCta,
-}: SplitHomeHeroProps) => {
+}: FullBleedHeroProps) => {
   return (
-    <section className={styles.root} aria-labelledby="home-hero-headline">
+    <section className={styles.root} aria-labelledby="full-bleed-hero-headline">
       <div className={styles.portraitFrame}>
         <Image
           src={portraitSrc}
@@ -44,7 +51,7 @@ export const SplitHomeHero = ({
       </div>
       <div className={styles.content}>
         <p className={styles.eyebrow}>{eyebrow}</p>
-        <h1 id="home-hero-headline" className={styles.headline}>
+        <h1 id="full-bleed-hero-headline" className={styles.headline}>
           {headline}
         </h1>
         <p className={styles.subheadline}>{subheadline}</p>

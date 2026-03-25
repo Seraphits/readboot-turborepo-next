@@ -1,5 +1,5 @@
 import { getAllProjects } from '@repo/wp-utils';
-import { Hero } from '@repo/ui/organisms';
+import { BoxedFeatureHero } from '@repo/ui/organisms';
 import { Showcase } from '@repo/ui/organisms';
 import { ShowcaseTemplate } from '@repo/ui/templates';
 
@@ -12,7 +12,7 @@ export default async function ProjectsPage() {
   return (
     <ShowcaseTemplate
       headerSlot={
-        <Hero
+        <BoxedFeatureHero
           title="Portfolio Projects"
           subhead="Live Engineering Lab: architected in public using Next.js Turborepo."
         />

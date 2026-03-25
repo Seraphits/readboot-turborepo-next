@@ -2,6 +2,7 @@
 @use "../../Atoms/Branding/Colors/colors-variables" as vars;
 @use "../../Atoms/Branding/Typography/fonts-variables" as fonts;
 
+/* Boxed feature hero: rule wraps the whole module (newspaper “boxed” / inset). */
 .heroRoot {
   // Pass-through wrapper; SectionLayout provides grid and border
 }

@@ -1,20 +1,31 @@
 import { ElementType, ReactNode } from 'react';
 import { SectionLayout } from '../../Atoms/LayoutAtoms/SectionLayout/SectionLayout';
 import { Button } from '../../Atoms/Interactive/Button/Button';
-import styles from './Hero.module.scss';
+import styles from './BoxedFeatureHero.module.scss';
 
-export type HeroLayoutVariant = 'centered' | 'split' | 'asymmetrical' | 'preview';
+/** Layout variants inside the boxed (ruled) shell. */
+export type BoxedFeatureHeroLayoutVariant = 'centered' | 'split' | 'asymmetrical' | 'preview';
 
-export interface HeroProps<T extends ElementType = 'section'> {
+/** @deprecated Use `BoxedFeatureHeroLayoutVariant` */
+export type HeroLayoutVariant = BoxedFeatureHeroLayoutVariant;
+
+export interface BoxedFeatureHeroProps<T extends ElementType = 'section'> {
   as?: T;
-  layout?: HeroLayoutVariant;
+  layout?: BoxedFeatureHeroLayoutVariant;
   title: string;
   subhead?: string;
   ctaText?: string;
   imageNode?: ReactNode;
 }
 
-export const Hero = <T extends ElementType = 'section'>({
+/** @deprecated Use `BoxedFeatureHeroProps` */
+export type HeroProps<T extends ElementType = 'section'> = BoxedFeatureHeroProps<T>;
+
+/**
+ * **Boxed feature** hero — a rule wraps the entire module (newspaper inset).
+ * Headline + optional deck + CTA; non-centered layouts expose a media slot.
+ */
+export const BoxedFeatureHero = <T extends ElementType = 'section'>({
   as,
   layout = 'centered',
   title,
@@ -22,7 +33,8 @@ export const Hero = <T extends ElementType = 'section'>({
   ctaText = 'Get Started',
   imageNode,
   ...props
-}: HeroProps<T> & Omit<React.ComponentPropsWithoutRef<T>, keyof HeroProps<T>>) => {
+}: BoxedFeatureHeroProps<T> &
+  Omit<React.ComponentPropsWithoutRef<T>, keyof BoxedFeatureHeroProps<T>>) => {
   const Component = (as ?? 'section') as ElementType;
 
   return (
@@ -45,3 +57,6 @@ export const Hero = <T extends ElementType = 'section'>({
     </Component>
   );
 };
+
+/** @deprecated Use `BoxedFeatureHero` — newspaper name: boxed feature. */
+export const Hero = BoxedFeatureHero;

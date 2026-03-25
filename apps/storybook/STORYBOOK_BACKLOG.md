@@ -60,14 +60,14 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 
 **Phase 3b (Tier A — remainder):**
 
-- [x] **Hero** — `Organisms/Hero/Hero.tsx`
+- [x] **BoxedFeatureHero** (formerly Hero) — `Organisms/Hero/BoxedFeatureHero.tsx`
 - [x] **Showcase** — `Organisms/Showcase/Showcase.tsx`
 - [x] **ShowcaseTemplate** — `Templates/ShowcaseTemplate/ShowcaseTemplate.tsx`
 - [x] **ConnectFooterSection** — `Templates/HomePage/ConnectFooterSection.tsx` (e.g. `defaultConnect`)
 
 ### Tier B — Homepage sections (isolated)
 
-- [x] **SplitHomeHero**
+- [x] **FullBleedHero** (formerly SplitHomeHero) — `Organisms/Hero/FullBleedHero.tsx`
 - [x] **MissionProvocation**
 - [x] **FeaturedPillarsSection**
 - [x] **VisionRoadmapSection**
@@ -103,7 +103,7 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 
 ## Reference — components still without any story
 
-See prior audit: BlogShowcase, DocsHomePage; server: `LogoImage`, async `BlogShowcase`. (Phase 3a–3c: Badge, ColorSwatch, Container, SectionLayout, Hero, Showcase, ShowcaseTemplate, ConnectFooterSection, SplitHomeHero, MissionProvocation, FeaturedPillarsSection, VisionRoadmapSection.)
+See prior audit: BlogShowcase, DocsHomePage; server: `LogoImage`, async `BlogShowcase`. (Phase 3a–3c: Badge, ColorSwatch, Container, SectionLayout, BoxedFeatureHero, FullBleedHero, Showcase, ShowcaseTemplate, ConnectFooterSection, MissionProvocation, FeaturedPillarsSection, VisionRoadmapSection.)
 
 ---
 
