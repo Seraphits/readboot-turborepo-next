@@ -7,6 +7,28 @@ export type { PillarItem } from '../../homeContentTypes';
 
 export const DEFAULT_PORTRAIT_PLACEHOLDER = portraitPlaceholder;
 
+/** Structural copy for hero / mission / vision — portfolio and docs defaults both satisfy these. */
+export type HomeHeroCopy = {
+  eyebrow: string;
+  headline: string;
+  subheadline: string;
+  intro: string;
+  primaryCta: { label: string; href: string };
+  secondaryCta: { label: string; href: string };
+};
+
+export type HomeMissionCopy = {
+  title: string;
+  accentWord: string;
+  paragraphs: readonly string[];
+};
+
+export type HomeVisionCopy = {
+  title: string;
+  body: string;
+  generations: readonly string[];
+};
+
 export const defaultHomeHero = {
   eyebrow: 'Design Engineer // Learning Technologist',
   headline: 'Nicole Trapp',
@@ -15,7 +37,7 @@ export const defaultHomeHero = {
     'I build systems that respect the learner’s finite resources. From architecting high-performance monorepo design systems to developing theoretical frameworks for personalized education, my work focuses on eliminating systemic waste to empower the "bottom-up" learner.',
   primaryCta: { label: 'View portfolio', href: '/projects/' },
   secondaryCta: { label: 'Documentation', href: '/docs/' },
-} as const;
+} as const satisfies HomeHeroCopy;
 
 export const defaultMission = {
   title: 'Solving the Alignment Problem',
@@ -26,7 +48,7 @@ export const defaultMission = {
     'Traditional systems ask: "What are we required to teach?"',
     'I ask: "Why does this specific learner need this to improve their life?"',
   ] as const,
-} as const;
+} as const satisfies HomeMissionCopy;
 
 export const defaultPillars: PillarItem[] = [
   {
@@ -60,7 +82,7 @@ export const defaultVision = {
   body:
     'Change of this scale doesn’t happen in a single generation. Drawing from Strauss-Howe Generational Theory, I am mapping a 100-year roadmap—from the initial visions of today to the implementation of an individualized learning marketplace during the next global crisis.',
   generations: ['Artist', 'Philosopher', 'Nomad', 'Hero'] as const,
-} as const;
+} as const satisfies HomeVisionCopy;
 
 export const defaultConnect = {
   title: 'Let’s Design for the Learner.',

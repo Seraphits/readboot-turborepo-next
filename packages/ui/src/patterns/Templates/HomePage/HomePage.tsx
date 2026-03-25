@@ -2,6 +2,9 @@ import type { StaticImageData } from "next/image";
 import type { PillarItem } from '../../homeContentTypes';
 import { FeaturedPillarsSection } from '../../Organisms/FeaturedPillarsSection/FeaturedPillarsSection';
 import {
+  type HomeHeroCopy,
+  type HomeMissionCopy,
+  type HomeVisionCopy,
   DEFAULT_PORTRAIT_PLACEHOLDER,
   defaultHomeHero,
   defaultMission,
@@ -16,10 +19,10 @@ import styles from './HomePage.module.scss';
 export type HomePageProps = {
   portraitSrc?: string | StaticImageData;
   portraitAlt?: string;
-  hero?: typeof defaultHomeHero;
-  mission?: typeof defaultMission;
+  hero?: HomeHeroCopy;
+  mission?: HomeMissionCopy;
   pillars?: PillarItem[];
-  vision?: typeof defaultVision;
+  vision?: HomeVisionCopy;
 };
 
 export const HomePage = ({
@@ -65,5 +68,10 @@ export {
   defaultMission,
   defaultPillars,
   defaultVision,
+} from './homePageDefaults';
+export type {
+  HomeHeroCopy,
+  HomeMissionCopy,
+  HomeVisionCopy,
 } from './homePageDefaults';
 export type { PillarItem } from '../../homeContentTypes';

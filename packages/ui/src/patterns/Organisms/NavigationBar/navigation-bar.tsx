@@ -1,12 +1,15 @@
 import type { ReactNode } from 'react';
-import LogoImage from '../../Atoms/Branding/Logo/LogoImage';
+import { LogoImageClient } from '../../Atoms/Branding/Logo/LogoImageClient';
 import NavMenu, { type NavigationLinkItem } from '../../Molecules/NavigationMenu/navigation-menu';
 import { ThemeToggle } from '../../Molecules/ThemeToggle/ThemeToggle';
 import styles from './navigation-bar.module.scss';
 
 export interface NavigationBarProps {
   links: NavigationLinkItem[];
-  /** Optional logo slot for non-WordPress contexts (e.g. Storybook). */
+  /**
+   * Optional logo slot. When omitted, **`LogoImageClient`** (bundled mark; optional WP via
+   * `useWordPressLogo` on the client) — not async **`LogoImage`**, so Storybook and RSC layouts both work.
+   */
   logo?: ReactNode;
 }
 
@@ -14,7 +17,7 @@ const NavigationBar = ({ links, logo }: NavigationBarProps) => {
   return (
     <header className={styles.NavigationBar}>
       <div className={styles.NavigationBar__Logo}>
-        {logo ?? <LogoImage />}
+        {logo ?? <LogoImageClient width="100%" height="100%" />}
       </div>
       <nav className={styles.NavigationBar__Menu}>
         <NavMenu links={links} />

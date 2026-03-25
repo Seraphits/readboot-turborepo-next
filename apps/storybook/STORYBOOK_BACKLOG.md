@@ -74,7 +74,7 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 
 ### Tier C — Alternate shells
 
-- [x] **DocsHomePage** — `Templates/HomePage/DocsHomePage.stories.tsx` (fullscreen; docs defaults).
+- [x] **HomePage (docs bundle)** — `Templates/HomePage/HomePage.stories.tsx` → **`DocsLandingPreview`** (fullscreen; docs defaults).
 
 ### Tier D — Deferred / spike
 
@@ -95,7 +95,7 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 
 1. **Sprint 1:** Phase 1 + Button / BlogCard / NavigationMenu href.
 2. **Sprint 2:** Phase 2 **design-token stories** (system colors + pairing mixin labels + full Typography variants + Docs/MDX usage notes) — high impact for daily component work.
-3. **Sprint 3:** Phase 2 remainder (NavigationBar, ThemeToggle polish) + Phase 3 Tier A–D (Badge through BlogShowcase / DocsHomePage) — **complete** as of repo state (paths post–organism refactor: e.g. `Organisms/Footer/ConnectFooterSection`, `MissionProvocation`, …).
+3. **Sprint 3:** Phase 2 remainder (NavigationBar, ThemeToggle polish) + Phase 3 Tier A–D (Badge through BlogShowcase / HomePage docs story) — **complete** as of repo state (paths post–organism refactor: e.g. `Organisms/Footer/ConnectFooterSection`, `MissionProvocation`, …).
 4. **Phase 4** — **complete** (ESLint, mock consistency note, `storybook.mdc` server/WP guidance). **Next:** optional Phase 2e deferred guide or product backlog outside Storybook.
 
 ---

@@ -7,10 +7,18 @@
  */
 
 import type { PillarItem } from '../../homeContentTypes';
+import type { HomeHeroCopy, HomeMissionCopy, HomeVisionCopy } from './homePageDefaults';
 import { portraitPlaceholder } from "../../../assets/storybook/placeholders";
 
 /** Reuse shared portrait placeholder until you add a docs-specific asset. */
 export const DOCS_PORTRAIT_PLACEHOLDER = portraitPlaceholder;
+
+/** @deprecated Use `HomeHeroCopy` from the same template — kept for existing imports. */
+export type DocsHomeHeroCopy = HomeHeroCopy;
+/** @deprecated Use `HomeMissionCopy` */
+export type DocsMissionCopy = HomeMissionCopy;
+/** @deprecated Use `HomeVisionCopy` */
+export type DocsVisionCopy = HomeVisionCopy;
 
 /**
  * Portfolio primary link: production domain works for standalone docs deploys.
@@ -18,16 +26,7 @@ export const DOCS_PORTRAIT_PLACEHOLDER = portraitPlaceholder;
  */
 export const defaultDocsPortfolioOrigin = 'https://www.readboot.com/';
 
-export type DocsHomeHeroCopy = {
-  eyebrow: string;
-  headline: string;
-  subheadline: string;
-  intro: string;
-  primaryCta: { label: string; href: string };
-  secondaryCta: { label: string; href: string };
-};
-
-export const defaultDocsHomeHero: DocsHomeHeroCopy = {
+export const defaultDocsHomeHero: HomeHeroCopy = {
   eyebrow: 'Design Engineer // Documentation',
   headline: 'Nicole Trapp',
   subheadline: 'Design system, style guide, and pattern lab — in public.',
@@ -37,13 +36,7 @@ export const defaultDocsHomeHero: DocsHomeHeroCopy = {
   secondaryCta: { label: 'Jump to style guide', href: '/docs/style-guide/' },
 };
 
-export type DocsMissionCopy = {
-  title: string;
-  accentWord: string;
-  paragraphs: readonly string[];
-};
-
-export const defaultDocsMission: DocsMissionCopy = {
+export const defaultDocsMission: HomeMissionCopy = {
   title: 'Documentation as Part of the Product',
   accentWord: 'Documentation',
   paragraphs: [
@@ -79,13 +72,7 @@ export const defaultDocsPillars: PillarItem[] = [
   },
 ];
 
-export type DocsVisionCopy = {
-  title: string;
-  body: string;
-  generations: readonly string[];
-};
-
-export const defaultDocsVision: DocsVisionCopy = {
+export const defaultDocsVision: HomeVisionCopy = {
   title: 'Roadmap for this documentation site',
   body:
     'The rebuild pairs WordPress for long-form guidance, Storybook for live component truth, and `@repo/ui/patterns/globals.scss` so web and docs never fork the cascade. Sections below label where we are now versus what ships next — you’ll flesh out each chapter after the main portfolio pass.',

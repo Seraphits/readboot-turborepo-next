@@ -11,7 +11,7 @@
 [x] Introduced reusable docs components (SectionIntro, CodeExampleBlock, TokenCard) and adopted them across style-guide pages.
 [x] Web homepage: SplitHomeHero + mission/pillars/roadmap in `@repo/ui/templates` (`patterns/Templates/HomePage`); outline Button variant; placehold.co images; apps/web/HOMEPAGE_CONTENT.md (no glitch; rules-aligned).
 [x] ConnectFooterSection in web `app/layout.tsx` and docs `app/docs/layout.tsx` (shared `defaultConnect`); exported from @repo/ui/templates (`HomePage` template folder).
-[x] Docs landing at `/docs/`: `DocsHomePage` + `docsHomeDefaults` (style guide, patterns, engineering pillars; roadmap strip; portfolio CTA via `NEXT_PUBLIC_PORTFOLIO_ORIGIN`).
+[x] Docs landing at `/docs/`: single **`HomePage`** template + `docsHomeDefaults` (style guide, patterns, engineering pillars; roadmap strip; portfolio CTA via `NEXT_PUBLIC_PORTFOLIO_ORIGIN`). `DocsHomePage` component removed.
 [x] Storybook: sidebar rooted at `patterns/` (Atoms/Molecules/Organisms/Templates), removed `title` from story meta, ESLint `no-title-property-in-meta` in `@repo/ui`, Cursor rule `.cursor/rules/storybook.mdc`.
 [x] Storybook rule doc aligned with real `Atoms/` folders (Branding/Interactive/Spatial + DisplayAtoms/LayoutAtoms/EnvironmentalAtoms); BlogCard story uses bundled `/assets/storybook/blog-featured-placeholder.svg` (logo stays branding-only); `@repo/ui` lint clean (Container/HomePage/Button.stories fixes).
 [x] Solo portfolio CI: `.github/workflows/ci.yml` runs `pnpm lint`, `pnpm check-types`, `turbo build-storybook` on push/PR; Storybook `a11y.test: 'error'`; `storybook-static/` eslintignored; `stripUseClient` restored in Storybook `viteFinal`; web/docs lint (fonts rule, iconography quotes, turbo `NODE_ENV`).

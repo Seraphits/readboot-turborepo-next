@@ -1,4 +1,4 @@
-import { DocsHomePage, defaultDocsHomeHero } from "@repo/ui/templates";
+import { HomePage, defaultDocsHomeHero } from "@repo/ui/templates";
 import type { Metadata } from "next";
 
 const portfolioOrigin =
@@ -12,7 +12,8 @@ export const metadata: Metadata = {
 
 export default function DocsHome() {
   return (
-    <DocsHomePage
+    <HomePage
+      portraitAlt="Documentation portal placeholder"
       hero={{
         ...defaultDocsHomeHero,
         primaryCta: {

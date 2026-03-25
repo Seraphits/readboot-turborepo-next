@@ -6,7 +6,7 @@ Neutral **TypeScript-only** module at **`patterns/homeContentTypes/`** (`index.t
 
 Fields: **`title`**, **`tagline`**, **`summary`**, **`actionLabel`**, **`href`**.
 
-Used by **`FeaturedPillarsSection`** and by **`HomePage` / `DocsHomePage`** props (`pillars`). Default arrays live in **`homePageDefaults.ts`** and **`docsHomeDefaults.ts`**.
+Used by **`FeaturedPillarsSection`** and by **`HomePage`** props (`pillars`). Default arrays live in **`homePageDefaults.ts`** and **`docsHomeDefaults.ts`**.
 
 ## Import
 

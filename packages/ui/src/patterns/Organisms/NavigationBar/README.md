@@ -2,7 +2,9 @@
 
 **Layer:** Organism
 
-Site header: logo slot, **`NavigationMenu`**, optional **`ThemeToggle`**. **Server-friendly** by default (logo fetch stays server-side when using server logo patterns).
+Site header: logo slot, **`NavigationMenu`**, optional **`ThemeToggle`**.
+
+When **`logo`** is omitted, the bar renders **`LogoImageClient`** (bundled mark; optional **`useWordPressLogo`** for a client-side WP fetch). The async server **`LogoImage`** atom is not used here so **Storybook** and **Next.js** layouts behave consistently.
 
 ## Import
 
@@ -12,8 +14,8 @@ import { NavigationBar } from '@repo/ui/organisms';
 
 ## Usage
 
-- Pass **`menuItems`** with `href` + `label` (already transformed for the app — see `toWebHref` / `toDocsHref`).
-- **Logo** slot: optional; default behavior uses logo pipeline from `@repo/wp-utils` where applicable.
+- Pass **`links`** with `href` + `label` (already transformed for the app — see `toWebHref` / `toDocsHref`).
+- **`logo`**: optional React node to replace the default logo (e.g. Storybook experiments).
 
 ## Storybook
 
