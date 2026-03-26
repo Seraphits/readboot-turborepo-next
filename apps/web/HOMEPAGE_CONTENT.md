@@ -27,7 +27,7 @@ These are **defaults you can change** in one place: pass props to `<HomePage />`
 | **Pillar 2 link** | *Read on the blog* → `/blog/` | Capstone story fits long-form blog until you add a case-study slug. |
 | **Pillar 3 link** | *Open design docs* → `/docs/` | Describes the design-system / Turborepo lab. |
 | **Footer email** | `mailto:hello@example.com` | **Replace** with your real address before launch. |
-| **LinkedIn / GitHub** | Currently `https://www.linkedin.com/` and `https://github.com/` | **Replace** with your profile URLs (same pattern in `defaultConnect.links`). |
+| **LinkedIn / GitHub** | Currently `https://www.linkedin.com/in/futuristnicole/` and `https://github.com/Seraphits/readboot-turborepo-next` | **Replace** with your profile URLs (same pattern in `defaultConnect.links`). |
 | **Strauss-Howe copy** | Keep as-is for now | If you want a softer tone later, we can rephrase without the theory name. |
 | **Footer scope** | **Global** — `ConnectFooterSection` in **web** and **docs** root layouts | Edit `defaultConnect` in `homePageDefaults.ts` (or pass custom props in each `layout.tsx`) to change links/copy site-wide. |
 | **Copy ownership** | Repo defaults (`homePageDefaults.ts`) | Later: optional WordPress-driven blocks if editors need control without deploys. |

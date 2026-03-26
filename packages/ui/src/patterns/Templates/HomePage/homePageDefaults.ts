@@ -87,9 +87,8 @@ export const defaultVision = {
 export const defaultConnect = {
   title: 'Let’s Design for the Learner.',
   links: [
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/' },
-    { label: 'GitHub', href: 'https://github.com/' },
-    { label: 'Email', href: 'mailto:hello@example.com' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/futuristnicole/' },
+    { label: 'GitHub', href: 'https://github.com/Seraphits/readboot-turborepo-next' },
   ] as const,
   copyright: '© 2026 Nicole Trapp | Built with Next.js & Turborepo',
 } as const;
