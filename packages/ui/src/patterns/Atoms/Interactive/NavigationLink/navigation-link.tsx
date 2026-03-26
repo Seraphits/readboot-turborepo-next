@@ -7,6 +7,8 @@ import styles from './navigation-link.module.scss';
 interface NavigationLinkProps {
   href: string;
   children: React.ReactNode;
+  /** WP menu `target` (e.g. `_blank`); omit or null for same-tab. */
+  target?: string | null;
 }
 
 function normalizePath(path: string): string {
@@ -34,13 +36,16 @@ function isActivePath(currentPathname: string, rawHref: string): boolean {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-const NavigationLink = ({ href, children }: NavigationLinkProps) => {
+const NavigationLink = ({ href, children, target }: NavigationLinkProps) => {
   const pathname = usePathname();
   const isActive = isActivePath(pathname, href);
+  const openNewTab = target === '_blank';
 
   return (
     <Link
       href={href}
+      target={openNewTab ? '_blank' : undefined}
+      rel={openNewTab ? 'noopener noreferrer' : undefined}
       className={`${styles.NavigationLink} ${isActive? styles['NavigationLink--active'] : ''}`}
       aria-current={isActive? 'page' : undefined}
     >

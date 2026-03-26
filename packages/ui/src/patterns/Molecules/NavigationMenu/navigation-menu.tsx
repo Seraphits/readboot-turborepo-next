@@ -10,6 +10,8 @@ export interface NavigationLinkItem {
   href?: string;
   /** API returns url; component uses href ?? url */
   url?: string;
+  /** WPGraphQL menu `target` — pass through for new-tab links (`_blank`). */
+  target?: string | null;
   children?: NavigationLinkItem[];
 }
 
@@ -26,14 +28,18 @@ export default function NavigationMenu({ links }: NavigationMenuProps) {
     <ul className={styles.NavigationMenu__List}>
       {links.map((item) => (
         <li key={item.id ?? item.label} className={styles.NavigationMenu__Item}>
-          <NavigationLink href={getHref(item)}>{item.label}</NavigationLink>
+          <NavigationLink href={getHref(item)} target={item.target}>
+            {item.label}
+          </NavigationLink>
 
           {/* Recursive check for children */}
           {item.children && item.children.length > 0 && (
             <ul className={styles.NavigationMenu__SubList}>
               {item.children.map((child) => (
                 <li key={child.id ?? child.label} className={styles.NavigationMenu__SubItem}>
-                  <NavigationLink href={getHref(child)}>{child.label}</NavigationLink>
+                  <NavigationLink href={getHref(child)} target={child.target}>
+                    {child.label}
+                  </NavigationLink>
                 </li>
               ))}
             </ul>

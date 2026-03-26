@@ -23,7 +23,17 @@ export async function getMenuData(options: GetMenuDataOptions): Promise<NavItem[
 
   try {
     const data = (await getWordPressData(GET_MENU_QUERY, { location }, { revalidate })) as
-      | { menuItems?: { nodes?: Array<{ id: string; parentId: string | null; label: string; url?: string }> } }
+      | {
+          menuItems?: {
+            nodes?: Array<{
+              id: string;
+              parentId: string | null;
+              label: string;
+              url?: string;
+              target?: string | null;
+            }>;
+          };
+        }
       | undefined;
 
     const nodes = data?.menuItems?.nodes ?? [];
@@ -33,6 +43,7 @@ export async function getMenuData(options: GetMenuDataOptions): Promise<NavItem[
       parentId: item.parentId,
       label: item.label,
       href: transformHref ? transformHref(item.url ?? '') : (item.url ?? '#'),
+      target: item.target || null,
     }));
 
     return buildMenuTree(navItems);

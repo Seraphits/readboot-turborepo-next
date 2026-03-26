@@ -34,6 +34,7 @@ Active Context: ReadBoot Shared UI
 - Recent: **Storybook Phase 3a** — Stories: Badge, Container, SectionLayout, ColorSwatch; `Container.module.scss` class `.container` (was `.viewport-container`); `Badge` `ghost` variant styles.
 - Recent: **Storybook Phase 3b** — Stories: Hero (centered + split/asymmetrical/preview + media placeholder), Showcase (project/blog grids), ShowcaseTemplate, ConnectFooterSection (`defaultConnect` + custom).
 - Recent: **Storybook Phase 3c** — Tier B homepage sections: `SplitHomeHero`, `MissionProvocation` (accent + no-accent), `FeaturedPillarsSection` (three + single pillar), `VisionRoadmapSection` (defaults + longer timeline); `STORYBOOK_BACKLOG.md` Tier B checked.
+- Recent: **Menu link targets** — WPGraphQL `target` on menu items flows through `packages/wp-utils` (`getMenuData` → `NavItem`) into `NavigationMenu` / `NavigationLink`; `_blank` links get `rel="noopener noreferrer"`; `toWebHref` / `toDocsHref` stay at the data layer.
 
 ReadBoot Progress
 - [x] Turborepo boilerplate initialized.

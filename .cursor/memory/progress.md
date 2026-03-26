@@ -18,3 +18,4 @@
 [x] Atom taxonomy rename: `BrandingAtoms`→`Branding`, `InteractiveAtoms`→`Interactive`, `SpatialAtoms`→`Spatial`; `spacing/`→`Spacing/` under Spatial; all `@use`/imports and `@branding` aliases updated; web/docs/Storybook builds pass.
 [x] **Storybook backlog** — `apps/storybook/STORYBOOK_BACKLOG.md`: Phases 1–4 complete; Phase 2e standalone tokens guide **skipped by design** (docs on Primitives/Pairings/Typography instead). Entry point: `docs/BACKLOG.md`; GitHub: **Backlog item** issue template.
 [x] **Web blog UX** — Futurist Carton shell for blog index/category/post; `BlogCategoryNav` + `blogPage.ts` copy; removed duplicate category list vs `BlogShowcase`; boxed `ReadBootBand` CTA optional.
+[x] **WP nav link targets** — `GET_MENU_QUERY` + `getMenuData` map `target`; `NavItem` / `NavigationLinkItem` + `NavigationLink` apply `_blank` + `rel="noopener noreferrer"` (aligns with linking standards; href transform unchanged).

@@ -10,6 +10,7 @@ export const GET_MENU_QUERY = `
         parentId
         label
         url
+        target
       }
     }
   }
