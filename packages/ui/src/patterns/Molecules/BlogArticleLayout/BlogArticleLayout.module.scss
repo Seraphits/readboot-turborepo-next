@@ -1,0 +1,9 @@
+@use "../../Atoms/Spatial/Spacing/spacing-variables" as space;
+
+.root {
+  width: 100%;
+  max-width: 65ch;
+  margin-inline: auto;
+  padding-inline: space.$space-md;
+  padding-bottom: space.$space-2xl;
+}

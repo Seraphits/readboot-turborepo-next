@@ -1,48 +1,46 @@
-import Link from 'next/link';
-import { getMainBlogContent, Category, Post } from '@repo/wp-utils';
-import { BlogShowcase } from '@repo/ui/organisms';
+import type { Metadata } from 'next';
+import { BlogCategoryNav } from '@repo/ui/molecules';
+import { BlogShowcase, ReadBootBand } from '@repo/ui/organisms';
+import { ShowcaseTemplate } from '@repo/ui/templates';
+import { getMainBlogContent, type Category } from '@repo/wp-utils';
+import { blogPageCopy } from '../../content/blogPage';
 
 export const dynamic = 'force-dynamic';
 
+export const metadata: Metadata = {
+  title: `${blogPageCopy.indexTitle} | ReadBoot`,
+  description: blogPageCopy.indexDescription,
+};
+
 export default async function BlogPage() {
-  // Categories is explicitly typed to resolve the 'any' errors
   const categories: Category[] = await getMainBlogContent();
+  const categoryNavItems = categories.map((c) => ({ slug: c.slug, name: c.name }));
 
   return (
-    <main>
-      <h1>Blog</h1>
-      <nav>
-        <Link href="/blog">All</Link>
-        {categories.map((cat: Category) => (
-          <Link key={cat.slug} href={`/blog/category/${cat.slug}`}>
-            {cat.name}
-          </Link>
-        ))}
-      </nav>
-      <div>
-        {categories.length > 0 ? (
-          categories.map((category: Category) => (
-            <section key={category.slug}>
-              <h2>{category.name}</h2>
-              <div>
-                {category.posts.nodes.map((post: Post) => (
-                  <article key={post.id}>
-                    <Link href={`/blog/post/${post.slug}`}>
-                      <h3>{post.title}</h3>
-                      <time dateTime={post.date}>
-                        {new Date(post.date).toLocaleDateString()}
-                      </time>
-                    </Link>
-                  </article>
-                ))}
-              </div>
-            </section>
-          ))
-        ) : (
-          <p>No blog posts found.</p>
-        )}
-      </div>
-      <BlogShowcase limit={10} orderBy="DATE" order="DESC" />
-    </main>
+    <ShowcaseTemplate
+      headerSlot={
+        <ReadBootBand
+          surface="boxed"
+          title={blogPageCopy.indexTitle}
+          subhead={blogPageCopy.bandSubhead}
+          layout="centered"
+        />
+      }
+      mainSlot={
+        <>
+          <BlogCategoryNav
+            categories={categoryNavItems}
+            allLabel={blogPageCopy.allCategoriesLabel}
+            ariaLabel={blogPageCopy.categoryNavAriaLabel}
+          />
+          <BlogShowcase
+            limit={24}
+            orderBy="DATE"
+            order="DESC"
+            sectionTitle={blogPageCopy.latestSectionTitle}
+          />
+        </>
+      }
+    />
   );
 }

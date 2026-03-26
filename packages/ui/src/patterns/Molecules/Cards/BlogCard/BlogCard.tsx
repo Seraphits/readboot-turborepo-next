@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Post } from '@repo/wp-utils';
+import { blogCardDefaults } from './blogCardDefaults';
 import styles from './BlogCard.module.scss';
 
 export const BlogCard = ({ post }: { post: Post }) => {
@@ -20,7 +21,7 @@ export const BlogCard = ({ post }: { post: Post }) => {
         <h3>{post.title}</h3>
         <div dangerouslySetInnerHTML={{ __html: post.excerpt ?? '' }} />
         <Link href={`/blog/post/${post.slug}`} className={styles.card__link}>
-          Read More →
+          {blogCardDefaults.readMoreLabel}
         </Link>
       </div>
     </article>

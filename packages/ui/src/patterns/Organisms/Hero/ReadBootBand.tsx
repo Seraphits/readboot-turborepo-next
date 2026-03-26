@@ -23,6 +23,7 @@ type BoxedFields<T extends ElementType = 'section'> = {
   layout?: BoxedFeatureHeroLayoutVariant;
   title: string;
   subhead?: string;
+  /** When set, renders the boxed band CTA button. Omit to hide the CTA (e.g. portfolio / blog shells). */
   ctaText?: string;
   imageNode?: ReactNode;
 };
@@ -55,7 +56,7 @@ function BoxedBand<T extends ElementType = 'section'>({
   layout = 'centered',
   title,
   subhead,
-  ctaText = 'Get Started',
+  ctaText,
   imageNode,
   ...props
 }: BoxedBandProps<T> & Omit<React.ComponentPropsWithoutRef<T>, keyof BoxedBandProps<T>>) {
@@ -69,9 +70,11 @@ function BoxedBand<T extends ElementType = 'section'>({
             {title}
           </h1>
           {subhead && <p className={boxedStyles.subheadline}>{subhead}</p>}
-          <Button variant="action-on-light" className={boxedStyles.bouncyCta}>
-            {ctaText}
-          </Button>
+          {ctaText ? (
+            <Button variant="action-on-light" className={boxedStyles.bouncyCta}>
+              {ctaText}
+            </Button>
+          ) : null}
         </div>
 
         {layout !== 'centered' && (
