@@ -1,11 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import {
-  defaultDocsHomeHero,
-  defaultDocsMission,
-  defaultDocsPillars,
-  defaultDocsVision,
-  DOCS_PORTRAIT_PLACEHOLDER,
-} from './docsHomeDefaults';
 import { HomePage } from './HomePage';
 
 const meta: Meta<typeof HomePage> = {
@@ -21,7 +14,7 @@ export const PortfolioPreview: StoryObj<typeof HomePage> = {
   render: () => <HomePage />,
 };
 
-/** Docs app defaults — same `HomePage` template, docs copy bundle. */
+/** Docs app defaults — same `HomePage` template, docs copy bundle. Import from `./docsHomeDefaults` before uncommenting. */
 // export const DocsLandingPreview: StoryObj<typeof HomePage> = {
 //   render: () => (
 //     <HomePage
