@@ -36,4 +36,8 @@ vercel alias set <your-main-app-deployment-url>.vercel.app readboot.com
 - https://readboot.com/docs/
 - https://readboot.com/storybook/
 
-If you see **ERR_TOO_MANY_REDIRECTS**, check **www vs apex** (single canonical) and that **docs/storybook** projects do **not** have `readboot.com` as a domain.
+If you see **ERR_TOO_MANY_REDIRECTS**:
+
+1. **www vs apex** — In the **web** project → **Settings → Domains**, pick **one** canonical host (`readboot.com` **or** `www.readboot.com`) and set the other to **redirect to it** exactly once. If both try to redirect to each other, the browser loops (`www` ↔ apex).
+2. **Storybook/docs projects** — Do **not** attach `readboot.com` / `www` to the docs or Storybook Vercel projects; only the **web** project should serve the custom domain.
+3. Redeploy **web** after changing `next.config.mts` or `vercel.json`.

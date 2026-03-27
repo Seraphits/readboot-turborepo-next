@@ -11,6 +11,18 @@
       "headers": [
         { "key": "x-vercel-enable-rewrite-caching", "value": "1" }
       ]
+    },
+    {
+      "source": "/storybook",
+      "headers": [
+        { "key": "x-vercel-enable-rewrite-caching", "value": "1" }
+      ]
+    },
+    {
+      "source": "/storybook/:path*",
+      "headers": [
+        { "key": "x-vercel-enable-rewrite-caching", "value": "1" }
+      ]
     }
   ]
 }
