@@ -10,7 +10,7 @@ pnpm --filter storybook dev
 pnpm --filter storybook dev:clean
 ```
 
-- **URL:** Open [http://localhost:6006](http://localhost:6006) (or `http://localhost:6006/` with a trailing slash).
+- **URL:** Open [http://localhost:6006/storybook/](http://localhost:6006/storybook/) (Vite `base` is `/storybook/` so the workshop lives under that path).
 - **If the preview spins or iframe.html 404s:** Use URLs that end with a trailing slash; or upgrade Storybook to 10.3+ if the path regression persists. Run `pnpm clean:nuclear:full` from the repo root if caches are poisoned.
 
 ## Getting Started

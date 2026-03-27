@@ -24,6 +24,12 @@ function stripUseClient() {
 
 const patternsRoot = path.join(packagesUiSrc, 'patterns');
 
+/** Served at readboot.com/storybook via web rewrites + Vercel microfrontends. Set STORYBOOK_BASE_PATH="" for root (e.g. local quick dev). */
+const storybookBase =
+  process.env.STORYBOOK_BASE_PATH !== undefined
+    ? process.env.STORYBOOK_BASE_PATH || '/'
+    : '/storybook/';
+
 const config: StorybookConfig = {
   /** Sidebar mirrors `packages/ui/src/patterns` (Atoms, Molecules, Organisms, Templates). */
   stories: [
@@ -56,6 +62,7 @@ const config: StorybookConfig = {
     const packagesUiSrc = path.join(projectRoot, 'packages/ui/src');
 
     return mergeConfig(config, {
+      base: storybookBase,
       plugins: [
         ...(config.plugins ?? []),
         stripUseClient(),
