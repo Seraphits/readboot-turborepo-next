@@ -11,7 +11,8 @@
     "start": "next start",
     "lint": "eslint --max-warnings 0",
     "storybook": "storybook dev -p 6006 --host localhost",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "vercel:ignore-storybook": "cd ../.. && npx turbo-ignore storybook"
   },
   "dependencies": {
     "@repo/ui": "workspace:*",
