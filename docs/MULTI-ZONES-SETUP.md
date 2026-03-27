@@ -1,22 +1,23 @@
-# Multi-Zones Setup: readboot.com/docs and readboot.com/storybook
+# Multi-zone routing: readboot.com/docs and readboot.com/storybook
 
-This project uses **Vercel Microfrontends** to serve docs at readboot.com/docs and Storybook at readboot.com/storybook.
+The **web** app (`apps/web`) owns **`readboot.com`**. It uses **`next.config.mts` rewrites** to proxy `/docs` and `/storybook` to the **docs** and **storybook** Vercel deployments (`*.vercel.app`). This works on **Vercel Hobby** without the **Microfrontends dashboard group** (that feature has a low project limit on free tiers).
+
+`apps/web/microfrontends.json` remains as a **reference** for path routing; routing is implemented by **rewrites in code**, not by grouping projects in the dashboard.
 
 ## Prerequisites
 
-1. **Microfrontends group**: In Vercel Dashboard → Settings → Microfrontends, create a group and add **`readboot-turborepo-next` (default)**, **`readboot-turborepo-next-docs`**, and **`readboot-turborepo-next-storybook`** (see `apps/web/microfrontends.json` routing).
-2. **Root directories**: Main app = `apps/web`, Docs app = `apps/docs`, Storybook app = `apps/storybook`.
-3. **Storybook static + subpath**: Storybook is built with Vite `base: /storybook/` so asset URLs resolve under `/storybook/`. The Storybook Vercel project includes **`apps/storybook/vercel.json`** rewrites (`/storybook/:path*` → `/:path*`) so files emitted at the build root still load when the browser requests `/storybook/...` on that deployment.
-4. **Web app rewrites**: `apps/web/next.config.mts` proxies `/storybook/` to `STORYBOOK_DEPLOYMENT_URL` (default `https://readboot-turborepo-next-storybook.vercel.app`) with the **`/storybook/`** prefix preserved on the destination, matching the static build.
+1. **Domains:** `readboot.com` (and `www` if used) are attached only to the **web** project — not to docs or storybook.
+2. **Root directories:** Web = `apps/web`, Docs = `apps/docs`, Storybook = `apps/storybook`.
+3. **Storybook subpath:** Storybook is built with Vite `base: /storybook/`. The Storybook project includes **`apps/storybook/vercel.json`** so `/storybook/*` maps to static files at the build root.
+4. **Web rewrites:** `apps/web/next.config.mts` proxies to `STORYBOOK_DEPLOYMENT_URL` / docs URLs (see file for defaults).
 
 ## What's configured
 
-- **apps/web/microfrontends.json**: Routes `/docs` and `/docs/*` to the docs app; `/storybook` and `/storybook/:path*` to the Storybook app. Must only exist in the default (web) app.
-- **apps/docs**: All routes live under `app/docs/` so they match the `/docs` path.
-- **apps/docs/package.json**: Build script sets `VC_MICROFRONTENDS_CONFIG_FILE_NAME=../web/microfrontends.json` so the docs app can find the config when building.
-- **apps/storybook**: Vite `base` is `/storybook/` by default (override with `STORYBOOK_BASE_PATH`). Dev URL: `http://localhost:6006/storybook/`.
+- **apps/web/next.config.mts** — `rewrites()` for `/docs/`, `/storybook/`, and `/vc-ap-*` (docs assets when applicable).
+- **apps/docs** — Routes under `app/docs/` for `/docs`.
+- **apps/storybook** — Dev URL: `http://localhost:6006/storybook/`.
 
-## Phase 3: Zero-Downtime Domain Migration
+## Domain migration (shell)
 
 ### 1. Alias the domain (Vercel CLI)
 
@@ -24,14 +25,15 @@ This project uses **Vercel Microfrontends** to serve docs at readboot.com/docs a
 vercel alias set <your-main-app-deployment-url>.vercel.app readboot.com
 ```
 
-Replace `<your-main-app-deployment-url>` with the production URL of readboot-turborepo-next (e.g. `readboot-turborepo-next.vercel.app`).
+### 2. Dashboard
 
-### 2. Update dashboard settings
-
-1. Go to your **old project** settings and remove `readboot.com` from Domains.
-2. Go to **readboot-turborepo-next** project settings → Domains → add `readboot.com`.
-3. Vercel will recognize the existing configuration; the transition should be instantaneous.
+1. Remove `readboot.com` from any **non-web** project if it was added by mistake.
+2. On the **web** project → Domains → add `readboot.com` / `www` as needed.
+3. **Redirect:** In Vercel Domains, set **either** apex **or** `www` as primary and redirect the other **once** (avoid conflicting redirect rules).
 
 ### 3. Verify
 
-Visit https://readboot.com/docs to confirm the docs are served correctly.
+- https://readboot.com/docs/
+- https://readboot.com/storybook/
+
+If you see **ERR_TOO_MANY_REDIRECTS**, check **www vs apex** (single canonical) and that **docs/storybook** projects do **not** have `readboot.com` as a domain.

@@ -1,7 +1,6 @@
 import type { NextConfig } from "next";
 import path from "node:path"; // The 'node:' prefix is best practice for ESM
 import { fileURLToPath } from "node:url";
-import { withMicrofrontends } from '@vercel/microfrontends/next/config';
 
 // Polyfill __dirname for ESM context
 const __filename = fileURLToPath(import.meta.url);
@@ -22,7 +21,7 @@ const nextConfig: NextConfig = {
     return [
       { source: '/docs/', destination: `${docsUrl}/docs/` },
       { source: '/docs/:path*/', destination: `${docsUrl}/docs/:path*/` },
-      // Docs app assets (withMicrofrontends adds /vc-ap-* prefix)
+      // Docs app asset paths (may use /vc-ap-* when deployed with @vercel/microfrontends on the docs app)
       { source: '/vc-ap-:hash/:rest*/', destination: `${docsUrl}/vc-ap-:hash/:rest*` },
       // Storybook static app (must match Storybook Vite `base: /storybook/` — destination keeps /storybook prefix)
       { source: '/storybook/', destination: `${storybookUrl}/storybook/` },
@@ -55,4 +54,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default withMicrofrontends(nextConfig);
+export default nextConfig;
