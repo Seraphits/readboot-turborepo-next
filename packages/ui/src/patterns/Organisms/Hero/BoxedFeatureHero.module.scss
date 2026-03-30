@@ -5,6 +5,7 @@
 /* Boxed feature hero: rule wraps the whole module (newspaper “boxed” / inset). */
 .heroRoot {
   // Pass-through wrapper; SectionLayout provides grid and border
+  margin: 1rem;
 }
 
 .heroContent {

@@ -25,14 +25,12 @@ export const Showcase = ({ items, type, title, className }: ShowcaseProps) => {
           <Typography variant="h2">{title}</Typography>
         </header>
       )}
-<SectionLayout variant="showcase" className={styles.showcase__items}>
-
+    <SectionLayout variant="showcase" className={styles.showcase__items}>
         {items.map((item) =>  (
           type === 'project'
            ? <ProjectCard key={item.id} project={item as Project} />
             : <BlogCard key={item.id} post={item as Post} />
         ))}
-
        </SectionLayout>
     </SectionLayout>
   );

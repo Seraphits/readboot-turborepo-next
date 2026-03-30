@@ -8,7 +8,11 @@
   width: 100%;
 
   // Variant: Centered (Standard page content)
+  // Must define a single "content" area so children using `grid-area: content` (e.g. boxed hero
+  // copy) span the full width. Without this, named placement can leave an empty implicit column.
   &--centered {
+    grid-template-columns: 1fr;
+    grid-template-areas: "content";
     justify-items: center;
     text-align: center;
   }
