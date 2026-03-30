@@ -39,4 +39,16 @@
     border-radius: geom.$sys-geom-radius-main; // 12px token
     padding: space.$space-xl;
   }
+  &--showcase {
+    // background: red;
+    padding: 1rem;
+    //  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr  ; /* 3 equal columns */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 350px));
+    // grid-auto-rows: 350px;
+    justify-items: 100%;
+    align-items: 100%;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+  }
 }

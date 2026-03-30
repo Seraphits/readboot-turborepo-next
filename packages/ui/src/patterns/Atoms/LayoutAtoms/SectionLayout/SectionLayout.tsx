@@ -10,7 +10,8 @@ export type SectionLayoutVariant =
 | 'preview'
 | 'newspaper'
 | 'stack'
-| 'grid';
+| 'grid'
+| 'showcase'; // Added 'showcase' variant
 
 interface SectionLayoutProps {
   as?: ElementType;

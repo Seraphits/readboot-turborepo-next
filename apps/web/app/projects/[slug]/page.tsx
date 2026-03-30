@@ -1,5 +1,5 @@
-import { BlogShowcase } from '@repo/ui/organisms';
-import { getProjectBySlug, WPContent } from '@repo/wp-utils';
+import { Showcase } from '@repo/ui/organisms';
+import { getPosts, getProjectBySlug, WPContent } from '@repo/wp-utils';
 import { notFound } from 'next/navigation';
 
 export const dynamic = 'force-dynamic';
@@ -14,6 +14,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   if (!project) notFound();
 
   const linkedCategory = project.projectIntelligence?.linkedBlogCategory?.slug;
+  const relatedPosts = await getPosts({
+    categorySlug: linkedCategory,
+    limit: 3,
+    orderBy: 'DATE',
+    order: 'DESC',
+  });
 
   return (
     <main className="project-detail-container">
@@ -30,11 +36,10 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <li><strong>Link:</strong> {project.projectIntelligence.liveProjectLink}</li>
           </ul>
         )}
-        <BlogShowcase
-          categorySlug={linkedCategory}
-          limit={3}
-          orderBy="DATE"
-          sectionTitle="Related Insights"
+        <Showcase
+          type="blog"
+          items={relatedPosts}
+          title="Related Insights"
         />
       </section>
 

@@ -15,7 +15,6 @@ export type {
   FullBleedHeroProps,
 } from './Hero/ReadBootBand';
 export { Showcase } from './Showcase/Showcase';
-export { BlogShowcase } from './BlogShowcase/BlogShowcase';
 export { ConnectFooterSection } from './Footer/ConnectFooterSection';
 export type { ConnectFooterSectionProps, ConnectLink } from './Footer/ConnectFooterSection';
 export { MissionProvocation } from './MissionProvocation/MissionProvocation';

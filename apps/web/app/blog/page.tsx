@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { BlogCategoryNav } from '@repo/ui/molecules';
-import { BlogShowcase, ReadBootBand } from '@repo/ui/organisms';
+import { ReadBootBand, Showcase } from '@repo/ui/organisms';
 import { ShowcaseTemplate } from '@repo/ui/templates';
-import { getMainBlogContent, type Category } from '@repo/wp-utils';
+import { getMainBlogContent, getPosts, type Category } from '@repo/wp-utils';
 import { blogPageCopy } from '../../content/blogPage';
 
 export const dynamic = 'force-dynamic';
@@ -13,7 +13,10 @@ export const metadata: Metadata = {
 };
 
 export default async function BlogPage() {
-  const categories: Category[] = await getMainBlogContent();
+  const [categories, posts] = await Promise.all([
+    getMainBlogContent(),
+    getPosts({ limit: 24, orderBy: 'DATE', order: 'DESC' }),
+  ]);
   const categoryNavItems = categories.map((c) => ({ slug: c.slug, name: c.name }));
 
   return (
@@ -33,11 +36,10 @@ export default async function BlogPage() {
             allLabel={blogPageCopy.allCategoriesLabel}
             ariaLabel={blogPageCopy.categoryNavAriaLabel}
           />
-          <BlogShowcase
-            limit={24}
-            orderBy="DATE"
-            order="DESC"
-            sectionTitle={blogPageCopy.latestSectionTitle}
+          <Showcase
+            type="blog"
+            items={posts}
+            title={blogPageCopy.latestSectionTitle}
           />
         </>
       }
