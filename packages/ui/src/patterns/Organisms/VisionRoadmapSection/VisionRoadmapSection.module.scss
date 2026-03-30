@@ -70,7 +70,7 @@
   @media (min-width: 640px) {
     display: block;
     position: absolute;
-    top: calc(space.$space-lg + 0.5rem);
+    top: calc(#{space.$space-lg} + #{space.$space-sm});
     left: 8%;
     right: 8%;
     height: geom.$sys-geom-border-main;

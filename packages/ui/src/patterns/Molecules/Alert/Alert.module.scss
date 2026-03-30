@@ -1,11 +1,12 @@
 @use "../../Atoms/Branding/Colors/colors-mixins" as colors;
 @use "../../Atoms/Branding/Typography/fonts-variables" as fonts;
+@use "../../Atoms/Spatial/Spacing/spacing-variables" as space;
 
 .banner {
   font-family: fonts.$sys-font-headline; // Baloo 2
   font-weight: 700;
   text-align: center;
-  padding: 0.75rem 1rem;
+  padding: space.$space-md space.$space-lg;
   font-size: 0.9rem;
   width: 100%;
   display: block;
@@ -16,13 +17,13 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em; // Slightly wider for that "Header" feel
-  margin-right: 4px;      // Gives the lowercase "explanation" some breathing room
+  margin-right: space.$space-xs;
 }
 
   // Optional: A little extra "bounce" for the emojis to match your brand
   span[role="img"], .emoji {
     display: inline-block;
-    padding: 0 0.2rem;
+    padding: 0 space.$space-xs;
     vertical-align: middle;
   }
 }

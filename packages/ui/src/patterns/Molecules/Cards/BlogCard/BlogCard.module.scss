@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "../../../Atoms/Spatial/Spacing/spacing-variables" as space;
+@use "../../../Atoms/Spatial/geometric/geometric-variables" as geom;
 @use "../../../Atoms/Branding/Colors/colors-variables" as vars;
 @use "../../../Atoms/Branding/Typography/fonts-variables" as fonts;
 
@@ -5,11 +8,13 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: geom.$sys-geom-radius-main;
+  transition:
+    transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    box-shadow 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
   background: vars.$sys-color-paper-light-bg;
-  border: 1px solid vars.$sys-color-dark-border;
+  border: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
 
   [data-theme='dark'] & {
     background: vars.$sys-color-paper-dark-bg;
@@ -17,8 +22,9 @@
   }
 
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(calc(-1 * #{space.$space-xs}));
+    box-shadow: 0 space.$space-md space.$space-lg
+      color.change(vars.$sys-color-ink-dark-text, $alpha: 0.1);
   }
 
   &__imageWrapper {
@@ -28,10 +34,10 @@
   }
 
   &__content {
-    padding: 1.5rem;
+    padding: space.$space-xl;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: space.$space-md;
 
     h3 {
       font-family: fonts.$sys-font-headline;

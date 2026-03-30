@@ -1,18 +1,19 @@
 @use "sass:color";
 @use "../../Atoms/Branding/Colors/colors-variables" as vars;
 @use "../../Atoms/Branding/Typography/fonts-variables" as fonts;
+@use "../../Atoms/Spatial/Spacing/spacing-variables" as space;
 
 .NavigationMenu {
   &__List {
     display: flex;
     list-style: none;
-    gap: 2rem;
+    gap: space.$space-2xl;
     align-items: center;
   }
 
   &__Item {
     position: relative;
-    padding: 0.5rem 0;
+    padding: space.$space-sm 0;
 
     a {
       text-decoration: none;
@@ -38,19 +39,20 @@
     min-width: 220px;
     background: vars.$sys-color-paper-light-bg;
     border: 1px solid vars.$sys-color-dark-border;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    padding: 0.5rem 0;
+    box-shadow: 0 space.$space-md space.$space-lg calc(-1 * #{space.$space-xs})
+      color.change(vars.$sys-color-ink-dark-text, $alpha: 0.1);
+    padding: space.$space-sm 0;
     list-style: none;
     z-index: 50;
 
     opacity: 0;
     visibility: hidden;
-    transform: translateY(10px);
+    transform: translateY(space.$space-md);
     transition: all 0.2s ease-in-out;
   }
 
   &__SubItem {
-    padding: 0.75rem 1.25rem;
+    padding: space.$space-md calc(#{space.$space-lg} + #{space.$space-xs});
     white-space: nowrap;
 
     &:hover {

@@ -1,5 +1,6 @@
 @use "../../Atoms/Branding/Colors/colors-variables" as vars;
 @use "../../Atoms/Spatial/Spacing/spacing-variables" as space;
+@use "../../Atoms/Spatial/geometric/geometric-variables" as geom;
 
 .root {
   display: flex;
@@ -8,7 +9,7 @@
   gap: space.$space-sm space.$space-md;
   justify-content: center;
   padding: space.$space-md 0 space.$space-lg;
-  border-bottom: 4px solid vars.$sys-color-dark-border;
+  border-bottom: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
 
   [data-theme='dark'] & {
     border-bottom-color: vars.$sys-color-light-border;
@@ -21,8 +22,8 @@
   font-size: 1rem;
   font-weight: 500;
   text-decoration: none;
-  padding: 0.35rem 0.5rem;
-  border-radius: 8px;
+  padding: space.$space-xs space.$space-sm;
+  border-radius: space.$space-sm;
   transition: color 0.2s ease, background-color 0.2s ease;
 
   &:hover,
@@ -44,10 +45,10 @@
 .linkActive {
   color: vars.$sys-color-action-primary;
   font-weight: 700;
-  box-shadow: inset 0 -3px 0 0 vars.$sys-color-action-primary;
+  box-shadow: inset 0 calc(-0.75 * #{space.$space-xs}) 0 0 vars.$sys-color-action-primary;
 
   [data-theme='dark'] & {
     color: vars.$sys-color-action-on-dark;
-    box-shadow: inset 0 -3px 0 0 vars.$sys-color-action-on-dark;
+    box-shadow: inset 0 calc(-0.75 * #{space.$space-xs}) 0 0 vars.$sys-color-action-on-dark;
   }
 }
