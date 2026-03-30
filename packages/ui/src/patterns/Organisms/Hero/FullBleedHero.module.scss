@@ -2,6 +2,7 @@
 @use "../../Atoms/Branding/Colors/colors-variables" as vars;
 @use "../../Atoms/Branding/Typography/fonts-variables" as fonts;
 @use "../../Atoms/Spatial/geometric/geometric-variables" as geom;
+@use "../../Atoms/Spatial/Layout/layout-variables" as layout;
 
 /* Full-bleed hero: no outer rule on the module — portrait + lead on newsprint (newspaper open layout). */
 
@@ -11,11 +12,11 @@
   gap: space.$space-xl;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
+  max-width: layout.$ref-layout-max-site;
   margin: 0 auto;
   padding: space.$space-xl space.$space-lg;
 
-  @media (max-width: 900px) {
+  @media (max-width: layout.$ref-breakpoint-md) {
     grid-template-columns: 1fr;
   }
 }
@@ -23,7 +24,7 @@
 .portraitFrame {
   position: relative;
   width: 100%;
-  max-width: 400px;
+  max-width: layout.$ref-layout-max-portrait;
   margin: 0 auto;
   border: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
   border-radius: geom.$sys-geom-radius-main;

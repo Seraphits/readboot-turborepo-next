@@ -2,6 +2,8 @@
 @use "../../Atoms/Spatial/geometric/geometric-variables" as geom;
 @use "../../Atoms/Branding/Colors/colors-variables" as vars;
 @use "../../Atoms/Branding/Typography/fonts-variables" as fonts;
+@use "../../Atoms/Branding/Motion/motion-variables" as motion;
+@use "../../Atoms/Spatial/Layout/layout-variables" as layout;
 
 /* Boxed feature hero: rule wraps the whole module (newspaper “boxed” / inset). */
 .heroRoot {
@@ -24,14 +26,14 @@
 .subheadline {
   font-family: fonts.$sys-font-body;
   font-size: 1.25rem;
-  max-width: 600px;
+  max-width: layout.$ref-layout-max-subhead;
   margin: space.$space-xl auto;
   text-align: center;
 }
 
 .bouncyCta {
   margin-top: space.$space-2xl;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform motion.$ref-duration-normal motion.$ref-ease-bouncy;
 
   &:hover {
     transform: scale(1.05);
@@ -41,7 +43,7 @@
 .mediaSlot {
   grid-area: media;
   width: 100%;
-  min-height: 400px;
+  min-height: layout.$ref-layout-max-portrait;
   background: vars.$sys-color-paper-light-bg;
   border: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
   border-radius: geom.$sys-geom-radius-main;

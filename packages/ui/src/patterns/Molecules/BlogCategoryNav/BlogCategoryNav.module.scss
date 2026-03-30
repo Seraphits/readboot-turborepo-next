@@ -1,6 +1,7 @@
 @use "../../Atoms/Branding/Colors/colors-variables" as vars;
 @use "../../Atoms/Spatial/Spacing/spacing-variables" as space;
 @use "../../Atoms/Spatial/geometric/geometric-variables" as geom;
+@use "../../Atoms/Branding/Motion/motion-variables" as motion;
 
 .root {
   display: flex;
@@ -24,7 +25,9 @@
   text-decoration: none;
   padding: space.$space-xs space.$space-sm;
   border-radius: space.$space-sm;
-  transition: color 0.2s ease, background-color 0.2s ease;
+  transition:
+    color motion.$ref-duration-fast motion.$ref-ease-standard,
+    background-color motion.$ref-duration-fast motion.$ref-ease-standard;
 
   &:hover,
   &:focus-visible {

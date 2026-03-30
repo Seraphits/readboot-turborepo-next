@@ -2,6 +2,7 @@
 @use "../../Atoms/Branding/Colors/colors-variables" as vars;
 @use "../../Atoms/Branding/Typography/fonts-variables" as fonts;
 @use "../../Atoms/Spatial/geometric/geometric-variables" as geom;
+@use "../../Atoms/Spatial/Layout/layout-variables" as layout;
 
 .root {
   width: 100%;
@@ -14,7 +15,7 @@
 }
 
 .inner {
-  max-width: 960px;
+  max-width: layout.$ref-layout-max-section;
   margin: 0 auto;
   border: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
   border-radius: geom.$sys-geom-radius-main;
@@ -47,13 +48,13 @@
 .columns {
   column-count: 2;
   column-gap: space.$space-xl;
-  column-rule: 1px dashed vars.$sys-color-dark-border;
+  column-rule: geom.$sys-geom-border-hairline dashed vars.$sys-color-dark-border;
 
   [data-theme='dark'] & {
     column-rule-color: vars.$sys-color-light-border;
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: layout.$ref-breakpoint-sm) {
     column-count: 1;
     column-rule: none;
   }

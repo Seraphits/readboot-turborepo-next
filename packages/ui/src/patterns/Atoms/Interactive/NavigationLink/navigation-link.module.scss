@@ -1,10 +1,11 @@
 @use "../../Branding/Colors/colors-variables" as vars;
 @use "../../Spatial/Spacing/spacing-variables" as space;
+@use "../../Branding/Motion/motion-variables" as motion;
 
 .NavigationLink {
   color: vars.$sys-color-ink-dark-text;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all motion.$ref-duration-normal motion.$ref-ease-standard;
   padding: space.$space-sm space.$space-lg;
   display: inline-block;
   position: relative;

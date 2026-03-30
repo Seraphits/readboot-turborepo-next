@@ -28,7 +28,7 @@
     display: block;
     column-count: 2;
     column-gap: space.$space-lg;
-    column-rule: 1px dashed vars.$sys-color-ink-dark-text;
+    column-rule: geom.$sys-geom-border-hairline dashed vars.$sys-color-ink-dark-text;
   }
 
   // Variant: Split (Side-by-side Hero assets)

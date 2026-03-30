@@ -2,6 +2,8 @@
 @use "../../Atoms/Branding/Colors/colors-variables" as vars;
 @use "../../Atoms/Branding/Typography/fonts-variables" as fonts;
 @use "../../Atoms/Spatial/geometric/geometric-variables" as geom;
+@use "../../Atoms/Branding/Motion/motion-variables" as motion;
+@use "../../Atoms/Spatial/Layout/layout-variables" as layout;
 
 .root {
   width: 100%;
@@ -14,7 +16,7 @@
 }
 
 .inner {
-  max-width: 1200px;
+  max-width: layout.$ref-layout-max-site;
   margin: 0 auto;
 }
 
@@ -35,7 +37,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: space.$space-lg;
 
-  @media (max-width: 960px) {
+  @media (max-width: layout.$ref-breakpoint-lg) {
     grid-template-columns: 1fr;
   }
 }
@@ -47,7 +49,7 @@
   border-radius: geom.$sys-geom-radius-main;
   overflow: hidden;
   background: vars.$sys-color-paper-light-bg;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform motion.$ref-duration-normal motion.$ref-ease-bouncy;
 
   [data-theme='dark'] & {
     border-color: vars.$sys-color-light-border;
@@ -126,7 +128,7 @@
   text-decoration: none;
   color: vars.$sys-color-ink-dark-text;
   align-self: flex-start;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform motion.$ref-duration-normal motion.$ref-ease-bouncy;
 
   [data-theme='dark'] & {
     color: vars.$sys-color-ink-light-text;

@@ -1,6 +1,7 @@
 @use "../../Spatial/geometric/geometric-variables" as geom;
 @use "../../Branding/Colors/colors-variables" as vars;
 @use "../../Branding/Mixins/button-mixins" as mixins;
+@use "../../Branding/Motion/motion-variables" as motion;
 
 .button {
   @include mixins.button-base; // Uses your 4px solid charcoal border logic
@@ -12,7 +13,7 @@
   border-radius: geom.$sys-geom-radius-main; // Standard 12px radius
 
   // Standard ReadBoot Bounce
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform motion.$ref-duration-normal motion.$ref-ease-bouncy;
 
   &:hover {
     transform: scale(1.05); // Bouncy effect from Image 1, Turn 11

@@ -2,6 +2,7 @@
 @use "geometric-variables" as geom;
 @use "../../Branding/Colors/colors-variables" as vars;
 @use "../../Branding/Typography/fonts-variables" as fonts;
+@use "../../Branding/Motion/motion-variables" as motion;
 
 .container-base {
   display: flex;
@@ -10,7 +11,7 @@
   padding: geom.$space-md;
   gap: geom.$space-sm;
   background-color: vars.$sys-color-paper-light-bg;
-  transition: transform 0.5s cubic-bezier(0.8, -0.5, 0.2, 1.8);
+  transition: transform motion.$ref-duration-slow motion.$ref-ease-spring;
 
   &:hover {
     transform: scale(1.05);

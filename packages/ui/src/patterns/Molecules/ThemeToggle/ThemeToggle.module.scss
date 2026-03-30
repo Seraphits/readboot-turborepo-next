@@ -2,6 +2,7 @@
 @use "../../Atoms/Branding/Typography/fonts-variables" as fonts;
 @use "../../Atoms/Spatial/geometric/geometric-variables" as geom;
 @use "../../Atoms/Spatial/Spacing/spacing-variables" as space;
+@use "../../Atoms/Branding/Motion/motion-variables" as motion;
 
 .toggle {
   padding: space.$space-sm space.$space-md;
@@ -12,7 +13,7 @@
   font-family: fonts.$sys-font-headline;
   font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform motion.$ref-duration-fast motion.$ref-ease-bouncy;
 
   &:hover {
     transform: scale(1.05);

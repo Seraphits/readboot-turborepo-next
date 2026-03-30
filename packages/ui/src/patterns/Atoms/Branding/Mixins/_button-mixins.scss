@@ -2,6 +2,7 @@
 @use "../../Spatial/geometric/geometric-variables" as geom;
 @use "../Colors/colors-variables" as vars;
 @use "../Typography/fonts-variables" as fonts;
+@use "../Motion/motion-variables" as motion;
 
 @mixin button-base {
   display: inline-flex;
@@ -16,7 +17,7 @@
   font-weight: 700;
 
   // Standard ReadBoot Bounce [1]
-  transition: transform 0.5s cubic-bezier(0.8, -0.5, 0.2, 1.8);
+  transition: transform motion.$ref-duration-slow motion.$ref-ease-spring;
 
   &:hover {
     transform: scale(1.05);

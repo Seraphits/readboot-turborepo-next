@@ -2,6 +2,8 @@
 @use "../../Atoms/Branding/Colors/colors-variables" as vars;
 @use "../../Atoms/Branding/Typography/fonts-variables" as fonts;
 @use "../../Atoms/Spatial/geometric/geometric-variables" as geom;
+@use "../../Atoms/Branding/Motion/motion-variables" as motion;
+@use "../../Atoms/Spatial/Layout/layout-variables" as layout;
 
 .root {
   width: 100%;
@@ -17,7 +19,7 @@
 }
 
 .inner {
-  max-width: 720px;
+  max-width: layout.$ref-layout-max-footer;
   margin: 0 auto;
   text-align: center;
 }
@@ -50,7 +52,7 @@
   font-size: 1.0625rem;
   color: vars.$sys-color-action-primary;
   text-decoration: none;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: transform motion.$ref-duration-normal motion.$ref-ease-bouncy;
 
   [data-theme='dark'] & {
     color: vars.$sys-color-action-on-dark;

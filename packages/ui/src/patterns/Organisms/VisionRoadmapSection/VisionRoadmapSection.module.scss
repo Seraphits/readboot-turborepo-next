@@ -2,6 +2,7 @@
 @use "../../Atoms/Branding/Colors/colors-variables" as vars;
 @use "../../Atoms/Branding/Typography/fonts-variables" as fonts;
 @use "../../Atoms/Spatial/geometric/geometric-variables" as geom;
+@use "../../Atoms/Spatial/Layout/layout-variables" as layout;
 
 .root {
   width: 100%;
@@ -14,7 +15,7 @@
 }
 
 .inner {
-  max-width: 960px;
+  max-width: layout.$ref-layout-max-section;
   margin: 0 auto;
   border: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
   border-radius: geom.$sys-geom-radius-main;
@@ -58,7 +59,7 @@
   padding-top: space.$space-md;
   flex-wrap: wrap;
 
-  @media (min-width: 640px) {
+  @media (min-width: layout.$ref-breakpoint-sm) {
     flex-wrap: nowrap;
     padding-top: space.$space-lg;
   }
@@ -67,7 +68,7 @@
 .timelineLine {
   display: none;
 
-  @media (min-width: 640px) {
+  @media (min-width: layout.$ref-breakpoint-sm) {
     display: block;
     position: absolute;
     top: calc(#{space.$space-lg} + #{space.$space-sm});

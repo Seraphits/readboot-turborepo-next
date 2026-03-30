@@ -2,11 +2,13 @@
 
 // REFERENCE TOKENS (Fixed Identity)
 $ref-border-width-thick: 4px; // Keep PX for crisp linework
+$ref-border-width-hairline: 1px; // Nav rules, hairline dividers, column rules
 $ref-border-radius-brand: global.to-rem(12px); // 0.75rem: Scales with text
 $ref-space-unit: 4px;
 
 // SYSTEM TOKENS
 $sys-geom-border-main: $ref-border-width-thick;
+$sys-geom-border-hairline: $ref-border-width-hairline;
 $sys-geom-radius-main: $ref-border-radius-brand;
 
 // SPACING SCALE (Now outputting REM)

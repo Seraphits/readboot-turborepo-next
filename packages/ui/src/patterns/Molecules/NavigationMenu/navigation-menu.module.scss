@@ -2,6 +2,9 @@
 @use "../../Atoms/Branding/Colors/colors-variables" as vars;
 @use "../../Atoms/Branding/Typography/fonts-variables" as fonts;
 @use "../../Atoms/Spatial/Spacing/spacing-variables" as space;
+@use "../../Atoms/Branding/Motion/motion-variables" as motion;
+@use "../../Atoms/Spatial/Layout/layout-variables" as layout;
+@use "../../Atoms/Spatial/geometric/geometric-variables" as geom;
 
 .NavigationMenu {
   &__List {
@@ -36,19 +39,19 @@
     position: absolute;
     top: 100%;
     left: 0;
-    min-width: 220px;
+    min-width: layout.$ref-layout-min-dropdown;
     background: vars.$sys-color-paper-light-bg;
-    border: 1px solid vars.$sys-color-dark-border;
+    border: geom.$sys-geom-border-hairline solid vars.$sys-color-dark-border;
     box-shadow: 0 space.$space-md space.$space-lg calc(-1 * #{space.$space-xs})
       color.change(vars.$sys-color-ink-dark-text, $alpha: 0.1);
     padding: space.$space-sm 0;
     list-style: none;
-    z-index: 50;
+    z-index: motion.$ref-z-dropdown;
 
     opacity: 0;
     visibility: hidden;
     transform: translateY(space.$space-md);
-    transition: all 0.2s ease-in-out;
+    transition: all motion.$ref-duration-fast motion.$ref-ease-in-out;
   }
 
   &__SubItem {
