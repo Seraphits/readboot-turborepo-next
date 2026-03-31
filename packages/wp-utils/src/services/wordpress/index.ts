@@ -5,6 +5,6 @@ export * from './get-logo';
 export * from './get-menu';
 export * from './get-page-by-uri';
 export * from './get-project-by-slug';
-export * from './get-main-blog-content';
+export * from './get-blog-categories';
 export * from './get-post-by-slug';
 export * from './get-posts';
