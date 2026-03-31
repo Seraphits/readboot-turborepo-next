@@ -47,5 +47,12 @@ jobs:
       - name: Typecheck
         run: pnpm check-types
 
+      # Public WPGraphQL origin (matches apps/web next.config remotePatterns host). Ensures CI matches
+      # deployments and satisfies NEXT_PUBLIC_WORDPRESS_API_URL when routes fetch at build time.
+      - name: Build web (Next.js)
+        env:
+          NEXT_PUBLIC_WORDPRESS_API_URL: https://readboot.cloudaccess.host/graphql
+        run: pnpm turbo run build --filter=web
+
       - name: Build Storybook
         run: pnpm turbo run build-storybook --filter=storybook
