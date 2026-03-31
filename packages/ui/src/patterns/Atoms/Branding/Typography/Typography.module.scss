@@ -6,6 +6,10 @@
   margin: 0;
   color: vars.$sys-color-ink-dark-text;
 
+  [data-theme='dark'] & {
+    color: vars.$sys-color-ink-light-text;
+  }
+
   &--h1,
   &--h2,
   &--h3,
@@ -71,13 +75,25 @@
     text-decoration: underline;
     text-underline-offset: 0.15em;
 
+    [data-theme='dark'] & {
+      color: vars.$sys-color-action-on-dark;
+    }
+
     &:hover {
       color: color.adjust(vars.$sys-color-action-primary, $lightness: -8%);
+
+      [data-theme='dark'] & {
+        color: color.adjust(vars.$sys-color-action-on-dark, $lightness: 6%);
+      }
     }
 
     &:focus-visible {
       outline: 2px solid vars.$sys-color-dark-border;
       outline-offset: 2px;
+
+      [data-theme='dark'] & {
+        outline-color: vars.$sys-color-light-border;
+      }
     }
   }
 }

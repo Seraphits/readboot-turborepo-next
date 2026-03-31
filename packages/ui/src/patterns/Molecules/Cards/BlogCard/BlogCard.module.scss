@@ -44,6 +44,14 @@
       font-family: fonts.$sys-font-headline;
       margin: 0;
     }
+
+    [data-theme='dark'] & {
+      color: vars.$sys-color-ink-light-text;
+
+      p {
+        color: inherit;
+      }
+    }
   }
 
   &__link {

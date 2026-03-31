@@ -16,6 +16,7 @@
 
   [data-theme='dark'] & {
     background-color: vars.$sys-color-paper-dark-bg;
+    border-color: vars.$sys-color-light-border;
   }
 
   &__header {
@@ -33,6 +34,10 @@
   &__excerpt {
     font-family: fonts.$sys-font-body;
     color: vars.$sys-color-ink-dark-text;
+
+    [data-theme='dark'] & {
+      color: vars.$sys-color-ink-light-text;
+    }
 
     p { margin: 0; }
   }

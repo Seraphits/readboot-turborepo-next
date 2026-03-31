@@ -42,4 +42,33 @@
     background-color: transparent;
     color: vars.$sys-color-ink-dark-text;
   }
+
+  [data-theme='dark'] & {
+    background-color: vars.$sys-color-paper-dark-bg;
+    border-color: vars.$sys-color-light-border;
+    color: vars.$sys-color-ink-light-text;
+
+    &--primary {
+      border-color: vars.$sys-color-action-primary;
+      color: vars.$sys-color-action-on-dark;
+      background-color: transparent;
+    }
+
+    &--success {
+      border-color: vars.$sys-color-status-success;
+      background-color: vars.$sys-color-status-success;
+      color: vars.$sys-color-paper-light-bg;
+    }
+
+    &--outline {
+      border-color: vars.$sys-color-light-border;
+      color: vars.$sys-color-ink-light-text;
+    }
+
+    &--ghost {
+      border-color: transparent;
+      background-color: transparent;
+      color: vars.$sys-color-ink-light-text;
+    }
+  }
 }

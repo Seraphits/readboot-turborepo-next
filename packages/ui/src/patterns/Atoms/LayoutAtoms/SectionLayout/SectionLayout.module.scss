@@ -29,6 +29,10 @@
     column-count: 2;
     column-gap: space.$space-lg;
     column-rule: geom.$sys-geom-border-hairline dashed vars.$sys-color-ink-dark-text;
+
+    [data-theme='dark'] & {
+      column-rule-color: vars.$sys-color-light-border;
+    }
   }
 
   // Variant: Split (Side-by-side Hero assets)
@@ -42,6 +46,10 @@
     border: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
     border-radius: geom.$sys-geom-radius-main; // 12px token
     padding: space.$space-xl;
+
+    [data-theme='dark'] & {
+      border-color: vars.$sys-color-light-border;
+    }
   }
   &--showcase {
     // background: red;
