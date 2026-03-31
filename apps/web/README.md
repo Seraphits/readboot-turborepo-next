@@ -1,17 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/create-next-app).
+This is the **ReadBoot** portfolio [Next.js](https://nextjs.org) app (`apps/web/` in the monorepo).
 
-## Getting Started
+## Monorepo commands (from repository root)
 
-First, run the development server:
+Use **pnpm** at the repo root (see `.cursor/rules/monorepo.mdc`):
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+pnpm dev --filter=web
+pnpm build:web
+pnpm quality
+```
+
+Guards, formatting, lint, types, and CI: [docs/QUALITY.md](../../docs/QUALITY.md).
+
+## Getting Started (this app only)
+
+From the repo root, the dev server is usually:
+
+```bash
+pnpm dev --filter=web
+```
+
+Or from `apps/web/`:
+
+```bash
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

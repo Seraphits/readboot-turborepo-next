@@ -16,6 +16,7 @@ Use the **Backlog item** template when opening an issue so the backlog reference
 
 | Document                                                                      | Contents                                                             |
 | ----------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| [QUALITY.md](QUALITY.md)                                                      | CI pipeline, local `pnpm quality` / guardrails / Prettier / builds.  |
 | [apps/storybook/STORYBOOK_BACKLOG.md](../apps/storybook/STORYBOOK_BACKLOG.md) | Storybook: fix stories, deepen coverage, new stories (Phases 1–4).   |
 | [.cursor/memory/progress.md](../.cursor/memory/progress.md)                   | Short-lived session progress and cross-links (Cursor-oriented).      |
 | [apps/web/HOMEPAGE_CONTENT.md](../apps/web/HOMEPAGE_CONTENT.md)               | Web homepage copy and where to edit defaults (not a sprint backlog). |
@@ -28,6 +29,7 @@ Add new domain backlogs under `docs/` or next to the app/package they concern, a
 
 ## Rules of reference
 
+- Quality checks and CI: [docs/QUALITY.md](QUALITY.md)
 - Storybook structure and sidebar: `.cursor/rules/storybook.mdc`
 - Monorepo tasks and `pnpm`: `.cursor/rules/monorepo.mdc`
 - UI imports and `WPContent`: `.cursor/rules/linking-standards.mdc`

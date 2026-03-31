@@ -18,6 +18,7 @@
 [x] CI Part 1: `pnpm guardrails`, `pnpm format:check` (`.prettierignore` for caches/builds), `apt` installs `ripgrep` for guardrails; root `format:check` script; `pnpm check:all` = guardrails + format:check + lint + check-types.
 [x] CI Part 2: `pnpm turbo run build --filter=web` after typecheck (before Storybook); `NEXT_PUBLIC_WORDPRESS_API_URL=https://readboot.cloudaccess.host/graphql` in workflow; root `build:web` script.
 [x] CI Part 3 (local ergonomics): root **`pnpm quality`** = `check:all` + `build:web` (mirrors CI up to Storybook); **`pnpm quality:full`** adds Storybook static build for full CI parity.
+[x] Quality docs: **`docs/QUALITY.md`** (CI steps, local scripts, guardrails, `rg`); root **`README.md`** + **`docs/BACKLOG.md`** + **`apps/web/README.md`** updated with directions.
 [x] Atom taxonomy rename: `BrandingAtoms`→`Branding`, `InteractiveAtoms`→`Interactive`, `SpatialAtoms`→`Spatial`; `spacing/`→`Spacing/` under Spatial; all `@use`/imports and `@branding` aliases updated; web/docs/Storybook builds pass.
 [x] **Storybook backlog** — `apps/storybook/STORYBOOK_BACKLOG.md`: Phases 1–4 complete; Phase 2e standalone tokens guide **skipped by design** (docs on Primitives/Pairings/Typography instead). Entry point: `docs/BACKLOG.md`; GitHub: **Backlog item** issue template.
 [x] **Web blog UX** — Futurist Carton shell for blog index/category/post; `BlogCategoryNav` + `blogPage.ts` copy; blog grids use `Showcase` + `getPosts` in pages (former `BlogShowcase` wrapper removed); boxed `ReadBootBand` CTA optional.

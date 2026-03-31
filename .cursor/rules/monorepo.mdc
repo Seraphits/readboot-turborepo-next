@@ -9,3 +9,4 @@ alwaysApply: true
 - **Package Manager:** Always use pnpm. Never use npm or yarn. [4]
 - **Internal Dependencies:** Use the workspace:* protocol for all internal package references. [5]
 - **Task Execution:** Use pnpm --filter <package-name> <command> to leverage Turborepo's caching. [6, 7]
+- **Quality / CI:** See `docs/QUALITY.md` for GitHub Actions steps and root scripts (`pnpm quality`, `pnpm check:all`, guardrails).

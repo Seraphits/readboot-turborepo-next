@@ -1,6 +1,12 @@
-# Turborepo starter
+# ReadBoot monorepo
 
-This Turborepo starter is maintained by the Turborepo core team.
+ReadBoot’s portfolio and docs apps live here, built with [Turborepo](https://turbo.build/) and [pnpm](https://pnpm.io/) (see `.cursor/rules/monorepo.mdc`).
+
+**Before you push:** run `pnpm quality` from the repo root (or `pnpm quality:full` to mirror the entire CI pipeline). Details: [docs/QUALITY.md](docs/QUALITY.md).
+
+---
+
+The remainder of this README includes Turborepo starter material (build/dev examples) for reference.
 
 ## Using this example
 
@@ -123,8 +129,9 @@ yarn exec turbo link
 pnpm exec turbo link
 ```
 
-## ReadBoot — backlog
+## ReadBoot — quality & backlog
 
+- [Quality checks & CI](docs/QUALITY.md) — guardrails, Prettier, lint, typecheck, web/Storybook builds, local scripts.
 - [Backlog index](docs/BACKLOG.md) — how we track work (markdown in-repo + GitHub Issues).
 
 ## Useful Links
