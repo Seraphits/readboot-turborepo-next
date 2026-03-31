@@ -7,7 +7,7 @@ Card for a **project** shaped like `@repo/wp-utils` **`Project`** (title, excerp
 ## Import
 
 ```tsx
-import { ProjectCard } from '@repo/ui/molecules';
+import { ProjectCard } from "@repo/ui/molecules";
 ```
 
 ## Usage

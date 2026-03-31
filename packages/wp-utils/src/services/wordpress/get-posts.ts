@@ -1,17 +1,23 @@
-import { gql } from '@apollo/client';
-import { getWordPressData } from './client';
-import { POST_FIELDS } from '../../queries/fragments/post-fields';
-import type { Post } from '../../types';
+import { gql } from "@apollo/client";
+import { getWordPressData } from "./client";
+import { POST_FIELDS } from "../../queries/fragments/post-fields";
+import type { Post } from "../../types";
 
 export async function getPosts(params: {
   categorySlug?: string;
   limit?: number;
-  orderBy?: 'DATE' | 'TITLE' | 'NAME';
-  order?: 'ASC' | 'DESC';
+  orderBy?: "DATE" | "TITLE" | "NAME";
+  order?: "ASC" | "DESC";
   /** Global post ID to exclude (e.g. current post in sidebar). Passed to WPGraphQL `where.notIn` when supported; otherwise filtered client-side. */
   excludePostId?: string;
 }): Promise<Post[]> {
-  const { categorySlug, limit = 3, orderBy = 'DATE', order = 'DESC', excludePostId } = params;
+  const {
+    categorySlug,
+    limit = 3,
+    orderBy = "DATE",
+    order = "DESC",
+    excludePostId,
+  } = params;
 
   const query = gql`
     query GetPosts(
@@ -58,7 +64,10 @@ export async function getPosts(params: {
         $order: OrderEnum!
       ) {
         posts(
-          where: { categoryName: $categoryName, orderby: { field: $field, order: $order } }
+          where: {
+            categoryName: $categoryName
+            orderby: { field: $field, order: $order }
+          }
           first: $limit
         ) {
           nodes {

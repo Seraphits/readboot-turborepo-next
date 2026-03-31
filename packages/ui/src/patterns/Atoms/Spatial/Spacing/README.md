@@ -7,7 +7,7 @@
 ## Import
 
 ```tsx
-import { SpacingScale } from '@repo/ui/atoms';
+import { SpacingScale } from "@repo/ui/atoms";
 ```
 
 ## Usage

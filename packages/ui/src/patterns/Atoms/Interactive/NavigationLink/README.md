@@ -7,7 +7,7 @@ Default export from `navigation-link.tsx`. Text link styled for nav/menus; pairs
 ## Import
 
 ```tsx
-import { NavigationLink } from '@repo/ui/atoms';
+import { NavigationLink } from "@repo/ui/atoms";
 ```
 
 (Barrel re-exports the default as `NavigationLink`.)

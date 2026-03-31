@@ -7,7 +7,7 @@ Vision + horizontal **timeline** of labels (`generations`).
 ## Import
 
 ```tsx
-import { VisionRoadmapSection } from '@repo/ui/organisms';
+import { VisionRoadmapSection } from "@repo/ui/organisms";
 ```
 
 ## Usage

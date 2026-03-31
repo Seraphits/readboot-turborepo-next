@@ -7,7 +7,7 @@ Semantic text scale: **`as`** (polymorphic) + **`variant`** (`h1`–`h6`, `body`
 ## Import
 
 ```tsx
-import { Typography } from '@repo/ui/atoms';
+import { Typography } from "@repo/ui/atoms";
 ```
 
 ## Usage

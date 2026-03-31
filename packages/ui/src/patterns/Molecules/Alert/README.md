@@ -7,7 +7,7 @@ Inline status / feedback message (variants for tone). Use for dismissible or sta
 ## Import
 
 ```tsx
-import { Alert } from '@repo/ui/molecules';
+import { Alert } from "@repo/ui/molecules";
 ```
 
 ## Usage

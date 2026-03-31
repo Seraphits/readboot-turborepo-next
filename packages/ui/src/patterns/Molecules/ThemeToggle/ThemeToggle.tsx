@@ -1,16 +1,17 @@
-'use client';
+"use client";
 
-import { useCallback } from 'react';
-import styles from './ThemeToggle.module.scss';
+import { useCallback } from "react";
+import styles from "./ThemeToggle.module.scss";
 
-const THEME_KEY = 'theme';
-type Theme = 'light' | 'dark';
+const THEME_KEY = "theme";
+type Theme = "light" | "dark";
 
 export const ThemeToggle = () => {
   const toggle = useCallback(() => {
     const root = document.documentElement;
-    const next: Theme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-    root.setAttribute('data-theme', next);
+    const next: Theme =
+      root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    root.setAttribute("data-theme", next);
     try {
       localStorage.setItem(THEME_KEY, next);
     } catch {

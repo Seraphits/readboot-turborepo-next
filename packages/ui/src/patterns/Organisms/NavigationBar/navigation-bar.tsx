@@ -1,8 +1,10 @@
-import type { ReactNode } from 'react';
-import { LogoImageClient } from '../../Atoms/Branding/Logo/LogoImageClient';
-import NavMenu, { type NavigationLinkItem } from '../../Molecules/NavigationMenu/navigation-menu';
-import { ThemeToggle } from '../../Molecules/ThemeToggle/ThemeToggle';
-import styles from './navigation-bar.module.scss';
+import type { ReactNode } from "react";
+import { LogoImageClient } from "../../Atoms/Branding/Logo/LogoImageClient";
+import NavMenu, {
+  type NavigationLinkItem,
+} from "../../Molecules/NavigationMenu/navigation-menu";
+import { ThemeToggle } from "../../Molecules/ThemeToggle/ThemeToggle";
+import styles from "./navigation-bar.module.scss";
 
 export interface NavigationBarProps {
   links: NavigationLinkItem[];

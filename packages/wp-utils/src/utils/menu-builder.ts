@@ -1,4 +1,4 @@
-import { NavItem } from '../types';
+import { NavItem } from "../types";
 
 /** Build a tree from flat WordPress menu items using parentId. */
 export function buildMenuTree(items: NavItem[]): NavItem[] {

@@ -7,7 +7,7 @@ Two-slot shell: **`headerSlot`** + **`mainSlot`**. Typical use: **`ReadBootBand`
 ## Import
 
 ```tsx
-import { ShowcaseTemplate } from '@repo/ui/templates';
+import { ShowcaseTemplate } from "@repo/ui/templates";
 ```
 
 ## Usage

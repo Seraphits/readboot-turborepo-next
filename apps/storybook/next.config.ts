@@ -8,13 +8,14 @@ const nextConfig: NextConfig = {
   transpilePackages: ["@repo/ui", "@repo/wp-utils"],
   turbopack: {
     resolveAlias: {
-      '@branding': path.join(__dirname, '../../packages/ui/src/patterns/Atoms/Branding'),
+      "@branding": path.join(
+        __dirname,
+        "../../packages/ui/src/patterns/Atoms/Branding",
+      ),
     },
   },
   sassOptions: {
-    loadPaths: [
-      path.join(__dirname, '../../packages/ui/src/patterns/Atoms'),
-    ],
+    loadPaths: [path.join(__dirname, "../../packages/ui/src/patterns/Atoms")],
   },
   reactStrictMode: true,
   images: {

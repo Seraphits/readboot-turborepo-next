@@ -1,7 +1,16 @@
-import React from 'react';
-import styles from './Typography.module.scss';
+import React from "react";
+import styles from "./Typography.module.scss";
 
-type TypographyVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body' | 'caption' | 'link';
+type TypographyVariant =
+  | "h1"
+  | "h2"
+  | "h3"
+  | "h4"
+  | "h5"
+  | "h6"
+  | "body"
+  | "caption"
+  | "link";
 
 interface TypographyProps<T extends React.ElementType> {
   as?: T;
@@ -10,14 +19,15 @@ interface TypographyProps<T extends React.ElementType> {
   className?: string;
 }
 
-export const Typography = <T extends React.ElementType = 'p'>({
+export const Typography = <T extends React.ElementType = "p">({
   as,
-  variant = 'body',
+  variant = "body",
   children,
-  className = '',
+  className = "",
   ...props
 }: TypographyProps<T> & React.ComponentPropsWithoutRef<T>) => {
-  const Component = as ?? (variant === 'link' ? 'a' : variant.startsWith('h') ? variant : 'p');
+  const Component =
+    as ?? (variant === "link" ? "a" : variant.startsWith("h") ? variant : "p");
 
   const combinedClasses = [
     styles.typography,
@@ -25,7 +35,7 @@ export const Typography = <T extends React.ElementType = 'p'>({
     className,
   ]
     .filter(Boolean)
-    .join(' ');
+    .join(" ");
 
   return (
     <Component className={combinedClasses} {...props}>

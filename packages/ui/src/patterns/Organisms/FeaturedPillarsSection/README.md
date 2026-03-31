@@ -7,8 +7,8 @@ Three-up **featured** cards with shared pillar placeholder art and **`next/link`
 ## Import
 
 ```tsx
-import { FeaturedPillarsSection } from '@repo/ui/organisms';
-import type { PillarItem } from '@repo/ui/organisms';
+import { FeaturedPillarsSection } from "@repo/ui/organisms";
+import type { PillarItem } from "@repo/ui/organisms";
 ```
 
 ## Usage

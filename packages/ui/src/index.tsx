@@ -5,6 +5,10 @@
  * import { ReadBootBand, BoxedFeatureHero, FullBleedHero } from '@repo/ui/organisms'
  * import { HomePage } from '@repo/ui/templates'
  */
-export { Button } from './patterns/Atoms/Interactive/Button/Button';
-export { Alert } from './patterns/Molecules/Alert/Alert';
-export { ReadBootBand, BoxedFeatureHero, FullBleedHero } from './patterns/Organisms/Hero/ReadBootBand';
+export { Button } from "./patterns/Atoms/Interactive/Button/Button";
+export { Alert } from "./patterns/Molecules/Alert/Alert";
+export {
+  ReadBootBand,
+  BoxedFeatureHero,
+  FullBleedHero,
+} from "./patterns/Organisms/Hero/ReadBootBand";

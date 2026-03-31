@@ -7,7 +7,7 @@ Card for a **blog post** shaped like `@repo/wp-utils` **`Post`** (title, excerpt
 ## Import
 
 ```tsx
-import { BlogCard } from '@repo/ui/molecules';
+import { BlogCard } from "@repo/ui/molecules";
 ```
 
 ## Usage

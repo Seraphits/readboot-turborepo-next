@@ -5,13 +5,14 @@
 
 function getWpBaseUrl(): string {
   const url =
-    process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL ?? process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
+    process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL ??
+    process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
   if (!url) {
     throw new Error(
-      'NEXT_PUBLIC_WORDPRESS_SITE_URL or NEXT_PUBLIC_WORDPRESS_API_URL is required for toDocsHref.'
+      "NEXT_PUBLIC_WORDPRESS_SITE_URL or NEXT_PUBLIC_WORDPRESS_API_URL is required for toDocsHref.",
     );
   }
-  return url.replace(/\/graphql\/?$/, '');
+  return url.replace(/\/graphql\/?$/, "");
 }
 
 /**
@@ -23,12 +24,12 @@ function getWpBaseUrl(): string {
  */
 export function toDocsHref(url: string, wpBaseUrl?: string): string {
   const base = wpBaseUrl ?? getWpBaseUrl();
-  const httpBase = base.replace('https://', 'http://');
+  const httpBase = base.replace("https://", "http://");
 
-  const path = url.replace(base, '').replace(httpBase, '').trim() || '/';
+  const path = url.replace(base, "").replace(httpBase, "").trim() || "/";
 
-  if (path.startsWith('http') || path.startsWith('/docs')) return path;
-  return path.startsWith('/') ? `/docs${path}` : `/docs/${path}`;
+  if (path.startsWith("http") || path.startsWith("/docs")) return path;
+  return path.startsWith("/") ? `/docs${path}` : `/docs/${path}`;
 }
 
 /**
@@ -37,9 +38,9 @@ export function toDocsHref(url: string, wpBaseUrl?: string): string {
  */
 export function toWebHref(url: string, wpBaseUrl?: string): string {
   const base = wpBaseUrl ?? getWpBaseUrl();
-  const httpBase = base.replace('https://', 'http://');
+  const httpBase = base.replace("https://", "http://");
 
-  const path = url.replace(base, '').replace(httpBase, '').trim() || '/';
-  if (path.startsWith('http')) return path;
-  return path.startsWith('/') ? path : `/${path}`;
+  const path = url.replace(base, "").replace(httpBase, "").trim() || "/";
+  if (path.startsWith("http")) return path;
+  return path.startsWith("/") ? path : `/${path}`;
 }

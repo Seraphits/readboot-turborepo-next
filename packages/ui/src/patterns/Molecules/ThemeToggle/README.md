@@ -7,7 +7,7 @@ Toggles **`data-theme`** on `html` (light/dark) with localStorage persistence; u
 ## Import
 
 ```tsx
-import { ThemeToggle } from '@repo/ui/molecules';
+import { ThemeToggle } from "@repo/ui/molecules";
 ```
 
 ## Usage

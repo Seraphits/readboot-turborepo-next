@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { defaultConnect } from '../../Templates/HomePage/homePageDefaults';
-import { ConnectFooterSection } from './ConnectFooterSection';
+import type { Meta, StoryObj } from "@storybook/react";
+import { defaultConnect } from "../../Templates/HomePage/homePageDefaults";
+import { ConnectFooterSection } from "./ConnectFooterSection";
 
 const meta: Meta<typeof ConnectFooterSection> = {
   component: ConnectFooterSection,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
     docs: {
       description: {
         component:
-          'Global connect strip: title, outbound links (`next/link`), copyright. Apps typically pass `defaultConnect` from `homePageDefaults.ts` or override props per layout.',
+          "Global connect strip: title, outbound links (`next/link`), copyright. Apps typically pass `defaultConnect` from `homePageDefaults.ts` or override props per layout.",
       },
     },
   },
@@ -17,7 +17,7 @@ const meta: Meta<typeof ConnectFooterSection> = {
 export default meta;
 
 export const DefaultConnect: StoryObj<typeof ConnectFooterSection> = {
-  name: 'Default connect (homePageDefaults)',
+  name: "Default connect (homePageDefaults)",
   render: () => <ConnectFooterSection {...defaultConnect} />,
 };
 
@@ -26,8 +26,8 @@ export const CustomCopy: StoryObj<typeof ConnectFooterSection> = {
     <ConnectFooterSection
       title="Stay in touch"
       links={[
-        { label: 'Site', href: '/' },
-        { label: 'Blog', href: '/blog/' },
+        { label: "Site", href: "/" },
+        { label: "Blog", href: "/blog/" },
       ]}
       copyright="© Storybook preview"
     />

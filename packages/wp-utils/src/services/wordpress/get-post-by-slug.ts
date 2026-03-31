@@ -1,5 +1,5 @@
-import { Post } from '../../types';
-import { getWordPressData } from './client';
+import { Post } from "../../types";
+import { getWordPressData } from "./client";
 
 export async function getPostBySlug(slug: string): Promise<Post | null> {
   const query = `

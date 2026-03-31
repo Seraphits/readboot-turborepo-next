@@ -1,8 +1,8 @@
-import { Showcase } from '@repo/ui/organisms';
-import { getPosts, getProjectBySlug, WPContent } from '@repo/wp-utils';
-import { notFound } from 'next/navigation';
+import { Showcase } from "@repo/ui/organisms";
+import { getPosts, getProjectBySlug, WPContent } from "@repo/wp-utils";
+import { notFound } from "next/navigation";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -17,8 +17,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const relatedPosts = await getPosts({
     categorySlug: linkedCategory,
     limit: 3,
-    orderBy: 'DATE',
-    order: 'DESC',
+    orderBy: "DATE",
+    order: "DESC",
   });
 
   return (
@@ -30,25 +30,30 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
       <section className="project-intelligence">
         {project.projectIntelligence && (
           <ul>
-            <li><strong>Status:</strong> {project.projectIntelligence.lifecycleStatus}</li>
+            <li>
+              <strong>Status:</strong>{" "}
+              {project.projectIntelligence.lifecycleStatus}
+            </li>
             {/* Note: Use 'impactMetric' as defined by your fragment alias */}
-            <li><strong>Metric:</strong> {project.projectIntelligence.impactMetric}</li>
-            <li><strong>Link:</strong> {project.projectIntelligence.liveProjectLink}</li>
+            <li>
+              <strong>Metric:</strong>{" "}
+              {project.projectIntelligence.impactMetric}
+            </li>
+            <li>
+              <strong>Link:</strong>{" "}
+              {project.projectIntelligence.liveProjectLink}
+            </li>
           </ul>
         )}
-        <Showcase
-          type="blog"
-          items={relatedPosts}
-          title="Related Insights"
-        />
+        <Showcase type="blog" items={relatedPosts} title="Related Insights" />
       </section>
 
       {/* 3. Main Project Content (from Image 7) */}
-            <WPContent
-              data={{ title: project.title, content: project.content }}
-              renderTitle={false}
-              className="project-content"
-            />
+      <WPContent
+        data={{ title: project.title, content: project.content }}
+        renderTitle={false}
+        className="project-content"
+      />
     </main>
   );
 }

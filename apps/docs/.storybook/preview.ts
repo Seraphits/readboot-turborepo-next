@@ -1,5 +1,5 @@
-import type { Preview } from '@storybook/nextjs';
-import '@repo/ui/styles/index';
+import type { Preview } from "@storybook/nextjs";
+import "@repo/ui/styles/index";
 
 const preview: Preview = {
   parameters: {
@@ -10,7 +10,7 @@ const preview: Preview = {
       },
     },
     a11y: {
-      test: 'todo',
+      test: "todo",
     },
   },
 };

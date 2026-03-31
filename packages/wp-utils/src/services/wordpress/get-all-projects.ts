@@ -1,8 +1,8 @@
 // packages/wp-utils/src/services/wordpress/get-all-projects.ts
-import { gql } from '@apollo/client';
-import { Project } from '../../types';
-import { PROJECT_FIELDS } from '../../queries/fragments';
-import { getWordPressData } from './client';
+import { gql } from "@apollo/client";
+import { Project } from "../../types";
+import { PROJECT_FIELDS } from "../../queries/fragments";
+import { getWordPressData } from "./client";
 
 export async function getAllProjects(): Promise<Project[]> {
   const query = gql`

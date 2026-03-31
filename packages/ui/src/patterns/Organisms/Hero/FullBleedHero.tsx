@@ -1,1 +1,1 @@
-export { FullBleedHero, type FullBleedHeroProps } from './ReadBootBand';
+export { FullBleedHero, type FullBleedHeroProps } from "./ReadBootBand";

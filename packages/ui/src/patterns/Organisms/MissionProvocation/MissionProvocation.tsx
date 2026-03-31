@@ -1,4 +1,4 @@
-import styles from './MissionProvocation.module.scss';
+import styles from "./MissionProvocation.module.scss";
 
 export type MissionProvocationProps = {
   title: string;
@@ -7,7 +7,11 @@ export type MissionProvocationProps = {
   paragraphs: readonly string[];
 };
 
-export const MissionProvocation = ({ title, accentWord, paragraphs }: MissionProvocationProps) => {
+export const MissionProvocation = ({
+  title,
+  accentWord,
+  paragraphs,
+}: MissionProvocationProps) => {
   const segments = title.split(accentWord);
   const hasAccent = segments.length > 1;
 

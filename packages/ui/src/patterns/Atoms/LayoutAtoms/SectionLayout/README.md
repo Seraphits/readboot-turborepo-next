@@ -7,7 +7,7 @@ Grid shell presets (**`variant`**: `centered`, `split`, `grid`, `newspaper`, `st
 ## Import
 
 ```tsx
-import { SectionLayout } from '@repo/ui/atoms';
+import { SectionLayout } from "@repo/ui/atoms";
 ```
 
 ## Usage

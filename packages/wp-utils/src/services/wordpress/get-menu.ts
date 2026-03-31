@@ -1,7 +1,7 @@
-import { getWordPressData } from './client';
-import { GET_MENU_QUERY } from '../../queries/menu';
-import { buildMenuTree } from '../../utils/menu-builder';
-import type { NavItem } from '../../types';
+import { getWordPressData } from "./client";
+import { GET_MENU_QUERY } from "../../queries/menu";
+import { buildMenuTree } from "../../utils/menu-builder";
+import type { NavItem } from "../../types";
 
 const DEFAULT_MENU_REVALIDATE = 60;
 
@@ -18,11 +18,21 @@ export interface GetMenuDataOptions {
  * Fetches menu items by location and returns a hierarchical tree.
  * Uses the centralized WordPress client (timeout, revalidation, env).
  */
-export async function getMenuData(options: GetMenuDataOptions): Promise<NavItem[]> {
-  const { location, transformHref, revalidate = DEFAULT_MENU_REVALIDATE } = options;
+export async function getMenuData(
+  options: GetMenuDataOptions,
+): Promise<NavItem[]> {
+  const {
+    location,
+    transformHref,
+    revalidate = DEFAULT_MENU_REVALIDATE,
+  } = options;
 
   try {
-    const data = (await getWordPressData(GET_MENU_QUERY, { location }, { revalidate })) as
+    const data = (await getWordPressData(
+      GET_MENU_QUERY,
+      { location },
+      { revalidate },
+    )) as
       | {
           menuItems?: {
             nodes?: Array<{
@@ -42,7 +52,7 @@ export async function getMenuData(options: GetMenuDataOptions): Promise<NavItem[
       id: item.id,
       parentId: item.parentId,
       label: item.label,
-      href: transformHref ? transformHref(item.url ?? '') : (item.url ?? '#'),
+      href: transformHref ? transformHref(item.url ?? "") : (item.url ?? "#"),
       target: item.target || null,
     }));
 

@@ -11,9 +11,9 @@ Used by **`FeaturedPillarsSection`** and by **`HomePage`** props (`pillars`). De
 ## Import
 
 ```tsx
-import type { PillarItem } from '@repo/ui/organisms';
+import type { PillarItem } from "@repo/ui/organisms";
 // or
-import type { PillarItem } from '@repo/ui/templates';
+import type { PillarItem } from "@repo/ui/templates";
 ```
 
 Both barrels re-export **`PillarItem`** from this module (see `Organisms/index.tsx` and `HomePage.tsx` exports).

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 /**
  * Mock for next/link used in Storybook (react-vite framework).
@@ -9,7 +9,10 @@ export default function MockNextLink({
   children,
   className,
   ...rest
-}: React.AnchorHTMLAttributes<HTMLAnchorElement> & { href: string; children?: React.ReactNode }) {
+}: React.AnchorHTMLAttributes<HTMLAnchorElement> & {
+  href: string;
+  children?: React.ReactNode;
+}) {
   return (
     <a href={href} className={className} {...rest}>
       {children}

@@ -1,14 +1,17 @@
-import { cache } from 'react';
-import { getWordPressData } from './client';
+import { cache } from "react";
+import { getWordPressData } from "./client";
 
 /**
  * WordPress category whose **direct children** appear in `/blog/` category chips.
  * Override with `WORDPRESS_BLOG_CATEGORY_PARENT_SLUG` (e.g. staging taxonomy).
  */
-const DEFAULT_BLOG_CATEGORY_PARENT_SLUG = 'nicole-trapps-portfolio';
+const DEFAULT_BLOG_CATEGORY_PARENT_SLUG = "nicole-trapps-portfolio";
 
 function getBlogCategoryParentSlug(): string {
-  return process.env.WORDPRESS_BLOG_CATEGORY_PARENT_SLUG ?? DEFAULT_BLOG_CATEGORY_PARENT_SLUG;
+  return (
+    process.env.WORDPRESS_BLOG_CATEGORY_PARENT_SLUG ??
+    DEFAULT_BLOG_CATEGORY_PARENT_SLUG
+  );
 }
 
 export type BlogNavCategory = { slug: string; name: string };
@@ -33,8 +36,13 @@ async function fetchBlogNavCategories(): Promise<BlogNavCategory[]> {
   const nodes = data?.category?.children?.nodes ?? [];
   const items: BlogNavCategory[] = nodes
     .filter((n: { count?: number | null }) => n.count == null || n.count > 0)
-    .map((n: { name: string; slug: string }) => ({ name: n.name, slug: n.slug }));
-  items.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
+    .map((n: { name: string; slug: string }) => ({
+      name: n.name,
+      slug: n.slug,
+    }));
+  items.sort((a, b) =>
+    a.name.localeCompare(b.name, undefined, { sensitivity: "base" }),
+  );
   return items;
 }
 
@@ -44,7 +52,9 @@ async function fetchBlogNavCategories(): Promise<BlogNavCategory[]> {
  */
 export const getBlogNavCategories = cache(fetchBlogNavCategories);
 
-async function fetchBlogCategoryForArchive(slug: string): Promise<BlogNavCategory | null> {
+async function fetchBlogCategoryForArchive(
+  slug: string,
+): Promise<BlogNavCategory | null> {
   const parentSlug = getBlogCategoryParentSlug();
   const query = `
     query GetBlogCategoryForArchive($slug: ID!) {

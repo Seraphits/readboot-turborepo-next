@@ -8,7 +8,7 @@
 ## Import
 
 ```tsx
-import { ColorSwatch } from '@repo/ui/atoms';
+import { ColorSwatch } from "@repo/ui/atoms";
 ```
 
 Pairing/Primitive “components” are stories; open the files under this folder to extend the labs.

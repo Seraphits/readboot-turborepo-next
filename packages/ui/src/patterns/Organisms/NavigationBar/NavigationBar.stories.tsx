@@ -1,19 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import type { NavigationLinkItem } from '../../Molecules/NavigationMenu/navigation-menu';
-import NavigationBar from './navigation-bar';
+import type { Meta, StoryObj } from "@storybook/react";
+import type { NavigationLinkItem } from "../../Molecules/NavigationMenu/navigation-menu";
+import NavigationBar from "./navigation-bar";
 
 /** Web-style routes (no Storybook canvas URLs). */
 const REALISTIC_LINKS: NavigationLinkItem[] = [
-  { id: 'home', label: 'Home', href: '/' },
-  { id: 'blog', label: 'Blog', href: '/blog/' },
-  { id: 'projects', label: 'Projects', href: '/projects/' },
-  { id: 'docs', label: 'Docs', href: '/docs/' },
+  { id: "home", label: "Home", href: "/" },
+  { id: "blog", label: "Blog", href: "/blog/" },
+  { id: "projects", label: "Projects", href: "/projects/" },
+  { id: "docs", label: "Docs", href: "/docs/" },
 ];
 
 const meta = {
   component: NavigationBar,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
 } satisfies Meta<typeof NavigationBar>;
 

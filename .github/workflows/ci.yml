@@ -32,6 +32,15 @@ jobs:
       - name: Install
         run: pnpm install --frozen-lockfile
 
+      - name: Install ripgrep (guardrails)
+        run: sudo apt-get update && sudo apt-get install -y ripgrep
+
+      - name: Guardrails
+        run: pnpm guardrails
+
+      - name: Prettier
+        run: pnpm format:check
+
       - name: Lint
         run: pnpm lint
 

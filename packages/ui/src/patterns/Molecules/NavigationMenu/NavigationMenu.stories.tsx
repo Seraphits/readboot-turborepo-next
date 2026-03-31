@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import NavigationMenu from './navigation-menu';
+import type { Meta, StoryObj } from "@storybook/react";
+import NavigationMenu from "./navigation-menu";
 
 const meta = {
   component: NavigationMenu,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
 } satisfies Meta<typeof NavigationMenu>;
 
@@ -14,8 +14,8 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     links: [
-      { label: 'Home', href: '/' },
-      { label: 'Blog', href: '/blog/' },
+      { label: "Home", href: "/" },
+      { label: "Blog", href: "/blog/" },
     ],
   },
 };

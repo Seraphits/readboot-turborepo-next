@@ -1,19 +1,19 @@
-import type { ReactNode } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
-import { Typography } from '../../Atoms/Branding/Typography/Typography';
+import type { ReactNode } from "react";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Typography } from "../../Atoms/Branding/Typography/Typography";
 import {
   DEFAULT_PORTRAIT_PLACEHOLDER,
   defaultHomeHero,
-} from '../../Templates/HomePage/homePageDefaults';
+} from "../../Templates/HomePage/homePageDefaults";
 import {
   ReadBootBand,
   type BoxedFeatureHeroLayoutVariant,
-} from './ReadBootBand';
+} from "./ReadBootBand";
 
 const meta: Meta<typeof ReadBootBand> = {
   component: ReadBootBand,
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
     docs: {
       description: {
         component:
@@ -25,17 +25,19 @@ const meta: Meta<typeof ReadBootBand> = {
 export default meta;
 
 const shell = (node: ReactNode) => (
-  <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '1rem' }}>{node}</div>
+  <div style={{ maxWidth: "1100px", margin: "0 auto", padding: "1rem" }}>
+    {node}
+  </div>
 );
 
 const mediaPlaceholder = (
   <div
     style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: '100%',
-      minHeight: '200px',
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      height: "100%",
+      minHeight: "200px",
     }}
   >
     <Typography as="span" variant="caption">
@@ -45,7 +47,7 @@ const mediaPlaceholder = (
 );
 
 export const BoxedCentered: StoryObj<typeof ReadBootBand> = {
-  name: 'Boxed · centered',
+  name: "Boxed · centered",
   render: () =>
     shell(
       <ReadBootBand
@@ -54,7 +56,7 @@ export const BoxedCentered: StoryObj<typeof ReadBootBand> = {
         subhead="Centered layout: no media column."
         ctaText="View portfolio"
         layout="centered"
-      />
+      />,
     ),
 };
 
@@ -67,26 +69,26 @@ const withMedia = (layout: BoxedFeatureHeroLayoutVariant) =>
       ctaText="Get started"
       layout={layout}
       imageNode={mediaPlaceholder}
-    />
+    />,
   );
 
 export const BoxedSplit: StoryObj<typeof ReadBootBand> = {
-  name: 'Boxed · split',
-  render: () => withMedia('split'),
+  name: "Boxed · split",
+  render: () => withMedia("split"),
 };
 
 export const BoxedAsymmetrical: StoryObj<typeof ReadBootBand> = {
-  name: 'Boxed · asymmetrical',
-  render: () => withMedia('asymmetrical'),
+  name: "Boxed · asymmetrical",
+  render: () => withMedia("asymmetrical"),
 };
 
 export const BoxedPreview: StoryObj<typeof ReadBootBand> = {
-  name: 'Boxed · preview',
-  render: () => withMedia('preview'),
+  name: "Boxed · preview",
+  render: () => withMedia("preview"),
 };
 
 export const OpenHomeDefaults: StoryObj<typeof ReadBootBand> = {
-  name: 'Open · home defaults',
+  name: "Open · home defaults",
   render: () => (
     <ReadBootBand
       surface="open"

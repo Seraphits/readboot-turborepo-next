@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import clsx from 'clsx';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import styles from './BlogCategoryNav.module.scss';
+import clsx from "clsx";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import styles from "./BlogCategoryNav.module.scss";
 
 export type BlogCategoryItem = { slug: string; name: string };
 
@@ -14,14 +14,18 @@ export interface BlogCategoryNavProps {
 }
 
 function normalizePath(path: string): string {
-  if (!path) return '/';
-  if (path === '/') return '/';
-  return path.replace(/\/+$/, '') || '/';
+  if (!path) return "/";
+  if (path === "/") return "/";
+  return path.replace(/\/+$/, "") || "/";
 }
 
-export function BlogCategoryNav({ categories, allLabel, ariaLabel }: BlogCategoryNavProps) {
-  const pathname = normalizePath(usePathname() ?? '/');
-  const blogIndex = normalizePath('/blog/');
+export function BlogCategoryNav({
+  categories,
+  allLabel,
+  ariaLabel,
+}: BlogCategoryNavProps) {
+  const pathname = normalizePath(usePathname() ?? "/");
+  const blogIndex = normalizePath("/blog/");
 
   const isAllActive = pathname === blogIndex;
 
@@ -30,20 +34,21 @@ export function BlogCategoryNav({ categories, allLabel, ariaLabel }: BlogCategor
       <Link
         href="/blog/"
         className={clsx(styles.link, isAllActive && styles.linkActive)}
-        aria-current={isAllActive ? 'page' : undefined}
+        aria-current={isAllActive ? "page" : undefined}
       >
         {allLabel}
       </Link>
       {categories.map((cat) => {
         const href = `/blog/category/${cat.slug}/`;
         const catPath = normalizePath(href);
-        const isActive = pathname === catPath || pathname.startsWith(`${catPath}/`);
+        const isActive =
+          pathname === catPath || pathname.startsWith(`${catPath}/`);
         return (
           <Link
             key={cat.slug}
             href={href}
             className={clsx(styles.link, isActive && styles.linkActive)}
-            aria-current={isActive ? 'page' : undefined}
+            aria-current={isActive ? "page" : undefined}
           >
             {cat.name}
           </Link>

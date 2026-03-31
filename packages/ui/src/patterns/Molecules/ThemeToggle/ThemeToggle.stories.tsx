@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { ThemeToggle } from './ThemeToggle';
+import type { Meta, StoryObj } from "@storybook/react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const meta: Meta<typeof ThemeToggle> = {
   component: ThemeToggle,
@@ -7,10 +7,10 @@ const meta: Meta<typeof ThemeToggle> = {
     docs: {
       description: {
         component: [
-          'Toggles between light and dark theme by setting `data-theme` on `document.documentElement` (`<html>`).',
+          "Toggles between light and dark theme by setting `data-theme` on `document.documentElement` (`<html>`).",
           'Persistence uses `localStorage` key **`theme`** (`"light"` | `"dark"`).',
           '**Debug in Storybook:** after clicking, inspect `<html data-theme="…">` in DevTools; Storybook preview may also mirror app `globals` if configured.',
-        ].join(' '),
+        ].join(" "),
       },
     },
   },

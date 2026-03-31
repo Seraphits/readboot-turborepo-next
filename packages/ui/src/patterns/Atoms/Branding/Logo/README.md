@@ -8,7 +8,7 @@
 ## Import
 
 ```tsx
-import { LogoImage, LogoImageClient } from '@repo/ui/atoms';
+import { LogoImage, LogoImageClient } from "@repo/ui/atoms";
 ```
 
 ## Usage

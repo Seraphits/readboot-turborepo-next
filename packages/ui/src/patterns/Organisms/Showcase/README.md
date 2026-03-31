@@ -7,7 +7,7 @@
 ## Import
 
 ```tsx
-import { Showcase } from '@repo/ui/organisms';
+import { Showcase } from "@repo/ui/organisms";
 ```
 
 ## Usage

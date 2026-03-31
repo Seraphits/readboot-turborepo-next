@@ -106,4 +106,4 @@ Track progress on **fixing existing stories** and **adding missing stories** for
 
 ---
 
-*Last updated: Phases 1–4 complete; Phase 2e marked skipped-by-design. Two-layer tracking: `progress.md` points here.*
+_Last updated: Phases 1–4 complete; Phase 2e marked skipped-by-design. Two-layer tracking: `progress.md` points here._

@@ -15,13 +15,13 @@ Prevents recurrence of virtual-module 404 (vite-app.js double-encoding) and reso
 
 ## Recurring Checklist
 
-| Action | When | Purpose |
-|--------|------|--------|
-| Run `npx storybook doctor` from `apps/storybook` | After adding/upgrading addons or Storybook | Catch version mismatches and duplicate deps before they cause 404s. |
-| Clear site data for localhost:6006 | If you see a persistent spinner or 404 after a major update | DevTools → Application → Storage → Clear site data. Hard refresh (Cmd+Shift+R) is not enough when a Service Worker has cached the bad path. |
-| Unregister Service Worker for localhost:6006 | Same as above | Application → Service Workers → Unregister. |
-| Don’t use `NODE_PRESERVE_SYMLINKS=1` with `node-linker=hoisted` | Always | With hoisted linker it can cause path mangling and 404s. |
-| Pin Vite on upgrade | When upgrading Storybook | Keep `vite` at 6.0.11 (or a version noted in Storybook release notes). Update the catalog in `pnpm-workspace.yaml` and run `pnpm install`. |
+| Action                                                          | When                                                        | Purpose                                                                                                                                     |
+| --------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Run `npx storybook doctor` from `apps/storybook`                | After adding/upgrading addons or Storybook                  | Catch version mismatches and duplicate deps before they cause 404s.                                                                         |
+| Clear site data for localhost:6006                              | If you see a persistent spinner or 404 after a major update | DevTools → Application → Storage → Clear site data. Hard refresh (Cmd+Shift+R) is not enough when a Service Worker has cached the bad path. |
+| Unregister Service Worker for localhost:6006                    | Same as above                                               | Application → Service Workers → Unregister.                                                                                                 |
+| Don’t use `NODE_PRESERVE_SYMLINKS=1` with `node-linker=hoisted` | Always                                                      | With hoisted linker it can cause path mangling and 404s.                                                                                    |
+| Pin Vite on upgrade                                             | When upgrading Storybook                                    | Keep `vite` at 6.0.11 (or a version noted in Storybook release notes). Update the catalog in `pnpm-workspace.yaml` and run `pnpm install`.  |
 
 ## If 404 or Double-Encoding Comes Back
 

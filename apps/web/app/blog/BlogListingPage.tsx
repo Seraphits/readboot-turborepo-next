@@ -1,10 +1,10 @@
-import Link from 'next/link';
-import { BlogCategoryNav } from '@repo/ui/molecules';
-import { ReadBootBand, Showcase } from '@repo/ui/organisms';
-import { ShowcaseTemplate } from '@repo/ui/templates';
-import { Button, SectionLayout } from '@repo/ui/atoms';
-import type { Post } from '@repo/wp-utils';
-import { blogPageCopy } from '../../content/blogPage';
+import Link from "next/link";
+import { BlogCategoryNav } from "@repo/ui/molecules";
+import { ReadBootBand, Showcase } from "@repo/ui/organisms";
+import { ShowcaseTemplate } from "@repo/ui/templates";
+import { Button, SectionLayout } from "@repo/ui/atoms";
+import type { Post } from "@repo/wp-utils";
+import { blogPageCopy } from "../../content/blogPage";
 
 export type BlogCategoryNavItem = { slug: string; name: string };
 

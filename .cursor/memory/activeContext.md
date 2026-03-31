@@ -1,4 +1,5 @@
 Active Context: ReadBoot Shared UI
+
 - Current Objective: Building the shared "Futurist Carton" component library in packages/ui.
 - Active Task: Migrating basic components (Button, Card, Code) to use the new SCSS Module architecture.
 - Status: Button is complete. Card and Code are pending migration.
@@ -6,7 +7,7 @@ Active Context: ReadBoot Shared UI
 - Recent: Fixed docs rewrite redirect loop in apps/web/next.config.mts: destination URLs now include trailing slashes to match trailingSlash: true.
 - Recent: Storybook viteFinal: server config now spreads ...config.server before allowedHosts: true. Nuclear clean executed; pnpm install completed.
 - Recent: Dark mode fixes: ThemeToggle added to NavigationBar; localStorage persistence; beforeInteractive theme-init script in docs/web layouts; color-scheme + html[data-theme="dark"] in globals.scss.
-- Recent: Sass module migration: _colors-variables.scss uses sass:color and sass:math (no deprecated lighten/unit). Storybook hardening: pnpm catalog for Storybook/Vite, predev cache clear, main.ts double-encoding patch + URL middleware; see .cursor/memory/storybook-maintenance.md.
+- Recent: Sass module migration: \_colors-variables.scss uses sass:color and sass:math (no deprecated lighten/unit). Storybook hardening: pnpm catalog for Storybook/Vite, predev cache clear, main.ts double-encoding patch + URL middleware; see .cursor/memory/storybook-maintenance.md.
 - Recent: Fixed branding SCSS module resolution + Turbopack `:export` parsing by updating `colors-pairings` imports and replacing `:export`-based pairing keys with `pairingKeys.ts`.
 - Recent: Fixed WPGraphQL request storm / `net::ERR_HTTP2_PROTOCOL_ERROR` in browser by making `NavigationBar` a Server Component (logo fetch stays server-side) and adding a client-safety guard to `getWordPressData`.
 - Recent: Linking standards refactor started: added `.cursor/rules/linking-standards.mdc`, exported `@repo/ui/templates`, removed deep `@repo/wp-utils/src` imports, applied docs `transformHref` via `toDocsHref`, and routed WP HTML through `WPContent` with click interception.
@@ -25,6 +26,7 @@ Active Context: ReadBoot Shared UI
 - Recent: **Web blog routes** — `/blog/`, `/blog/category/[slug]/`, `/blog/post/[slug]/` use **`ShowcaseTemplate`** + boxed **`ReadBootBand`** (optional CTA) + **`BlogCategoryNav`** + **`Showcase`** (data from **`getPosts`** in page RSCs) / **`BlogArticleLayout`** + `WPContent`; copy in **`apps/web/content/blogPage.ts`**; **`BlogCard`** CTA label from **`blogCardDefaults`**. Removed **`BlogShowcase`** (thin `getPosts` + `Showcase` wrapper); apps fetch posts and pass **`items`** / **`type="blog"`** / **`title`**.
 - Recent: **Blog post sidebar** — **`BlogSidebar`** organism; **`getPostBySlug`** returns categories (`edges.isPrimary`, `node.slug/name`); **`getPosts`** supports **`excludePostId`** (GraphQL `notIn` + client filter fallback); post page reads **`searchParams.from`**, resolves category (`resolveSidebarCategory`), grid + rail when related posts exist; category **`Showcase`** passes **`blogFromCategorySlug`** for **`?from=`** on card links; **`metadataBase`** + canonical clean URL in **`generateMetadata`**.
 - Recent: **GitHub CI** — lint, typecheck, Storybook static build on main/PRs; a11y strict in Storybook preview; dedicated `assets/storybook/` SVG for blog card featured mock (logo not reused as article art).
+- Recent: **CI Part 1** — workflow runs **guardrails** (`ripgrep` via apt), **Prettier** (`format:check`), then lint/types/Storybook build; `.prettierignore` added; repo formatted; `check:all` includes guardrails + format:check + lint + types.
 - Recent: **Storybook backlog** — `apps/storybook/STORYBOOK_BACKLOG.md` tracks Phase 1–4 (fix stories, deepen coverage, new stories); `.cursor/memory/progress.md` links to it.
 - Recent: **Storybook Phase 1** — NavigationMenu href fix; Alert border `#36454F`; HomePage story comment; `storybookPathnameOverride` + `next-navigation-mock` for NavigationLink active state; LogoImage Small/Large/FillContainer enabled.
 - Recent: **Storybook Phase 2a** — Button: `args`-based Primary, `AsChildWithLink`, `Disabled`, `WithAriaLabel`; BlogCard `PostPreviewNoFeaturedImage`; ProjectCard `LongTitleManyTags` (`STORYBOOK_BACKLOG.md` updated).
@@ -39,6 +41,7 @@ Active Context: ReadBoot Shared UI
 - Recent: **Blog index + category archive** — shared `BlogListingPage` (`ShowcaseTemplate` + band + nav + `Showcase` + optional back link); routes keep separate URLs and own data/metadata.
 
 ReadBoot Progress
+
 - [x] Turborepo boilerplate initialized.
 - [x] SCSS Module architecture established in packages/ui.
 - [x] ReadBoot "Futurist Carton" design tokens defined.

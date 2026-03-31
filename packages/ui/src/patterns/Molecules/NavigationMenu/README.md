@@ -7,7 +7,7 @@ Accessible list of **`NavigationLink`** items with keyboard roving tabindex. Fee
 ## Import
 
 ```tsx
-import { NavigationMenu } from '@repo/ui/molecules';
+import { NavigationMenu } from "@repo/ui/molecules";
 ```
 
 ## Usage

@@ -1,24 +1,24 @@
-import type { StaticImageData } from 'next/image';
-import Image from 'next/image';
-import Link from 'next/link';
-import {
-  type ElementType,
-  type ReactElement,
-  type ReactNode,
-} from 'react';
-import { SectionLayout } from '../../Atoms/LayoutAtoms/SectionLayout/SectionLayout';
-import { Button } from '../../Atoms/Interactive/Button/Button';
-import { shouldSkipNextImageOptimization } from '../../../lib/remoteImageUtils';
-import boxedStyles from './BoxedFeatureHero.module.scss';
-import openStyles from './FullBleedHero.module.scss';
+import type { StaticImageData } from "next/image";
+import Image from "next/image";
+import Link from "next/link";
+import { type ElementType, type ReactElement, type ReactNode } from "react";
+import { SectionLayout } from "../../Atoms/LayoutAtoms/SectionLayout/SectionLayout";
+import { Button } from "../../Atoms/Interactive/Button/Button";
+import { shouldSkipNextImageOptimization } from "../../../lib/remoteImageUtils";
+import boxedStyles from "./BoxedFeatureHero.module.scss";
+import openStyles from "./FullBleedHero.module.scss";
 
 /** Newspaper surface: ruled inset vs open band on newsprint (see `readboot-layout-model.mdc`). */
-export type BandSurface = 'boxed' | 'open';
+export type BandSurface = "boxed" | "open";
 
 /** Layout variants inside the boxed (ruled) shell. */
-export type BoxedFeatureHeroLayoutVariant = 'centered' | 'split' | 'asymmetrical' | 'preview';
+export type BoxedFeatureHeroLayoutVariant =
+  | "centered"
+  | "split"
+  | "asymmetrical"
+  | "preview";
 
-type BoxedFields<T extends ElementType = 'section'> = {
+type BoxedFields<T extends ElementType = "section"> = {
   as?: T;
   layout?: BoxedFeatureHeroLayoutVariant;
   title: string;
@@ -39,28 +39,33 @@ export type OpenBandFields = {
   secondaryCta: { label: string; href: string };
 };
 
-export type BoxedBandProps<T extends ElementType = 'section'> = { surface: 'boxed' } & BoxedFields<T>;
+export type BoxedBandProps<T extends ElementType = "section"> = {
+  surface: "boxed";
+} & BoxedFields<T>;
 
-export type OpenBandProps = { surface: 'open' } & OpenBandFields;
+export type OpenBandProps = { surface: "open" } & OpenBandFields;
 
-export type ReadBootBandProps<T extends ElementType = 'section'> =
-  | (BoxedBandProps<T> & Omit<React.ComponentPropsWithoutRef<T>, keyof BoxedBandProps<T>>)
+export type ReadBootBandProps<T extends ElementType = "section"> =
+  | (BoxedBandProps<T> &
+      Omit<React.ComponentPropsWithoutRef<T>, keyof BoxedBandProps<T>>)
   | OpenBandProps;
 
-export type BoxedFeatureHeroProps<T extends ElementType = 'section'> = BoxedFields<T>;
+export type BoxedFeatureHeroProps<T extends ElementType = "section"> =
+  BoxedFields<T>;
 
 export type FullBleedHeroProps = OpenBandFields;
 
-function BoxedBand<T extends ElementType = 'section'>({
+function BoxedBand<T extends ElementType = "section">({
   as,
-  layout = 'centered',
+  layout = "centered",
   title,
   subhead,
   ctaText,
   imageNode,
   ...props
-}: BoxedBandProps<T> & Omit<React.ComponentPropsWithoutRef<T>, keyof BoxedBandProps<T>>) {
-  const Component = (as ?? 'section') as ElementType;
+}: BoxedBandProps<T> &
+  Omit<React.ComponentPropsWithoutRef<T>, keyof BoxedBandProps<T>>) {
+  const Component = (as ?? "section") as ElementType;
 
   return (
     <Component className={boxedStyles.heroRoot} {...props}>
@@ -77,7 +82,7 @@ function BoxedBand<T extends ElementType = 'section'>({
           ) : null}
         </div>
 
-        {layout !== 'centered' && (
+        {layout !== "centered" && (
           <div className={boxedStyles.mediaSlot}>{imageNode}</div>
         )}
       </SectionLayout>
@@ -96,7 +101,10 @@ function OpenBand({
   secondaryCta,
 }: OpenBandProps) {
   return (
-    <section className={openStyles.root} aria-labelledby="read-boot-band-open-headline">
+    <section
+      className={openStyles.root}
+      aria-labelledby="read-boot-band-open-headline"
+    >
       <div className={openStyles.portraitFrame}>
         <Image
           src={portraitSrc}
@@ -107,7 +115,7 @@ function OpenBand({
           priority
           sizes="(max-width: 900px) 100vw, 50vw"
           unoptimized={shouldSkipNextImageOptimization(
-            typeof portraitSrc === 'string' ? portraitSrc : portraitSrc.src,
+            typeof portraitSrc === "string" ? portraitSrc : portraitSrc.src,
           )}
         />
       </div>
@@ -135,24 +143,31 @@ function OpenBand({
  * Unified **hero band**: **`surface="boxed"`** (ruled `SectionLayout` inset) or **`surface="open"`**
  * (portrait + copy on newsprint, no outer band rule). See `readboot-layout-model.mdc`.
  */
-export function ReadBootBand<T extends ElementType = 'section'>(
+export function ReadBootBand<T extends ElementType = "section">(
   props: ReadBootBandProps<T>,
 ): ReactElement {
-  if (props.surface === 'open') {
+  if (props.surface === "open") {
     return <OpenBand {...props} />;
   }
-  return <BoxedBand {...(props as BoxedBandProps<T> & Omit<React.ComponentPropsWithoutRef<T>, keyof BoxedBandProps<T>>)} />;
+  return (
+    <BoxedBand
+      {...(props as BoxedBandProps<T> &
+        Omit<React.ComponentPropsWithoutRef<T>, keyof BoxedBandProps<T>>)}
+    />
+  );
 }
 
 /** Preset: `ReadBootBand` with `surface="boxed"`. */
-export const BoxedFeatureHero = <T extends ElementType = 'section'>(
+export const BoxedFeatureHero = <T extends ElementType = "section">(
   props: BoxedFeatureHeroProps<T> &
     Omit<React.ComponentPropsWithoutRef<T>, keyof BoxedFeatureHeroProps<T>>,
 ): ReactElement => (
-  <ReadBootBand {...({ ...props, surface: 'boxed' } as ReadBootBandProps<T>)} />
+  <ReadBootBand {...({ ...props, surface: "boxed" } as ReadBootBandProps<T>)} />
 );
 
 /** Preset: `ReadBootBand` with `surface="open"`. */
 export const FullBleedHero = (props: FullBleedHeroProps): ReactElement => (
-  <ReadBootBand {...({ ...props, surface: 'open' } as ReadBootBandProps<'section'>)} />
+  <ReadBootBand
+    {...({ ...props, surface: "open" } as ReadBootBandProps<"section">)}
+  />
 );

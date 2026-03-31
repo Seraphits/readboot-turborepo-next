@@ -1,18 +1,20 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 import {
   pillarPlaceholder,
   placeholderSrc,
-} from '../../../assets/storybook/placeholders';
-import type { PillarItem } from '../../homeContentTypes';
-import { shouldSkipNextImageOptimization } from '../../../lib/remoteImageUtils';
-import styles from './FeaturedPillarsSection.module.scss';
+} from "../../../assets/storybook/placeholders";
+import type { PillarItem } from "../../homeContentTypes";
+import { shouldSkipNextImageOptimization } from "../../../lib/remoteImageUtils";
+import styles from "./FeaturedPillarsSection.module.scss";
 
 export type FeaturedPillarsSectionProps = {
   pillars: PillarItem[];
 };
 
-export const FeaturedPillarsSection = ({ pillars }: FeaturedPillarsSectionProps) => {
+export const FeaturedPillarsSection = ({
+  pillars,
+}: FeaturedPillarsSectionProps) => {
   return (
     <section className={styles.root} aria-labelledby="pillars-heading">
       <div className={styles.inner}>

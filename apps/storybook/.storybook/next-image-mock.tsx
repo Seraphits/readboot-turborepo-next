@@ -1,14 +1,14 @@
 /* eslint-disable @next/next/no-img-element -- Deliberate next/image mock for Storybook (plain img). */
-import React from 'react';
+import React from "react";
 
 type StaticLike = { src: string };
 
 function normalizeSrc(src: unknown): string {
-  if (typeof src === 'string') return src;
-  if (src && typeof src === 'object' && 'src' in src) {
+  if (typeof src === "string") return src;
+  if (src && typeof src === "object" && "src" in src) {
     return String((src as StaticLike).src);
   }
-  return '';
+  return "";
 }
 
 /**
@@ -17,7 +17,11 @@ function normalizeSrc(src: unknown): string {
  * Supports string URLs and Next.js `StaticImageData` ({ src, width, height, ... }).
  */
 export default function MockNextImage(
-  props: React.ComponentProps<'img'> & { fill?: boolean; priority?: boolean; sizes?: string }
+  props: React.ComponentProps<"img"> & {
+    fill?: boolean;
+    priority?: boolean;
+    sizes?: string;
+  },
 ) {
   const { src, alt, fill, priority, sizes, style, ...rest } = props;
   void fill;
@@ -27,11 +31,11 @@ export default function MockNextImage(
   return (
     <img
       src={srcUrl}
-      alt={alt ?? ''}
+      alt={alt ?? ""}
       style={{
-        width: '100%',
-        height: '100%',
-        objectFit: fill ? 'cover' : 'contain',
+        width: "100%",
+        height: "100%",
+        objectFit: fill ? "cover" : "contain",
         ...style,
       }}
       {...rest}

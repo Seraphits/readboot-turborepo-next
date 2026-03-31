@@ -18,7 +18,9 @@ export default function DocsHome() {
         ...defaultDocsHomeHero,
         primaryCta: {
           label: defaultDocsHomeHero.primaryCta.label,
-          href: portfolioOrigin.endsWith("/") ? portfolioOrigin : `${portfolioOrigin}/`,
+          href: portfolioOrigin.endsWith("/")
+            ? portfolioOrigin
+            : `${portfolioOrigin}/`,
         },
       }}
     />

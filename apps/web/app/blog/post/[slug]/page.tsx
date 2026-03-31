@@ -1,14 +1,14 @@
-import type { Metadata } from 'next';
-import { BlogArticleLayout } from '@repo/ui/molecules';
-import { BlogSidebar, ReadBootBand } from '@repo/ui/organisms';
-import { ShowcaseTemplate } from '@repo/ui/templates';
-import { getPostBySlug, getPosts, type Post, WPContent } from '@repo/wp-utils';
-import { notFound } from 'next/navigation';
-import { blogPageCopy, blogSidebarTitle } from '../../../../content/blogPage';
-import { resolveSidebarCategory } from '../../../../lib/blog/sidebarCategory';
-import styles from './page.module.scss';
+import type { Metadata } from "next";
+import { BlogArticleLayout } from "@repo/ui/molecules";
+import { BlogSidebar, ReadBootBand } from "@repo/ui/organisms";
+import { ShowcaseTemplate } from "@repo/ui/templates";
+import { getPostBySlug, getPosts, type Post, WPContent } from "@repo/wp-utils";
+import { notFound } from "next/navigation";
+import { blogPageCopy, blogSidebarTitle } from "../../../../content/blogPage";
+import { resolveSidebarCategory } from "../../../../lib/blog/sidebarCategory";
+import styles from "./page.module.scss";
 
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 const SIDEBAR_POST_LIMIT = 8;
 
@@ -18,14 +18,16 @@ interface PostPageProps {
 }
 
 function formatPostDate(isoDate: string): string {
-  return new Date(isoDate).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
+  return new Date(isoDate).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
   });
 }
 
-export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PostPageProps): Promise<Metadata> {
   const { slug } = await params;
   const post: Post | null = await getPostBySlug(slug);
   if (!post) {
@@ -40,7 +42,10 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   };
 }
 
-export default async function PostPage({ params, searchParams }: PostPageProps) {
+export default async function PostPage({
+  params,
+  searchParams,
+}: PostPageProps) {
   const { slug } = await params;
   const sp = await searchParams;
   const fromParam = sp.from;
@@ -52,7 +57,10 @@ export default async function PostPage({ params, searchParams }: PostPageProps) 
   }
 
   const subhead = formatPostDate(post.date);
-  const { slug: categorySlug, displayName } = resolveSidebarCategory(fromParam, post);
+  const { slug: categorySlug, displayName } = resolveSidebarCategory(
+    fromParam,
+    post,
+  );
 
   let sidebarItems: { href: string; title: string }[] = [];
   let sidebarTitle: string | null = null;
@@ -61,8 +69,8 @@ export default async function PostPage({ params, searchParams }: PostPageProps) 
     const related = await getPosts({
       categorySlug,
       limit: SIDEBAR_POST_LIMIT,
-      orderBy: 'DATE',
-      order: 'DESC',
+      orderBy: "DATE",
+      order: "DESC",
       excludePostId: post.id,
     });
     if (related.length > 0) {
@@ -79,7 +87,12 @@ export default async function PostPage({ params, searchParams }: PostPageProps) 
   return (
     <ShowcaseTemplate
       headerSlot={
-        <ReadBootBand surface="boxed" title={post.title} subhead={subhead} layout="centered" />
+        <ReadBootBand
+          surface="boxed"
+          title={post.title}
+          subhead={subhead}
+          layout="centered"
+        />
       }
       mainSlot={
         showSidebar ? (
@@ -87,13 +100,19 @@ export default async function PostPage({ params, searchParams }: PostPageProps) 
             <BlogSidebar title={sidebarTitle!} items={sidebarItems} />
             <div className={styles.main}>
               <BlogArticleLayout>
-                <WPContent data={{ title: post.title, content: post.content }} renderTitle={false} />
+                <WPContent
+                  data={{ title: post.title, content: post.content }}
+                  renderTitle={false}
+                />
               </BlogArticleLayout>
             </div>
           </div>
         ) : (
           <BlogArticleLayout>
-            <WPContent data={{ title: post.title, content: post.content }} renderTitle={false} />
+            <WPContent
+              data={{ title: post.title, content: post.content }}
+              renderTitle={false}
+            />
           </BlogArticleLayout>
         )
       }

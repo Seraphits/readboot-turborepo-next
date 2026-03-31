@@ -15,8 +15,8 @@ import {
   defaultDocsMission,
   defaultDocsPillars,
   defaultDocsVision,
-} from '@repo/ui/templates';
-import type { HomePageProps, PillarItem } from '@repo/ui/templates';
+} from "@repo/ui/templates";
+import type { HomePageProps, PillarItem } from "@repo/ui/templates";
 ```
 
 Shared types: **`PillarItem`** from **`patterns/homeContentTypes/`** (re-exported from templates). See that folder’s **`README.md`**.

@@ -1,8 +1,8 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { Post } from '@repo/wp-utils';
-import { blogCardDefaults } from './blogCardDefaults';
-import styles from './BlogCard.module.scss';
+import Image from "next/image";
+import Link from "next/link";
+import { Post } from "@repo/wp-utils";
+import { blogCardDefaults } from "./blogCardDefaults";
+import styles from "./BlogCard.module.scss";
 
 export interface BlogCardProps {
   post: Post;
@@ -12,7 +12,7 @@ export interface BlogCardProps {
 
 export const BlogCard = ({ post, fromCategorySlug }: BlogCardProps) => {
   const postHref =
-    fromCategorySlug != null && fromCategorySlug !== ''
+    fromCategorySlug != null && fromCategorySlug !== ""
       ? `/blog/post/${post.slug}/?from=${encodeURIComponent(fromCategorySlug)}`
       : `/blog/post/${post.slug}/`;
 
@@ -30,7 +30,7 @@ export const BlogCard = ({ post, fromCategorySlug }: BlogCardProps) => {
       )}
       <div className={styles.card__content}>
         <h3>{post.title}</h3>
-        <div dangerouslySetInnerHTML={{ __html: post.excerpt ?? '' }} />
+        <div dangerouslySetInnerHTML={{ __html: post.excerpt ?? "" }} />
         <Link href={postHref} className={styles.card__link}>
           {blogCardDefaults.readMoreLabel}
         </Link>

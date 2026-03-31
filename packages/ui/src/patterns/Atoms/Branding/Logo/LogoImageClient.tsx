@@ -25,7 +25,10 @@ export function LogoImageClient({
   alt: staticAlt,
   useWordPressLogo = false,
 }: LogoImageClientProps) {
-  const [wpLogo, setWpLogo] = useState<{ sourceUrl: string; altText: string } | null>(null);
+  const [wpLogo, setWpLogo] = useState<{
+    sourceUrl: string;
+    altText: string;
+  } | null>(null);
 
   useEffect(() => {
     if (!useWordPressLogo) return;
@@ -38,7 +41,10 @@ export function LogoImageClient({
   if (staticSrc) {
     const altText = staticAlt ?? READBOOT_LOGO_ALT;
     return (
-      <div className={`${styles.container} ${className ?? ""}`.trim()} style={{ width, height }}>
+      <div
+        className={`${styles.container} ${className ?? ""}`.trim()}
+        style={{ width, height }}
+      >
         <Image
           src={staticSrc}
           alt={altText}
@@ -72,7 +78,10 @@ export function LogoImageClient({
     }
 
     return (
-      <div className={`${styles.container} ${className ?? ""}`.trim()} style={{ width, height }}>
+      <div
+        className={`${styles.container} ${className ?? ""}`.trim()}
+        style={{ width, height }}
+      >
         <Image
           src={sourceUrl}
           alt={altText}
@@ -87,7 +96,10 @@ export function LogoImageClient({
   }
 
   return (
-    <div className={`${styles.container} ${className ?? ""}`.trim()} style={{ width, height }}>
+    <div
+      className={`${styles.container} ${className ?? ""}`.trim()}
+      style={{ width, height }}
+    >
       <Image
         src={READBOOT_LOGO}
         alt={READBOOT_LOGO_ALT}

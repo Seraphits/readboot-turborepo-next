@@ -7,7 +7,7 @@ Mission block: two-column **newspaper** body with optional **accent** span on **
 ## Import
 
 ```tsx
-import { MissionProvocation } from '@repo/ui/organisms';
+import { MissionProvocation } from "@repo/ui/organisms";
 ```
 
 ## Usage

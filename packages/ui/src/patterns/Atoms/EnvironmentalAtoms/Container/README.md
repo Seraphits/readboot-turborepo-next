@@ -7,7 +7,7 @@ Viewport-width shell with themed paper background. Use **`as`** for landmarks (`
 ## Import
 
 ```tsx
-import { Container } from '@repo/ui/atoms';
+import { Container } from "@repo/ui/atoms";
 ```
 
 ## Usage

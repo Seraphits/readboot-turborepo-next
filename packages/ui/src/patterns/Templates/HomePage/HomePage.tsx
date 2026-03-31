@@ -1,6 +1,6 @@
 import type { StaticImageData } from "next/image";
-import type { PillarItem } from '../../homeContentTypes';
-import { FeaturedPillarsSection } from '../../Organisms/FeaturedPillarsSection/FeaturedPillarsSection';
+import type { PillarItem } from "../../homeContentTypes";
+import { FeaturedPillarsSection } from "../../Organisms/FeaturedPillarsSection/FeaturedPillarsSection";
 import {
   type HomeHeroCopy,
   type HomeMissionCopy,
@@ -10,11 +10,11 @@ import {
   defaultMission,
   defaultPillars,
   defaultVision,
-} from './homePageDefaults';
-import { ReadBootBand } from '../../Organisms/Hero/ReadBootBand';
-import { MissionProvocation } from '../../Organisms/MissionProvocation/MissionProvocation';
-import { VisionRoadmapSection } from '../../Organisms/VisionRoadmapSection/VisionRoadmapSection';
-import styles from './HomePage.module.scss';
+} from "./homePageDefaults";
+import { ReadBootBand } from "../../Organisms/Hero/ReadBootBand";
+import { MissionProvocation } from "../../Organisms/MissionProvocation/MissionProvocation";
+import { VisionRoadmapSection } from "../../Organisms/VisionRoadmapSection/VisionRoadmapSection";
+import styles from "./HomePage.module.scss";
 
 export type HomePageProps = {
   portraitSrc?: string | StaticImageData;
@@ -27,7 +27,7 @@ export type HomePageProps = {
 
 export const HomePage = ({
   portraitSrc = DEFAULT_PORTRAIT_PLACEHOLDER,
-  portraitAlt = 'Portrait placeholder',
+  portraitAlt = "Portrait placeholder",
   hero = defaultHomeHero,
   mission = defaultMission,
   pillars = [...defaultPillars],
@@ -68,10 +68,10 @@ export {
   defaultMission,
   defaultPillars,
   defaultVision,
-} from './homePageDefaults';
+} from "./homePageDefaults";
 export type {
   HomeHeroCopy,
   HomeMissionCopy,
   HomeVisionCopy,
-} from './homePageDefaults';
-export type { PillarItem } from '../../homeContentTypes';
+} from "./homePageDefaults";
+export type { PillarItem } from "../../homeContentTypes";

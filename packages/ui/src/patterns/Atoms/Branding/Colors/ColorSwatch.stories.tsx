@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { BRAND_COLORS } from './colors-data';
-import { ColorSwatch } from './ColorSwatch';
+import type { Meta, StoryObj } from "@storybook/react";
+import { BRAND_COLORS } from "./colors-data";
+import { ColorSwatch } from "./ColorSwatch";
 
 const meta: Meta<typeof ColorSwatch> = {
   component: ColorSwatch,
@@ -8,7 +8,7 @@ const meta: Meta<typeof ColorSwatch> = {
     docs: {
       description: {
         component:
-          'Swatch card using `Geometric` swatch layout — same primitive used in **Primitives** stories. Tier 1 reference colors only here; see **System tokens** for `$sys-*`.',
+          "Swatch card using `Geometric` swatch layout — same primitive used in **Primitives** stories. Tier 1 reference colors only here; see **System tokens** for `$sys-*`.",
       },
     },
   },
@@ -16,17 +16,22 @@ const meta: Meta<typeof ColorSwatch> = {
 export default meta;
 
 export const BrandReferenceSwatches: StoryObj<typeof ColorSwatch> = {
-  name: 'Brand reference (Tier 1)',
+  name: "Brand reference (Tier 1)",
   render: () => (
     <div
       style={{
-        display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
-        gap: '1.5rem',
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+        gap: "1.5rem",
       }}
     >
       {BRAND_COLORS.map((color) => (
-        <ColorSwatch key={color.variable} name={color.name} variable={color.variable} hex={color.hex} />
+        <ColorSwatch
+          key={color.variable}
+          name={color.name}
+          variable={color.variable}
+          hex={color.hex}
+        />
       ))}
     </div>
   ),

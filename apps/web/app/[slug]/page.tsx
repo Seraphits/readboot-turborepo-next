@@ -1,6 +1,6 @@
-import { notFound } from 'next/navigation';
-import type { Metadata } from 'next';
-import { getPageByUri, WPContent } from '@repo/wp-utils';
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { getPageByUri, WPContent } from "@repo/wp-utils";
 
 export async function generateMetadata({
   params,
@@ -11,7 +11,7 @@ export async function generateMetadata({
   const pageData = await getPageByUri(slug);
 
   return {
-    title: pageData?.title || 'Page Not Found',
+    title: pageData?.title || "Page Not Found",
   };
 }
 
@@ -30,7 +30,10 @@ export default async function Page({
   return (
     <>
       <h1>{pageData.title}</h1>
-      <WPContent data={{ title: pageData.title, content: pageData.content }} renderTitle={false} />
+      <WPContent
+        data={{ title: pageData.title, content: pageData.content }}
+        renderTitle={false}
+      />
     </>
   );
 }

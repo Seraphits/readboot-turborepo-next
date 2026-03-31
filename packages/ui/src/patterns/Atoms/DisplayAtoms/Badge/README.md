@@ -9,7 +9,7 @@ Small status / label chip. Used inside card molecules and similar surfaces.
 `Badge` is not on the `@repo/ui/atoms` barrel today; import from the package patterns export:
 
 ```tsx
-import { Badge } from '@repo/ui/patterns/Atoms/DisplayAtoms/Badge/Badge';
+import { Badge } from "@repo/ui/patterns/Atoms/DisplayAtoms/Badge/Badge";
 ```
 
 Prefer composing through existing molecules (e.g. `BlogCard`, `ProjectCard`) when you only need default chip styling.

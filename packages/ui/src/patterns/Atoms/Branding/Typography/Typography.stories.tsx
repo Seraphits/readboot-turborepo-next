@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Typography } from './Typography';
+import type { Meta, StoryObj } from "@storybook/react";
+import { Typography } from "./Typography";
 
 const meta: Meta<typeof Typography> = {
   component: Typography,
@@ -14,12 +14,21 @@ const meta: Meta<typeof Typography> = {
 };
 export default meta;
 
-const stack = { display: 'flex', flexDirection: 'column' as const, gap: '1.25rem' };
-const label = { fontSize: '0.75rem', opacity: 0.75, marginBottom: '0.25rem', fontFamily: 'var(--font-mono, monospace)' };
+const stack = {
+  display: "flex",
+  flexDirection: "column" as const,
+  gap: "1.25rem",
+};
+const label = {
+  fontSize: "0.75rem",
+  opacity: 0.75,
+  marginBottom: "0.25rem",
+  fontFamily: "var(--font-mono, monospace)",
+};
 
 export const AllVariants: StoryObj<typeof Typography> = {
   render: () => (
-    <div style={{ ...stack, gap: '2rem', maxWidth: '40rem' }}>
+    <div style={{ ...stack, gap: "2rem", maxWidth: "40rem" }}>
       <section>
         <p style={label}>variant=&quot;h1&quot;</p>
         <Typography as="h1" variant="h1">
@@ -59,8 +68,8 @@ export const AllVariants: StoryObj<typeof Typography> = {
       <section>
         <p style={label}>variant=&quot;body&quot; (with &lt;strong&gt;)</p>
         <Typography as="p" variant="body">
-          Body: Inter. Use <strong>strong</strong> for emphasis inside paragraphs when you need semantic bold, not
-          a separate variant.
+          Body: Inter. Use <strong>strong</strong> for emphasis inside
+          paragraphs when you need semantic bold, not a separate variant.
         </Typography>
       </section>
       <section>

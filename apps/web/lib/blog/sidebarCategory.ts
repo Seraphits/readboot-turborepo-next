@@ -1,7 +1,7 @@
-import type { Post } from '@repo/wp-utils';
+import type { Post } from "@repo/wp-utils";
 
 /** WordPress default category slug — excluded from sidebar / `?from=` resolution. */
-export const UNCATEGORIZED_SLUG = 'uncategorized';
+export const UNCATEGORIZED_SLUG = "uncategorized";
 
 export interface ResolvedSidebarCategory {
   slug: string | null;
@@ -16,7 +16,7 @@ export function resolveSidebarCategory(
   post: Post,
 ): ResolvedSidebarCategory {
   const from =
-    typeof fromParam === 'string'
+    typeof fromParam === "string"
       ? fromParam
       : Array.isArray(fromParam)
         ? fromParam[0]

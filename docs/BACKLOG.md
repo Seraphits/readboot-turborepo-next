@@ -4,21 +4,21 @@ This repo uses **markdown in the repository** as the durable plan and checklist,
 
 ## Workflow
 
-| Layer | Role |
-|--------|------|
-| **Markdown** | Phases, exit criteria, file paths, and history—reviewed in PRs and versioned with the branch. |
+| Layer             | Role                                                                                                                            |
+| ----------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| **Markdown**      | Phases, exit criteria, file paths, and history—reviewed in PRs and versioned with the branch.                                   |
 | **GitHub Issues** | Who is doing what now, discussion, and closing work; each issue should **point to** a markdown section so the two stay aligned. |
-| **PRs** | When you complete an item, update the relevant markdown checklist (`[ ]` → `[x]`) in the same or a follow-up PR. |
+| **PRs**           | When you complete an item, update the relevant markdown checklist (`[ ]` → `[x]`) in the same or a follow-up PR.                |
 
 Use the **Backlog item** template when opening an issue so the backlog reference stays explicit.
 
 ## Backlog and planning documents
 
-| Document | Contents |
-|----------|----------|
-| [apps/storybook/STORYBOOK_BACKLOG.md](../apps/storybook/STORYBOOK_BACKLOG.md) | Storybook: fix stories, deepen coverage, new stories (Phases 1–4). |
-| [.cursor/memory/progress.md](../.cursor/memory/progress.md) | Short-lived session progress and cross-links (Cursor-oriented). |
-| [apps/web/HOMEPAGE_CONTENT.md](../apps/web/HOMEPAGE_CONTENT.md) | Web homepage copy and where to edit defaults (not a sprint backlog). |
+| Document                                                                      | Contents                                                             |
+| ----------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| [apps/storybook/STORYBOOK_BACKLOG.md](../apps/storybook/STORYBOOK_BACKLOG.md) | Storybook: fix stories, deepen coverage, new stories (Phases 1–4).   |
+| [.cursor/memory/progress.md](../.cursor/memory/progress.md)                   | Short-lived session progress and cross-links (Cursor-oriented).      |
+| [apps/web/HOMEPAGE_CONTENT.md](../apps/web/HOMEPAGE_CONTENT.md)               | Web homepage copy and where to edit defaults (not a sprint backlog). |
 
 Add new domain backlogs under `docs/` or next to the app/package they concern, and add a row here.
 
@@ -38,4 +38,4 @@ Anything that can **read files in this workspace** can read and suggest edits to
 
 ---
 
-*Prefer one index file (`docs/BACKLOG.md`) so agents and humans have a single entry point.*
+_Prefer one index file (`docs/BACKLOG.md`) so agents and humans have a single entry point._

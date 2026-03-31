@@ -1,4 +1,4 @@
-import { redirect } from 'next/navigation';
+import { redirect } from "next/navigation";
 
 /**
  * Standalone docs deployment (e.g. Vercel preview URL root `/`) has no `app/page.tsx`
@@ -6,5 +6,5 @@ import { redirect } from 'next/navigation';
  * hits `/docs/...` via the web app rewrite. Send root visitors to the real docs entry.
  */
 export default function DocsRootRedirect() {
-  redirect('/docs/');
+  redirect("/docs/");
 }

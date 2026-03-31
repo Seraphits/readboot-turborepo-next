@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React, { useCallback } from 'react';
-import { usePathname, useRouter } from 'next/navigation';
-import { toDocsHref } from '../utils/url-transform';
+import React, { useCallback } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { toDocsHref } from "../utils/url-transform";
 
 interface EditorBlock {
   name?: string;
@@ -21,19 +21,24 @@ interface WPContentProps {
 
 function getWpHostname(): string | null {
   const siteUrl =
-    process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL ?? process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
+    process.env.NEXT_PUBLIC_WORDPRESS_SITE_URL ??
+    process.env.NEXT_PUBLIC_WORDPRESS_API_URL;
   if (!siteUrl) return null;
   try {
-    return new URL(siteUrl.replace(/\/graphql\/?$/, '')).hostname;
+    return new URL(siteUrl.replace(/\/graphql\/?$/, "")).hostname;
   } catch {
     return null;
   }
 }
 
-export const WPContent = ({ data, className, renderTitle = true }: WPContentProps) => {
+export const WPContent = ({
+  data,
+  className,
+  renderTitle = true,
+}: WPContentProps) => {
   const router = useRouter();
   const pathname = usePathname();
-  const inDocsApp = pathname?.startsWith('/docs') ?? false;
+  const inDocsApp = pathname?.startsWith("/docs") ?? false;
 
   const onClick = useCallback(
     (e: React.MouseEvent<HTMLElement>) => {
@@ -43,22 +48,22 @@ export const WPContent = ({ data, className, renderTitle = true }: WPContentProp
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
 
       const target = e.target as HTMLElement | null;
-      const anchor = target?.closest?.('a') as HTMLAnchorElement | null;
+      const anchor = target?.closest?.("a") as HTMLAnchorElement | null;
       if (!anchor) return;
 
-      const href = anchor.getAttribute('href');
-      if (!href || href === '#' || href === '') return;
+      const href = anchor.getAttribute("href");
+      if (!href || href === "#" || href === "") return;
 
       // Respect new-tab and non-http intents.
-      if (anchor.target === '_blank') return;
-      if (href.startsWith('mailto:') || href.startsWith('tel:')) return;
-      if (href.startsWith('javascript:')) return;
+      if (anchor.target === "_blank") return;
+      if (href.startsWith("mailto:") || href.startsWith("tel:")) return;
+      if (href.startsWith("javascript:")) return;
 
       // If we're in the docs app, map any WP-ish URLs into `/docs/...`.
       if (inDocsApp) {
         try {
           const mapped = toDocsHref(href);
-          if (mapped.startsWith('/')) {
+          if (mapped.startsWith("/")) {
             e.preventDefault();
             router.push(mapped);
           }
@@ -72,20 +77,24 @@ export const WPContent = ({ data, className, renderTitle = true }: WPContentProp
       const url = new URL(href, window.location.href);
       const wpHostname = getWpHostname();
       const isInternal =
-        href.startsWith('/') || (wpHostname ? url.hostname === wpHostname : false);
+        href.startsWith("/") ||
+        (wpHostname ? url.hostname === wpHostname : false);
 
       if (!isInternal) return;
 
       e.preventDefault();
       router.push(url.pathname + url.search + url.hash);
     },
-    [inDocsApp, router]
+    [inDocsApp, router],
   );
 
   if (!data) return <p>No content found.</p>;
 
   return (
-    <section className={`wp-content-block${className ? ` ${className}` : ''}`} onClick={onClick}>
+    <section
+      className={`wp-content-block${className ? ` ${className}` : ""}`}
+      onClick={onClick}
+    >
       {renderTitle && <h1>{data.title}</h1>}
 
       {data.editorBlocks?.length ? (
@@ -95,7 +104,7 @@ export const WPContent = ({ data, className, renderTitle = true }: WPContentProp
             .map((block, i) => (
               <div
                 key={i}
-                className={`wp-block wp-block-${block.name || 'unknown'}`}
+                className={`wp-block wp-block-${block.name || "unknown"}`}
                 dangerouslySetInnerHTML={{ __html: block.renderedHtml! }}
               />
             ))}

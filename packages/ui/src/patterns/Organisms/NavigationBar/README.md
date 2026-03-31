@@ -9,7 +9,7 @@ When **`logo`** is omitted, the bar renders **`LogoImageClient`** (bundled mark;
 ## Import
 
 ```tsx
-import { NavigationBar } from '@repo/ui/organisms';
+import { NavigationBar } from "@repo/ui/organisms";
 ```
 
 ## Usage

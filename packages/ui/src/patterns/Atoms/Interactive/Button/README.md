@@ -7,7 +7,7 @@ Primary interactive control for actions. Supports **`asChild`** (Radix Slot) for
 ## Import
 
 ```tsx
-import { Button } from '@repo/ui/atoms';
+import { Button } from "@repo/ui/atoms";
 ```
 
 ## Usage

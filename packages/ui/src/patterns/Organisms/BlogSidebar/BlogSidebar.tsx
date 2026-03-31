@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import { SectionLayout } from '../../Atoms/LayoutAtoms/SectionLayout/SectionLayout';
-import { Typography } from '../../Atoms/Branding/Typography/Typography';
-import styles from './BlogSidebar.module.scss';
-import clsx from 'clsx';
+import Link from "next/link";
+import { SectionLayout } from "../../Atoms/LayoutAtoms/SectionLayout/SectionLayout";
+import { Typography } from "../../Atoms/Branding/Typography/Typography";
+import styles from "./BlogSidebar.module.scss";
+import clsx from "clsx";
 
 export interface BlogSidebarItem {
   href: string;

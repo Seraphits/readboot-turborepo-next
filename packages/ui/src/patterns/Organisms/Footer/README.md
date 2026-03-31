@@ -7,7 +7,7 @@ Global **connect** strip: title, outbound links (`next/link`), copyright. Landma
 ## Import
 
 ```tsx
-import { ConnectFooterSection, defaultConnect } from '@repo/ui/templates';
+import { ConnectFooterSection, defaultConnect } from "@repo/ui/templates";
 ```
 
 `ConnectFooterSection` is implemented here but **re-exported from `@repo/ui/templates`** next to **`defaultConnect`** from `Templates/HomePage/homePageDefaults.ts` so apps can set footer copy in one place.

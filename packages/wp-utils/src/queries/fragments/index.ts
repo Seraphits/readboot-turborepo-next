@@ -1,2 +1,2 @@
-export * from './core-page-fields';
-export * from './project-fields';
+export * from "./core-page-fields";
+export * from "./project-fields";

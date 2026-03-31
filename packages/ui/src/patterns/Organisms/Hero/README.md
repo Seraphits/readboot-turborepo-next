@@ -12,7 +12,11 @@ Single hero **band** primitive with **`surface: 'boxed' | 'open'`** (see `readbo
 ## Import
 
 ```tsx
-import { ReadBootBand, BoxedFeatureHero, FullBleedHero } from '@repo/ui/organisms';
+import {
+  ReadBootBand,
+  BoxedFeatureHero,
+  FullBleedHero,
+} from "@repo/ui/organisms";
 ```
 
 ## Usage
