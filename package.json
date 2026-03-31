@@ -14,6 +14,8 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
     "check:all": "pnpm guardrails && pnpm format:check && pnpm lint && pnpm check-types",
+    "quality": "pnpm check:all && pnpm build:web",
+    "quality:full": "pnpm quality && pnpm turbo run build-storybook --filter=storybook",
     "vercel:ignore-storybook": "npx turbo-ignore storybook"
   },
   "devDependencies": {
