@@ -59,6 +59,7 @@ export default async function CategoryPage({ params }: PageProps) {
             type="blog"
             items={posts}
             title={blogPageCopy.latestSectionTitle}
+            blogFromCategorySlug={slug}
           />
           <SectionLayout variant="centered">
             <Button variant="outline-on-light" asChild>

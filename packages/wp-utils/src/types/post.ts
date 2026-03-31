@@ -1,3 +1,12 @@
+/** Category edge from WPGraphQL (Yoast `isPrimary` on edge when available). */
+export interface PostCategoryEdge {
+  isPrimary?: boolean;
+  node: {
+    slug: string;
+    name: string;
+  };
+}
+
 export interface Post {
   id: string;
   title: string;
@@ -10,6 +19,9 @@ export interface Post {
       sourceUrl: string;
       altText?: string;
     };
+  };
+  categories?: {
+    edges: PostCategoryEdge[];
   };
 }
 

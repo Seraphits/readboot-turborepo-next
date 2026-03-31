@@ -11,6 +11,15 @@ export async function getPostBySlug(slug: string): Promise<Post | null> {
         date
         content
         excerpt
+        categories {
+          edges {
+            isPrimary
+            node {
+              slug
+              name
+            }
+          }
+        }
       }
     }
   `;

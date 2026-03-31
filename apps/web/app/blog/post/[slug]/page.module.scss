@@ -1,0 +1,26 @@
+@use "Spatial/Spacing/spacing-variables" as space;
+@use "Spatial/Layout/layout-variables" as layout;
+
+.shell {
+  display: grid;
+  width: 100%;
+  max-width: layout.$ref-layout-max-site;
+  margin-inline: auto;
+  gap: space.$space-xl;
+  padding-inline: space.$space-md;
+  padding-bottom: space.$space-2xl;
+  box-sizing: border-box;
+
+  @media (max-width: layout.$ref-breakpoint-md) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: layout.$ref-breakpoint-md) {
+    grid-template-columns: 18.75rem minmax(0, 1fr);
+    align-items: start;
+  }
+}
+
+.main {
+  min-width: 0;
+}

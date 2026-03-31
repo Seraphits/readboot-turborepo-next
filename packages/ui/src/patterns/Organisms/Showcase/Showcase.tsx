@@ -12,9 +12,11 @@ interface ShowcaseProps {
   type: 'project' | 'blog';
   title?: string;
   className?: string;
+  /** When `type="blog"` and set (e.g. on category archives), passed to **`BlogCard`** as `fromCategorySlug`. */
+  blogFromCategorySlug?: string;
 }
 
-export const Showcase = ({ items, type, title, className }: ShowcaseProps) => {
+export const Showcase = ({ items, type, title, className, blogFromCategorySlug }: ShowcaseProps) => {
   return (
     <SectionLayout
       // variant="grid"
@@ -29,7 +31,13 @@ export const Showcase = ({ items, type, title, className }: ShowcaseProps) => {
         {items.map((item) =>  (
           type === 'project'
            ? <ProjectCard key={item.id} project={item as Project} />
-            : <BlogCard key={item.id} post={item as Post} />
+            : (
+                <BlogCard
+                  key={item.id}
+                  post={item as Post}
+                  fromCategorySlug={blogFromCategorySlug}
+                />
+              )
         ))}
        </SectionLayout>
     </SectionLayout>

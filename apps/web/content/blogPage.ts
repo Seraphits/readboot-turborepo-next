@@ -15,3 +15,8 @@ export const blogPageCopy = {
   backToBlogLabel: 'Back to Blog',
   emptyBlog: 'No blog posts found.',
 } as const;
+
+/** Sidebar rail heading — receives resolved category display name from WordPress. */
+export function blogSidebarTitle(categoryName: string) {
+  return `More in ${categoryName}`;
+}

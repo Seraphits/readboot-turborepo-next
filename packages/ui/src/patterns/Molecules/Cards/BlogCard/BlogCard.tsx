@@ -4,7 +4,18 @@ import { Post } from '@repo/wp-utils';
 import { blogCardDefaults } from './blogCardDefaults';
 import styles from './BlogCard.module.scss';
 
-export const BlogCard = ({ post }: { post: Post }) => {
+export interface BlogCardProps {
+  post: Post;
+  /** When set (e.g. user arrived from a category archive), append `?from=` for post-page sidebar context. */
+  fromCategorySlug?: string;
+}
+
+export const BlogCard = ({ post, fromCategorySlug }: BlogCardProps) => {
+  const postHref =
+    fromCategorySlug != null && fromCategorySlug !== ''
+      ? `/blog/post/${post.slug}/?from=${encodeURIComponent(fromCategorySlug)}`
+      : `/blog/post/${post.slug}/`;
+
   return (
     <article className={styles.card}>
       {post.featuredImage?.node?.sourceUrl && (
@@ -20,7 +31,7 @@ export const BlogCard = ({ post }: { post: Post }) => {
       <div className={styles.card__content}>
         <h3>{post.title}</h3>
         <div dangerouslySetInnerHTML={{ __html: post.excerpt ?? '' }} />
-        <Link href={`/blog/post/${post.slug}`} className={styles.card__link}>
+        <Link href={postHref} className={styles.card__link}>
           {blogCardDefaults.readMoreLabel}
         </Link>
       </div>
