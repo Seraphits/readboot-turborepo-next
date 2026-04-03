@@ -45,15 +45,14 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </li>
           </ul>
         )}
-        <Showcase type="blog" items={relatedPosts} title="Related Insights" />
-      </section>
-
       {/* 3. Main Project Content (from Image 7) */}
       <WPContent
         data={{ title: project.title, content: project.content }}
         renderTitle={false}
         className="project-content"
       />
+      <Showcase type="blog" items={relatedPosts} title="Related Insights" />
+      </section>
     </main>
   );
 }

@@ -16,45 +16,23 @@ export const ProjectCard = ({ project, className }: ProjectCardProps) => {
   const { title, excerpt, slug, projectIntelligence, tags } = project;
 
   return (
+    <Link href={`/projects/${slug}`}>
     <article className={clsx(styles["project-card"], className)}>
-      <header className={styles["project-card__header"]}>
-        <Badge variant="primary" className={styles["project-card__status"]}>
+      {/* <header className={styles["project-card__header"]}> */}
+        {/* <Badge variant="primary" className={styles["project-card__status"]}>
           {projectIntelligence.lifecycleStatus}
-        </Badge>
+        </Badge> */}
         <Typography variant="h3" className={styles["project-card__title"]}>
           {title}
         </Typography>
-      </header>
-
+      {/* </header> */}
       <div className={styles["project-card__body"]}>
         <div
           className={styles["project-card__excerpt"]}
           dangerouslySetInnerHTML={{ __html: excerpt ?? "" }}
         />
       </div>
-
-      <footer className={styles["project-card__footer"]}>
-        <div className={styles["project-card__meta"]}>
-          <span className={styles["project-card__metric"]}>
-            {projectIntelligence.impactMetric}
-          </span>
-          <div className={styles["project-card__tags"]}>
-            {tags.nodes.map((tag) => (
-              <Badge key={tag.name} variant="outline">
-                {tag.name}
-              </Badge>
-            ))}
-          </div>
-        </div>
-
-        <Button
-          asChild
-          variant="action-on-light"
-          className={styles["project-card__cta"]}
-        >
-          <Link href={`/projects/${slug}`}>View Case Study →</Link>
-        </Button>
-      </footer>
     </article>
+    </Link>
   );
 };
