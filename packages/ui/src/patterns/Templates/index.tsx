@@ -1,6 +1,6 @@
 export { ShowcaseTemplate } from "./ShowcaseTemplate/ShowcaseTemplate";
 
-export { HomePage } from "./HomePage/HomePage";
+export { HomePage, portfolioHeroPortrait } from "./HomePage/HomePage";
 export type {
   HomeHeroCopy,
   HomeMissionCopy,

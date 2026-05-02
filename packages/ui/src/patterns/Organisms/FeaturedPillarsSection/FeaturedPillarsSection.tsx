@@ -22,30 +22,35 @@ export const FeaturedPillarsSection = ({
           Featured work
         </h2>
         <div className={styles.grid}>
-          {pillars.map((pillar) => (
-            <article key={pillar.title} className={styles.card}>
-              <div className={styles.cardImage}>
-                <Image
-                  src={pillarPlaceholder}
-                  alt={`Placeholder artwork for ${pillar.title}`}
-                  width={600}
-                  height={340}
-                  sizes="(max-width: 900px) 100vw, 33vw"
-                  unoptimized={shouldSkipNextImageOptimization(
-                    placeholderSrc(pillarPlaceholder),
-                  )}
-                />
-              </div>
-              <div className={styles.cardBody}>
-                <h3 className={styles.cardTitle}>{pillar.title}</h3>
-                <p className={styles.tagline}>{pillar.tagline}</p>
-                <p className={styles.summary}>{pillar.summary}</p>
-                <Link href={pillar.href} className={styles.cardAction}>
-                  {pillar.actionLabel} →
-                </Link>
-              </div>
-            </article>
-          ))}
+          {pillars.map((pillar) => {
+            const src = pillar.imageSrc ?? pillarPlaceholder;
+            const alt =
+              pillar.imageAlt ?? `Placeholder artwork for ${pillar.title}`;
+            return (
+              <article key={pillar.title} className={styles.card}>
+                <div className={styles.cardImage}>
+                  <Image
+                    src={src}
+                    alt={alt}
+                    fill
+                    sizes="(max-width: 900px) 100vw, 33vw"
+                    className={styles.cardImageFill}
+                    unoptimized={shouldSkipNextImageOptimization(
+                      typeof src === "string" ? src : placeholderSrc(src),
+                    )}
+                  />
+                </div>
+                <div className={styles.cardBody}>
+                  <h3 className={styles.cardTitle}>{pillar.title}</h3>
+                  <p className={styles.tagline}>{pillar.tagline}</p>
+                  <p className={styles.summary}>{pillar.summary}</p>
+                  <Link href={pillar.href} className={styles.cardAction}>
+                    {pillar.actionLabel} →
+                  </Link>
+                </div>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>

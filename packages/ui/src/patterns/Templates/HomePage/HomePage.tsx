@@ -63,6 +63,7 @@ export const HomePage = ({
 
 export {
   DEFAULT_PORTRAIT_PLACEHOLDER,
+  portfolioHeroPortrait,
   defaultConnect,
   defaultHomeHero,
   defaultMission,

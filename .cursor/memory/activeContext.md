@@ -3,6 +3,8 @@ Active Context: ReadBoot Shared UI
 - Current Objective: Building the shared "Futurist Carton" component library in packages/ui.
 - Active Task: Migrating basic components (Button, Card, Code) to use the new SCSS Module architecture.
 - Status: Button is complete. Card and Code are pending migration.
+- Recent: Web portfolio homepage copy refresh — `homePageDefaults.ts` (hero, mission, pillars, generational roadmap) + `Alert` default banner; `apps/web/app/page.tsx` metadata description aligned with AI-native positioning.
+- Recent: Featured work — **The RBEOS Framework** card uses bundled PNG (`packages/ui/src/assets/home/rbeos-framework-featured.png`); `PillarItem` optional `imageSrc` / `imageAlt`; `FeaturedPillarsSection` uses `next/image` `fill` in 16:9 frame.
 - Recent: Fixed Vercel build timeout on /blog: (1) increased wp-utils fetch timeout 8s→25s; (2) added force-dynamic to /blog, /blog/category/[slug], /blog/post/[slug], /projects, /projects/[slug] so WordPress-dependent pages render on demand instead of at build time. Web build passes.
 - Recent: Fixed docs rewrite redirect loop in apps/web/next.config.mts: destination URLs now include trailing slashes to match trailingSlash: true.
 - Recent: Storybook viteFinal: server config now spreads ...config.server before allowedHosts: true. Nuclear clean executed; pnpm install completed.

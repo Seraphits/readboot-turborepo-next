@@ -79,6 +79,10 @@
   }
 }
 
+.cardImageFill {
+  object-fit: cover;
+}
+
 .cardBody {
   padding: space.$space-lg;
   display: flex;
