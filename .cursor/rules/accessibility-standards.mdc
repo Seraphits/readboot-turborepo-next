@@ -1,6 +1,6 @@
 ---
 description: USE WHEN generating interactive component examples or documentation to ensure WCAG compliance and accessible Pattern Lab previews.
-globs: ["apps/docs/**/*.tsx", "packages/ui/src/patterns/**/*.tsx"]
+globs: ["apps/docs/**/*.tsx", "packages/ui/src/patterns/**/*.tsx", "packages/ui/src/components/**/*.tsx"]
 alwaysApply: false
 ---
 Accessibility Documentation Standards
@@ -17,4 +17,4 @@ Event Handlers: Every onClick must have a corresponding onKeyDown or onKeyUp han
 3. Visual Compliance
 Contrast: Previews must adhere to WCAG AA targets (minimum 4.5:1 ratio for standard text).
 
-Focus Indicators: Never disable default focus outlines without providing a high-visibility "Futurist Carton" replacement.
+Focus Indicators: Never disable default focus outlines without providing a high-visibility, WCAG-visible replacement that fits the current design system.

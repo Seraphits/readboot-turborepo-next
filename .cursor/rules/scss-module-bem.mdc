@@ -17,5 +17,5 @@ Global Escaping: Use :global() sparingly and only for integrating with 3rd-party
 3. Variable Usage
 Strict Sourcing:
 - Do not hardcode visual values directly in component modules (especially HEX colors and one-off spacing/radius/border numbers).
-- Use token modules under `packages/ui/src/patterns/Atoms/**` (colors, spacing, geometric, typography).
+- `@use` token modules from `packages/ui/src/tokens/**` (legacy: `patterns/Atoms/**` until migration ends). See **`readboot-scss-architecture.mdc`**.
 - Pixel primitives are allowed only in token-definition layers (e.g., reference tokens/mixins), not as arbitrary literals in component styles.

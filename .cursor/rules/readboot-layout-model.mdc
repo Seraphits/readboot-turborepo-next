@@ -4,9 +4,11 @@ globs: ["packages/ui/src/patterns/**/*", "apps/**/*.tsx"]
 alwaysApply: true
 ---
 
-# ReadBoot layout model (Futurist Carton / newsprint)
+# ReadBoot layout model
 
-This is the **target mental model** for how **heroes**, **sections**, and **showcases** relate. **`ReadBootBand`** implements the hero band with **`surface: 'boxed' | 'open'`**; `BoxedFeatureHero` / `FullBleedHero` are thin presets. New work should **not** fork a second layout engine.
+**Visual defaults for greenfield:** **`readboot-branding.mdc`** — magazine-leaning, full-bleed, light chrome; **boxed** `surface` is optional when the design needs a frame, not the default for everything.
+
+This is the **mental model** for how **heroes**, **sections**, and **showcases** relate in the **patterns** library. **`ReadBootBand`** uses **`surface: 'boxed' | 'open'`**; `BoxedFeatureHero` / `FullBleedHero` are presets. New work should **not** fork a second layout engine for the same concern.
 
 ## 1. One layout engine for hero and section (conceptual)
 

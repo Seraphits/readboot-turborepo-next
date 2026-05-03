@@ -17,8 +17,10 @@ NO DEEP SRC IMPORTS: Never import from another package's internal `src/` directo
 RELATIVE PATHS: Allowed only WITHIN the same package. Prohibit relative paths across package boundaries.
 
 STYLE IMPORTS:
-- Global app resets must be imported once at the root layout via `@repo/ui/patterns/globals.scss`.
-- `packages/ui/src/styles/**` is reserved for guidebook/rule documentation and must not be imported by app components.
+- **Active roots (extend these):** `packages/ui/src/tokens/`, `packages/ui/src/framework/`, `packages/ui/src/components/` — see **`readboot-scss-architecture.mdc`** (folder map table). Framework loads **once** at app root via the exported entry when wired; no deep `src/` imports across packages.
+- **Legacy:** `packages/ui/src/patterns/**` and `@repo/ui/patterns/globals.scss` until migration ends — **do not** add net-new greenfield SCSS there.
+- **Deprecated:** `packages/ui/src/styles/**` and `@repo/ui/styles/*` — leftover architecture (mostly empty); **do not** build new SSOT here; migrate consumers to **`framework/`** when ready and remove.
+- **Isolated** styles = `*.module.scss` next to components — **`components/`** for new work; **`patterns/`** only for legacy.
 
 2. Export Conventions
 NAMED EXPORTS FOR CONSUMED UI: Prefer named exports for components, hooks, and utilities.

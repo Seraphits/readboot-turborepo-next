@@ -8,7 +8,12 @@ Active Context: ReadBoot Shared UI
 - Recent: Fixed Vercel build timeout on /blog: (1) increased wp-utils fetch timeout 8s→25s; (2) added force-dynamic to /blog, /blog/category/[slug], /blog/post/[slug], /projects, /projects/[slug] so WordPress-dependent pages render on demand instead of at build time. Web build passes.
 - Recent: Fixed docs rewrite redirect loop in apps/web/next.config.mts: destination URLs now include trailing slashes to match trailingSlash: true.
 - Recent: Storybook viteFinal: server config now spreads ...config.server before allowedHosts: true. Nuclear clean executed; pnpm install completed.
-- Recent: Dark mode fixes: ThemeToggle added to NavigationBar; localStorage persistence; beforeInteractive theme-init script in docs/web layouts; color-scheme + html[data-theme="dark"] in globals.scss.
+- Recent: Dark mode fixes: ThemeToggle added to NavigationBar; localStorage persistence; beforeInteractive theme-init script in docs/web layouts; color-scheme + html[data-theme="dark"] in globals/framework SCSS.
+- Recent: SCSS clarity — global framework lives under `patterns/Framework/` (`README.md`); root `globals.scss` is the single app entry; component isolation remains `*.module.scss`.
+- Recent: Cursor rules — **`readboot-scss-architecture.mdc`** documents greenfield `packages/ui/src/{tokens,framework,components}/` vs legacy `patterns/`; **`readboot-branding.mdc`**, **`linking-standards.mdc`**, **`ui-atomic-architecture.mdc`**, **`style-guide-standards.mdc`**, **`scss-module-bem.mdc`**, **`storybook.mdc`** cross-link and token paths updated.
+- Recent: Branding + glossary — magazine/full-bleed/light chrome default; **colors unchanged**; **`readboot-newspaper-terminology.mdc`** kept as editorial glossary (not mandatory boxed UI); **`readboot-scss-architecture.mdc`** — human-owned SCSS, carry-over on port, new features unstyled; **`accessibility-standards.mdc`** retained (focus wording neutralized).
+- **UI `src/` SSOT (Cursor + memory):** **Active** = `packages/ui/src/{tokens,framework,components}/`. **Legacy** = `patterns/` (old library + barrels). **Deprecated** = `styles/` (failed experiment, near-empty — do not extend; migrate imports off `@repo/ui/styles/*` to `framework/` when wired, then delete). Full table in **`readboot-scss-architecture.mdc`** + **`linking-standards.mdc`**.
+- **Stale-memory hygiene:** `progress.md` header points to SCSS SSOT; **`style-guide-audit-checklist.md`** intro + guardrails/token row aligned with branding + greenfield paths; **`readboot-atomic-layout-inventory.mdc`** labeled **`patterns/`-only scope**.
 - Recent: Sass module migration: \_colors-variables.scss uses sass:color and sass:math (no deprecated lighten/unit). Storybook hardening: pnpm catalog for Storybook/Vite, predev cache clear, main.ts double-encoding patch + URL middleware; see .cursor/memory/storybook-maintenance.md.
 - Recent: Fixed branding SCSS module resolution + Turbopack `:export` parsing by updating `colors-pairings` imports and replacing `:export`-based pairing keys with `pairingKeys.ts`.
 - Recent: Fixed WPGraphQL request storm / `net::ERR_HTTP2_PROTOCOL_ERROR` in browser by making `NavigationBar` a Server Component (logo fetch stays server-side) and adding a client-safety guard to `getWordPressData`.
@@ -53,7 +58,7 @@ ReadBoot Progress
 - [x] Shared Button component completed.
 - [x] Button on docs and web home pages to verify SCSS setup.
 - [x] Shared global SCSS module in packages/ui; docs and web import from @repo/ui.
-- [x] All SCSS in packages/ui only; page styles in @repo/ui/styles/page; apps have no SCSS.
+- [x] All SCSS in packages/ui only; **superseded:** `@repo/ui/styles/*` is deprecated (see `readboot-scss-architecture.mdc`); active work uses `tokens/` + `framework/` + `components/`.
 - [ ] Migrate Card component to packages/ui/src/components/Card.
 - [ ] Migrate Code component to packages/ui/src/components/Code.
 - [ ] Initialize apps/web layout using shared components.

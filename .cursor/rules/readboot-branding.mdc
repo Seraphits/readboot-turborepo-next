@@ -1,20 +1,20 @@
 ---
-description: ALWAYS APPLY to maintain the "Futurist Carton" brand identity and SCSS styling standards across the monorepo.
-globs: ["**/*.scss", "packages/ui/src/patterns/**/*.tsx", "apps/**/*.tsx"]
+description: ALWAYS APPLY — ReadBoot colors/tokens, editorial vocabulary, magazine-leaning layout (light chrome); SCSS module discipline.
+globs: ["**/*.scss", "packages/ui/src/patterns/**/*.tsx", "packages/ui/src/components/**/*.tsx", "apps/**/*.tsx"]
 alwaysApply: true
 ---
-ReadBoot Branding Standards ("Futurist Carton")
-1. Visual Identity
-Aesthetic: High-contrast, editorial cartoon style with thick linework.
+ReadBoot Branding Standards
+1. Visual direction
+Aesthetic: High-contrast, editorial, **magazine-leaning** layout—**full-bleed and seamless** flow by default. **Do not** treat heavy **ruled boxes** or thick outer frames on every block as the default; use lighter separation (space, type, image) unless a design explicitly calls for a frame.
 
-Linework: Use consistent 4px solid charcoal borders ($ref-color-charcoal) for all primary containers and buttons.
+Linework: **Color tokens are unchanged** (charcoal, crimson, etc.). **Do not** default to thick border treatment on all primary containers and buttons—borders are intentional accents, not universal chrome.
 
-Corner Radius: Use 12px rounded corners to mimic hand-drawn ink art.
+Corner Radius: Prefer **12px** rounded corners when rounding is used (`$ref-border-radius`-aligned tokens when defined).
 
 2. Design Tokens (Source of Truth)
-Always use tokens from `packages/ui/src/patterns/Atoms/**` token modules instead of hardcoded values:
+**New work:** use tokens from `packages/ui/src/tokens/**` (`@use` from framework or component `.module.scss`). **Legacy** until migrated: `packages/ui/src/patterns/Atoms/**`. Do not hardcode brand colors.
 
-Colors:
+Colors (unchanged):
 
 Paper Background: $sys-color-paper-bg (#FAF9F6)
 
@@ -28,19 +28,19 @@ Headlines: Baloo 2 (Weight: 700).
 
 Body: Inter (Academic/Clean).
 
-3. Interactive Effects & Layout
-Hover States: Interactive elements must feel "bouncy." Use a 1.05 scale transform with a bouncy cubic-bezier easing.
+3. Interactive Effects
+Hover States: Interactive elements may use subtle motion (e.g. modest scale + easing)—avoid mandatory “bouncy” scale on every control unless specified.
 
-Grid Layout: For long-form text, implement newspaper-inspired column layouts using CSS column-count.
+Long-form body copy: **column-count** is optional; prefer layout-driven columns where the design calls for it (no blanket mandate).
 
 Note: "The Glitch" effect is officially deprecated and has been removed from the system. Do NOT apply .fx--glitch.
 
 4. Technical Requirements
-Format: Use SCSS Modules (.module.scss) exclusively. No CSS-in-JS or Styled-Components.
+Format: Use SCSS Modules (.module.scss) exclusively for component styling in `@repo/ui`. No CSS-in-JS or Styled-Components.
 
-SCSS Modules: Prefer local `@use` imports from token modules under `packages/ui/src/patterns/Atoms/**` in component `.module.scss` files.
+SCSS Modules: `@use` token modules from `packages/ui/src/tokens/**` in component `.module.scss` files (legacy paths under `patterns/Atoms/**` until removed). See **`readboot-scss-architecture.mdc`**.
 
-5. Newspaper layout vocabulary
-**Full glossary and when to use each term:** **`readboot-newspaper-terminology.mdc`** (boxed vs full-bleed, kicker, deck, lead, rule, etc.). Prefer that vocabulary in docs, Storybook descriptions, and SCSS comments; component **code names** stay per `ui-atomic-architecture.mdc`.
+5. Editorial vocabulary (still SSOT for words)
+Use **`readboot-newspaper-terminology.mdc`** for **language** in Storybook `parameters.docs`, UI comments, and marketing copy (kicker, deck, lead, full-bleed, etc.)—it applies to **magazine-style** and legacy UIs. **Glossary terms are not a mandate** to add boxed chrome; they name patterns for humans.
 
-**Hero shorthand:** **Boxed feature** = component `BoxedFeatureHero` (ruled shell). **Full-bleed / open** = component `FullBleedHero` (portrait + lead on newsprint, no outer rule on the band). In CSS Modules, encode with local roots like `.rootBoxed` / `.rootBleed` or `data-layout`, not loose global BEM unless one root wraps the block.
+Legacy hero components (`BoxedFeatureHero`, `FullBleedHero`, `ReadBootBand`) remain valid **code names** where those files exist; **greenfield** work favors **full-bleed / minimal outer rules** per §1.

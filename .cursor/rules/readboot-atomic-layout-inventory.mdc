@@ -6,6 +6,8 @@ alwaysApply: false
 
 # Atomic layout inventory (ReadBoot)
 
+**Scope:** **`patterns/` library only** — documents legacy organism→atom wiring. **Greenfield** UI layout and folders = **`readboot-scss-architecture.mdc`** (`tokens/`, `framework/`, `components/`).
+
 **Atom folder types** in `packages/ui/src/patterns/Atoms/`:
 
 | Type | Folders / role |

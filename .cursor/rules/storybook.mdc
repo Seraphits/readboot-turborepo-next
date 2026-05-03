@@ -6,9 +6,14 @@ alwaysApply: false
 
 # Storybook (`packages/ui`)
 
-See also **`storybook-ui-stories.mdc`** (generic canvas copy, footer colocation) and **`ui-atomic-architecture.mdc`** (which components live in which layer).
+See also **`storybook-ui-stories.mdc`** (generic canvas copy, footer colocation), **`readboot-scss-architecture.mdc`** (greenfield `components/` layout), and **`ui-atomic-architecture.mdc`** (legacy patterns layers + naming).
 
-## Sidebar = `src/patterns`
+## Greenfield vs legacy
+
+- **New work:** colocate `.stories.tsx` with React + `.module.scss` under **`packages/ui/src/components/`** (functional folders). When Storybook’s `directory` config includes `components/`, the sidebar will mirror that tree; until then, legacy stories remain under **`patterns/`**.
+- **Legacy:** sidebar rules below apply to **`packages/ui/src/patterns`**.
+
+## Sidebar = `src/patterns` (legacy library)
 
 - Do **not** set `title` on the story `meta` default export. Story names come from the file path under `packages/ui/src/patterns` (via `apps/storybook/.storybook/main.ts` `directory` → `patterns`).
 - To change where a story appears, **move or rename the file/folders** under `patterns/` (e.g. `Atoms/`, `Molecules/`, `Organisms/`, `Templates/`). Do not invent path strings in code.

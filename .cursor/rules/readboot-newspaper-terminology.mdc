@@ -1,12 +1,14 @@
 ---
-description: ReadBoot — newspaper / editorial vocabulary for Futurist Carton (boxed vs open, headline stack, layout, branding)
-globs: ["packages/ui/src/patterns/**/*", "apps/**/*.tsx", "**/*.md"]
+description: ReadBoot — editorial vocabulary (kicker, deck, full-bleed, etc.) for copy and comments; shared with magazine-style layouts.
+globs: ["packages/ui/src/patterns/**/*", "packages/ui/src/components/**/*", "apps/**/*.tsx", "**/*.md"]
 alwaysApply: true
 ---
 
-# ReadBoot newspaper terminology
+# ReadBoot editorial terminology (glossary)
 
-Use **print / editorial** language in **Storybook** `parameters.docs`, **UI** comments, **`HOMEPAGE_CONTENT.md`**, and marketing copy. **Code** (`BoxedFeatureHero`, `FullBleedHero`, PascalCase files) stays per `ui-atomic-architecture.mdc`. This file is the **glossary SSOT**; a future public “Glossary” page in docs/Storybook can mirror it.
+Use **print / editorial** language in **Storybook** `parameters.docs`, **UI** comments, **`HOMEPAGE_CONTENT.md`**, and marketing copy—the same vocabulary fits **magazine-style** and full-bleed layouts. **Code** (`BoxedFeatureHero`, `FullBleedHero`, PascalCase files where present) stays per `ui-atomic-architecture.mdc`. This file is the **glossary SSOT**; a future public “Glossary” page in docs/Storybook can mirror it.
+
+**Visual default:** **`readboot-branding.mdc`** — prefer **full-bleed, seamless, light chrome**. Terms like **boxed** or **frame** describe a *pattern* or legacy component, **not** a rule to put heavy borders on everything.
 
 ## 1. Section boundary (the “hero” / band wrapper)
 
@@ -17,7 +19,7 @@ Use **print / editorial** language in **Storybook** `parameters.docs`, **UI** co
 | **Full-bleed (media)** | Image or color **runs to the viewport edge**—splash / high-impact (distinct from “open text band”). |
 | **Frame / framed** | The **rule** itself; a story **in** a frame is **framed**. |
 
-**ReadBoot heroes:** **`BoxedFeatureHero`** = boxed band; **`FullBleedHero`** = **open** portrait + type stack (not a single outer rule on the section). **Section shells** should mirror the same **boxed vs open** split where layout needs it.
+**Legacy heroes (patterns library):** **`BoxedFeatureHero`** = boxed band; **`FullBleedHero`** = **open** portrait + type stack. **Greenfield:** prefer **open / full-bleed** shells without a thick outer rule unless the design asks for a framed block.
 
 ## 2. Headline hierarchy
 
@@ -68,6 +70,6 @@ Use **print / editorial** language in **Storybook** `parameters.docs`, **UI** co
 
 ## 8. See also
 
-- `readboot-branding.mdc` — tokens, Futurist Carton, boxed vs open shorthand.
+- `readboot-branding.mdc` — colors/tokens, magazine-leaning layout, light chrome.
 - `ui-atomic-architecture.mdc` — layers, capitalization, imports.
 - **`readboot-layout-model.mdc`** — **surface × grid × slots**, unified hero/section bands, **showcases** (homogeneous card + `items[]`), reassessment table.

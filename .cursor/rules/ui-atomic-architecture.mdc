@@ -4,7 +4,9 @@ globs: packages/ui/src/patterns/**/*.tsx
 alwaysApply: false
 ---
 
-# UI atomic architecture (`packages/ui/src/patterns`)
+**Greenfield:** new React + SCSS + Storybook live under `packages/ui/src/components/` by **function**; global style structure and atomic **sizing** live under `packages/ui/src/framework/`. See **`readboot-scss-architecture.mdc`**. This file still governs **legacy** `patterns/**` and naming conventions that carry forward.
+
+# UI atomic architecture (`packages/ui/src/patterns` — legacy library)
 
 ## Capitalization (consistent naming)
 

@@ -1,0 +1,52 @@
+---
+description: ReadBoot UI SCSS — legacy patterns/ + styles/ vs active tokens|framework|components; human-owned SCSS.
+globs: ["**/*.scss", "packages/ui/src/**/*.tsx", "packages/ui/package.json"]
+alwaysApply: true
+---
+
+# ReadBoot SCSS architecture (`@repo/ui`)
+
+## Folder map (do not confuse these)
+
+| Status | Path under `packages/ui/src/` | Use |
+|--------|--------------------------------|-----|
+| **Active — greenfield** | **`tokens/`**, **`framework/`**, **`components/`** | All **new** token files, global framework CSS, and functional component folders (React + `.module.scss` + Storybook). This is what we **extend** today. |
+| **Legacy** | **`patterns/`** | Existing atomic library, legacy SCSS, barrels (`@repo/ui/atoms`, `molecules`, …). **Frozen for net-new greenfield** — migrate away over time; still ships until replaced. |
+| **Deprecated — do not extend** | **`styles/`** | Old experiment (near-empty `index.scss`, `@repo/ui/styles/*` aliases). **Bad fit for SSOT** — do **not** add product CSS here. Some apps/Storybook may still import it until cut over to **`framework/`**; treat as **legacy** and **remove** when imports are migrated. |
+
+If an agent is unsure where to put something: **new work → `tokens/` | `framework/` | `components/`** only.
+
+## New work (greenfield)
+
+All **new** styles and colocated component files live under **`packages/ui/src/`** in three roots only:
+
+| Folder | Purpose | How to find things |
+|--------|---------|--------------------|
+| **`tokens/`** | Design tokens: Sass **variables**, **maps**, **mixins**, project **functions** (and `@use` of `sass:*` as needed). | Shared math and vocabulary; **not** a second global CSS bundle by itself. |
+| **`framework/`** | **Global** styles: base/reset, theme, future site-wide utilities. Organize **by atomic size** (e.g. `atoms/`, `molecules/`, `organisms/`) so “how big is this style?” is easy to navigate. | Loaded **once** at the app root (single entry, e.g. `globals.scss` or `framework/entry` once `package.json` exports it). |
+| **`components/`** | **Feature / function** groupings (not atomic levels). Each unit folder colocates **React** (`.tsx`), **SCSS module** (`.module.scss`), and **Storybook** (`.stories.tsx`) with a **clear functional name** (e.g. cart, blog, auth). | “What does this do?” not “how small is the atom?” |
+
+- **`@use`** tokens from **`framework/**` partials and from **`components/**/*.module.scss`** as needed. Tokens do not “load like CSS” until something references them in rules or mixins.
+
+## Legacy (do not extend for new features)
+
+- **`patterns/`** — see table above. Do **not** add net-new greenfield SCSS or components here.
+- **`styles/`** — deprecated folder; see table above. Not a third “active” root alongside `tokens`/`framework`/`components`.
+
+## Technical
+
+- **Component-scoped** styling: **`*.module.scss`** only; **no** CSS-in-JS / Styled Components for UI (see `readboot-branding.mdc`).
+- Prefer migrating remaining **`@repo/ui/styles/*`** imports to the **`framework/`** entry when package exports exist (`linking-standards.mdc`).
+- When apps import framework SCSS, use **public `package.json` exports** (`@repo/ui/...`) — no deep cross-package `src/` imports.
+
+## SCSS authoring (human-owned)
+
+- **Primary SCSS author is the project owner.** Do **not** generate new decorative SCSS, layout polish, or token-heavy `.module.scss` content for greenfield work unless the user pastes or explicitly requests it.
+- **Carry-over:** When moving, renaming, or porting existing UI, **preserve the user’s existing SCSS** (same rules, same module structure) unless they ask to change it.
+- **New functionality:** Implement **structure, behavior, accessibility, and data flow** with **minimal or no visual styling**—plain semantic markup, optional stable `className` hooks or an empty/minimal `.module.scss` root so the user can add styles. No invented borders, spacing systems, or “finished” look.
+
+## Cross-rules
+
+- Brand visuals and tokens naming: **`readboot-branding.mdc`**.
+- Editorial glossary for copy/comments: **`readboot-newspaper-terminology.mdc`**.
+- Accessibility for interactive UI and docs previews: **`accessibility-standards.mdc`** (unchanged scope—keep WCAG-related requirements).

@@ -2,7 +2,9 @@
 
 **Route:** `/docs/style-guide` (apps/docs)
 
-Run this checklist when verifying the "Futurist Carton" aesthetic is correctly propagated from `packages/ui` to the docs app.
+**Before using this file:** Brand and layout direction = **`readboot-branding.mdc`** (magazine-leaning, full-bleed, light chrome; **colors** unchanged). **Token / folder SSOT** = **`readboot-scss-architecture.mdc`**. This checklist is a **manual QA** aid; rows below may still describe **legacy** surfaces until the docs style-guide is rebuilt.
+
+Run this checklist when verifying ReadBoot visuals propagate correctly from `packages/ui` to the docs app.
 
 ---
 
@@ -10,9 +12,9 @@ Run this checklist when verifying the "Futurist Carton" aesthetic is correctly p
 
 | Check                     | Expected                                                               | Location                                      |
 | ------------------------- | ---------------------------------------------------------------------- | --------------------------------------------- |
-| Button borders            | 4px solid charcoal (`$ref-color-charcoal` / `var(--sys-color-border)`) | Button component, Component Library page      |
-| Card / primary containers | 4px solid charcoal borders                                             | BlogCard, ColorScheme, any card-like surfaces |
-| Corner radius             | 12px (`var(--sys-radius-primary)`)                                     | Buttons, cards, media slots                   |
+| Borders / frames          | Intentional accents only—not universal 4px charcoal on every block (`readboot-branding.mdc`) | Buttons, cards, sections                      |
+| Legacy boxed surfaces     | If still present in `patterns/` components, match existing tokens       | BlogCard, cards, band wrappers                |
+| Corner radius             | 12px where rounding applies (`readboot-branding.mdc`)                   | Buttons, cards, media slots                   |
 
 ---
 
@@ -31,7 +33,7 @@ Run this checklist when verifying the "Futurist Carton" aesthetic is correctly p
 | Check               | Action                                                                                                    |
 | ------------------- | --------------------------------------------------------------------------------------------------------- |
 | No hardcoded HEX    | Search codebase for `#` in component styles; replace with `var(--sys-*)` tokens                           |
-| Design token source | `packages/ui/src/patterns/Atoms/Branding/Colors/_colors-variables.scss`                                   |
+| Design token source | **Legacy:** `patterns/Atoms/...`. **Greenfield:** `packages/ui/src/tokens/**` when populated (`readboot-scss-architecture.mdc`). |
 | Config              | `next.config.mts` in apps/docs and apps/web must list `transpilePackages: ["@repo/ui", "@repo/wp-utils"]` |
 
 ---
