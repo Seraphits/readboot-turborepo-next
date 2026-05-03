@@ -10,7 +10,7 @@ import { ConnectFooterSection, defaultConnect } from "@repo/ui/templates";
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+    process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3003",
   ),
   icons: { icon: favicon.src },
 };

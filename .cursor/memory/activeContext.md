@@ -1,5 +1,7 @@
 Active Context: ReadBoot Shared UI
 
+- Recent: Added **`apps/readboot`** (npm name **`@readboot/site`**) — same scaffold as Trappsystems; **`pnpm build:readboot`**, dev port **3000** (overlaps legacy `web` until that app is removed); CI + **`pnpm quality`** also build **`@readboot/site`**.
+- Recent: Added **`apps/trappsystems`** (npm name **`@trappsystems/site`**) — Trappsystems company site on Next 16 App Router; no ReadBoot SCSS/`@repo/ui` in v1; **`@repo/wp-utils`** + **`POST /api/revalidate/`** (same env pattern as docs); dev on port **3002**; **`pnpm build:trappsystems`**, **`pnpm quality`** builds web + Trappsystems + readboot; CI builds Trappsystems and ReadBoot after web.
 - Current Objective: Building the shared "Futurist Carton" component library in packages/ui.
 - Active Task: Migrating basic components (Button, Card, Code) to use the new SCSS Module architecture.
 - Status: Button is complete. Card and Code are pending migration.

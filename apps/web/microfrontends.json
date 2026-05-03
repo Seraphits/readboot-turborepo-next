@@ -3,7 +3,7 @@
   "applications": {
     "readboot-turborepo-next": {
       "packageName": "web",
-      "development": { "local": 3000, "fallback": "readboot-turborepo-next.vercel.app" }
+      "development": { "local": 3003, "fallback": "readboot-turborepo-next.vercel.app" }
     },
     "readboot-turborepo-next-docs": {
       "packageName": "docs",

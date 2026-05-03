@@ -54,5 +54,15 @@ jobs:
           NEXT_PUBLIC_WORDPRESS_API_URL: https://readboot.cloudaccess.host/graphql
         run: pnpm turbo run build --filter=web
 
+      - name: Build Trappsystems (Next.js)
+        env:
+          NEXT_PUBLIC_WORDPRESS_API_URL: https://readboot.cloudaccess.host/graphql
+        run: pnpm turbo run build --filter=@trappsystems/site
+
+      - name: Build ReadBoot (Next.js)
+        env:
+          NEXT_PUBLIC_WORDPRESS_API_URL: https://readboot.cloudaccess.host/graphql
+        run: pnpm turbo run build --filter=@readboot/site
+
       - name: Build Storybook
         run: pnpm turbo run build-storybook --filter=storybook

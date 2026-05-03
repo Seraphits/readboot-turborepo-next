@@ -26,7 +26,7 @@ Or from `apps/web/`:
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3003](http://localhost:3003) with your browser to see the result. (Port **3003** avoids clashing with **`@readboot/site`** on **3000** when you run root `pnpm dev`.)
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

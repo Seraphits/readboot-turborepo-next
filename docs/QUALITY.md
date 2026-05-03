@@ -6,16 +6,18 @@ This document describes **what runs automatically** on pull requests and `main`,
 
 Runs on **push to `main`** and on **pull requests**. Steps run in this order (fast failures first):
 
-| Step            | Command / action                                                                                                          |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| Install         | `pnpm install --frozen-lockfile`                                                                                          |
-| Ripgrep         | `apt` installs `ripgrep` (needed for `pnpm guardrails` on Linux runners)                                                  |
-| Guardrails      | `pnpm guardrails` — see [Guardrails](#guardrails)                                                                         |
-| Format          | `pnpm format:check` — Prettier on `**/*.{ts,tsx,md}` (respects `.prettierignore`)                                         |
-| Lint            | `pnpm lint` (Turborepo across packages)                                                                                   |
-| Typecheck       | `pnpm check-types`                                                                                                        |
-| Build web       | `pnpm turbo run build --filter=web` with `NEXT_PUBLIC_WORDPRESS_API_URL` set to the public WPGraphQL endpoint (see below) |
-| Build Storybook | `pnpm turbo run build-storybook --filter=storybook`                                                                       |
+| Step               | Command / action                                                                                                          |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------- |
+| Install            | `pnpm install --frozen-lockfile`                                                                                          |
+| Ripgrep            | `apt` installs `ripgrep` (needed for `pnpm guardrails` on Linux runners)                                                  |
+| Guardrails         | `pnpm guardrails` — see [Guardrails](#guardrails)                                                                         |
+| Format             | `pnpm format:check` — Prettier on `**/*.{ts,tsx,md}` (respects `.prettierignore`)                                         |
+| Lint               | `pnpm lint` (Turborepo across packages)                                                                                   |
+| Typecheck          | `pnpm check-types`                                                                                                        |
+| Build web          | `pnpm turbo run build --filter=web` with `NEXT_PUBLIC_WORDPRESS_API_URL` set to the public WPGraphQL endpoint (see below) |
+| Build Trappsystems | `pnpm turbo run build --filter=@trappsystems/site` with the same `NEXT_PUBLIC_WORDPRESS_API_URL`                          |
+| Build ReadBoot     | `pnpm turbo run build --filter=@readboot/site` with the same `NEXT_PUBLIC_WORDPRESS_API_URL`                               |
+| Build Storybook    | `pnpm turbo run build-storybook --filter=storybook`                                                                       |
 
 ### CI environment for the web app build
 
@@ -29,15 +31,17 @@ That matches the WordPress host used in `apps/web/next.config.mts` image `remote
 
 Use **pnpm** from the repository root (`pnpm` 9.x via Corepack).
 
-| Script              | Purpose                                                                      |
-| ------------------- | ---------------------------------------------------------------------------- |
-| `pnpm format`       | Write Prettier formatting for `ts`, `tsx`, `md`                              |
-| `pnpm format:check` | Verify formatting (same as CI)                                               |
-| `pnpm guardrails`   | Architectural checks (same as CI); requires **`rg` (ripgrep)** on your PATH  |
-| `pnpm check:all`    | `guardrails` → `format:check` → `lint` → `check-types`                       |
-| `pnpm build:web`    | Production `next build` for `web` only                                       |
-| `pnpm quality`      | `check:all` then `build:web` — **recommended before important pushes**       |
-| `pnpm quality:full` | `quality` plus Storybook static build — **matches the full CI job** (slower) |
+| Script                    | Purpose                                                                                       |
+| ------------------------- | --------------------------------------------------------------------------------------------- |
+| `pnpm format`             | Write Prettier formatting for `ts`, `tsx`, `md`                                               |
+| `pnpm format:check`       | Verify formatting (same as CI)                                                                |
+| `pnpm guardrails`         | Architectural checks (same as CI); requires **`rg` (ripgrep)** on your PATH                   |
+| `pnpm check:all`          | `guardrails` → `format:check` → `lint` → `check-types`                                        |
+| `pnpm build:web`          | Production `next build` for `web` only                                                        |
+| `pnpm build:trappsystems` | Production `next build` for `@trappsystems/site` only                                         |
+| `pnpm build:readboot`     | Production `next build` for `@readboot/site` only                                              |
+| `pnpm quality`            | `check:all` then `build:web` + `build:trappsystems` + `build:readboot` — **recommended before important pushes** |
+| `pnpm quality:full`       | `quality` plus Storybook static build — **matches the full CI job** (slower)                  |
 
 ### Prerequisites for guardrails locally
 
@@ -50,7 +54,7 @@ Use **pnpm** from the repository root (`pnpm` 9.x via Corepack).
 
 Implemented in `scripts/guardrails.mjs`. Current checks (no matches allowed):
 
-- Inline `style={{` in `apps/web` and `apps/docs` TSX (prefer SCSS Modules).
+- Inline `style={{` in `apps/web`, `apps/docs`, `apps/trappsystems`, and `apps/readboot` TSX (prefer stylesheets when you add styling).
 - Imports containing `@repo/.../src/` (use public package entrypoints only).
 - Retired legacy docs identifiers in `apps` TSX (see script hints if this fires).
 
