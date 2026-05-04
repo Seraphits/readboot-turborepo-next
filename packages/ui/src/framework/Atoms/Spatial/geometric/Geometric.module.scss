@@ -1,0 +1,73 @@
+@use "../../Branding/Mixins/global-mixins" as global;
+@use "geometric-variables" as geom;
+@use "../../Branding/Colors/colors-variables" as vars;
+@use "../../Branding/Typography/fonts-variables" as fonts;
+@use "../../Branding/Motion/motion-variables" as motion;
+
+.container-base {
+  display: flex;
+  border: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
+  border-radius: geom.$sys-geom-radius-main;
+  padding: geom.$space-md;
+  gap: geom.$space-sm;
+  background-color: vars.$sys-color-paper-light-bg;
+  transition: transform motion.$ref-duration-slow motion.$ref-ease-spring;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  [data-theme='dark'] & {
+    border-color: vars.$sys-color-light-border;
+    background-color: vars.$sys-color-paper-dark-bg;
+  }
+}
+
+.swatch-layout {
+  @extend.container-base;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+
+  &__preview {
+    height: global.to-rem(96px);
+    width: 100%;
+    border-bottom: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
+
+    [data-theme='dark'] & {
+      border-bottom-color: vars.$sys-color-light-border;
+    }
+  }
+
+  &__info {
+    padding: geom.$space-md;
+    display: flex;
+    flex-direction: column;
+    gap: geom.$space-xs;
+    background: vars.$sys-color-paper-light-bg;
+    color: vars.$sys-color-ink-dark-text;
+    font-size: 0.875rem;
+
+    strong {
+      display: block;
+      font-family: fonts.$sys-font-headline;
+      margin-bottom: 0.25rem;
+    }
+
+    [data-theme='dark'] & {
+      background: vars.$sys-color-paper-dark-bg;
+      color: vars.$sys-color-ink-light-text;
+    }
+
+    code {
+      font-size: 0.75rem;
+      opacity: 0.9;
+    }
+
+    small {
+      display: block;
+      margin-top: 0.25rem;
+      font-size: 0.7rem;
+    }
+  }
+}

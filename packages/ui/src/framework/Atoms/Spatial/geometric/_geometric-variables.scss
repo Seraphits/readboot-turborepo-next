@@ -1,0 +1,19 @@
+@use "../../Branding/Mixins/global-mixins" as global;
+
+// REFERENCE TOKENS (Fixed Identity)
+$ref-border-width-thick: 4px; // Keep PX for crisp linework
+$ref-border-width-hairline: 1px; // Nav rules, hairline dividers, column rules
+$ref-border-radius-brand: global.to-rem(12px); // 0.75rem: Scales with text
+$ref-space-unit: 4px;
+
+// SYSTEM TOKENS
+$sys-geom-border-main: $ref-border-width-thick;
+$sys-geom-border-hairline: $ref-border-width-hairline;
+$sys-geom-radius-main: $ref-border-radius-brand;
+
+// SPACING SCALE (Now outputting REM)
+$space-xs: global.to-rem($ref-space-unit);        // 0.25rem
+$space-sm: global.to-rem($ref-space-unit * 2);    // 0.5rem
+$space-md: global.to-rem($ref-space-unit * 4);    // 1rem
+$space-lg: global.to-rem($ref-space-unit * 6);    // 1.5rem
+$space-xl: global.to-rem($ref-space-unit * 8);    // 2rem

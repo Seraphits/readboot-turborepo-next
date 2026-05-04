@@ -1,0 +1,21 @@
+// Interaction timing & easing — aligns with readboot-branding “bouncy” hovers.
+
+/// Primary hover / lift (Futurist Carton bouncy)
+$ref-ease-bouncy: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+/// Stronger spring (Storybook / geometric demos)
+$ref-ease-spring: cubic-bezier(0.8, -0.5, 0.2, 1.8);
+
+/// Default easing for color / opacity (nav, chips)
+$ref-ease-standard: ease;
+
+/// Menus / sliding panels
+$ref-ease-in-out: ease-in-out;
+
+$ref-duration-fast: 0.2s;
+$ref-duration-normal: 0.3s;
+$ref-duration-slow: 0.5s;
+
+// Stacking (dropdown under fixed nav)
+$ref-z-dropdown: 50;
+$ref-z-nav: 100;

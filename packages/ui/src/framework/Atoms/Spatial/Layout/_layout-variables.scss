@@ -1,0 +1,14 @@
+// Content widths & breakpoints (px). Use in max-width and @media queries.
+
+$ref-layout-max-site: 1200px;
+$ref-layout-max-section: 960px;
+$ref-layout-max-footer: 720px;
+$ref-layout-max-subhead: 600px;
+$ref-layout-max-portrait: 400px;
+
+$ref-layout-min-dropdown: 220px;
+
+// Breakpoints (aligned with common section / hero layouts)
+$ref-breakpoint-sm: 640px;
+$ref-breakpoint-md: 900px;
+$ref-breakpoint-lg: 960px;
