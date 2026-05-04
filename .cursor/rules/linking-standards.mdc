@@ -17,7 +17,7 @@ NO DEEP SRC IMPORTS: Never import from another package's internal `src/` directo
 RELATIVE PATHS: Allowed only WITHIN the same package. Prohibit relative paths across package boundaries.
 
 STYLE IMPORTS:
-- **Active roots (extend these):** `packages/ui/src/tokens/`, `packages/ui/src/framework/`, `packages/ui/src/components/` — see **`readboot-scss-architecture.mdc`**. Framework loads **once** at app root via the exported entry when wired; no deep `src/` imports across packages.
+- **Active roots (extend these):** `packages/ui/src/Tokens/`, `packages/ui/src/Framework/`, `packages/ui/src/components/` — see **`readboot-scss-architecture.mdc`**. Framework loads **once** at app root via the exported entry when wired; no deep `src/` imports across packages.
 - **Deprecated — no new usage:** `packages/ui/src/patterns/**` and `packages/ui/src/styles/**` (and `@repo/ui/styles/*`). **Do not** add imports, `@use`, or new files there for new work; see **`deprecation-patterns-and-styles.mdc`**. Public `@repo/ui/atoms|molecules|organisms|templates` may still resolve under `patterns/` until repointed — avoid *additional* internal coupling to those trees from greenfield code.
 - **Isolated** styles = `*.module.scss` next to components — **`components/`** for new work.
 

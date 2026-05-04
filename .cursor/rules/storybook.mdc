@@ -1,53 +1,44 @@
 ---
-description: Storybook stories in @repo/ui — sidebar follows filesystem under patterns/
+description: Storybook in @repo/ui — Tokens + Framework roots, sidebar, capitalization
 globs: packages/ui/src/**/*.stories.tsx
 alwaysApply: false
 ---
 
 # Storybook (`packages/ui`)
 
-See also **`storybook-ui-stories.mdc`** (generic canvas copy, footer colocation), **`readboot-scss-architecture.mdc`** (greenfield `components/` layout), and **`ui-atomic-architecture.mdc`** (legacy patterns layers + naming).
+See also **`storybook-ui-stories.mdc`** (canvas copy, colocation), **`readboot-scss-architecture.mdc`** (tokens / framework / components), **`deprecation-patterns-and-styles.mdc`**.
 
-## Greenfield vs legacy
+## Where stories live (greenfield)
 
-- **New work:** colocate `.stories.tsx` with React + `.module.scss` under **`packages/ui/src/components/`** (functional folders). When Storybook’s `directory` config includes `components/`, the sidebar will mirror that tree; until then, legacy stories remain under **`patterns/`**.
-- **Legacy:** sidebar rules below apply to **`packages/ui/src/patterns`**.
+- **`packages/ui/src/Tokens/`** — token demos (add `.stories.tsx` / MDX as you migrate). Shown under sidebar root **Tokens** (via `titlePrefix` in `apps/storybook/.storybook/main.ts`).
+- **`packages/ui/src/Framework/`** — framework UI + colocated stories. Shown under **Framework** (`titlePrefix`).
+- **`packages/ui/src/components/`** — add a `stories` entry in Storybook `main.ts` when you start colocating stories there (not wired yet by default).
 
-## Sidebar = `src/patterns` (legacy library)
+**Legacy `patterns/`** is **not** loaded by Storybook; migrate stories into the roots above when ready.
 
-- Do **not** set `title` on the story `meta` default export. Story names come from the file path under `packages/ui/src/patterns` (via `apps/storybook/.storybook/main.ts` `directory` → `patterns`).
-- To change where a story appears, **move or rename the file/folders** under `patterns/` (e.g. `Atoms/`, `Molecules/`, `Organisms/`, `Templates/`). Do not invent path strings in code.
-- Atom layout under `patterns/Atoms/` is **filesystem-driven** (sidebar mirrors folders). Current groups:
-  - **`Branding/`**, **`Interactive/`**, **`Spatial/`** — primary buckets (no `*Atoms` suffix on these three).
-  - **`DisplayAtoms/`**, **`LayoutAtoms/`**, **`EnvironmentalAtoms/`** — additional atom groupings (keep names aligned with real folders when adding stories).
-  - Shared SCSS such as **`animations/`** may live alongside these; colocate stories only when a component warrants them.
-- Do **not** add a top-level group like `Style Guide/` or other labels that are not real folder names under `patterns/`.
-- Top-level sidebar order is fixed in `apps/storybook/.storybook/preview.ts` (`storySort`): Atoms → Molecules → Organisms → Templates.
-- Per-component **Docs** tab content can use `parameters.docs.description` on story `meta` (see Primitives, Pairings, Typography). Standalone markdown-in-canvas “guide” stories are optional; do not add them without an agreed doc strategy.
+## Sidebar & capitalization (what we decided)
+
+1. **Top-level groups (fixed labels):** **`Tokens`** then **`Framework`**, enforced by `titlePrefix` on each `stories` directory entry in **`main.ts`**. Manager **`sidebar.showRoots: false`** so labels render as **Framework** (not all-caps **FRAMEWORK**).
+2. **Under each group:** sidebar follows **filesystem** path segments after the prefix (e.g. `Framework/Atoms/Logo/LogoImage`). On-disk greenfield roots use **PascalCase** **`Tokens/`**, **`Framework/`**, then **`Atoms/`**, **`Molecules/`**, **`Organisms/`**, and domain subfolders (**`Logo/`**, **`Interactive/`**, **`Spatial/`**, …).
+3. **Story exports:** use **PascalCase** export names (`Default`, `WithAccent`, …) — see **`storybook-ui-stories.mdc`**.
+4. **Optional display `name` on a story** (sentence case for humans only) is fine; do **not** use **`title` on `meta`** for sidebar placement — use file location + `titlePrefix` instead. ESLint: **`storybook/no-title-property-in-meta`** stays on for `@repo/ui` story files.
+
+## Global styles in the canvas
+
+- **`preview.ts`** imports **`packages/ui/src/Framework/framework.scss`** (same bundle apps use via `@repo/ui/framework`), not `patterns/globals.scss`.
 
 ## Hoisting / “redundant naming” (Storybook default)
 
-- Storybook may **collapse** a folder and a single story file when their names match after normalization (often **case-insensitive**), e.g. `Alert/Alert.stories.tsx` can show as one row under `Molecules`. **This is normal** and acceptable for ReadBoot—do **not** rename stories to `component.stories.tsx` or other artificial stems unless you explicitly want an extra folder row in the sidebar.
-- Prefer **natural** names: `ComponentName/ComponentName.stories.tsx` next to `ComponentName.tsx`.
-- Folders with **multiple** story files (e.g. `Colors/Pairings.stories.tsx` and `Primitives.stories.tsx`) stay expanded as a group.
+- Storybook may **collapse** a folder and a single story file when names match after normalization (often case-insensitive). Prefer natural names: `ComponentName/ComponentName.stories.tsx` next to `ComponentName.tsx`.
 
 ## ESLint
 
-- `storybook/no-title-property-in-meta` is enabled for `@repo/ui` story files—do not add `title` to meta.
+- `storybook/no-title-property-in-meta` — do not add `title` to story `meta` (use **`titlePrefix`** in `main.ts` for top-level groups only).
 
 ## Branding assets (SSOT)
 
-- **Logo and favicon** live under `packages/ui/src/assets/branding/` (e.g. `readboot-logo.png`, `favicon.png`). The logo is always that asset where a logo is shown—do not substitute a different file for “the logo” in stories.
-- **Story-only visuals** (e.g. a blog featured image mock) belong under `packages/ui/src/assets/storybook/` so they are clearly not brand marks.
-- Storybook serves `packages/ui/src/assets` at `/assets/...` via `staticDirs` in `apps/storybook/.storybook/main.ts`. Manager `brandImage` and `preview-head` favicon use branding URLs.
-- Do not use external placeholder image URLs in stories; use bundled paths under `/assets/...`.
-- **Placeholder art** lives only in `packages/ui/src/assets/storybook/` and is **imported** from `@repo/ui` (see `placeholders.ts`). Next.js bundles those assets from the package; Storybook still maps `packages/ui/src/assets` at `/assets` for any raw URL usage. Do **not** duplicate placeholders under `apps/*/public/`. The ReadBoot **logo** stays under `assets/branding/` only.
-
-## WordPress-shaped data & server-only components
-
-- **Image URL strings in mocks** — When a WP type expects a **`sourceUrl` string** (e.g. `Post.featuredImage.node.sourceUrl`) but you import art from `assets/storybook/placeholders.ts`, use **`placeholderSrc(asset)`** so the same mock works under Next (`StaticImageData`) and Storybook/Vite (often a plain string). Do not hand-roll `.src` from `StaticImageData` in stories; reuse **`wpShowcaseMocks.ts`** for Showcase/BlogShowcase-shaped grids when possible.
-- **Server / async RSC** — Default **`LogoImage`** (async, optional WP fetch) and **`BlogShowcase`** (async `getPosts`) are not executed in the Storybook canvas. Preview with **`LogoImageClient`**, **`Showcase` + `MOCK_POSTS` / `MOCK_PROJECTS`**, or document the real entry in **`parameters.docs.description`** (see existing `LogoImage.stories.tsx` and `BlogShowcase.stories.tsx`).
+- **Logo and favicon** — `packages/ui/src/assets/branding/`. Story-only art — `packages/ui/src/assets/storybook/`. Storybook `staticDirs` serves `packages/ui/src/assets` at `/assets/...`. Do not use external placeholder image URLs in stories.
 
 ## Fonts (canvas parity)
 
-- Match `apps/web/app/layout.tsx` Google Fonts in `apps/storybook/.storybook/preview-head.html`.
+- Match app layout Google Fonts in **`apps/storybook/.storybook/preview-head.html`**.

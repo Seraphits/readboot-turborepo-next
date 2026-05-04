@@ -4,7 +4,7 @@
     "plugins": [{ "name": "next" }],
     "paths": {
       "@/*": ["./*"],
-      "@repo/ui/framework": ["../../packages/ui/src/framework/framework.scss"],
+      "@repo/ui/framework": ["../../packages/ui/src/Framework/framework.scss"],
       "@repo/wp-utils": ["../../packages/wp-utils/src/index.ts"]
     }
   },

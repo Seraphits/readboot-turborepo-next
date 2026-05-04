@@ -5,7 +5,12 @@
     "baseUrl": ".",
     "paths": {
       "@repo/wp-utils": ["../wp-utils/src/index.ts"],
-      "@repo/ui/*": ["./src/patterns/*"]
+      "@repo/ui": ["./src/index.tsx"],
+      "@repo/ui/atoms": ["./src/patterns/Atoms/index.tsx"],
+      "@repo/ui/molecules": ["./src/patterns/Molecules/index.tsx"],
+      "@repo/ui/organisms": ["./src/patterns/Organisms/index.tsx"],
+      "@repo/ui/templates": ["./src/patterns/Templates/index.tsx"],
+      "@repo/ui/patterns/*": ["./src/patterns/*"]
     }
   },
   "include": ["src", "src/styles.d.ts"],

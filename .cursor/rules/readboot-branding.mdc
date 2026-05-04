@@ -12,7 +12,7 @@ Linework: **Color tokens are unchanged** (charcoal, crimson, etc.). **Do not** d
 Corner Radius: Prefer **12px** rounded corners when rounding is used (`$ref-border-radius`-aligned tokens when defined).
 
 2. Design Tokens (Source of Truth)
-**New work:** use tokens from `packages/ui/src/tokens/**` (`@use` from framework or component `.module.scss`). **Legacy** until migrated: `packages/ui/src/patterns/Atoms/**`. Do not hardcode brand colors.
+**New work:** use tokens from `packages/ui/src/Tokens/**` (`@use "Tokens/…"` from Framework or component `.module.scss`). **Legacy** until migrated: `packages/ui/src/patterns/Atoms/**`. Do not hardcode brand colors.
 
 Colors (unchanged):
 
@@ -38,7 +38,7 @@ Note: "The Glitch" effect is officially deprecated and has been removed from the
 4. Technical Requirements
 Format: Use SCSS Modules (.module.scss) exclusively for component styling in `@repo/ui`. No CSS-in-JS or Styled-Components.
 
-SCSS Modules: `@use` token modules from `packages/ui/src/tokens/**` in component `.module.scss` files (legacy paths under `patterns/Atoms/**` until removed). See **`readboot-scss-architecture.mdc`**.
+SCSS Modules: `@use` token modules from `packages/ui/src/Tokens/**` in component `.module.scss` files (legacy paths under `patterns/Atoms/**` until removed). See **`readboot-scss-architecture.mdc`**.
 
 5. Editorial vocabulary (still SSOT for words)
 Use **`readboot-newspaper-terminology.mdc`** for **language** in Storybook `parameters.docs`, UI comments, and marketing copy (kicker, deck, lead, full-bleed, etc.)—it applies to **magazine-style** and legacy UIs. **Glossary terms are not a mandate** to add boxed chrome; they name patterns for humans.

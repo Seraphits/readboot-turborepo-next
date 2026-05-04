@@ -1,0 +1,60 @@
+@use "Tokens/Mixins/global-mixins" as global;
+@use "Tokens/geometric-variables" as geom;
+@use "Tokens/spacing-variables" as space;
+@use "Tokens/Colors" as vars;
+@use "Tokens/Fonts" as fonts;
+@use "Tokens/motion-variables" as motion;
+@use "../container-base.mixin" as shell;
+
+.container-base {
+  @include shell.container-base;
+}
+
+.swatch-layout {
+  @extend .container-base;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+
+  &__preview {
+    height: global.to-rem(96px);
+    width: 100%;
+    border-bottom: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
+
+    [data-theme='dark'] & {
+      border-bottom-color: vars.$sys-color-light-border;
+    }
+  }
+
+  &__info {
+    padding: space.$space-md;
+    display: flex;
+    flex-direction: column;
+    gap: space.$space-xs;
+    background: vars.$sys-color-paper-light-bg;
+    color: vars.$sys-color-ink-dark-text;
+    font-size: 0.875rem;
+
+    strong {
+      display: block;
+      font-family: fonts.$sys-font-headline;
+      margin-bottom: 0.25rem;
+    }
+
+    [data-theme='dark'] & {
+      background: vars.$sys-color-paper-dark-bg;
+      color: vars.$sys-color-ink-light-text;
+    }
+
+    code {
+      font-size: 0.75rem;
+      opacity: 0.9;
+    }
+
+    small {
+      display: block;
+      margin-top: 0.25rem;
+      font-size: 0.7rem;
+    }
+  }
+}

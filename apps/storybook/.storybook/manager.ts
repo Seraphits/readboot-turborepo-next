@@ -9,4 +9,8 @@ addons.setConfig({
     brandImage: "/assets/branding/readboot-logo.png",
     brandTarget: "_self",
   }),
+  /** Avoid all-caps “root” treatment for `titlePrefix` groups (show “Framework”, not “FRAMEWORK”). */
+  sidebar: {
+    showRoots: false,
+  },
 });

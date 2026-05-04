@@ -1,0 +1,10 @@
+// ReadBoot Primitive Tokens (Ref)
+$ref-font-fun: "Baloo 2", "Baloo_2", cursive;
+$ref-font-clean: "Inter", sans-serif;
+
+$ref-weight-black: 800;
+
+// ReadBoot Semantic Tokens (Sys)
+$sys-font-headline: $ref-font-fun; // Baloo 2
+$sys-font-body: $ref-font-clean; // Inter
+$sys-font-footer: $ref-font-clean; // Standard footer font

@@ -1,0 +1,37 @@
+// Site-wide framework layer. Barrel: `@use "../tokens"` → `tokens.scss` → `Tokens/**` (Sass loadPaths = `packages/ui/src`).
+@use "../tokens" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: $sys-font-body;
+
+  @include apply-pairing("ink-dark-on-paper-light");
+
+  &[data-theme="dark"],
+  [data-theme="dark"] & {
+    @include apply-pairing("ink-light-on-paper-dark");
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $sys-font-headline;
+}
+
+footer {
+  font-family: $sys-font-footer;
+}

@@ -7,6 +7,8 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, "../../..");
 const packagesUiSrc = path.join(projectRoot, "packages/ui/src");
+const tokensRoot = path.join(packagesUiSrc, "Tokens");
+const frameworkRoot = path.join(packagesUiSrc, "Framework");
 
 /** Strip "use client" so Vite can bundle Next.js client components in Storybook */
 function stripUseClient() {
@@ -25,8 +27,6 @@ function stripUseClient() {
   };
 }
 
-const patternsRoot = path.join(packagesUiSrc, "patterns");
-
 /** Served at readboot.com/storybook via web rewrites + Vercel microfrontends. Set STORYBOOK_BASE_PATH="" for root (e.g. local quick dev). */
 const storybookBase =
   process.env.STORYBOOK_BASE_PATH !== undefined
@@ -34,11 +34,20 @@ const storybookBase =
     : "/storybook/";
 
 const config: StorybookConfig = {
-  /** Sidebar mirrors `packages/ui/src/patterns` (Atoms, Molecules, Organisms, Templates). */
+  /**
+   * Greenfield only: `Tokens/` then `Framework/` on disk (see `titlePrefix` for sidebar labels).
+   * Legacy `patterns/` is intentionally excluded while stories migrate.
+   */
   stories: [
     {
-      directory: patternsRoot,
+      directory: tokensRoot,
       files: "**/*.stories.@(js|jsx|mjs|ts|tsx)",
+      titlePrefix: "Tokens",
+    },
+    {
+      directory: frameworkRoot,
+      files: "**/*.stories.@(js|jsx|mjs|ts|tsx)",
+      titlePrefix: "Framework",
     },
   ],
   addons: [
@@ -62,7 +71,7 @@ const config: StorybookConfig = {
   ],
   async viteFinal(config) {
     const { mergeConfig, searchForWorkspaceRoot } = await import("vite");
-    const packagesUiSrc = path.join(projectRoot, "packages/ui/src");
+    const packagesUiSrcResolved = path.join(projectRoot, "packages/ui/src");
 
     return mergeConfig(config, {
       base: storybookBase,
@@ -102,14 +111,14 @@ const config: StorybookConfig = {
           "next/image": path.resolve(__dirname, "next-image-mock.tsx"),
           "next/link": path.resolve(__dirname, "next-link-mock.tsx"),
           "next/navigation": path.resolve(__dirname, "next-navigation-mock.ts"),
-          "@repo/ui": path.resolve(projectRoot, "packages/ui/src"),
+          // Do not alias `@repo/ui` to `src/` — breaks `package.json` exports (`molecules`, `organisms`, …).
           "@repo/wp-utils": path.resolve(projectRoot, "packages/wp-utils/src"),
         },
       },
       css: {
         preprocessorOptions: {
           scss: {
-            loadPaths: [packagesUiSrc, path.join(packagesUiSrc, "patterns/Atoms")],
+            loadPaths: [packagesUiSrcResolved],
             silenceDeprecations: ["global-builtin"],
           },
         },

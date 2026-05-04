@@ -1,0 +1,5 @@
+// Side-effect loads only (global classes). `as *` avoids empty-namespace issues from `./Folder/` trailing slashes.
+@use "./Logo" as *;
+@use "./Typography" as *;
+@use "./Interactive/Button" as *;
+@use "./Interactive/NavigationLink" as *;

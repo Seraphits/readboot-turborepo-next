@@ -1,0 +1,36 @@
+@use "Tokens/Colors" as vars;
+@use "Tokens/spacing-variables" as space;
+@use "Tokens/geometric-variables" as geom;
+@use "Tokens/motion-variables" as motion;
+
+.NavigationBar {
+  position: relative;
+  z-index: motion.$ref-z-nav;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 space.$space-2xl;
+  background-color: vars.$sys-color-paper-light-bg;
+  border-bottom: geom.$sys-geom-border-hairline solid vars.$sys-color-dark-border;
+
+  &__Logo {
+    width: 100px;
+    height: 100%;
+    position: relative;
+  }
+
+  &__Menu {
+    height: 100%;
+  }
+
+  &__Theme {
+    display: flex;
+    align-items: center;
+  }
+
+  [data-theme="dark"] & {
+    background-color: vars.$sys-color-paper-dark-bg;
+    border-bottom-color: vars.$sys-color-light-border;
+  }
+}

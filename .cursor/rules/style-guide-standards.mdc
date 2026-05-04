@@ -38,4 +38,4 @@ URI Normalization: All services must enforce trailing slashes (e.g., /about-us/)
 
 State Management: Use useQueryState from nuqs for all component modifiers in the documentation.
 
-Styling: SCSS Modules only. Variables MUST be sourced from `packages/ui/src/tokens/**` (legacy: `patterns/Atoms/**` until removed). Never hardcode brand values. See **`readboot-scss-architecture.mdc`**.
+Styling: SCSS Modules only. Variables MUST be sourced from `packages/ui/src/Tokens/**` (legacy: `patterns/Atoms/**` until removed). Never hardcode brand values. See **`readboot-scss-architecture.mdc`**.

@@ -22,4 +22,4 @@ alwaysApply: false
 
 - Avoid user-facing **“grid”** in story titles when the product name should be **Projects** / **Blog** (not “Project grid”).
 
-- Do **not** set `title` on story `meta` (filesystem sidebar) — see `.cursor/rules/storybook.mdc`.
+- Do **not** set `title` on story `meta` for sidebar placement — see **`storybook.mdc`** (`titlePrefix` in `main.ts` for **Tokens** / **Framework** roots; filesystem below that).

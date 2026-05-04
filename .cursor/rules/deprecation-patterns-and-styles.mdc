@@ -10,18 +10,18 @@ alwaysApply: true
 ## Do not (for any **new** work)
 
 - Add or edit **product** code under **`packages/ui/src/patterns/`** or **`packages/ui/src/styles/`** except when doing an explicit **migration, removal, or mechanical fix** requested by the owner.
-- Add **`@use` / `@forward` / `@import`** from `patterns/**` or `styles/**` into **`tokens/`**, **`framework/`**, **`components/`**, or apps.
+- Add **`@use` / `@forward` / `@import`** from `patterns/**` or `styles/**` into **`Tokens/`**, **`Framework/`**, **`components/`**, or apps.
 - Add **new** deep/relative imports from `patterns/` or `styles/` in TS, SCSS, or Storybook (including from other packages in this monorepo).
 - Introduce **new** `@repo/ui/styles/*` usage; prefer **`@repo/ui/framework`** (or the documented framework entry) per **`linking-standards.mdc`**.
 
 ## Do instead
 
-- **New** tokens → **`packages/ui/src/tokens/`**
-- **New** global / site CSS → **`packages/ui/src/framework/`**
+- **New** tokens → **`packages/ui/src/Tokens/`**
+- **New** global / site CSS → **`packages/ui/src/Framework/`**
 - **New** reusable UI (React + modules + stories) → **`packages/ui/src/components/`** (functional groupings)
 
 See **`readboot-scss-architecture.mdc`** for the folder map and authoring rules.
 
 ## Note on public exports
 
-`@repo/ui/atoms`, `molecules`, `organisms`, `templates` may still resolve into `patterns/` **until those exports are repointed**. **Do not** add *additional* internal coupling to `patterns/**` or `styles/**` from greenfield code; prefer **`components/`** and **`tokens/`** / **`framework/`** for anything newly authored.
+`@repo/ui/atoms`, `molecules`, `organisms`, `templates` may still resolve into `patterns/` **until those exports are repointed**. **Do not** add *additional* internal coupling to `patterns/**` or `styles/**` from greenfield code; prefer **`components/`** and **`Tokens/`** / **`Framework/`** for anything newly authored.

@@ -1,7 +1,8 @@
-// Public token surface for `@use "../tokens"` from framework (no spacing+geometric together — duplicate $space-*).
-@forward "./tokens/Colors";
-@forward "./tokens/Fonts";
-@forward "./tokens/Mixins";
-@forward "./tokens/spacing";
-@forward "./tokens/motion";
-@forward "./tokens/layout";
+// Public token surface for `@use "../tokens"` from framework.
+@forward "./Tokens/Colors";
+@forward "./Tokens/Fonts";
+@forward "./Tokens/Mixins";
+@forward "./Tokens/spacing-variables";
+@forward "./Tokens/geometric-variables";
+@forward "./Tokens/motion-variables";
+@forward "./Tokens/layout-variables";

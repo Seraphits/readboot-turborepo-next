@@ -10,11 +10,11 @@ alwaysApply: true
 
 | Status | Path under `packages/ui/src/` | Use |
 |--------|--------------------------------|-----|
-| **Active — greenfield** | **`tokens/`**, **`framework/`**, **`components/`** | All **new** token files, global framework CSS, and functional component folders (React + `.module.scss` + Storybook). This is what we **extend** today. |
-| **Deprecated — migrate off** | **`patterns/`** | Legacy atomic library and barrels (`@repo/ui/atoms`, `molecules`, …). **Do not use for anything new** — no new files, no new `@use`/`@forward` from here into greenfield trees, no new relative imports from `tokens/` / `framework/` / `components/` / apps. Still ships until exports are repointed and consumers migrate. |
-| **Deprecated — do not use** | **`styles/`** | Old experiment (`@repo/ui/styles/*`). **Do not use for anything new** — no new imports; migrate remaining consumers to **`framework/`** and remove. |
+| **Active — greenfield** | **`Tokens/`**, **`Framework/`**, **`components/`** | All **new** token files, global framework CSS, and functional component folders (React + `.module.scss` + Storybook). This is what we **extend** today. |
+| **Deprecated — migrate off** | **`patterns/`** | Legacy atomic library and barrels (`@repo/ui/atoms`, `molecules`, …). **Do not use for anything new** — no new files, no new `@use`/`@forward` from here into greenfield trees, no new relative imports from `Tokens/` / `Framework/` / `components/` / apps. Still ships until exports are repointed and consumers migrate. |
+| **Deprecated — do not use** | **`styles/`** | Old experiment (`@repo/ui/styles/*`). **Do not use for anything new** — no new imports; migrate remaining consumers to **`Framework/`** and remove. |
 
-If an agent is unsure where to put something: **new work → `tokens/` | `framework/` | `components/`** only. See **`deprecation-patterns-and-styles.mdc`**.
+If an agent is unsure where to put something: **new work → `Tokens/` | `Framework/` | `components/`** only. See **`deprecation-patterns-and-styles.mdc`**.
 
 ## New work (greenfield)
 
@@ -22,11 +22,11 @@ All **new** styles and colocated component files live under **`packages/ui/src/`
 
 | Folder | Purpose | How to find things |
 |--------|---------|--------------------|
-| **`tokens/`** | Design tokens: Sass **variables**, **maps**, **mixins**, project **functions** (and `@use` of `sass:*` as needed). | Shared math and vocabulary; **not** a second global CSS bundle by itself. |
-| **`framework/`** | **Global** styles: base/reset, theme, future site-wide utilities. Organize **by atomic size** (e.g. `atoms/`, `molecules/`, `organisms/`) so “how big is this style?” is easy to navigate. | Loaded **once** at the app root (single entry, e.g. `globals.scss` or `framework/entry` once `package.json` exports it). |
+| **`Tokens/`** | Design tokens: Sass **variables**, **maps**, **mixins**, project **functions** (and `@use` of `sass:*` as needed). | Shared math and vocabulary; **not** a second global CSS bundle by itself. |
+| **`Framework/`** | **Global** styles: base/reset, theme, future site-wide utilities. Organize **by atomic size** (e.g. **`Atoms/`**, **`Molecules/`**, **`Organisms/`**) so “how big is this style?” is easy to navigate. | Loaded **once** at the app root via **`@repo/ui/framework`** (`Framework/framework.scss`). |
 | **`components/`** | **Feature / function** groupings (not atomic levels). Each unit folder colocates **React** (`.tsx`), **SCSS module** (`.module.scss`), and **Storybook** (`.stories.tsx`) with a **clear functional name** (e.g. cart, blog, auth). | “What does this do?” not “how small is the atom?” |
 
-- **`@use`** tokens from **`framework/**` partials and from **`components/**/*.module.scss`** as needed. Tokens do not “load like CSS” until something references them in rules or mixins.
+- **`@use`** tokens from **`Framework/**` partials and from **`components/**/*.module.scss`** as needed. Sass load path: `@use "Tokens/…"` (matches **`packages/ui/src/Tokens/`**). Tokens do not “load like CSS” until something references them in rules or mixins.
 
 ## Deprecated (no new usage)
 
@@ -35,7 +35,7 @@ All **new** styles and colocated component files live under **`packages/ui/src/`
 ## Technical
 
 - **Component-scoped** styling: **`*.module.scss`** only; **no** CSS-in-JS / Styled Components for UI (see `readboot-branding.mdc`).
-- Prefer migrating remaining **`@repo/ui/styles/*`** imports to the **`framework/`** entry when package exports exist (`linking-standards.mdc`).
+- Prefer migrating remaining **`@repo/ui/styles/*`** imports to the **`@repo/ui/framework`** entry when package exports exist (`linking-standards.mdc`).
 - When apps import framework SCSS, use **public `package.json` exports** (`@repo/ui/...`) — no deep cross-package `src/` imports.
 
 ## SCSS authoring (human-owned)

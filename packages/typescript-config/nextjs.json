@@ -16,7 +16,7 @@
       "@repo/ui/molecules": ["../../packages/ui/src/patterns/Molecules/index.tsx"],
       "@repo/ui/organisms": ["../../packages/ui/src/patterns/Organisms/index.tsx"],
       "@repo/ui/templates": ["../../packages/ui/src/patterns/Templates/index.tsx"],
-      "@repo/ui/framework": ["../../packages/ui/src/framework/framework.scss"],
+      "@repo/ui/framework": ["../../packages/ui/src/Framework/framework.scss"],
       "@repo/ui/patterns/*": ["../../packages/ui/src/patterns/*"],
       "@repo/ui/styles/globals": ["../../packages/ui/src/styles/index.scss"],
       "@repo/ui/styles/index": ["../../packages/ui/src/styles/index.scss"],

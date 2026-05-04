@@ -1,7 +1,7 @@
 import type { Preview } from "@storybook/react-vite";
 import { withThemeByDataAttribute } from "@storybook/addon-themes";
 import React from "react";
-import "../../../packages/ui/src/patterns/globals.scss";
+import "../../../packages/ui/src/Framework/framework.scss";
 
 /** Self-destruct: unregister ghost service workers and wipe caches every load (dev). */
 function ServiceWorkerClearDecorator(Story: React.ComponentType) {
@@ -47,7 +47,7 @@ const preview: Preview = {
     },
     options: {
       storySort: {
-        order: ["Atoms", "Molecules", "Organisms", "Templates"],
+        order: ["Tokens", "Framework"],
         method: "alphabetical",
       },
     },
