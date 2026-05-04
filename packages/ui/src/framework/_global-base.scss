@@ -1,0 +1,39 @@
+// Site-wide framework layer: unscoped element rules loaded once from globals.scss.
+// Do not put component-scoped styles here — use *.module.scss next to components.
+
+@use "../patterns/Atoms/Branding/Colors/colors-mixins" as colors;
+@use "../patterns/Atoms/Branding/Typography/fonts-variables" as fonts;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: fonts.$sys-font-body;
+  @include colors.apply-pairing("ink-dark-on-paper-light");
+
+  &[data-theme="dark"],
+  [data-theme="dark"] & {
+    @include colors.apply-pairing("ink-light-on-paper-dark");
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: fonts.$sys-font-headline;
+}
+
+footer {
+  font-family: fonts.$sys-font-footer;
+}

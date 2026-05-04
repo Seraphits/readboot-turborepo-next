@@ -105,6 +105,9 @@ importers:
 
   apps/readboot:
     dependencies:
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@repo/wp-utils':
         specifier: workspace:*
         version: link:../../packages/wp-utils
@@ -224,6 +227,9 @@ importers:
 
   apps/trappsystems:
     dependencies:
+      '@repo/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@repo/wp-utils':
         specifier: workspace:*
         version: link:../../packages/wp-utils

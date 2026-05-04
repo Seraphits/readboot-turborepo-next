@@ -1,0 +1,13 @@
+// LogoImage module - Futurist Carton branding
+@use "../Colors/colors-variables" as vars;
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  position: relative;
+  display: block;
+}

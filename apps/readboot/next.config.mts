@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   trailingSlash: true,
-  transpilePackages: ["@repo/wp-utils"],
+  transpilePackages: ["@repo/ui", "@repo/wp-utils"],
   images: {
     remotePatterns: [
       {
