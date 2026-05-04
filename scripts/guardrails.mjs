@@ -23,9 +23,9 @@ function runNoMatchCheck({ name, command, hint }) {
 
 const checks = [
   {
-    name: 'No inline styles in web/docs/trappsystems/readboot app TSX',
+    name: 'No inline styles in web/trappsystems/readboot app TSX',
     command:
-      "rg \"style=\\\\{\\\\{\" apps/web apps/docs apps/trappsystems apps/readboot --glob '*.tsx' --glob '!apps/storybook/**'",
+      "rg \"style=\\\\{\\\\{\" apps/web apps/trappsystems apps/readboot --glob '*.tsx' --glob '!apps/storybook/**'",
     hint: 'Move inline styles into SCSS Modules.',
   },
   {

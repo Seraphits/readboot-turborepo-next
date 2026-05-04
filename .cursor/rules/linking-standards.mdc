@@ -50,6 +50,5 @@ CLICK INTERCEPTION: `WPContent` must implement client-side click interception (e
 5. URL Transformation (menu/link hrefs)
 All menu/link hrefs fetched from WordPress must be mapped at the data-fetching layer (e.g. `getMenuData({ transformHref })`).
 
-In the docs app, use `toDocsHref()` for menu href transformation before passing items to the UI navigation components.
-In the web app, use `toWebHref()` for menu href transformation before passing items to the UI navigation components.
+In the web app, use `toWebHref()` for menu href transformation before passing items to the UI navigation components. For any future Next app that serves content under a `/docs/` path pattern, use `toDocsHref()` from `@repo/wp-utils` the same way.
 

@@ -1,6 +1,6 @@
 # ReadBoot monorepo
 
-ReadBoot’s portfolio and docs apps live here, built with [Turborepo](https://turbo.build/) and [pnpm](https://pnpm.io/) (see `.cursor/rules/monorepo.mdc`).
+ReadBoot’s portfolio app and shared packages live here, built with [Turborepo](https://turbo.build/) and [pnpm](https://pnpm.io/) (see `.cursor/rules/monorepo.mdc`).
 
 **Before you push:** run `pnpm quality` from the repo root (or `pnpm quality:full` to mirror the entire CI pipeline). Details: [docs/QUALITY.md](docs/QUALITY.md).
 
@@ -22,9 +22,9 @@ This Turborepo includes the following packages/apps:
 
 ### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
+- `web`: the [Next.js](https://nextjs.org/) portfolio app (legacy shell; being replaced by `@readboot/site`)
+- `@trappsystems/site`, `@readboot/site`: additional [Next.js](https://nextjs.org/) apps in `apps/`
+- `@repo/ui`: shared React component library
 - `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
 - `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
@@ -58,12 +58,12 @@ You can build a specific package by using a [filter](https://turborepo.dev/docs/
 
 ```
 # With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
+turbo build --filter=@readboot/site
 
 # Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
+npx turbo build --filter=@readboot/site
+yarn exec turbo build --filter=@readboot/site
+pnpm exec turbo build --filter=@readboot/site
 ```
 
 ### Develop

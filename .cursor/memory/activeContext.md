@@ -1,5 +1,6 @@
 Active Context: ReadBoot Shared UI
 
+- Recent: **Removed `apps/docs`** (Next docs app). **`apps/web`** no longer rewrites **`/docs/`**; remove or repoint the old **Vercel** project for docs if it still exists.
 - **Deprecation (owner intent):** **`packages/ui/src/patterns/`** and **`packages/ui/src/styles/`** are **deprecated**. **No new usage** — new work uses **`tokens/`**, **`framework/`**, and **`components/`** only. Cursor rule: **`.cursor/rules/deprecation-patterns-and-styles.mdc`** (always on).
 - Recent: **`apps/trappsystems`** root layout: `NavigationBar` from **`@repo/ui/organisms`** with **`links={[]}`** until WP menu wiring; **`@repo/ui/framework`** remains SCSS-only. **`packages/ui/src/tokens/`** holds **copied** token SCSS (no `patterns/` forwards). Framework **`Organisms/NavigationBar/`** restored: **`index.scss`** → **`_navigation-bar.scss`** (token `@use` only), **`Organisms/index.scss`** re-`@use`s **`./NavigationBar`**; framework nav TS uses **`@repo/ui/molecules`** + global BEM classes (side-effect **`./index.scss`**).
 - Recent: Added **`apps/readboot`** (npm name **`@readboot/site`**) — same scaffold as Trappsystems; **`pnpm build:readboot`**, dev port **3000** (overlaps legacy `web` until that app is removed); CI + **`pnpm quality`** also build **`@readboot/site`**.

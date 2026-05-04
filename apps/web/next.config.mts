@@ -14,15 +14,10 @@ const nextConfig: NextConfig = {
   },
   async rewrites() {
     const isDev = process.env.NODE_ENV === 'development';
-    const docsUrl = isDev ? 'http://localhost:3001' : 'https://readboot-turborepo-next-docs.vercel.app';
     const storybookUrl =
       process.env.STORYBOOK_DEPLOYMENT_URL ??
       (isDev ? 'http://localhost:6006' : 'https://readboot-turborepo-next-storybook.vercel.app');
     return [
-      { source: '/docs/', destination: `${docsUrl}/docs/` },
-      { source: '/docs/:path*/', destination: `${docsUrl}/docs/:path*/` },
-      // Docs app asset paths (may use /vc-ap-* when deployed with @vercel/microfrontends on the docs app)
-      { source: '/vc-ap-:hash/:rest*/', destination: `${docsUrl}/vc-ap-:hash/:rest*` },
       // Storybook static app (must match Storybook Vite `base: /storybook/` — destination keeps /storybook prefix)
       { source: '/storybook/', destination: `${storybookUrl}/storybook/` },
       { source: '/storybook/:path*/', destination: `${storybookUrl}/storybook/:path*/` },

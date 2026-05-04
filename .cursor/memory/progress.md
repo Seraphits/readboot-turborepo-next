@@ -10,7 +10,8 @@
 [x] Linking standards refactor: public imports, UI templates export, docs URL transform, WPContent click interception.
 [x] Rules cleanup: fixed outdated token path references and malformed glob patterns in branding/style-guide/accessibility rules.
 [x] Rules-tree consistency pass: memory-bank PRD path alignment and deprecated glitch references removed from app/docs copy.
-[x] Legacy style-guide component cleanup: removed MediaMockup/CaptureForm/Masthead/ColorScheme and added WP+Storybook rebuild plan at apps/docs/STYLE_GUIDE_PATTERN_LAB_REBUILD_PLAN.md.
+[x] Legacy style-guide component cleanup: removed MediaMockup/CaptureForm/Masthead/ColorScheme; former docs-app rebuild plan lived under removed `apps/docs`.
+[x] Removed **`apps/docs`** Next app; dropped `/docs/` rewrites from **`apps/web/next.config.mts`** and docs entry from **`microfrontends.json`**; guardrails, knip, tsconfig project refs, and docs updated.
 [x] Removed inline styles from docs style-guide subtree and refactored page styling into SCSS modules; web slug error page also migrated from inline styles to module.
 [x] Introduced reusable docs components (SectionIntro, CodeExampleBlock, TokenCard) and adopted them across style-guide pages.
 [x] Web homepage: SplitHomeHero + mission/pillars/roadmap in `@repo/ui/templates` (`patterns/Templates/HomePage`); outline Button variant; placehold.co images; apps/web/HOMEPAGE_CONTENT.md (no glitch; rules-aligned).

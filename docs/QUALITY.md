@@ -54,7 +54,7 @@ Use **pnpm** from the repository root (`pnpm` 9.x via Corepack).
 
 Implemented in `scripts/guardrails.mjs`. Current checks (no matches allowed):
 
-- Inline `style={{` in `apps/web`, `apps/docs`, `apps/trappsystems`, and `apps/readboot` TSX (prefer stylesheets when you add styling).
+- Inline `style={{` in `apps/web`, `apps/trappsystems`, and `apps/readboot` TSX (prefer stylesheets when you add styling).
 - Imports containing `@repo/.../src/` (use public package entrypoints only).
 - Retired legacy docs identifiers in `apps` TSX (see script hints if this fires).
 

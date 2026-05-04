@@ -30,7 +30,8 @@ body:
       options:
         - storybook
         - web
-        - docs
+        - readboot-site
+        - trappsystems-site
         - packages/ui
         - wp-utils
         - tooling / ci

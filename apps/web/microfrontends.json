@@ -5,11 +5,6 @@
       "packageName": "web",
       "development": { "local": 3003, "fallback": "readboot-turborepo-next.vercel.app" }
     },
-    "readboot-turborepo-next-docs": {
-      "packageName": "docs",
-      "development": { "local": 3001 },
-      "routing": [{ "paths": ["/docs", "/docs/:path*"] }]
-    },
     "readboot-turborepo-next-storybook": {
       "packageName": "storybook",
       "development": { "local": 6006 },

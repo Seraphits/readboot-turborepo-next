@@ -1,6 +1,6 @@
 ---
-description: USE WHEN creating or modifying UI components or documentation in apps/docs to ensure adherence to the ReadBoot Pattern Lab architecture.
-globs: ["apps/docs/**/*.tsx", "packages/ui/src/patterns/**/*.tsx", "packages/ui/src/patterns/**/*.scss", "packages/ui/src/components/**/*"]
+description: USE WHEN creating or modifying UI components or documentation in Storybook / @repo/ui to ensure adherence to the ReadBoot Pattern Lab architecture.
+globs: ["packages/ui/src/patterns/**/*.tsx", "packages/ui/src/patterns/**/*.scss", "packages/ui/src/components/**/*"]
 alwaysApply: false
 ---
 ReadBoot Style Guide & Pattern Lab Standards
@@ -12,7 +12,7 @@ Tone: Neutral and competent technical instruction. No gamification or completion
 Dumb Layouts: All application routes (layout.tsx, page.tsx) must be "dumb." They should specify what data to fetch (e.g., location name) and delegate the how (fetching logic, URI normalization, and error handling) to services in @repo/wp-utils.
 
 2. Information Architecture (Mirror @repo/ui)
-Documentation in apps/docs must mirror the @repo/ui filesystem hierarchy exactly:
+Documentation and pattern-lab pages (e.g. Storybook) should mirror the @repo/ui filesystem hierarchy where applicable:
 
 LayoutAtoms/: Box, Prose, SectionLayout.
 

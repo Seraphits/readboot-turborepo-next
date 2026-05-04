@@ -8,7 +8,7 @@ This doc replaces the older Gemini brief. **Glitch effects are removed** — the
 - **Mission** — bordered panel, **newspaper `column-count`** over two short paragraphs, accent on the word _Alignment_.
 - **Three pillars** — 4px bordered cards, `placehold.co` images until you ship real art.
 - **100-year roadmap** — horizontal **4px** rule with labeled nodes (Artist, Philosopher, Nomad, Hero).
-- **Connect footer** — headline, outbound links, copyright. Rendered from **`apps/web/app/layout.tsx`** and **`apps/docs/app/docs/layout.tsx`** via `<ConnectFooterSection {...defaultConnect} />` (shared defaults in `homePageDefaults.ts`).
+- **Connect footer** — headline, outbound links, copyright. Rendered from **`apps/web/app/layout.tsx`** via `<ConnectFooterSection {...defaultConnect} />` (shared defaults in `homePageDefaults.ts`).
 
 Images use **`https://placehold.co`**; `apps/web/next.config.mts` allows that hostname for `next/image`.
 
@@ -65,4 +65,4 @@ export default function Home() {
 
 (Adjust paths when `/contact/` or `/images/` exist.)
 
-**Footer (all routes):** change `defaultConnect` in `packages/ui/.../Templates/HomePage/homePageDefaults.ts`, or in `apps/web/app/layout.tsx` / `apps/docs/app/docs/layout.tsx` replace `<ConnectFooterSection {...defaultConnect} />` with explicit props.
+**Footer (all routes):** change `defaultConnect` in `packages/ui/.../Templates/HomePage/homePageDefaults.ts`, or in `apps/web/app/layout.tsx` replace `<ConnectFooterSection {...defaultConnect} />` with explicit props.

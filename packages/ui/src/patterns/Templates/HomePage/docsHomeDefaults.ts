@@ -3,7 +3,7 @@
  * Same visual language as the portfolio homepage; content highlights the design-system docs,
  * pattern lab / style guide, and how the site is engineered.
  *
- * Override from `apps/docs/app/docs/page.tsx` when you add env-based portfolio URLs.
+ * Override at the consuming route when you add env-based portfolio URLs.
  */
 
 import type { PillarItem } from "../../homeContentTypes";

@@ -1,20 +1,21 @@
-# Multi-zone routing: readboot.com/docs and readboot.com/storybook
+# Multi-zone routing: readboot.com/storybook
 
-The **web** app (`apps/web`) owns **`readboot.com`**. It uses **`next.config.mts` rewrites** to proxy `/docs` and `/storybook` to the **docs** and **storybook** Vercel deployments (`*.vercel.app`). This works on **Vercel Hobby** without the **Microfrontends dashboard group** (that feature has a low project limit on free tiers).
+The **web** app (`apps/web`) owns **`readboot.com`**. It uses **`next.config.mts` rewrites** to proxy **`/storybook/`** to the **Storybook** Vercel deployment (`*.vercel.app`). This works on **Vercel Hobby** without the **Microfrontends dashboard group** (that feature has a low project limit on free tiers).
 
 `apps/web/microfrontends.json` remains as a **reference** for path routing; routing is implemented by **rewrites in code**, not by grouping projects in the dashboard.
 
+> The former **`apps/docs`** Next app has been removed from this repo. **`/docs/`** is no longer rewritten from `web`; host documentation elsewhere (e.g. Storybook, a future site) if needed.
+
 ## Prerequisites
 
-1. **Domains:** `readboot.com` (and `www` if used) are attached only to the **web** project — not to docs or storybook.
-2. **Root directories:** Web = `apps/web`, Docs = `apps/docs`, Storybook = `apps/storybook`.
+1. **Domains:** `readboot.com` (and `www` if used) are attached only to the **web** project — not to Storybook.
+2. **Root directories:** Web = `apps/web`, Storybook = `apps/storybook`.
 3. **Storybook subpath:** Storybook is built with Vite `base: /storybook/`. The Storybook project includes **`apps/storybook/vercel.json`** so `/storybook/*` maps to static files at the build root.
-4. **Web rewrites:** `apps/web/next.config.mts` proxies to `STORYBOOK_DEPLOYMENT_URL` / docs URLs (see file for defaults).
+4. **Web rewrites:** `apps/web/next.config.mts` proxies to `STORYBOOK_DEPLOYMENT_URL` (see file for defaults).
 
 ## What's configured
 
-- **apps/web/next.config.mts** — `rewrites()` for `/docs/`, `/storybook/`, and `/vc-ap-*` (docs assets when applicable).
-- **apps/docs** — Routes under `app/docs/` for `/docs`.
+- **apps/web/next.config.mts** — `rewrites()` for `/storybook/`.
 - **apps/storybook** — Dev URL: `http://localhost:6006/storybook/`.
 
 ## Domain migration (shell)
@@ -33,11 +34,10 @@ vercel alias set <your-main-app-deployment-url>.vercel.app readboot.com
 
 ### 3. Verify
 
-- https://readboot.com/docs/
 - https://readboot.com/storybook/
 
 If you see **ERR_TOO_MANY_REDIRECTS**:
 
 1. **www vs apex** — In the **web** project → **Settings → Domains**, pick **one** canonical host (`readboot.com` **or** `www.readboot.com`) and set the other to **redirect to it** exactly once. If both try to redirect to each other, the browser loops (`www` ↔ apex).
-2. **Storybook/docs projects** — Do **not** attach `readboot.com` / `www` to the docs or Storybook Vercel projects; only the **web** project should serve the custom domain.
+2. **Storybook project** — Do **not** attach `readboot.com` / `www` to the Storybook Vercel project; only the **web** project should serve the custom domain.
 3. Redeploy **web** after changing `next.config.mts` or `vercel.json`.

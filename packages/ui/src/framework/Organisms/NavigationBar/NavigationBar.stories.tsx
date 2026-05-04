@@ -7,7 +7,7 @@ const REALISTIC_LINKS: NavigationLinkItem[] = [
   { id: "home", label: "Home", href: "/" },
   { id: "blog", label: "Blog", href: "/blog/" },
   { id: "projects", label: "Projects", href: "/projects/" },
-  { id: "docs", label: "Docs", href: "/docs/" },
+  { id: "storybook", label: "Storybook", href: "/storybook/" },
 ];
 
 const meta = {

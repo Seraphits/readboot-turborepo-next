@@ -1,6 +1,6 @@
 ---
 description: USE WHEN creating interactive previews in the Pattern Lab to standardize URL-driven state management.
-globs: ["apps/docs/**/*.tsx"]
+globs: ["apps/web/**/*.tsx", "apps/readboot/**/*.tsx", "apps/trappsystems/**/*.tsx"]
 alwaysApply: false
 ---
 Interactive Playground Logic (nuqs)

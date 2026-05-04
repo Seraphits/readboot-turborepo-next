@@ -1,10 +1,10 @@
 /**
  * Hosts for which we skip the Next.js image optimizer and load the URL in the browser.
  *
- * - **placehold.co**: With Vercel microfrontends, `/docs` may be served by the docs app while
- *   `/_next/image` hits the shell; remotePatterns / optimizer routing can fail for external URLs.
+ * - **placehold.co**: With multi-zone / rewrite setups, `/_next/image` on the shell can disagree
+ *   with where the page is served; remotePatterns / optimizer routing can fail for external URLs.
  * - **readboot.cloudaccess.host** (WordPress media): Same class of issue can break the header logo
- *   on `readboot.com/docs` while the main app works; direct fetch avoids the broken optimizer hop.
+ *   when the optimizer hop does not match the document origin; direct fetch avoids that hop.
  */
 const HOSTS_SKIP_IMAGE_OPTIMIZATION = new Set([
   "placehold.co",

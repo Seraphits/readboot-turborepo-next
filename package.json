@@ -8,7 +8,7 @@
     "build:readboot": "turbo run build --filter=@readboot/site",
     "guardrails": "node ./scripts/guardrails.mjs",
     "clean": "rm -rf apps/*/.next apps/*/.turbo apps/*/node_modules/.cache packages/*/node_modules/.cache .turbo node_modules/.cache",
-    "clean:nuclear": "rm -rf apps/web/.next apps/docs/.next apps/storybook/.next apps/storybook/storybook-static apps/*/.turbo packages/*/.turbo .turbo node_modules/.cache apps/*/node_modules/.cache packages/*/node_modules/.cache",
+    "clean:nuclear": "rm -rf apps/web/.next apps/storybook/.next apps/storybook/storybook-static apps/*/.turbo packages/*/.turbo .turbo node_modules/.cache apps/*/node_modules/.cache packages/*/node_modules/.cache",
     "clean:nuclear:full": "pnpm clean:nuclear && rm -rf node_modules && pnpm install",
     "dev": "turbo run dev",
     "lint": "turbo run lint",

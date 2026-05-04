@@ -25,7 +25,7 @@ Shared types: **`PillarItem`** from **`patterns/homeContentTypes/`** (re-exporte
 
 - Pass **`portraitSrc` / `portraitAlt`** for hero art when ready.
 - **Portfolio** — use defaults from **`homePageDefaults.ts`** (or omit props).
-- **Docs** — spread **`docsHomeDefaults`** or pass individual **`hero` / `mission` / `pillars` / `vision`** overrides (see **`apps/docs/app/docs/page.tsx`** for env-based CTA hrefs).
+- **Docs-shaped landing** — spread **`docsHomeDefaults`** or pass individual **`hero` / `mission` / `pillars` / `vision`** overrides; wire env-based CTA hrefs at the app route that consumes this template.
 
 ## Storybook
 

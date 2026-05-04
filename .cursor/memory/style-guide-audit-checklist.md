@@ -1,6 +1,6 @@
 # Style Guide Manual Audit Checklist
 
-**Route:** `/docs/style-guide` (apps/docs)
+**Route:** Style guide lived under `/docs/style-guide` in the removed `apps/docs` app; use Storybook + `packages/ui` for pattern reference now.
 
 **Before using this file:** Brand and layout direction = **`readboot-branding.mdc`** (magazine-leaning, full-bleed, light chrome; **colors** unchanged). **Token / folder SSOT** = **`readboot-scss-architecture.mdc`**. This checklist is a **manual QA** aid; rows below may still describe **legacy** surfaces until the docs style-guide is rebuilt.
 
@@ -34,7 +34,7 @@ Run this checklist when verifying ReadBoot visuals propagate correctly from `pac
 | ------------------- | --------------------------------------------------------------------------------------------------------- |
 | No hardcoded HEX    | Search codebase for `#` in component styles; replace with `var(--sys-*)` tokens                           |
 | Design token source | **Legacy:** `patterns/Atoms/...`. **Greenfield:** `packages/ui/src/tokens/**` when populated (`readboot-scss-architecture.mdc`). |
-| Config              | `next.config.mts` in apps/docs and apps/web must list `transpilePackages: ["@repo/ui", "@repo/wp-utils"]` |
+| Config              | `next.config.mts` in each Next app must list `transpilePackages: ["@repo/ui", "@repo/wp-utils"]` where those packages are used |
 
 ---
 
