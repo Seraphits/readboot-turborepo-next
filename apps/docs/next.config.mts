@@ -17,7 +17,8 @@ const nextConfig: NextConfig = {
   },
   sassOptions: {
     loadPaths: [
-      path.join(__dirname, '../../packages/ui/src/patterns/Atoms'),
+      path.join(__dirname, "../../packages/ui/src"),
+      path.join(__dirname, "../../packages/ui/src/patterns/Atoms"),
     ],
   },
   images: {

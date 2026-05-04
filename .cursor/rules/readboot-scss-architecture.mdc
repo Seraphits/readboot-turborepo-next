@@ -11,10 +11,10 @@ alwaysApply: true
 | Status | Path under `packages/ui/src/` | Use |
 |--------|--------------------------------|-----|
 | **Active — greenfield** | **`tokens/`**, **`framework/`**, **`components/`** | All **new** token files, global framework CSS, and functional component folders (React + `.module.scss` + Storybook). This is what we **extend** today. |
-| **Legacy** | **`patterns/`** | Existing atomic library, legacy SCSS, barrels (`@repo/ui/atoms`, `molecules`, …). **Frozen for net-new greenfield** — migrate away over time; still ships until replaced. |
-| **Deprecated — do not extend** | **`styles/`** | Old experiment (near-empty `index.scss`, `@repo/ui/styles/*` aliases). **Bad fit for SSOT** — do **not** add product CSS here. Some apps/Storybook may still import it until cut over to **`framework/`**; treat as **legacy** and **remove** when imports are migrated. |
+| **Deprecated — migrate off** | **`patterns/`** | Legacy atomic library and barrels (`@repo/ui/atoms`, `molecules`, …). **Do not use for anything new** — no new files, no new `@use`/`@forward` from here into greenfield trees, no new relative imports from `tokens/` / `framework/` / `components/` / apps. Still ships until exports are repointed and consumers migrate. |
+| **Deprecated — do not use** | **`styles/`** | Old experiment (`@repo/ui/styles/*`). **Do not use for anything new** — no new imports; migrate remaining consumers to **`framework/`** and remove. |
 
-If an agent is unsure where to put something: **new work → `tokens/` | `framework/` | `components/`** only.
+If an agent is unsure where to put something: **new work → `tokens/` | `framework/` | `components/`** only. See **`deprecation-patterns-and-styles.mdc`**.
 
 ## New work (greenfield)
 
@@ -28,10 +28,9 @@ All **new** styles and colocated component files live under **`packages/ui/src/`
 
 - **`@use`** tokens from **`framework/**` partials and from **`components/**/*.module.scss`** as needed. Tokens do not “load like CSS” until something references them in rules or mixins.
 
-## Legacy (do not extend for new features)
+## Deprecated (no new usage)
 
-- **`patterns/`** — see table above. Do **not** add net-new greenfield SCSS or components here.
-- **`styles/`** — deprecated folder; see table above. Not a third “active” root alongside `tokens`/`framework`/`components`.
+- **`patterns/`** and **`styles/`** — **deprecated.** Do **not** pull from them in new code (see **`deprecation-patterns-and-styles.mdc`**). Targeted migration/removal edits only when the owner asks.
 
 ## Technical
 

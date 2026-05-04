@@ -1,10 +1,11 @@
 import type { ReactNode } from "react";
-import { LogoImageClient } from "../../Atoms/Branding/Logo/LogoImageClient";
-import NavMenu, {
+import {
+  NavigationMenu,
+  ThemeToggle,
   type NavigationLinkItem,
-} from "../../Molecules/NavigationMenu/navigation-menu";
-import { ThemeToggle } from "../../Molecules/ThemeToggle/ThemeToggle";
-import styles from "./navigation-bar.module.scss";
+} from "@repo/ui/molecules";
+import { LogoImageClient } from "../../Atoms/Logo/LogoImageClient";
+import "./index.scss";
 
 export interface NavigationBarProps {
   links: NavigationLinkItem[];
@@ -17,14 +18,14 @@ export interface NavigationBarProps {
 
 const NavigationBar = ({ links, logo }: NavigationBarProps) => {
   return (
-    <header className={styles.NavigationBar}>
-      <div className={styles.NavigationBar__Logo}>
+    <header className="NavigationBar">
+      <div className="NavigationBar__Logo">
         {logo ?? <LogoImageClient width="100%" height="100%" />}
       </div>
-      <nav className={styles.NavigationBar__Menu}>
-        <NavMenu links={links} />
+      <nav className="NavigationBar__Menu">
+        <NavigationMenu links={links} />
       </nav>
-      <div className={styles.NavigationBar__Theme}>
+      <div className="NavigationBar__Theme">
         <ThemeToggle />
       </div>
     </header>

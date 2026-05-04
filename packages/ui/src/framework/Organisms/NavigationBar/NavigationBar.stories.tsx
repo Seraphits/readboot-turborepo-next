@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import type { NavigationLinkItem } from "../../Molecules/NavigationMenu/navigation-menu";
+import type { NavigationLinkItem } from "@repo/ui/molecules";
 import NavigationBar from "./navigation-bar";
 
 /** Web-style routes (no Storybook canvas URLs). */

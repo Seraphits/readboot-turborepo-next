@@ -1,2 +1,7 @@
-// Design-token barrel for `@use '../tokens'` from `framework/framework.scss`.
-// Add `@forward` lines here as you migrate modules from `patterns/Atoms/**`.
+// Public token surface for `@use "../tokens"` from framework (no spacing+geometric together — duplicate $space-*).
+@forward "./tokens/Colors";
+@forward "./tokens/Fonts";
+@forward "./tokens/Mixins";
+@forward "./tokens/spacing";
+@forward "./tokens/motion";
+@forward "./tokens/layout";

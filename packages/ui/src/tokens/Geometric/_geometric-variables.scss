@@ -1,0 +1,11 @@
+@use "../Mixins/global-mixins" as global;
+
+// REFERENCE TOKENS (Fixed Identity)
+$ref-border-width-thick: 4px; // Keep PX for crisp linework
+$ref-border-width-hairline: 1px; // Nav rules, hairline dividers, column rules
+$ref-border-radius-brand: global.to-rem(12px); // 0.75rem: Scales with text
+
+// SYSTEM TOKENS (border / radius only — spacing scale lives under `tokens/spacing`)
+$sys-geom-border-main: $ref-border-width-thick;
+$sys-geom-border-hairline: $ref-border-width-hairline;
+$sys-geom-radius-main: $ref-border-radius-brand;

@@ -15,7 +15,10 @@ const nextConfig: NextConfig = {
     },
   },
   sassOptions: {
-    loadPaths: [path.join(__dirname, "../../packages/ui/src/patterns/Atoms")],
+    loadPaths: [
+      path.join(__dirname, "../../packages/ui/src"),
+      path.join(__dirname, "../../packages/ui/src/patterns/Atoms"),
+    ],
   },
   reactStrictMode: true,
   images: {

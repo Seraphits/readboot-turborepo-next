@@ -10,3 +10,7 @@ export { BlogCard } from "./Cards/BlogCard/BlogCard";
 export { ProjectCard } from "./Cards/ProjectCard/ProjectCard";
 export type { ProjectCardProps } from "./Cards/ProjectCard/ProjectCard";
 export { default as NavigationMenu } from "./NavigationMenu/navigation-menu";
+export type {
+  NavigationLinkItem,
+  NavigationMenuProps,
+} from "./NavigationMenu/navigation-menu";

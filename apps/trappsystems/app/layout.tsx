@@ -2,7 +2,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "@repo/ui/framework";
-import { NavigationBar } from "@repo/ui/framework";
+import { NavigationBar } from "@repo/ui/organisms";
 
 const THEME_INIT_SCRIPT = `(function(){var t=localStorage.getItem('theme');if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);})();`;
 
@@ -41,7 +41,7 @@ export default function RootLayout({
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }}
         />
-        <NavigationBar links={links} />
+        <NavigationBar links={[]} />
         {children}
       </body>
     </html>

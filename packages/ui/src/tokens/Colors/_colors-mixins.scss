@@ -1,0 +1,16 @@
+@use "sass:map";
+// `_colors-pairings` is a CSS-module-styled SCSS file, so we must include the
+// `.module` segment for Sass to resolve the filename.
+@use "./colors-pairings.module" as pairings;
+
+@mixin apply-pairing($scheme) {
+  $pairing: map.get(pairings.$color-pairings, $scheme);
+
+  @if $pairing {
+    background-color: map.get($pairing, "bg");
+    color: map.get($pairing, "text");
+    border-color: map.get($pairing, "border");
+  } @else {
+    @error "Unknown color pairing: #{$scheme}";
+  }
+}

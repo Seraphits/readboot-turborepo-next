@@ -109,7 +109,7 @@ const config: StorybookConfig = {
       css: {
         preprocessorOptions: {
           scss: {
-            loadPaths: [path.join(packagesUiSrc, "patterns/Atoms")],
+            loadPaths: [packagesUiSrc, path.join(packagesUiSrc, "patterns/Atoms")],
             silenceDeprecations: ["global-builtin"],
           },
         },

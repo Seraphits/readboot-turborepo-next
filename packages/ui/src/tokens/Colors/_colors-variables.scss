@@ -1,0 +1,37 @@
+@use "sass:color";
+
+// TIER 1: REFERENCE TOKENS (Brand Primitives - Fixed "Stars")
+$ref-color-charcoal: #36454f;
+$ref-color-offwhite: #faf9f6;
+$ref-color-crimson: #dc143c;
+$ref-color-yellow: #fad20a;
+$ref-color-green: #56f000;
+$ref-color-teal: #29ecff;
+$ref-color-purple: #905fea;
+
+// TIER 2: SYSTEM COLORS (Literal Role Tokens)
+$sys-color-paper-light-bg: $ref-color-offwhite;
+$sys-color-ink-light-text: $ref-color-offwhite;
+$sys-color-paper-dark-bg: $ref-color-charcoal;
+$sys-color-ink-dark-text: $ref-color-charcoal;
+
+$sys-color-light-border: $ref-color-offwhite;
+$sys-color-dark-border: $ref-color-charcoal;
+
+// Action/Status Core Values
+$sys-color-action-primary: $ref-color-crimson;
+$sys-color-status-warning: $ref-color-yellow;
+$sys-color-status-success: $ref-color-green;
+$sys-color-status-error: $ref-color-crimson;
+$sys-color-status-info: $ref-color-teal;
+
+// Specific Border Tokens (Turn 9 Requirement)
+$sys-color-action-border: $ref-color-crimson;
+$sys-color-error-border: $ref-color-crimson;
+$sys-color-warning-border: $ref-color-yellow;
+$sys-color-success-border: $ref-color-green;
+$sys-color-info-border: $ref-color-teal;
+
+// Accessibility: Safe Red for Dark Backgrounds (Turn 8 Logic)
+// Meets 4.5:1 ratio against charcoal base [1, 3]
+$sys-color-action-on-dark: color.adjust($ref-color-crimson, $lightness: 15%);
