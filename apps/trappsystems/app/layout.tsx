@@ -2,9 +2,15 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "@repo/ui/framework";
+import { getMenuData, toWebHref, type NavItem } from "@repo/wp-utils";
 import { NavigationBar } from "@repo/ui/organisms";
 
 const THEME_INIT_SCRIPT = `(function(){var t=localStorage.getItem('theme');if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);})();`;
+
+/** When WP has no items for this location (or fetch fails), keep the bar usable. */
+const FALLBACK_TOP_NAV: NavItem[] = [
+  { id: "trapp-home", parentId: null, label: "Home", href: "/" },
+];
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -16,11 +22,19 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const linksFromWp = await getMenuData({
+    location: "WEB_TOPNAV",
+    transformHref: (url) => toWebHref(url),
+  });
+
+  const links =
+    linksFromWp.length > 0 ? linksFromWp : FALLBACK_TOP_NAV;
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -41,8 +55,8 @@ export default function RootLayout({
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }}
         />
-        <NavigationBar links={[]} />
-        {children}
+        <NavigationBar links={links} />
+        <main>{children}</main>
       </body>
     </html>
   );
