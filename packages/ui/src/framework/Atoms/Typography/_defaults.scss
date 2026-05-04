@@ -1,6 +1,6 @@
 @use "sass:color";
-@use "./fonts-variables" as fonts;
-@use "../Colors/colors-variables" as vars;
+@use "tokens/Fonts" as fonts;
+@use "tokens/Colors" as vars;
 
 .typography {
   margin: 0;

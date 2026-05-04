@@ -1,10 +1,10 @@
 @use "sass:color";
-@use "../../Atoms/Branding/Colors/colors-variables" as vars;
-@use "../../Atoms/Branding/Typography/fonts-variables" as fonts;
-@use "../../Atoms/Spatial/Spacing/spacing-variables" as space;
-@use "../../Atoms/Branding/Motion/motion-variables" as motion;
-@use "../../Atoms/Spatial/Layout/layout-variables" as layout;
-@use "../../Atoms/Spatial/geometric/geometric-variables" as geom;
+@use "tokens/Colors" as vars;
+@use "tokens/Fonts" as fonts;
+@use "tokens/spacing" as space;
+@use "tokens/motion" as motion;
+@use "tokens/layout" as layout;
+@use "tokens/geometric" as geom;
 
 .NavigationMenu {
   &__List {

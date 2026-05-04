@@ -1,9 +1,9 @@
 @use "spacing-variables" as vars;
-@use "../geometric/Geometric.module" as spatial;
-@use "../../Branding/Colors/colors-variables" as colors;
+@use "tokens/Colors" as colors;
+@use "../container-base.mixin" as shell;
 
 .spacing-row {
-  @extend.container-base; // Inherits 4px border & 12px radius
+  @include shell.container-base;
   display: flex;
   align-items: center;
   gap: vars.$space-lg;

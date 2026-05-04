@@ -1,30 +1,17 @@
-@use "../../Branding/Mixins/global-mixins" as global;
-@use "geometric-variables" as geom;
-@use "../../Branding/Colors/colors-variables" as vars;
-@use "../../Branding/Typography/fonts-variables" as fonts;
-@use "../../Branding/Motion/motion-variables" as motion;
+@use "tokens/Mixins/global-mixins" as global;
+@use "tokens/geometric" as geom;
+@use "tokens/spacing" as space;
+@use "tokens/Colors" as vars;
+@use "tokens/Fonts" as fonts;
+@use "tokens/motion" as motion;
+@use "../container-base.mixin" as shell;
 
 .container-base {
-  display: flex;
-  border: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
-  border-radius: geom.$sys-geom-radius-main;
-  padding: geom.$space-md;
-  gap: geom.$space-sm;
-  background-color: vars.$sys-color-paper-light-bg;
-  transition: transform motion.$ref-duration-slow motion.$ref-ease-spring;
-
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  [data-theme='dark'] & {
-    border-color: vars.$sys-color-light-border;
-    background-color: vars.$sys-color-paper-dark-bg;
-  }
+  @include shell.container-base;
 }
 
 .swatch-layout {
-  @extend.container-base;
+  @extend .container-base;
   flex-direction: column;
   overflow: hidden;
   padding: 0;
@@ -40,10 +27,10 @@
   }
 
   &__info {
-    padding: geom.$space-md;
+    padding: space.$space-md;
     display: flex;
     flex-direction: column;
-    gap: geom.$space-xs;
+    gap: space.$space-xs;
     background: vars.$sys-color-paper-light-bg;
     color: vars.$sys-color-ink-dark-text;
     font-size: 0.875rem;

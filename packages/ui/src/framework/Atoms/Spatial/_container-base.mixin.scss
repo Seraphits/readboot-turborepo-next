@@ -1,0 +1,23 @@
+@use "tokens/geometric" as geom;
+@use "tokens/spacing" as space;
+@use "tokens/Colors" as vars;
+@use "tokens/motion" as motion;
+
+@mixin container-base {
+  display: flex;
+  border: geom.$sys-geom-border-main solid vars.$sys-color-dark-border;
+  border-radius: geom.$sys-geom-radius-main;
+  padding: space.$space-md;
+  gap: space.$space-sm;
+  background-color: vars.$sys-color-paper-light-bg;
+  transition: transform motion.$ref-duration-slow motion.$ref-ease-spring;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  [data-theme='dark'] & {
+    border-color: vars.$sys-color-light-border;
+    background-color: vars.$sys-color-paper-dark-bg;
+  }
+}
