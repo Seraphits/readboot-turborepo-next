@@ -5,6 +5,7 @@
     "paths": {
       "@/*": ["./*"],
       "@repo/ui/framework": ["../../packages/ui/src/Framework/framework.scss"],
+      "@repo/ui/sites": ["../../packages/ui/src/Framework/sites/index.ts"],
       "@repo/wp-utils": ["../../packages/wp-utils/src/index.ts"]
     }
   },

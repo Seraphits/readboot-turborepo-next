@@ -1,5 +1,7 @@
 export type { PillarItem } from "../homeContentTypes";
-export { default as NavigationBar } from "./NavigationBar/navigation-bar";
+/** Greenfield nav: Framework + Tokens only (not `patterns/Organisms/NavigationBar`). */
+export { default as NavigationBar } from "../../Framework/Organisms/NavigationBar/navigation-bar";
+export type { NavigationBarProps } from "../../Framework/Organisms/NavigationBar/navigation-bar";
 export {
   ReadBootBand,
   BoxedFeatureHero,

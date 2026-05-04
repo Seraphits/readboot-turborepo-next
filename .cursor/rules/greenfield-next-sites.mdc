@@ -1,0 +1,32 @@
+---
+description: apps/readboot + apps/trappsystems — no patterns/ UI; use @repo/ui/sites + framework
+globs: apps/readboot/**/*,apps/trappsystems/**/*
+alwaysApply: false
+---
+
+# Greenfield Next sites (ReadBoot + Trappsystems)
+
+These apps are **not** the legacy portfolio/docs stack. **Do not** wire them to **`packages/ui/src/patterns/`**.
+
+## Allowed `@repo/ui` imports
+
+- **`@repo/ui/framework`** — global SCSS (Tokens + Framework layers).
+- **`@repo/ui/sites`** — React shell exported from **`packages/ui/src/Framework/sites/`** (currently **`NavigationBar`**; extend this file as you add more Framework-only UI).
+
+## Forbidden (will fail ESLint in these apps)
+
+- **`@repo/ui/atoms`**, **`molecules`**, **`organisms`**, **`templates`** — these package exports still resolve through the **`patterns/`** tree (legacy). Using **`organisms`** pulls in **`patterns/Organisms/index.tsx`** even if you only need one component.
+- **`@repo/ui/patterns/*`**
+- **`@repo/ui/styles/*`** for new work (deprecated per **`deprecation-patterns-and-styles.mdc`**).
+
+## Adding new shared UI for these apps
+
+1. Implement under **`packages/ui/src/Framework/`** (and tokens under **`Tokens/`**).
+2. Re-export from **`packages/ui/src/Framework/sites/index.ts`** (or add a new **named** export in **`package.json`** `exports` if you need a dedicated subpath).
+3. Import from **`@repo/ui/sites`** (or the new export) in **`apps/readboot`** / **`apps/trappsystems`** only.
+
+## Why this exists
+
+The **`@repo/ui/organisms`** entry point is **`patterns/Organisms/index.tsx`**. Importing it ties the app module graph to **`patterns/`** and risks accidental coupling. **`@repo/ui/sites`** is a thin barrel over **`Framework/`** only.
+
+See **`linking-standards.mdc`** for public export rules; **`deprecation-patterns-and-styles.mdc`** for the patterns phase-out.

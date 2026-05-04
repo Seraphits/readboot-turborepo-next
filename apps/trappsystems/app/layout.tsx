@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import "@repo/ui/framework";
 import { getMenuData, toWebHref, type NavItem } from "@repo/wp-utils";
-import { NavigationBar } from "@repo/ui/organisms";
+import { NavigationBar } from "@repo/ui/sites";
 
 const THEME_INIT_SCRIPT = `(function(){var t=localStorage.getItem('theme');if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);})();`;
 

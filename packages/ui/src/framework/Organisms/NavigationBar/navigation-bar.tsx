@@ -1,10 +1,9 @@
 import type { ReactNode } from "react";
-import {
-  NavigationMenu,
-  ThemeToggle,
-  type NavigationLinkItem,
-} from "@repo/ui/molecules";
 import { LogoImageClient } from "../../Atoms/Logo/LogoImageClient";
+import NavigationMenu, {
+  type NavigationLinkItem,
+} from "../../Molecules/NavigationMenu/navigation-menu";
+import { ThemeToggle } from "../../Molecules/ThemeToggle";
 import "./index.scss";
 
 export interface NavigationBarProps {

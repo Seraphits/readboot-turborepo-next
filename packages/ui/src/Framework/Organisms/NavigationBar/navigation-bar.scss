@@ -12,6 +12,7 @@
   height: 80px;
   padding: 0 space.$space-2xl;
   background-color: vars.$sys-color-paper-light-bg;
+  // background-color: green;
   border-bottom: geom.$sys-geom-border-hairline solid vars.$sys-color-dark-border;
 
   &__Logo {
@@ -29,8 +30,8 @@
     align-items: center;
   }
 
-  [data-theme="dark"] & {
-    background-color: vars.$sys-color-paper-dark-bg;
-    border-bottom-color: vars.$sys-color-light-border;
-  }
+  // [data-theme="dark"] & {
+  //   background-color: vars.$sys-color-paper-dark-bg;
+  //   border-bottom-color: vars.$sys-color-light-border;
+  // }
 }

@@ -25,3 +25,9 @@ See **`readboot-scss-architecture.mdc`** for the folder map and authoring rules.
 ## Note on public exports
 
 `@repo/ui/atoms`, `molecules`, `organisms`, `templates` may still resolve into `patterns/` **until those exports are repointed**. **Do not** add *additional* internal coupling to `patterns/**` or `styles/**` from greenfield code; prefer **`components/`** and **`Tokens/`** / **`Framework/`** for anything newly authored.
+
+## Greenfield Next apps (`apps/readboot`, `apps/trappsystems`)
+
+- **Must not** import `@repo/ui/atoms|molecules|organisms|templates|patterns/*` — ESLint enforces this.
+- **Use** `@repo/ui/framework` + **`@repo/ui/sites`** (barrel: `packages/ui/src/Framework/sites/index.ts`, export in `packages/ui/package.json`). Extend **`sites`** when adding Framework-only components for these apps.
+- Cursor: **`greenfield-next-sites.mdc`**.

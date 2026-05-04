@@ -8,7 +8,8 @@ Linking & Navigation Standards
 
 1. Module Resolution (Module Linking)
 PUBLIC API ONLY: Cross-package imports must use explicit public subpaths defined by each package's `package.json` exports.
-- UI layers: `@repo/ui/atoms`, `@repo/ui/molecules`, `@repo/ui/organisms`, `@repo/ui/templates`
+- UI layers (legacy — resolve under `patterns/`): `@repo/ui/atoms`, `@repo/ui/molecules`, `@repo/ui/organisms`, `@repo/ui/templates`
+- **Greenfield Next apps** (`apps/readboot`, `apps/trappsystems`): **`@repo/ui/framework`**, **`@repo/ui/sites`** only for `@repo/ui` UI (see **`greenfield-next-sites.mdc`**); do not use the legacy layer imports there.
 - WP utilities: `@repo/wp-utils` (no internal `src/` imports)
 
 NO DEEP SRC IMPORTS: Never import from another package's internal `src/` directory.
