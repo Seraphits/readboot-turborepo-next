@@ -1,4 +1,5 @@
 export * from "./doc";
+export * from "./library";
 export * from "./logo";
 export * from "./nav";
 export * from "./page";

@@ -2,14 +2,18 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import "@repo/ui/framework";
-import { getMenuData, toWebHref, type NavItem } from "@repo/wp-utils";
+import type { NavItem } from "@repo/wp-utils";
 import { NavigationBar } from "@repo/ui/sites";
 
 const THEME_INIT_SCRIPT = `(function(){var t=localStorage.getItem('theme');if(!t)t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.setAttribute('data-theme',t);})();`;
-
-/** When WP has no items for this location (or fetch fails), keep the bar usable. */
-const FALLBACK_TOP_NAV: NavItem[] = [
+const READBOOT_TOP_NAV: NavItem[] = [
   { id: "readboot-home", parentId: null, label: "Home", href: "/" },
+  {
+    id: "readboot-library",
+    parentId: null,
+    label: "Library",
+    href: "/library/",
+  },
 ];
 
 export const metadata: Metadata = {
@@ -27,14 +31,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const linksFromWp = await getMenuData({
-    location: "WEB_TOPNAV",
-    transformHref: (url) => toWebHref(url),
-  });
-
-  const links =
-    linksFromWp.length > 0 ? linksFromWp : FALLBACK_TOP_NAV;
-
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -55,7 +51,7 @@ export default async function RootLayout({
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }}
         />
-        <NavigationBar links={links} />
+        <NavigationBar links={READBOOT_TOP_NAV} />
         <main>{children}</main>
       </body>
     </html>

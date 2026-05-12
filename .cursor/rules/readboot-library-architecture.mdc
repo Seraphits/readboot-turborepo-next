@@ -1,0 +1,16 @@
+---
+description: ReadBoot library routes and shared components use readboot-gated WordPress library data
+globs: apps/readboot/app/library/**/*,packages/wp-utils/src/**/*library*.ts,packages/ui/src/components/ContentLibrary/**/*,packages/ui/src/components/ContentArticle/**/*,packages/ui/src/Framework/sites/index.ts
+alwaysApply: false
+---
+
+# ReadBoot library architecture
+
+- Only posts in the WordPress category slug `readboot` belong in the ReadBoot library.
+- `articleType` is one editorial classification per post; `theories` is one-or-many ReadBoot framework classifications. Neither is a WordPress `tag`.
+- Keep WordPress `tags` separate from library filtering and card metadata unless the owner explicitly asks to add them.
+- `@repo/wp-utils` owns GraphQL queries, normalization, filter parsing, and filter-option building for library content.
+- Shared library UI lives under `packages/ui/src/components/ContentLibrary/` and `packages/ui/src/components/ContentArticle/`, then re-exports through `@repo/ui/sites`.
+- `apps/readboot/app/library/` routes stay thin: parse `searchParams`, fetch normalized entries, apply filters, and render shared components.
+- Hide or 404 `readboot` posts that are missing `articleType` or `theories` until the content is fully classified.
+- Keep the shared components structurally complete but visually minimal so app-level SCSS can own the final presentation.

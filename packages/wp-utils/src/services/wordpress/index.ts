@@ -2,6 +2,8 @@ export * from "./client";
 export * from "./get-all-projects";
 export * from "./get-doc-by-uri";
 export * from "./get-logo";
+export * from "./get-library-post-by-slug";
+export * from "./get-library-posts";
 export * from "./get-menu";
 export * from "./get-page-by-uri";
 export * from "./get-project-by-slug";
