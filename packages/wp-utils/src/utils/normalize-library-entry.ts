@@ -8,6 +8,7 @@ import type {
 
 const WHITESPACE_RE = /\s+/g;
 const NON_WORD_RE = /[^a-z0-9]+/g;
+export const UNCLASSIFIED_LABEL = "Unclassified";
 
 function hasText(value: string | null | undefined): value is string {
   return typeof value === "string" && value.trim().length > 0;
@@ -32,9 +33,9 @@ export function toLibraryOption(label: string): LibraryOption {
 
 export function normalizeArticleType(
   articleType: string | null | undefined,
-): ArticleTypeOption | null {
+): ArticleTypeOption {
   if (!hasText(articleType)) {
-    return null;
+    return toLibraryOption(UNCLASSIFIED_LABEL);
   }
 
   return toLibraryOption(articleType);
@@ -82,10 +83,8 @@ export function normalizeLibraryEntry(
 
   const articleType = normalizeArticleType(post.postFields?.articleType);
   const theories = normalizeTheories(post.postFields?.theory);
-
-  if (!articleType || theories.length === 0) {
-    return null;
-  }
+  const normalizedTheories =
+    theories.length > 0 ? theories : [toLibraryOption(UNCLASSIFIED_LABEL)];
 
   const sourceUrl = post.featuredImage?.node?.sourceUrl;
   const altText = post.featuredImage?.node?.altText;
@@ -104,6 +103,6 @@ export function normalizeLibraryEntry(
         }
       : undefined,
     articleType,
-    theories,
+    theories: normalizedTheories,
   };
 }

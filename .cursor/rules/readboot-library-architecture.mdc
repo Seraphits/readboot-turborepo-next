@@ -12,5 +12,5 @@ alwaysApply: false
 - `@repo/wp-utils` owns GraphQL queries, normalization, filter parsing, and filter-option building for library content.
 - Shared library UI lives under `packages/ui/src/components/ContentLibrary/` and `packages/ui/src/components/ContentArticle/`, then re-exports through `@repo/ui/sites`.
 - `apps/readboot/app/library/` routes stay thin: parse `searchParams`, fetch normalized entries, apply filters, and render shared components.
-- Hide or 404 `readboot` posts that are missing `articleType` or `theories` until the content is fully classified.
+- Missing `articleType` or `theories` should fall back to the synthetic classification label `Unclassified` so the post still appears and can be found for cleanup.
 - Keep the shared components structurally complete but visually minimal so app-level SCSS can own the final presentation.
