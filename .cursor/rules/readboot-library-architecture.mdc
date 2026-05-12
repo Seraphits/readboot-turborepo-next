@@ -11,6 +11,8 @@ alwaysApply: false
 - Keep WordPress `tags` separate from library filtering and card metadata unless the owner explicitly asks to add them.
 - `@repo/wp-utils` owns GraphQL queries, normalization, filter parsing, and filter-option building for library content.
 - Shared library UI lives under `packages/ui/src/components/ContentLibrary/` and `packages/ui/src/components/ContentArticle/`, then re-exports through `@repo/ui/sites`.
+- Shared reusable sidebar navigation for library/detail layouts lives under `packages/ui/src/components/ContentSidebarNav/` and should stay presentation-only.
 - `apps/readboot/app/library/` routes stay thin: parse `searchParams`, fetch normalized entries, apply filters, and render shared components.
+- `apps/readboot/app/library/[slug]/layout.tsx` should own the detail-page shell (for example, a sidebar + main content), fetch the sidebar list, and pass mapped items into the reusable sidebar component while `page.tsx` stays focused on the current post.
 - Missing `articleType` or `theories` should fall back to the synthetic classification label `Unclassified` so the post still appears and can be found for cleanup.
 - Keep the shared components structurally complete but visually minimal so app-level SCSS can own the final presentation.

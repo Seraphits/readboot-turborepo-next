@@ -1,0 +1,18 @@
+@use "Tokens" as vars;
+
+.shell {
+  background-color: plum;
+  display: grid;
+  // grid-template-rows: 80vh 40vw min-content;
+  grid-template-columns: [sidebar-start] 8rem [sidebar-end main-start] 1fr  [main-end];
+}
+
+.sidebar {
+  background-color: vars.$sys-color-action-primary;
+  grid-column: sidebar-start / sidebar-end;
+  grid-row: 1 / -1;
+}
+
+.main {
+  background-color: aquamarine;
+}

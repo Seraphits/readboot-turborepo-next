@@ -32,3 +32,8 @@ export {
   ContentFeaturedImage,
   type ContentFeaturedImageProps,
 } from "../../components/ContentArticle/ContentFeaturedImage";
+export {
+  ContentSidebarNav,
+  type ContentSidebarNavItem,
+  type ContentSidebarNavProps,
+} from "../../components/ContentSidebarNav/ContentSidebarNav";
