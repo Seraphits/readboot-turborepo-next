@@ -1,10 +1,7 @@
 import type { ReactNode } from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Typography } from "../../Atoms/Branding/Typography/Typography";
-import {
-  DEFAULT_PORTRAIT_PLACEHOLDER,
-  defaultHomeHero,
-} from "../../Templates/HomePage/homePageDefaults";
+import { DEFAULT_PORTRAIT_PLACEHOLDER } from "../../Templates/HomePage/homePageDefaults";
 import {
   ReadBootBand,
   type BoxedFeatureHeroLayoutVariant,
@@ -52,9 +49,9 @@ export const BoxedCentered: StoryObj<typeof ReadBootBand> = {
     shell(
       <ReadBootBand
         surface="boxed"
-        title="Engineering the Operating Systems of Human Growth"
+        title="Boxed hero — sample headline"
         subhead="Centered layout: no media column."
-        ctaText="View portfolio"
+        ctaText="Primary action"
         layout="centered"
       />,
     ),
@@ -65,8 +62,8 @@ const withMedia = (layout: BoxedFeatureHeroLayoutVariant) =>
     <ReadBootBand
       surface="boxed"
       title="Split headline for layout preview"
-      subhead="Media slot uses the Futurist Carton frame from `BoxedFeatureHero.module.scss`."
-      ctaText="Get started"
+      subhead="Media column beside the headline for split layouts."
+      ctaText="Primary action"
       layout={layout}
       imageNode={mediaPlaceholder}
     />,
@@ -87,19 +84,19 @@ export const BoxedPreview: StoryObj<typeof ReadBootBand> = {
   render: () => withMedia("preview"),
 };
 
-export const OpenHomeDefaults: StoryObj<typeof ReadBootBand> = {
-  name: "Open · home defaults",
+export const OpenBandNeutral: StoryObj<typeof ReadBootBand> = {
+  name: "Open · neutral sample",
   render: () => (
     <ReadBootBand
       surface="open"
       portraitSrc={DEFAULT_PORTRAIT_PLACEHOLDER}
       portraitAlt="Portrait placeholder"
-      eyebrow={defaultHomeHero.eyebrow}
-      headline={defaultHomeHero.headline}
-      subheadline={defaultHomeHero.subheadline}
-      intro={defaultHomeHero.intro}
-      primaryCta={defaultHomeHero.primaryCta}
-      secondaryCta={defaultHomeHero.secondaryCta}
+      eyebrow="Eyebrow / kicker"
+      headline="Open band headline"
+      subheadline="Subheadline line for hierarchy preview."
+      intro="Lead paragraph with neutral Storybook copy. Production homepage strings stay in `homePageDefaults.ts` and are passed from apps."
+      primaryCta={{ label: "Primary", href: "/example/" }}
+      secondaryCta={{ label: "Secondary", href: "/other/" }}
     />
   ),
 };

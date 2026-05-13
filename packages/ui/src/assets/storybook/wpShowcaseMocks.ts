@@ -37,15 +37,11 @@ export const mockPost = (id: string, title: string, slug: string): Post => ({
 });
 
 export const MOCK_PROJECTS: Project[] = [
-  mockProject("p1", "Embedded Debug Platform", "embedded-debug-platform"),
-  mockProject("p2", "Design Engineering Lab", "design-engineering-lab"),
+  mockProject("p1", "Showcase project A", "showcase-project-a"),
+  mockProject("p2", "Showcase project B", "showcase-project-b"),
 ];
 
 export const MOCK_POSTS: Post[] = [
-  mockPost(
-    "b1",
-    "Building a System-First Pattern Lab",
-    "system-first-pattern-lab",
-  ),
-  mockPost("b2", "Monorepo Governance Notes", "monorepo-governance"),
+  mockPost("b1", "Showcase post A", "showcase-post-a"),
+  mockPost("b2", "Showcase post B", "showcase-post-b"),
 ];

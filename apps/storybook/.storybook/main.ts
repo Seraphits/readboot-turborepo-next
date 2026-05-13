@@ -9,6 +9,8 @@ const projectRoot = path.resolve(__dirname, "../../..");
 const packagesUiSrc = path.join(projectRoot, "packages/ui/src");
 const tokensRoot = path.join(packagesUiSrc, "Tokens");
 const frameworkRoot = path.join(packagesUiSrc, "Framework");
+const wireframesRoot = path.join(packagesUiSrc, "patterns");
+const componentsRoot = path.join(packagesUiSrc, "components");
 
 /** Strip "use client" so Vite can bundle Next.js client components in Storybook */
 function stripUseClient() {
@@ -35,8 +37,8 @@ const storybookBase =
 
 const config: StorybookConfig = {
   /**
-   * Greenfield only: `Tokens/` then `Framework/` on disk (see `titlePrefix` for sidebar labels).
-   * Legacy `patterns/` is intentionally excluded while stories migrate.
+   * Story roots: `Tokens/`, `Framework/` (greenfield), then legacy `patterns/` under sidebar
+   * **Wire frames** (not the folder name), plus `components/` when stories are colocated there.
    */
   stories: [
     {
@@ -48,6 +50,16 @@ const config: StorybookConfig = {
       directory: frameworkRoot,
       files: "**/*.stories.@(js|jsx|mjs|ts|tsx)",
       titlePrefix: "Framework",
+    },
+    {
+      directory: wireframesRoot,
+      files: "**/*.stories.@(js|jsx|mjs|ts|tsx)",
+      titlePrefix: "Wire frames",
+    },
+    {
+      directory: componentsRoot,
+      files: "**/*.stories.@(js|jsx|mjs|ts|tsx)",
+      titlePrefix: "Components",
     },
   ],
   addons: [

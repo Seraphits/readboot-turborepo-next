@@ -4,11 +4,11 @@ import { ProjectCard } from "./ProjectCard";
 
 const mockProject: Project = {
   id: "1",
-  title: "Embedded Debug Platform",
-  slug: "embedded-debug-platform",
+  title: "Sample project card title",
+  slug: "sample-project-card",
   date: "2026-03-01",
   content: "",
-  excerpt: "<p>System-first tooling for firmware and documentation.</p>",
+  excerpt: "<p>Neutral excerpt for layout preview in Storybook.</p>",
   projectIntelligence: {
     lifecycleStatus: "Active",
     impactMetric: "3 teams",
@@ -36,7 +36,7 @@ export const Default: StoryObj<typeof ProjectCard> = {
 const mockProjectStress: Project = {
   ...mockProject,
   title:
-    "Embedded Debug Platform — Long Title Stress Test for Line Wrapping and Layout Stability Across Multiple Viewports",
+    "Very long sample project title used only to stress line wrapping and card layout stability across viewports",
   tags: {
     nodes: [
       { name: "Firmware" },

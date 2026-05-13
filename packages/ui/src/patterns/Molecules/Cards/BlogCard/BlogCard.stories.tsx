@@ -13,16 +13,15 @@ export default meta;
 
 const mockPost: Post = {
   id: "1",
-  title: "Building a System-First Pattern Lab",
-  excerpt:
-    "Learn how to separate identity from geometry in a modern monorepo...",
-  slug: "building-a-system-first-pattern-lab",
+  title: "Sample blog post title",
+  excerpt: "Short neutral excerpt for the blog card layout preview.",
+  slug: "sample-blog-post",
   date: "2026-03-16",
   content: "",
   featuredImage: {
     node: {
       sourceUrl: placeholderSrc(blogFeaturedPlaceholder),
-      altText: "Abstract editorial graphic for a blog post preview",
+      altText: "Featured image placeholder",
     },
   },
 };

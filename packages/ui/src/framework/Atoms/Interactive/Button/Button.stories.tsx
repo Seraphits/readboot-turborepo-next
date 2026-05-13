@@ -25,7 +25,7 @@ export const Primary: StoryObj<typeof Button> = {
 export const AsChildWithLink: StoryObj<typeof Button> = {
   render: () => (
     <Button asChild variant="action-on-light">
-      <Link href="/portfolio">View portfolio</Link>
+      <Link href="/example/">Navigate as child</Link>
     </Button>
   ),
 };

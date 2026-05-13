@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { defaultVision } from "../../Templates/HomePage/homePageDefaults";
 import { VisionRoadmapSection } from "./VisionRoadmapSection";
 
 const meta: Meta<typeof VisionRoadmapSection> = {
@@ -9,7 +8,7 @@ const meta: Meta<typeof VisionRoadmapSection> = {
     docs: {
       description: {
         component:
-          "Vision + generational roadmap: title, body, and a horizontal timeline of labels (Strauss–Howe–style framing in copy).",
+          "Roadmap strip: title, body, and a horizontal row of phase labels for timeline layout.",
       },
     },
   },
@@ -17,12 +16,12 @@ const meta: Meta<typeof VisionRoadmapSection> = {
 export default meta;
 
 export const SampleTimeline: StoryObj<typeof VisionRoadmapSection> = {
-  name: "Sample timeline (home defaults)",
+  name: "Sample timeline (neutral)",
   render: () => (
     <VisionRoadmapSection
-      title={defaultVision.title}
-      body={defaultVision.body}
-      generations={[...defaultVision.generations]}
+      title="Roadmap title for layout"
+      body="Neutral body copy for Storybook. Production vision copy is supplied from apps or `homePageDefaults.ts`."
+      generations={["Phase one", "Phase two", "Phase three", "Phase four"]}
     />
   ),
 };
@@ -34,12 +33,12 @@ export const LongerTimeline: StoryObj<typeof VisionRoadmapSection> = {
       title="Roadmap with more nodes"
       body="Extra labels stress line wrapping and spacing on the timeline track."
       generations={[
-        "Artist",
-        "Philosopher",
-        "Nomad",
-        "Hero",
-        "Artist",
-        "Philosopher",
+        "Node A",
+        "Node B",
+        "Node C",
+        "Node D",
+        "Node E",
+        "Node F",
       ]}
     />
   ),

@@ -8,17 +8,16 @@ alwaysApply: false
 
 See also **`storybook-ui-stories.mdc`** (canvas copy, colocation), **`readboot-scss-architecture.mdc`** (tokens / framework / components), **`deprecation-patterns-and-styles.mdc`**.
 
-## Where stories live (greenfield)
+## Where stories live
 
-- **`packages/ui/src/Tokens/`** — token demos (add `.stories.tsx` / MDX as you migrate). Shown under sidebar root **Tokens** (via `titlePrefix` in `apps/storybook/.storybook/main.ts`).
-- **`packages/ui/src/Framework/`** — framework UI + colocated stories. Shown under **Framework** (`titlePrefix`).
-- **`packages/ui/src/components/`** — add a `stories` entry in Storybook `main.ts` when you start colocating stories there (not wired yet by default).
-
-**Legacy `patterns/`** is **not** loaded by Storybook; migrate stories into the roots above when ready.
+- **`packages/ui/src/Tokens/`** — token demos. Sidebar root **Tokens** (`titlePrefix` in `apps/storybook/.storybook/main.ts`).
+- **`packages/ui/src/Framework/`** — framework UI + colocated stories. Sidebar **Framework**.
+- **`packages/ui/src/patterns/`** — legacy library stories still on disk for product use; in Storybook they appear under sidebar root **Wire frames** (same `titlePrefix`; not labeled “patterns”).
+- **`packages/ui/src/components/`** — greenfield feature UI; colocated `*.stories.*` show under sidebar **Components** when present.
 
 ## Sidebar & capitalization (what we decided)
 
-1. **Top-level groups (fixed labels):** **`Tokens`** then **`Framework`**, enforced by `titlePrefix` on each `stories` directory entry in **`main.ts`**. Manager **`sidebar.showRoots: false`** so labels render as **Framework** (not all-caps **FRAMEWORK**).
+1. **Top-level groups (fixed labels):** **`Tokens`**, **`Framework`**, **`Wire frames`** (legacy `patterns/` on disk), **`Components`**, enforced by `titlePrefix` on each `stories` directory entry in **`main.ts`**. Manager **`sidebar.showRoots: false`** so labels render in normal case (not all-caps).
 2. **Under each group:** sidebar follows **filesystem** path segments after the prefix (e.g. `Framework/Atoms/Logo/LogoImage`). On-disk greenfield roots use **PascalCase** **`Tokens/`**, **`Framework/`**, then **`Atoms/`**, **`Molecules/`**, **`Organisms/`**, and domain subfolders (**`Logo/`**, **`Interactive/`**, **`Spatial/`**, …).
 3. **Story exports:** use **PascalCase** export names (`Default`, `WithAccent`, …) — see **`storybook-ui-stories.mdc`**.
 4. **Optional display `name` on a story** (sentence case for humans only) is fine; do **not** use **`title` on `meta`** for sidebar placement — use file location + `titlePrefix` instead. ESLint: **`storybook/no-title-property-in-meta`** stays on for `@repo/ui` story files.

@@ -47,7 +47,7 @@ const preview: Preview = {
     },
     options: {
       storySort: {
-        order: ["Tokens", "Framework"],
+        order: ["Tokens", "Framework", "Wire frames", "Components"],
         method: "alphabetical",
       },
     },

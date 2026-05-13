@@ -1,7 +1,5 @@
 import React from "react";
 import Link from "next/link";
-import { Badge } from "../../../Atoms/DisplayAtoms/Badge/Badge";
-import { Button } from "../../../Atoms/Interactive/Button/Button";
 import { Typography } from "../../../Atoms/Branding/Typography/Typography";
 import type { Project } from "@repo/wp-utils";
 import styles from "./ProjectCard.module.scss";
@@ -13,7 +11,7 @@ export interface ProjectCardProps {
 }
 
 export const ProjectCard = ({ project, className }: ProjectCardProps) => {
-  const { title, excerpt, slug, projectIntelligence, tags } = project;
+  const { title, excerpt, slug } = project;
 
   return (
     <Link href={`/projects/${slug}`}>

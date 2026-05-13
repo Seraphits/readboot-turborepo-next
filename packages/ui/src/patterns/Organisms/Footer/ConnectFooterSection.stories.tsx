@@ -1,6 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { defaultConnect } from "../../Templates/HomePage/homePageDefaults";
 import { ConnectFooterSection } from "./ConnectFooterSection";
+
+const neutralConnect = {
+  title: "Connect strip (sample)",
+  links: [
+    { label: "Example outbound", href: "https://example.com/" },
+    { label: "Documentation", href: "/docs/" },
+  ] as const,
+  copyright: "© Storybook preview — neutral fixture",
+} as const;
 
 const meta: Meta<typeof ConnectFooterSection> = {
   component: ConnectFooterSection,
@@ -9,16 +17,16 @@ const meta: Meta<typeof ConnectFooterSection> = {
     docs: {
       description: {
         component:
-          "Global connect strip: title, outbound links (`next/link`), copyright. Apps typically pass `defaultConnect` from `homePageDefaults.ts` or override props per layout.",
+          "Global connect strip: title, outbound links (`next/link`), copyright. Apps pass real links from `homePageDefaults.ts` or route-level props.",
       },
     },
   },
 };
 export default meta;
 
-export const DefaultConnect: StoryObj<typeof ConnectFooterSection> = {
-  name: "Default connect (homePageDefaults)",
-  render: () => <ConnectFooterSection {...defaultConnect} />,
+export const NeutralFixture: StoryObj<typeof ConnectFooterSection> = {
+  name: "Neutral fixture",
+  render: () => <ConnectFooterSection {...neutralConnect} />,
 };
 
 export const CustomCopy: StoryObj<typeof ConnectFooterSection> = {
