@@ -1,0 +1,12 @@
+// Token barrel (SSOT). Use `@use "Tokens" as …` when Sass loadPaths include `packages/ui/src`
+// (Framework, components, apps that compile UI SCSS with that path).
+//
+// Do not add `packages/ui/src/tokens.scss` (lowercase) as a second entry — it duplicates this
+// barrel and has been removed by design; see `readboot-scss-architecture.mdc`.
+@forward "./Colors";
+@forward "./Fonts";
+@forward "./Mixins";
+@forward "./spacing-variables";
+@forward "./geometric-variables";
+@forward "./motion-variables";
+@forward "./layout-variables";

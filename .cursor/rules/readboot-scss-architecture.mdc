@@ -28,6 +28,11 @@ All **new** styles and colocated component files live under **`packages/ui/src/`
 
 - **`@use`** tokens from **`Framework/**` partials and from **`components/**/*.module.scss`** as needed. Sass load path: `@use "Tokens/…"` (matches **`packages/ui/src/Tokens/`**). Tokens do not “load like CSS” until something references them in rules or mixins.
 
+### Token barrel (single entry)
+
+- **Full barrel:** **`packages/ui/src/Tokens/_index.scss`** — `@forward` of Colors, Fonts, Mixins, and variable partials. Import with **`@use "Tokens" as …`** (or **`@use "Tokens/…"`** for a single partial) when the compiler’s load path includes **`packages/ui/src`**.
+- **Do not** add **`packages/ui/src/tokens.scss`** (lowercase filename next to the **`Tokens/`** folder). That was a redundant proxy and is **forbidden** — it confuses two entry points and breaks the “one barrel” rule. CI guardrails fail if that file exists.
+
 ## Deprecated (no new usage)
 
 - **`patterns/`** and **`styles/`** — **deprecated.** Do **not** pull from them in new code (see **`deprecation-patterns-and-styles.mdc`**). Targeted migration/removal edits only when the owner asks.

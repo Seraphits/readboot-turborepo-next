@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 
 function runNoMatchCheck({ name, command, hint }) {
@@ -21,12 +22,26 @@ function runNoMatchCheck({ name, command, hint }) {
   }
 }
 
+const forbiddenTokenProxy = 'packages/ui/src/tokens.scss';
+if (existsSync(forbiddenTokenProxy)) {
+  process.stderr.write('FAIL: Forbidden token proxy file exists.\n');
+  process.stderr.write(
+    `Remove ${forbiddenTokenProxy} and use @use "Tokens" / Tokens/_index.scss only (see readboot-scss-architecture.mdc).\n`,
+  );
+  process.exit(1);
+}
+
 const checks = [
   {
     name: 'No inline styles in web/trappsystems/readboot app TSX',
     command:
       "rg \"style=\\\\{\\\\{\" apps/web apps/trappsystems apps/readboot --glob '*.tsx' --glob '!apps/storybook/**'",
     hint: 'Move inline styles into SCSS Modules.',
+  },
+  {
+    name: 'No "../tokens" SCSS import (removed proxy; use @use "Tokens")',
+    command: "rg -F '../tokens' packages/ui --glob '*.scss'",
+    hint: 'Use @use "Tokens" as * (or partial @use "Tokens/…") with load path packages/ui/src.',
   },
   {
     name: 'No deep internal package imports',

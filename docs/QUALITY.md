@@ -57,9 +57,10 @@ Implemented in `scripts/guardrails.mjs`. Current checks (no matches allowed):
 - Inline `style={{` in `apps/web`, `apps/trappsystems`, and `apps/readboot` TSX (prefer stylesheets when you add styling).
 - Imports containing `@repo/.../src/` (use public package entrypoints only).
 - Retired legacy docs identifiers in `apps` TSX (see script hints if this fires).
+- **`packages/ui/src/tokens.scss`** must not exist, and **`../tokens`** must not appear in `packages/ui` SCSS — the token barrel is **`Tokens/_index.scss`** only; use **`@use "Tokens"`** (see `.cursor/rules/readboot-scss-architecture.mdc`).
 
 ## Related rules
 
 - Monorepo and `pnpm --filter`: `.cursor/rules/monorepo.mdc`
 - Imports and `WPContent`: `.cursor/rules/linking-standards.mdc`
-- Branding / SCSS: `.cursor/rules/readboot-branding.mdc`
+- Branding / SCSS: `.cursor/rules/readboot-branding.mdc`, `.cursor/rules/readboot-scss-architecture.mdc`

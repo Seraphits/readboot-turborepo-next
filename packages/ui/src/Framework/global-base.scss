@@ -1,5 +1,5 @@
-// Site-wide framework layer. Barrel: `@use "../tokens"` → `tokens.scss` → `Tokens/**` (Sass loadPaths = `packages/ui/src`).
-@use "../tokens" as *;
+// Site-wide framework layer. Token barrel: `@use "Tokens"` → `Tokens/_index.scss` (Sass loadPaths include `packages/ui/src`).
+@use "Tokens" as *;
 
 *,
 *::before,
