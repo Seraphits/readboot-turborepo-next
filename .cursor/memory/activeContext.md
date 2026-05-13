@@ -1,5 +1,6 @@
 Active Context: ReadBoot Shared UI
 
+- **Owner preference (agents):** Do **not** rename, move, merge, delete, or reorganize repository **files or folder/package layout** (including `Tokens/`, `Framework/`, `components/`, apps) without the owner’s **explicit prior permission**—including “small” cleanups. If a move/rename/delete seems necessary, **stop and ask first**; prefer edits **inside existing paths** only.
 - Recent: **Tokens** — canonical partials are `packages/ui/src/Tokens/_spacing-variables.scss`, `_geometric-variables.scss`, `_motion-variables.scss`, `_layout-variables.scss` (not subdirectory one-liners).
 - Recent: **Removed `apps/docs`** (Next docs app). **`apps/web`** no longer rewrites **`/docs/`**; remove or repoint the old **Vercel** project for docs if it still exists.
 - **Deprecation (owner intent):** **`packages/ui/src/patterns/`** and **`packages/ui/src/styles/`** are **deprecated**. **No new usage** — new work uses **`Tokens/`**, **`Framework/`**, and **`components/`** only (PascalCase on disk). Cursor rule: **`.cursor/rules/deprecation-patterns-and-styles.mdc`** (always on).

@@ -1,0 +1,10 @@
+---
+description: Never move/rename/delete repo files or folders without the owner's explicit permission
+alwaysApply: true
+---
+
+# File and folder layout (owner permission)
+
+Do **not** rename, move, merge, delete, or reorganize repository **files or directories** (including `packages/ui/src/Tokens/`, `Framework/`, `components/`, `apps/*`, or any path the owner has architected) without the owner’s **explicit prior approval** in the conversation. “Small” cleanups and “obvious” moves count too—**ask first**.
+
+If a task appears to require moves, renames, deletes, or new top-level buckets, **stop and ask first**. Prefer edits **inside existing paths** only.

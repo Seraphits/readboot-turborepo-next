@@ -1,5 +1,7 @@
 **SSOT (do not use this file for architecture):** Current `packages/ui/src` layout = `.cursor/rules/readboot-scss-architecture.mdc` + `linking-standards.mdc`. The checklist below is a **historical** task log; older lines may reference superseded paths (`@repo/ui/styles/*`, `patterns/`-only).
 
+**Owner preference (agents):** Never move, rename, merge, or delete repo **files or folders** without the owner’s explicit prior permission—including “small” cleanups. Ask first.
+
 [x] Trappsystems company site scaffold (`apps/trappsystems`, package `@trappsystems/site`): App Router, no `@repo/ui`/SCSS v1; `@repo/wp-utils`; revalidate route; CI + `pnpm quality` include this app; homepage placeholder only.
 [x] ReadBoot next-gen web scaffold (`apps/readboot`, package `@readboot/site`): same shape as Trappsystems; intended to replace `apps/web` + receive current readboot.com domain; dev port 3000; CI + `pnpm quality` include this app.
 [x] ReadBoot library archive/detail flow: `/library/` + `/library/[slug]/` in `apps/readboot`; `@repo/wp-utils` library queries + normalization + filter helpers; shared unstyled `ContentLibrary*` / `ContentArticle*` components exported through `@repo/ui/sites`; `articleType` + `theories` treated as library classifications, not WordPress tags.
