@@ -33,7 +33,7 @@ Run this checklist when verifying ReadBoot visuals propagate correctly from `pac
 | Check               | Action                                                                                                    |
 | ------------------- | --------------------------------------------------------------------------------------------------------- |
 | No hardcoded HEX    | Search codebase for `#` in component styles; replace with `var(--sys-*)` tokens                           |
-| Design token source | **Legacy:** `patterns/Atoms/...`. **Greenfield:** `packages/ui/src/Tokens/**` (`readboot-scss-architecture.mdc`). |
+| Design token source | **Legacy:** `patterns/Atoms/...`. **Greenfield:** `packages/ui/src/tokens/**` when populated (`readboot-scss-architecture.mdc`). |
 | Config              | `next.config.mts` in each Next app must list `transpilePackages: ["@repo/ui", "@repo/wp-utils"]` where those packages are used |
 
 ---
