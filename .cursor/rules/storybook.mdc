@@ -1,6 +1,6 @@
 ---
 description: Storybook in @repo/ui — Tokens + Framework roots, sidebar, capitalization
-globs: packages/ui/src/**/*.stories.tsx
+globs: packages/ui/src/**/*.stories.@(tsx|ts|jsx|js)
 alwaysApply: false
 ---
 
@@ -14,6 +14,12 @@ See also **`storybook-ui-stories.mdc`** (canvas copy, colocation), **`readboot-s
 - **`packages/ui/src/Framework/`** — framework UI + colocated stories. Sidebar **Framework**.
 - **`packages/ui/src/patterns/`** — legacy library stories still on disk for product use; in Storybook they appear under sidebar root **Wire frames** (same `titlePrefix`; not labeled “patterns”).
 - **`packages/ui/src/components/`** — greenfield feature UI; colocated `*.stories.*` show under sidebar **Components** when present.
+
+## Folder & feature docs (humans + agents)
+
+- **Folder contract:** at each Storybook root (`Tokens/`, `Framework/`, `patterns/` as Wire frames, `components/`), keep **`Overview.stories.tsx`**. Put long guidance in **`meta.parameters.docs.description.component`** as Markdown (joined string lines). Add a minimal canvas story (e.g. **Folder guide**) so the file stays valid CSF; readers use the **Docs** tab for the full text.
+- **Per-feature guides:** copy **`components/ContentLibrary/Guide.stories.tsx`** — same pattern, colocated under the feature folder. Edit or delete these files like any other source; no generated pipeline.
+- **MDX under `packages/ui`:** Storybook’s MDX compiler here rejects typical mixed Markdown/JSX pages (`Unexpected FunctionDeclaration`). Prefer **`*.stories.tsx` + `parameters.docs.description`** until MDX is configured app-side or Storybook’s MDX pipeline is upgraded for this layout.
 
 ## Sidebar & capitalization (what we decided)
 

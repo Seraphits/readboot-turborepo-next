@@ -37,8 +37,9 @@ const storybookBase =
 
 const config: StorybookConfig = {
   /**
-   * Story roots: `Tokens/`, `Framework/` (greenfield), then legacy `patterns/` under sidebar
-   * **Wire frames** (not the folder name), plus `components/` when stories are colocated there.
+   * Story roots: Tokens, Framework (greenfield), legacy patterns as Wire frames sidebar,
+   * and components. Folder guides use `Overview.stories.tsx` (Docs tab); colocate
+   * `Guide.stories.tsx` (or extra stories) per feature when needed.
    */
   stories: [
     {
